@@ -40,7 +40,11 @@ button { font: inherit; }
 nav.site { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 30; background: color-mix(in oklab, var(--bg) 84%, transparent); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--line-soft); }
 nav.site .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: var(--nav-h); }
 .logo { font-family: var(--font-display); font-weight: 800; letter-spacing: .02em; font-size: 17px; color: var(--fg); text-decoration: none; display: flex; align-items: center; gap: 10px; white-space: nowrap; min-height: 44px; }
-.logo-mark { width: 22px; height: 22px; border-radius: 6px; background: conic-gradient(from 210deg, var(--us), var(--ca), var(--cn), var(--us)); flex: none; }
+.logo-mark { width: 22px; height: 22px; border-radius: 6px; background: conic-gradient(from 210deg, var(--us), var(--ca), var(--chrome), var(--us)); flex: none; transition: transform .4s ease-out, box-shadow .4s ease-out; }
+.logo-mark.glow { transform: scale(1.25); box-shadow: 0 0 18px color-mix(in oklab, var(--ca) 70%, transparent); }
+/* press feedback for every button: shrink to 95% and spring back */
+.btn, .nav-btn, .chip, .share, .seg button, .step-btn { transition: transform .3s ease-out, filter .3s ease-out, background-color .3s ease-out, color .3s ease-out, border-color .3s ease-out; }
+.btn:active, .nav-btn:active, .chip:active, .share:active, .seg button:active, .step-btn:active { transform: scale(.95); filter: brightness(1.2); }
 .nav-actions { display: flex; align-items: center; gap: 6px; }
 .nav-btn { display: inline-flex; align-items: center; justify-content: center; gap: 7px; min-height: 44px; min-width: 44px; padding: 0 12px; border-radius: 10px; border: 1px solid transparent; color: var(--fg-2); text-decoration: none; font-size: 14px; font-weight: 500; background: transparent; cursor: pointer; white-space: nowrap; }
 .nav-btn:hover { color: var(--fg); background: var(--surface-2); }

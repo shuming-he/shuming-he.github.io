@@ -20,6 +20,7 @@
 
 .hero { padding-block: 56px 28px; position: relative; overflow: hidden; }
 .hero::before { content: ""; position: absolute; inset: -45% -12% auto auto; width: 720px; height: 720px; border-radius: 50%; background: radial-gradient(circle at 30% 30%, color-mix(in oklab, var(--ca) 36%, transparent), transparent 60%), radial-gradient(circle at 70% 60%, color-mix(in oklab, var(--us) 26%, transparent), transparent 62%); filter: blur(30px); opacity: .5; pointer-events: none; }
+.hero::before { transform: translateY(var(--py, 0px)); will-change: transform; }
 .hero > .wrap { position: relative; }
 .hero h1 { font-family: var(--font-display); font-weight: 800; line-height: .98; letter-spacing: -.02em; font-size: clamp(40px, 7vw, 84px); margin: 14px 0 10px; text-wrap: balance; }
 .hero .subtitle { font-family: var(--font-mono); font-size: clamp(13px, 1.6vw, 15px); color: var(--chrome); margin: 0 0 28px; }
@@ -64,9 +65,9 @@
 .stat .s { font-size: 13px; color: var(--fg-2); margin-top: 4px; }
 @media (max-width: 860px) { .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 
-.ticker { border-block: 1px solid var(--line); background: var(--surface); overflow: hidden; white-space: nowrap; }
-.ticker-track { display: inline-flex; gap: 40px; padding-block: 12px; padding-left: 100%; animation: tick 700s linear infinite; }
-.ticker:hover .ticker-track { animation-play-state: paused; }
+.ticker { border-block: 1px solid var(--line); background: var(--surface); overflow-x: auto; white-space: nowrap; scrollbar-width: none; }
+.ticker::-webkit-scrollbar { display: none; }
+.ticker-track { display: inline-flex; gap: 40px; padding: 12px 24px; }
 @keyframes tick { from { transform: translateX(0); } to { transform: translateX(-100%); } }
 .tick { font-family: var(--font-mono); font-size: 13px; color: var(--fg-2); display: inline-flex; gap: 10px; align-items: baseline; }
 .tick b { color: var(--fg); font-weight: 500; }
@@ -109,8 +110,9 @@ input[type=range] { accent-color: var(--chrome); width: 120px; height: 28px; }
 .chip[aria-pressed=true] { color: var(--bg); background: var(--chrome); border-color: var(--chrome); }
 .search-row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-bottom: 14px; }
 .search-row .chips { margin-bottom: 0; }
-.search { flex: 1 1 240px; min-width: 0; display: flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 14px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
-.search:focus-within { border-color: var(--chrome); }
+.search { flex: 0 1 340px; min-width: 0; display: flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 14px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); transition: flex-basis .4s ease-out, border-color .3s ease-out, box-shadow .3s ease-out; }
+.search:focus-within { flex-basis: 100%; border-color: var(--chrome); box-shadow: 0 0 0 3px color-mix(in oklab, var(--chrome) 18%, transparent); }
+@media (max-width: 600px) { .search { flex-basis: 100%; } }
 .search svg { width: 16px; height: 16px; color: var(--fg-3); flex: none; }
 .search input { flex: 1; min-width: 0; border: 0; outline: 0; background: transparent; color: var(--fg); font: 500 15px var(--font-body); }
 .search input::placeholder { color: var(--fg-3); }
@@ -121,8 +123,13 @@ input[type=range] { accent-color: var(--chrome); width: 120px; height: 28px; }
 .brands { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
 @media (max-width: 980px) { .brands { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 @media (max-width: 600px) { .brands { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-.brand-card { text-align: left; color: var(--fg); background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px; cursor: pointer; display: flex; flex-direction: column; gap: 12px; min-width: 0; transition: transform .2s ease, border-color .2s ease, background .2s ease; }
-.brand-card:hover { transform: translateY(-3px); border-color: var(--fg-3); background: var(--surface-2); }
+.brand-card { text-align: left; color: var(--fg); background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px; cursor: pointer; display: flex; flex-direction: column; gap: 12px; min-width: 0; transition: transform .3s ease-out, box-shadow .3s ease-out, border-color .3s ease-out, background .3s ease-out, opacity .3s ease-out; }
+.brand-card .bname { transition: color .3s ease-out; }
+@media (hover: hover) { .brand-card:hover { transform: translateY(-6px); box-shadow: 0 16px 34px rgba(0, 0, 0, .5); border-color: var(--fg-3); background: var(--surface-2); } .brand-card:hover .bname { color: var(--chrome); } }
+.brand-card.pressed { transform: translateY(-6px); box-shadow: 0 16px 34px rgba(0, 0, 0, .5); border-color: var(--fg-3); background: var(--surface-2); }
+.brand-card.pressed .bname { color: var(--chrome); }
+.brand-card.hit { border-color: var(--chrome); }
+.brand-card.miss { opacity: .3; }
 .brand-card[aria-current=true] { border-color: var(--chrome); background: var(--surface-2); }
 .brand-card .tier { font: 500 10.5px var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--fg-3); }
 .brand-card .bname { font-family: var(--font-display); font-weight: 700; font-size: 20px; line-height: 1.1; min-height: 2.2em; display: flex; align-items: flex-end; overflow-wrap: anywhere; }
@@ -160,14 +167,29 @@ input[type=range] { accent-color: var(--chrome); width: 120px; height: 28px; }
 @media (max-width: 480px) { .mkt { grid-template-columns: 62px minmax(0, 1fr) 118px; gap: 8px; } }
 .mkt .m { display: flex; align-items: center; gap: 8px; color: var(--fg-2); }
 .mkt .track { height: 8px; border-radius: 4px; background: var(--line-soft); overflow: hidden; }
-.mkt .track i { display: block; height: 100%; border-radius: 0 4px 4px 0; }
+.mkt .track i { display: block; height: 100%; border-radius: 0 4px 4px 0; transform-origin: left center; }
+.anim-bars .mkt .track i { animation: fill .8s ease-out both; }
+.anim-bars .mkt + .mkt .track i { animation-delay: .2s; }
+@keyframes fill { from { transform: scaleX(0); } }
+.mkt .p { transition: transform .3s ease-out, color .3s ease-out; transform-origin: right center; }
 .mkt .p { font-family: var(--font-mono); text-align: right; font-variant-numeric: tabular-nums; }
 .mkt .p small { color: var(--fg-3); margin-left: 6px; }
 .mkt.best .p { color: var(--good); }
 .mode-research .mkt.best .p { color: var(--fg); }
 
 .pipe { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; list-style: none; padding: 0; margin: 0; counter-reset: step; }
-.pipe li { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; min-width: 0; }
+.pipe { align-items: start; }
+.pipe li { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; min-width: 0; cursor: pointer; transition: border-color .3s ease-out, background .3s ease-out; }
+.pipe li:hover, .pipe li.open { border-color: var(--fg-3); background: var(--surface-2); }
+.pipe h3 button.step-btn { all: unset; cursor: pointer; display: flex; justify-content: space-between; align-items: baseline; gap: 8px; width: 100%; }
+.pipe h3 button.step-btn:focus-visible { outline: 2px solid var(--chrome); outline-offset: 4px; border-radius: 4px; }
+.pipe .plus { font: 500 16px var(--font-mono); color: var(--fg-3); transition: transform .3s ease-out; }
+.pipe li.open .plus { transform: rotate(45deg); }
+.pipe .sum { margin: 0; font-size: 13.5px; color: var(--fg-2); }
+.step-detail { display: grid; grid-template-rows: 0fr; opacity: 0; transition: grid-template-rows .4s ease-out, opacity .4s ease-out; }
+.step-detail > div { overflow: hidden; }
+.step-detail p { padding-top: 10px; }
+.pipe li.open .step-detail { grid-template-rows: 1fr; opacity: 1; }
 .pipe li::before { counter-increment: step; content: "0" counter(step); font-family: var(--font-mono); font-size: 12px; color: var(--fg-3); }
 .pipe h3 { font-family: var(--font-display); font-size: 19px; margin: 8px 0 6px; }
 .pipe p { margin: 0; font-size: 13.5px; color: var(--fg-2); }
@@ -190,6 +212,19 @@ svg .baseline { stroke: var(--fg-3); }
 .test .v { font-family: var(--font-mono); font-size: 18px; color: var(--fg); }
 .mode-research .test .v { font-size: 22px; }
 .verdict-text { font-size: 14px; color: var(--fg-2); margin: 0; }
+#stats .grid-2 > .module, #stats > .module { opacity: 0; transform: translateY(28px); transition: opacity .6s ease-out, transform .6s ease-out, box-shadow .6s ease-out; }
+#stats .grid-2 > .module:nth-child(2) { transition-delay: .1s, .1s, 0s; }
+#stats > .module { transition-delay: .2s, .2s, 0s; }
+#stats.seen .grid-2 > .module, #stats.seen > .module { opacity: 1; transform: none; }
+#scatter circle.pt { transform-box: fill-box; transform-origin: center; }
+#stats:not(.seen) #scatter circle.pt { opacity: 0; }
+#stats.animating #scatter circle.pt { animation: pop .4s ease-out both; animation-delay: var(--d, 0s); }
+@keyframes pop { from { opacity: 0; transform: scale(0); } }
+.stats { transition: box-shadow .6s ease-out; }
+.stat .v, .test .v { transition: transform .3s ease-out, color .3s ease-out; transform-origin: left center; }
+.adjusting .stat .v, .adjusting .test .v, .adjusting #detail .mkt .p { transform: scale(1.06); color: var(--chrome); }
+.flash { box-shadow: 0 0 0 1px var(--chrome), 0 0 28px color-mix(in oklab, var(--chrome) 30%, transparent) !important; }
+#fx-canvas { position: fixed; inset: 0; z-index: 100; pointer-events: none; transition: opacity .3s ease-out; }
 .verdict-text b { color: var(--fg); }
 .plain { margin-top: 12px; font-size: 13px; color: var(--fg-3); }
 
@@ -357,15 +392,15 @@ svg .baseline { stroke: var(--fg-3); }
       <div class="eyebrow">Method</div>
       <div>
         <h2>From product pages to a test statistic</h2>
-        <p>Every number goes through the same five-step pipeline, so a price in Toronto and a price in New York are compared fairly.</p>
+        <p>Every number goes through the same five-step pipeline, so a price in Toronto and a price in New York are compared fairly. Click a step for details.</p>
       </div>
     </div>
     <ol class="pipe">
-      <li><h3>Collect</h3><p>Open the same product on the brand's official US and Canadian sites and record the list price, style number, source URL and date in <code>collected_prices.csv</code>. <code>scrape.py</code> automates this for pages that publish structured price data.</p></li>
-      <li><h3>Clean</h3><p>Parse price formats ($5,100 / C$ 6,600.00), drop sale prices and pages that redirect to the other country, and keep only products priced in both markets.</p></li>
-      <li><h3>Normalize</h3><p>Convert CAD to USD at the chosen rate, then add US sales tax and Canadian HST so both sides are what a shopper pays at the till.</p></li>
-      <li><h3>Test</h3><p>A paired t-test on log price ratios, the implied exchange rate in brand pricing, and an OLS regression of the gap on log US price, reproduced in Python with <code>scipy.stats</code>.</p></li>
-      <li><h3>Visualize</h3><p>Export one JSON file that this page reads and renders with hand-built SVG charts in plain JavaScript.</p></li>
+      <li><h3><button class="step-btn" type="button" aria-expanded="false">Collect<span class="plus" aria-hidden="true">+</span></button></h3><p class="sum">Official list prices from both countries.</p><div class="step-detail"><div><p>Open the same product on the brand's official US and Canadian sites and record the list price, style number, source URL and date in <code>collected_prices.csv</code>. <code>scrape.py</code> automates this for pages that publish structured price data.</p></div></div></li>
+      <li><h3><button class="step-btn" type="button" aria-expanded="false">Clean<span class="plus" aria-hidden="true">+</span></button></h3><p class="sum">Parse, filter and match products.</p><div class="step-detail"><div><p>Parse price formats ($5,100 / C$ 6,600.00), drop sale prices and pages that redirect to the other country, and keep only products priced in both markets.</p></div></div></li>
+      <li><h3><button class="step-btn" type="button" aria-expanded="false">Normalize<span class="plus" aria-hidden="true">+</span></button></h3><p class="sum">One currency, tax included.</p><div class="step-detail"><div><p>Convert CAD to USD at the chosen rate, then add US sales tax and Canadian HST so both sides are what a shopper pays at the till.</p></div></div></li>
+      <li><h3><button class="step-btn" type="button" aria-expanded="false">Test<span class="plus" aria-hidden="true">+</span></button></h3><p class="sum">t-test, implied exchange rate, regression.</p><div class="step-detail"><div><p>A paired t-test on log price ratios, the implied exchange rate in brand pricing, and an OLS regression of the gap on log US price, reproduced in Python with <code>scipy.stats</code>.</p></div></div></li>
+      <li><h3><button class="step-btn" type="button" aria-expanded="false">Visualize<span class="plus" aria-hidden="true">+</span></button></h3><p class="sum">One JSON file, hand-built SVG charts.</p><div class="step-detail"><div><p>Export one JSON file that this page reads and renders with hand-built SVG charts in plain JavaScript.</p></div></div></li>
     </ol>
     <p class="code-link">Pipeline source: <a href="https://github.com/shuming-he/shuming-he.github.io/tree/main/bag-arbitrage/pipeline" rel="noopener">bag-arbitrage/pipeline</a> · Price log with every source URL: <a href="https://github.com/shuming-he/shuming-he.github.io/blob/main/bag-arbitrage/pipeline/collected_prices.csv" rel="noopener">collected_prices.csv</a> · Dataset read by this page: <a href="data/prices.json">data/prices.json</a></p>
   </section>
@@ -587,12 +622,12 @@ const brandHit = b => !state.q || norm(b.name).includes(state.q);
 const itemHit = i => !state.q || norm(i.name).includes(state.q);
 function visibleItems(b) { return brandHit(b) ? b.items : b.items.filter(itemHit); }
 function renderGrid() {
-  const list = B.filter(b => (state.group === "all" || (state.group === "watch") === (b.tier === "Watchmaker")) && visibleItems(b).length);
+  const list = B.filter(b => state.group === "all" || (state.group === "watch") === (b.tier === "Watchmaker"));
   const nItems = list.reduce((n, b) => n + visibleItems(b).length, 0);
   document.getElementById("q-count").textContent = state.q ? `${nItems} match${nItems === 1 ? "" : "es"}` : "";
-  if (!list.length) { document.getElementById("brand-grid").innerHTML = `<p class="empty">No brand or product matches “${state.q}”.</p>`; return; }
-  document.getElementById("brand-grid").innerHTML = list.map(b => `
-    <button class="brand-card" data-id="${b.id}" aria-current="${state.brand === b.id}" aria-controls="detail">
+  const cls = b => !state.q ? "" : visibleItems(b).length ? " hit" : " miss";
+  document.getElementById("brand-grid").innerHTML = (state.q && !nItems ? `<p class="empty">No brand or product matches “${state.q}”.</p>` : "") + list.map(b => `
+    <button class="brand-card${cls(b)}" data-id="${b.id}" aria-current="${state.brand === b.id}" aria-controls="detail">
       <span class="tier">${b.tier} · ${b.items.length} item${b.items.length === 1 ? "" : "s"}</span>
       <span class="bname">${b.name}</span>
       <span class="mini">
@@ -603,14 +638,14 @@ function renderGrid() {
       <span class="foot research-only">n = ${b.items.length} · descriptive only</span>
     </button>`).join("");
 }
-function renderDetail() {
+function renderDetail(animate) {
   const box = document.getElementById("detail");
   const b = B.find(x => x.id === state.brand);
   if (!b) { box.innerHTML = ""; return; }
   const shown = visibleItems(b).length ? visibleItems(b) : b.items;
   const maxP = Math.max(...b.items.flatMap(i => MK.map(k => i.p[k])));
   box.innerHTML = `
-    <div class="module" style="padding:24px">
+    <div class="module${animate ? " anim-bars" : ""}" style="padding:24px">
       <div class="detail-head">
         <div><div class="eyebrow">${b.tier}</div><h3>${b.name}</h3></div>
         <div class="meta">
@@ -712,24 +747,26 @@ function renderScatter(all, reg) {
   xt.forEach(t => { el("line", { x1: X(t), x2: X(t), y1: top, y2: H - bottom }, g); txt(ax, { x: X(t), y: H - 14, "text-anchor": "middle" }, usd(t)); });
   el("line", { x1: left, x2: W - right, y1: Y(0), y2: Y(0), class: "baseline", "stroke-width": 1.5 }, svg);
   el("line", { x1: X(100), x2: X(Math.pow(10, L1)), y1: Y(a + b * L0), y2: Y(a + b * L1), stroke: "var(--chrome)", "stroke-width": 2, "stroke-dasharray": "6 6", opacity: .8 }, svg);
+  const cx0 = (left + W - right) / 2, cy0 = (top + H - bottom) / 2, maxD = Math.hypot(cx0 - left, cy0 - top);
   all.forEach(i => {
-    const d = el("circle", { cx: X(i.list.us), cy: Y(i.gap), r: 6.5, fill: i.cat === "Watch" ? "var(--us)" : "var(--ca)", stroke: "var(--surface)", "stroke-width": 2 }, svg);
+    const px = X(i.list.us), py = Y(i.gap);
+    const d = el("circle", { class: "pt", style: `--d:${(Math.hypot(px - cx0, py - cy0) / maxD * 0.6).toFixed(3)}s`, cx: px, cy: py, r: 6.5, fill: i.cat === "Watch" ? "var(--us)" : "var(--ca)", stroke: "var(--surface)", "stroke-width": 2 }, svg);
     d.addEventListener("mousemove", e => showTip(e, itemTip(i) + `<div class="r"><span>Canada vs US</span><span>${pct(i.gap, 1)}</span></div>`));
     d.addEventListener("mouseleave", hideTip);
   });
   txt(svg, { x: W - right, y: H - 1, "text-anchor": "end", "font-size": 11 }, "US list price (log scale) · purple = bags, blue = watches");
 }
 
-function renderAll() {
+function renderAll(animate) {
   B = compute();
   const all = B.flatMap(b => b.items);
   const tca = pairedTest(all), fx = fxStats(all), reg = ols(all);
   renderAbstract(all, tca, fx, reg); renderStats(all, tca, fx); renderTicker(all);
-  renderGrid(); renderDetail(); renderBrandChart();
+  renderGrid(); renderDetail(animate); renderBrandChart();
   renderTest(tca); renderFx(fx); renderScatter(all, reg);
 }
 function openBrand(id, scroll) {
-  state.brand = id; renderGrid(); renderDetail(); writeURL();
+  state.brand = id; renderGrid(); renderDetail(true); writeURL();
   if (scroll) document.getElementById("detail").scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" });
 }
 
@@ -752,7 +789,8 @@ const FMT = { fxca: v => v.toFixed(2), taxus: v => v.toFixed(2) + "%", taxca: v 
 function syncInputs() { for (const k in FMT) { document.getElementById(k).value = state[k]; document.getElementById(k + "-out").textContent = FMT[k](state[k]); } }
 for (const k in FMT) {
   const inp = document.getElementById(k);
-  inp.addEventListener("input", () => { state[k] = +inp.value; document.getElementById(k + "-out").textContent = FMT[k](state[k]); if (RAW) renderAll(); writeURL(); });
+  inp.addEventListener("input", () => { document.body.classList.add("adjusting"); state[k] = +inp.value; document.getElementById(k + "-out").textContent = FMT[k](state[k]); if (RAW) renderAll(); writeURL(); });
+  inp.addEventListener("change", settle);
 }
 document.getElementById("group-chips").addEventListener("click", e => {
   const c = e.target.closest(".chip"); if (!c) return;
@@ -779,6 +817,82 @@ document.getElementById("share").addEventListener("click", () => {
   else showToast("Copy the address bar to share these settings");
 });
 
+// ---------- motion ----------
+const REDUCED = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const DESKTOP = matchMedia("(min-width: 900px) and (pointer: fine)").matches;
+
+// Slider released: drop the "adjusting" scale and flash the result cards for 2 s.
+let flashTimer;
+function settle() {
+  document.body.classList.remove("adjusting");
+  const boxes = [document.getElementById("stats-row"), ...document.querySelectorAll("#stats .module")];
+  boxes.forEach(b => b.classList.add("flash"));
+  clearTimeout(flashTimer);
+  flashTimer = setTimeout(() => boxes.forEach(b => b.classList.remove("flash")), 2000);
+}
+addEventListener("pointerup", () => { if (document.body.classList.contains("adjusting")) settle(); });
+
+// Long press on a brand card (touch) shows the same lift as hover.
+let pressTimer, pressed = null;
+const grid = document.getElementById("brand-grid");
+grid.addEventListener("touchstart", e => {
+  const c = e.target.closest(".brand-card"); if (!c) return;
+  pressTimer = setTimeout(() => { pressed = c; c.classList.add("pressed"); }, 300);
+}, { passive: true });
+["touchend", "touchcancel", "touchmove"].forEach(t => grid.addEventListener(t, () => {
+  clearTimeout(pressTimer);
+  if (pressed) { const c = pressed; pressed = null; setTimeout(() => c.classList.remove("pressed"), 300); }
+}, { passive: true }));
+
+// Method steps expand and collapse on click.
+document.querySelector(".pipe").addEventListener("click", e => {
+  if (e.target.closest("a")) return;
+  const li = e.target.closest("li"); if (!li) return;
+  const open = li.classList.toggle("open");
+  li.querySelector(".step-btn").setAttribute("aria-expanded", open ? "true" : "false");
+});
+
+// Statistics: cards slide up and scatter points spread out from the centre, once.
+const statsSec = document.getElementById("stats");
+if ("IntersectionObserver" in window && !REDUCED) {
+  const io = new IntersectionObserver(es => {
+    if (!es.some(e => e.isIntersecting)) return;
+    io.disconnect();
+    statsSec.classList.add("seen", "animating");
+    setTimeout(() => statsSec.classList.remove("animating"), 1100);
+  }, { threshold: 0.12 });
+  io.observe(statsSec);
+} else statsSec.classList.add("seen");
+
+// Desktop only: hero glow drifts up to 10px with scroll.
+if (DESKTOP && !REDUCED) {
+  const hero = document.querySelector(".hero"); let ticking = false;
+  addEventListener("scroll", () => {
+    if (ticking) return; ticking = true;
+    requestAnimationFrame(() => { hero.style.setProperty("--py", Math.min(10, scrollY * 0.02).toFixed(2) + "px"); ticking = false; });
+  }, { passive: true });
+}
+
+// Desktop only: 48 particles gather into the logo on load, then fade (about 1 s in total).
+if (DESKTOP && !REDUCED) {
+  const mark = document.querySelector(".logo-mark"), r = mark.getBoundingClientRect();
+  const tx = r.left + r.width / 2, ty = r.top + r.height / 2;
+  const cv = document.createElement("canvas"); cv.id = "fx-canvas";
+  const dpr = devicePixelRatio || 1; cv.width = innerWidth * dpr; cv.height = innerHeight * dpr;
+  document.body.appendChild(cv);
+  const ctx = cv.getContext("2d"); ctx.scale(dpr, dpr);
+  const css = getComputedStyle(document.documentElement), cols = ["--us", "--ca", "--chrome"].map(v => css.getPropertyValue(v).trim() || "#fff");
+  const P = Array.from({ length: 48 }, (_, i) => ({ x: Math.random() * innerWidth, y: Math.random() * innerHeight * 0.8, s: 1.5 + Math.random() * 2, c: cols[i % 3] }));
+  const t0 = performance.now(), dur = 700, ease = t => 1 - Math.pow(1 - t, 3);
+  (function frame(now) {
+    const t = Math.min(1, (now - t0) / dur), k = ease(t);
+    ctx.clearRect(0, 0, innerWidth, innerHeight);
+    P.forEach(p => { ctx.globalAlpha = 0.9; ctx.fillStyle = p.c; ctx.beginPath(); ctx.arc(p.x + (tx - p.x) * k, p.y + (ty - p.y) * k, p.s * (1 - 0.5 * k), 0, 7); ctx.fill(); });
+    if (t < 1) requestAnimationFrame(frame);
+    else { mark.classList.add("glow"); cv.style.opacity = "0"; setTimeout(() => { cv.remove(); mark.classList.remove("glow"); }, 300); }
+  })(t0);
+}
+
 // ---------- boot ----------
 readState();
 syncInputs();
@@ -792,7 +906,7 @@ fetch("data/prices.json")
     document.getElementById("pipe-done").textContent = `${n} products loaded`;
     document.getElementById("l1-title").textContent = `Only ${n} matched products`;
     if (data.meta.collected) document.getElementById("l4-title").textContent = `A snapshot from ${fmtDate(data.meta.collected)}`;
-    renderAll(); writeURL();
+    renderAll(true); writeURL();
   })
   .catch(() => {
     document.getElementById("brand-grid").innerHTML = `<div class="load-error">The dataset could not be loaded. Reload the page to try again.</div>`;
