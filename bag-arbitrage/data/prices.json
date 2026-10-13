@@ -11,144 +11,6 @@
   },
   "brands": [
     {
-      "id": "coach",
-      "name": "Coach",
-      "tier": "Accessible luxury",
-      "items": [
-        {
-          "name": "Essential Card Case With Pillow Quilting",
-          "category": "Small leather goods",
-          "style": "CM434",
-          "price": {
-            "us": 95.0,
-            "ca": 120.0
-          },
-          "url": {
-            "us": "https://www.coach.com/shop/women/wallets-wristlets",
-            "ca": "https://ca.coach.com/en/shop/women/wallets-wristlets"
-          },
-          "image": "https://coach.scene7.com/is/image/Coach/cm434_b4ha_a0?$desktopProductTile$"
-        },
-        {
-          "name": "Essential Slim Card Case In Crystal Signature Jacquard",
-          "category": "Small leather goods",
-          "style": "CCD16",
-          "price": {
-            "us": 125.0,
-            "ca": 150.0
-          },
-          "url": {
-            "us": "https://www.coach.com/shop/women/wallets-wristlets",
-            "ca": "https://ca.coach.com/en/shop/women/wallets-wristlets"
-          }
-        },
-        {
-          "name": "Belted Ergo Shoulder Bag 26 In Signature Jacquard",
-          "category": "Bag",
-          "style": "CEN87",
-          "price": {
-            "us": 295.0,
-            "ca": 360.0
-          },
-          "url": {
-            "us": "https://www.coach.com/shop/women/handbags/view-all",
-            "ca": "https://ca.coach.com/en/shop/women/handbags/view-all"
-          }
-        },
-        {
-          "name": "Brooklyn Shoulder Bag 28",
-          "category": "Bag",
-          "style": "CU068",
-          "price": {
-            "us": 295.0,
-            "ca": 360.0
-          },
-          "url": {
-            "us": "https://www.coach.com/products/brooklyn-shoulder-bag-28/CU068.html",
-            "ca": "https://ca.coach.com/products/brooklyn-shoulder-bag-28/CU068.html"
-          }
-        },
-        {
-          "name": "Chelsea Shoulder Bag 30",
-          "category": "Bag",
-          "style": "CDS59",
-          "price": {
-            "us": 325.0,
-            "ca": 400.0
-          },
-          "url": {
-            "us": "https://www.coach.com/products/chelsea-shoulder-bag-30/CDS59.html",
-            "ca": "https://ca.coach.com/en/shop/women/handbags/view-all"
-          }
-        },
-        {
-          "name": "Soft Tabby Shoulder Bag 20",
-          "category": "Bag",
-          "style": "CFQ98",
-          "price": {
-            "us": 375.0,
-            "ca": 460.0
-          },
-          "url": {
-            "us": "https://www.coach.com/shop/women/handbags/view-all",
-            "ca": "https://ca.coach.com/en/shop/women/handbags/view-all"
-          }
-        },
-        {
-          "name": "Tabby Shoulder Bag 20",
-          "category": "Bag",
-          "style": "CW917",
-          "price": {
-            "us": 375.0,
-            "ca": 460.0
-          },
-          "url": {
-            "us": "https://www.coach.com/shop/women/handbags/view-all",
-            "ca": "https://ca.coach.com/en/shop/women/handbags/view-all"
-          }
-        },
-        {
-          "name": "Soft Tabby Shoulder Bag 20 In Crystal Signature Jacquard",
-          "category": "Bag",
-          "style": "CFQ99",
-          "price": {
-            "us": 475.0,
-            "ca": 580.0
-          },
-          "url": {
-            "us": "https://www.coach.com/shop/women/handbags/view-all",
-            "ca": "https://ca.coach.com/en/shop/women/handbags/view-all"
-          }
-        },
-        {
-          "name": "Tabby Shoulder Bag 26",
-          "category": "Bag",
-          "style": "CEN52",
-          "price": {
-            "us": 475.0,
-            "ca": 580.0
-          },
-          "url": {
-            "us": "https://www.coach.com/products/tabby-shoulder-bag-26/CEN52.html",
-            "ca": "https://ca.coach.com/products/tabby-shoulder-bag-26/CEN52.html"
-          }
-        },
-        {
-          "name": "Tabby Shoulder Bag 26 In Crystal Signature Jacquard",
-          "category": "Bag",
-          "style": "CDZ34",
-          "price": {
-            "us": 575.0,
-            "ca": 700.0
-          },
-          "url": {
-            "us": "https://www.coach.com/products/tabby-shoulder-bag-26-in-crystal-signature-jacquard/CDZ34.html",
-            "ca": "https://ca.coach.com/en/products/tabby-shoulder-bag-26-in-crystal-signature-jacquard/CDZ34.html"
-          }
-        }
-      ]
-    },
-    {
       "id": "longchamp",
       "name": "Longchamp",
       "tier": "Accessible luxury",
@@ -651,19 +513,6 @@
           "image": "https://assets.christiandior.com/is/image/diorprod/M2867ODKZM900_SBG_E01-1?$r4x5_raw$&crop=0,0,4000,5000&wid=1600&hei=2000&scale=1&bfc=on&qlt=80"
         },
         {
-          "name": "Small Dior Toujours Hobo Bag Marron Bobby Suede",
-          "category": "Bag",
-          "style": "small-toujours-hobo-marron-bobby-suede",
-          "price": {
-            "us": 3700.0,
-            "ca": 4800.0
-          },
-          "url": {
-            "us": "https://www.dior.com/en_us/fashion/womens-fashion/bags/all-bags",
-            "ca": "https://www.dior.com/en_ca/fashion/womens-fashion/bags/all-bags"
-          }
-        },
-        {
           "name": "Medium Dior Promenade Shopping Bag (Khaki Oblique Tweed with Sequins)",
           "category": "Bag",
           "style": "medium-khaki-tweed",
@@ -706,6 +555,33 @@
           "image": "https://assets.christiandior.com/is/image/diorprod/M1410OHSUM12E_SBG_E01?$r9x10_raw$&crop=0,0,4000,5000&wid=1850&hei=2000&scale=1&bfc=on&qlt=80"
         },
         {
+          "name": "Medium Dior Promenade Shopping Bag (Black Flat Cannage)",
+          "category": "Bag",
+          "style": "medium-black-cannage",
+          "price": {
+            "us": 4500.0,
+            "ca": 5900.0
+          },
+          "url": {
+            "us": "https://www.dior.com/en_us/fashion/womens-fashion/bags/all-bags",
+            "ca": "https://www.dior.com/en_ca/fashion/womens-fashion/bags/all-bags"
+          },
+          "image": "https://assets.christiandior.com/is/image/diorprod/M1409OHSTM911_SBG_E01-1?$r4x5_raw$&crop=0,0,4000,5000&wid=1600&hei=2000&scale=1&bfc=on&qlt=80"
+        },
+        {
+          "name": "Small Dior Toujours Hobo Bag Marron Bobby Suede",
+          "category": "Bag",
+          "style": "small-toujours-hobo-marron-bobby-suede",
+          "price": {
+            "us": 3700.0,
+            "ca": 4800.0
+          },
+          "url": {
+            "us": "https://www.dior.com/en_us/fashion/womens-fashion/bags/all-bags",
+            "ca": "https://www.dior.com/en_ca/fashion/womens-fashion/bags/all-bags"
+          }
+        },
+        {
           "name": "Medium Dior Toujours Bag Chocolate Macrocannage",
           "category": "Bag",
           "style": "medium-toujours-chocolate",
@@ -730,20 +606,6 @@
             "us": "https://www.dior.com/en_us/fashion/womens-fashion/bags/all-bags",
             "ca": "https://www.dior.com/en_ca/fashion/womens-fashion/bags/all-bags"
           }
-        },
-        {
-          "name": "Medium Dior Promenade Shopping Bag (Black Flat Cannage)",
-          "category": "Bag",
-          "style": "medium-black-cannage",
-          "price": {
-            "us": 4500.0,
-            "ca": 5900.0
-          },
-          "url": {
-            "us": "https://www.dior.com/en_us/fashion/womens-fashion/bags/all-bags",
-            "ca": "https://www.dior.com/en_ca/fashion/womens-fashion/bags/all-bags"
-          },
-          "image": "https://assets.christiandior.com/is/image/diorprod/M1409OHSTM911_SBG_E01-1?$r4x5_raw$&crop=0,0,4000,5000&wid=1600&hei=2000&scale=1&bfc=on&qlt=80"
         }
       ]
     },
@@ -2242,6 +2104,144 @@
             "ca": "https://www.rolex.com/en-ca/watches/yacht-master/m226659-0002"
           },
           "image": "https://media.rolex.com/image/upload/q_auto/f_auto/t_v7-cover-majesty-landscape/c_limit,w_1920/v1/a677b2c664f6/catalogue/2026/upright-c/m226659-0002"
+        }
+      ]
+    },
+    {
+      "id": "coach",
+      "name": "Coach",
+      "tier": "Accessible luxury",
+      "items": [
+        {
+          "name": "Essential Card Case With Pillow Quilting",
+          "category": "Small leather goods",
+          "style": "CM434",
+          "price": {
+            "us": 95.0,
+            "ca": 120.0
+          },
+          "url": {
+            "us": "https://www.coach.com/shop/women/wallets-wristlets",
+            "ca": "https://ca.coach.com/en/shop/women/wallets-wristlets"
+          },
+          "image": "https://coach.scene7.com/is/image/Coach/cm434_b4ha_a0?$desktopProductTile$"
+        },
+        {
+          "name": "Essential Slim Card Case In Crystal Signature Jacquard",
+          "category": "Small leather goods",
+          "style": "CCD16",
+          "price": {
+            "us": 125.0,
+            "ca": 150.0
+          },
+          "url": {
+            "us": "https://www.coach.com/shop/women/wallets-wristlets",
+            "ca": "https://ca.coach.com/en/shop/women/wallets-wristlets"
+          }
+        },
+        {
+          "name": "Belted Ergo Shoulder Bag 26 In Signature Jacquard",
+          "category": "Bag",
+          "style": "CEN87",
+          "price": {
+            "us": 295.0,
+            "ca": 360.0
+          },
+          "url": {
+            "us": "https://www.coach.com/shop/women/handbags/view-all",
+            "ca": "https://ca.coach.com/en/shop/women/handbags/view-all"
+          }
+        },
+        {
+          "name": "Brooklyn Shoulder Bag 28",
+          "category": "Bag",
+          "style": "CU068",
+          "price": {
+            "us": 295.0,
+            "ca": 360.0
+          },
+          "url": {
+            "us": "https://www.coach.com/products/brooklyn-shoulder-bag-28/CU068.html",
+            "ca": "https://ca.coach.com/products/brooklyn-shoulder-bag-28/CU068.html"
+          }
+        },
+        {
+          "name": "Chelsea Shoulder Bag 30",
+          "category": "Bag",
+          "style": "CDS59",
+          "price": {
+            "us": 325.0,
+            "ca": 400.0
+          },
+          "url": {
+            "us": "https://www.coach.com/products/chelsea-shoulder-bag-30/CDS59.html",
+            "ca": "https://ca.coach.com/en/shop/women/handbags/view-all"
+          }
+        },
+        {
+          "name": "Soft Tabby Shoulder Bag 20",
+          "category": "Bag",
+          "style": "CFQ98",
+          "price": {
+            "us": 375.0,
+            "ca": 460.0
+          },
+          "url": {
+            "us": "https://www.coach.com/shop/women/handbags/view-all",
+            "ca": "https://ca.coach.com/en/shop/women/handbags/view-all"
+          }
+        },
+        {
+          "name": "Tabby Shoulder Bag 20",
+          "category": "Bag",
+          "style": "CW917",
+          "price": {
+            "us": 375.0,
+            "ca": 460.0
+          },
+          "url": {
+            "us": "https://www.coach.com/shop/women/handbags/view-all",
+            "ca": "https://ca.coach.com/en/shop/women/handbags/view-all"
+          }
+        },
+        {
+          "name": "Soft Tabby Shoulder Bag 20 In Crystal Signature Jacquard",
+          "category": "Bag",
+          "style": "CFQ99",
+          "price": {
+            "us": 475.0,
+            "ca": 580.0
+          },
+          "url": {
+            "us": "https://www.coach.com/shop/women/handbags/view-all",
+            "ca": "https://ca.coach.com/en/shop/women/handbags/view-all"
+          }
+        },
+        {
+          "name": "Tabby Shoulder Bag 26",
+          "category": "Bag",
+          "style": "CEN52",
+          "price": {
+            "us": 475.0,
+            "ca": 580.0
+          },
+          "url": {
+            "us": "https://www.coach.com/products/tabby-shoulder-bag-26/CEN52.html",
+            "ca": "https://ca.coach.com/products/tabby-shoulder-bag-26/CEN52.html"
+          }
+        },
+        {
+          "name": "Tabby Shoulder Bag 26 In Crystal Signature Jacquard",
+          "category": "Bag",
+          "style": "CDZ34",
+          "price": {
+            "us": 575.0,
+            "ca": 700.0
+          },
+          "url": {
+            "us": "https://www.coach.com/products/tabby-shoulder-bag-26-in-crystal-signature-jacquard/CDZ34.html",
+            "ca": "https://ca.coach.com/en/products/tabby-shoulder-bag-26-in-crystal-signature-jacquard/CDZ34.html"
+          }
         }
       ]
     }

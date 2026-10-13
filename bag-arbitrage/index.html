@@ -901,7 +901,7 @@ fetch("data/prices.json")
   .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
   .then(data => {
     RAW = data; WATCH_NOTE = data.meta.watch_note || "";
-    if (!RAW.brands.some(b => b.id === state.brand)) state.brand = "coach";
+    if (!RAW.brands.some(b => b.id === state.brand)) state.brand = RAW.brands[0].id;
     const n = RAW.brands.reduce((s, b) => s + b.items.length, 0);
     document.getElementById("pipe-done").textContent = `${n} products loaded`;
     document.getElementById("l1-title").textContent = `Only ${n} matched products`;
