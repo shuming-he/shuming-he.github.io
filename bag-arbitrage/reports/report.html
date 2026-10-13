@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Shuming He (independent project)" />
+  <title>Cross-Border Luxury Pricing: Official US and Canadian List Prices</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="report.css" />
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Cross-Border Luxury Pricing: Official US and Canadian
+List Prices</h1>
+<p class="author">Shuming He (independent project)</p>
+<p class="date">Data collected 2026-10-13</p>
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#abstract" id="toc-abstract">Abstract</a></li>
+<li><a href="#research-question" id="toc-research-question">1. Research
+question</a></li>
+<li><a href="#data" id="toc-data">2. Data</a></li>
+<li><a href="#methods" id="toc-methods">3. Methods</a></li>
+<li><a href="#results" id="toc-results">4. Results</a>
+<ul>
+<li><a href="#primary-estimate" id="toc-primary-estimate">4.1 Primary
+estimate</a></li>
+<li><a href="#robustness" id="toc-robustness">4.2 Robustness</a></li>
+<li><a href="#subsets" id="toc-subsets">4.3 Subsets</a></li>
+<li><a href="#regression-audit" id="toc-regression-audit">4.4 Regression
+audit</a></li>
+<li><a href="#exchange-rate-and-tax-scenarios"
+id="toc-exchange-rate-and-tax-scenarios">4.5 Exchange-rate and tax
+scenarios</a></li>
+</ul></li>
+<li><a href="#discussion" id="toc-discussion">5. Discussion</a></li>
+<li><a href="#limitations" id="toc-limitations">6. Limitations</a></li>
+<li><a href="#reproducibility" id="toc-reproducibility">7.
+Reproducibility</a></li>
+<li><a href="#references" id="toc-references">References</a></li>
+</ul>
+</nav>
+<h2 id="abstract">Abstract</h2>
+<p>This study compares official list prices for the same products on the
+US and Canadian websites of 15 luxury and premium brands (165 matched
+products: handbags, small leather goods and watches), collected on
+2026-10-13. For each product, the Canadian price is compared with the US
+price converted at the Bank of Canada rate of 1.4271 CAD per USD
+(2026-10-09), before sales tax. The product-weighted mean log difference
+is −0.107: Canadian list prices are on average 10.2% lower (95% CI
+−12.0% to −8.3%; t(14) = −11.17, p &lt; 0.001, standard errors clustered
+by brand). Every one of the 165 products was lower in Canada at this
+rate. The direction and approximate size hold across alternative
+weightings, inference methods and sample restrictions (point estimates
+from −10.2% to −8.9%). Equivalently, the brands’ list prices imply about
+C$1.282 per US dollar. The comparison is descriptive: it measures
+list-price differences for this set of products on one date and does not
+identify why brands set prices this way. After an illustrative 13%
+Ontario HST and 7% US sales tax, the average gap narrows to −5.1%.</p>
+<h2 id="research-question">1. Research question</h2>
+<p><strong>Question.</strong> For identical products sold on a brand’s
+official US and Canadian websites, how do Canadian list prices compare
+with US list prices converted at the market exchange rate?</p>
+<p><strong>Unit and population.</strong> The unit is a product (a style
+or reference sold in both markets). The target population is products
+that the selected brands list with a visible price on both their US and
+Canadian official websites. The sample is not random: brands were
+included when both sites showed prices that could be read, and products
+were chosen to cover each brand’s core lines (about ten per brand).
+Results describe this sample; extending them to other brands or products
+requires assumptions discussed in Section 6.</p>
+<p><strong>Estimand.</strong> For product <em>i</em> with US price
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>P</mi><mi>i</mi><mrow><mi>U</mi><mi>S</mi></mrow></msubsup><annotation encoding="application/x-tex">P^{US}_i</annotation></semantics></math>
+(USD) and Canadian price
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>P</mi><mi>i</mi><mrow><mi>C</mi><mi>A</mi></mrow></msubsup><annotation encoding="application/x-tex">P^{CA}_i</annotation></semantics></math>
+(CAD), both before tax, and exchange rate
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
+(CAD per USD),</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>i</mi></msub><mo>=</mo><mo>ln</mo><mspace width="-0.167em"></mspace><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><msubsup><mi>P</mi><mi>i</mi><mrow><mi>C</mi><mi>A</mi></mrow></msubsup><mrow><mi>X</mi><mo>⋅</mo><msubsup><mi>P</mi><mi>i</mi><mrow><mi>U</mi><mi>S</mi></mrow></msubsup></mrow></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo><mspace width="2.0em"></mspace><mi>θ</mi><mo>=</mo><mi>E</mi><mrow><mo stretchy="true" form="prefix">[</mo><msub><mi>d</mi><mi>i</mi></msub><mo stretchy="true" form="postfix">]</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">d_i = \ln\!\left(\frac{P^{CA}_i}{X \cdot P^{US}_i}\right), \qquad \theta = E[d_i].</annotation></semantics></math></p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>i</mi></msub><mo>&lt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">d_i &lt; 0</annotation></semantics></math>
+means the product is cheaper in Canada after conversion.
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>exp</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\exp(\theta) - 1</annotation></semantics></math>
+is the geometric-mean percentage difference. Log differences are
+symmetric, additive across tax and exchange-rate adjustments, and
+unaffected by the price level, which spans two orders of magnitude
+here.</p>
+<p><strong>Hypotheses.</strong>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>H</mi><mn>0</mn></msub><mo>:</mo><mi>θ</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">H_0: \theta = 0</annotation></semantics></math>
+against
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>H</mi><mn>1</mn></msub><mo>:</mo><mi>θ</mi><mo>≠</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">H_1: \theta \neq 0</annotation></semantics></math>
+(two-sided, 5% level).</p>
+<h2 id="data">2. Data</h2>
+<p>Prices were read from each brand’s official US and Canadian websites
+on 2026-10-13, either from the product page or from the brand’s category
+listing page. Each price is stored with its currency, source URL,
+collection date and a note (<code>pipeline/collected_prices.csv</code>).
+166 products from 16 brands were listed; 165 from 15 brands have a valid
+price in both markets and form the analysis sample.</p>
+<p>Excluded: Medium Check Tote (burberry): no Canadian price
+collected.</p>
+<p>Categories: Bag 87, Watch 60, Small leather goods 18. Items per
+brand: 10 to 19.</p>
+<p><strong>Matching and provenance.</strong> Products were matched by
+the brand’s style or reference code where both pages show one. 27 pairs
+were matched by exact product name because at least one page shows no
+code, and 2 more have an open identifier check. 104 pairs have at least
+one price read from a category listing, 11 were shown as sold out (list
+price still displayed), and 17 repeat an earlier row’s brand and exact
+price pair (often colour variants). These are kept and examined in
+Section 4.2 rather than removed. Full counts are in
+<code>reports/data_quality.md</code>.</p>
+<p><strong>Exchange rate.</strong> Bank of Canada daily average rate
+(series FXUSDCAD) for the last business day before collection
+(2026-10-09, 1.4271); 12 October 2026 was a Canadian holiday. Rates from
+2026-09-28 to 2026-10-09 are used for sensitivity.</p>
+<h2 id="methods">3. Methods</h2>
+<p><strong>Estimator.</strong> The sample mean
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>d</mi><mo accent="true">‾</mo></mover><annotation encoding="application/x-tex">\bar d</annotation></semantics></math>
+over matched products.</p>
+<p><strong>Inference.</strong> Prices within a brand are set by one
+company and move together, so products are not independent. The primary
+standard error is cluster-robust by brand (CR1), with t critical values
+on G − 1 = 14 degrees of freedom (Cameron &amp; Miller, 2015). Because
+15 clusters is few, a wild cluster bootstrap-t with Rademacher weights
+and the null imposed is also reported (Cameron, Gelbach &amp; Miller,
+2008); with 15 brands all 32768 sign patterns can be enumerated, so no
+random seed is involved.</p>
+<p><strong>Robustness.</strong> (i) naive paired t-test treating
+products as independent; (ii) brand cluster bootstrap with percentile
+interval (B = 9999, seed 20261013; Efron &amp; Tibshirani, 1993); (iii)
+equal weight per brand; (iv) Wilcoxon signed-rank test (Wilcoxon, 1945);
+(v) one observation per identical price pair within a brand; (vi)
+excluding uncertain matches, listing-derived prices, or sold-out items;
+(vii) leave-one-brand-out and leave-one-product-out influence; (viii)
+category and tier subsets.</p>
+<p><strong>Regression audit.</strong> OLS of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>d</mi><mi>i</mi></msub><annotation encoding="application/x-tex">d_i</annotation></semantics></math>
+on centred log US price, then adding category indicators, then brand
+fixed effects, all with brand-clustered CR1 standard errors.</p>
+<p><strong>Scenarios.</strong> Sales tax and the exchange rate multiply
+every price in a market by the same factor, so each scenario shifts
+every
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>d</mi><mi>i</mi></msub><annotation encoding="application/x-tex">d_i</annotation></semantics></math>
+by the same constant and leaves the standard error unchanged. Tax
+scenarios use CRA GST/HST rates for Canada (provincial sales taxes in
+BC, MB, QC and SK are not included) and illustrative combined US rates,
+since US sales tax varies by state and locality.</p>
+<h2 id="results">4. Results</h2>
+<h3 id="primary-estimate">4.1 Primary estimate</h3>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Quantity</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Products (n)</td>
+<td>165</td>
+</tr>
+<tr class="even">
+<td>Brands (clusters)</td>
+<td>15</td>
+</tr>
+<tr class="odd">
+<td>Exchange rate</td>
+<td>1.4271 CAD/USD (2026-10-09)</td>
+</tr>
+<tr class="even">
+<td>Mean d</td>
+<td>−0.1071</td>
+</tr>
+<tr class="odd">
+<td>SD of d</td>
+<td>0.0419</td>
+</tr>
+<tr class="even">
+<td>Clustered SE</td>
+<td>0.0096</td>
+</tr>
+<tr class="odd">
+<td>95% CI for mean d</td>
+<td>−0.1277 to −0.0865</td>
+</tr>
+<tr class="even">
+<td>t (df)</td>
+<td>−11.17 (14)</td>
+</tr>
+<tr class="odd">
+<td>p (CR1, t with G−1 df)</td>
+<td>&lt; 0.001</td>
+</tr>
+<tr class="even">
+<td>p (wild cluster bootstrap-t)</td>
+<td>6.1e-05 (all 32768 Rademacher sign patterns enumerated; this is the
+smallest p-value attainable with this many clusters)</td>
+</tr>
+<tr class="odd">
+<td>Geometric ratio exp(mean d)</td>
+<td>0.8984</td>
+</tr>
+<tr class="even">
+<td>Percentage difference</td>
+<td>−10.16% (95% CI −11.99% to −8.29%)</td>
+</tr>
+<tr class="odd">
+<td>Implied exchange rate in list prices</td>
+<td>C<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1.282</mn><mi>p</mi><mi>e</mi><mi>r</mi><mi>U</mi><mi>S</mi></mrow><annotation encoding="application/x-tex">1.282 per US</annotation></semantics></math>
+(95% CI 1.256 to 1.309)</td>
+</tr>
+<tr class="even">
+<td>Products cheaper in Canada</td>
+<td>165 of 165</td>
+</tr>
+<tr class="odd">
+<td>Range of product differences</td>
+<td>−18.5% to −0.4% (median −9.1%)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Interpretation.</strong> At the market exchange rate on the
+day before collection, a typical product in this sample costs about
+10.2% less in Canada than in the US before tax. Put differently, the
+brands’ Canadian prices correspond to roughly C$1.28 per US dollar,
+while the market rate was C$1.43.</p>
+<figure>
+<img src="../figures/brand_forest.svg" alt="Brand means" />
+<figcaption aria-hidden="true">Brand means</figcaption>
+</figure>
+<h3 id="robustness">4.2 Robustness</h3>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Check</th>
+<th>n</th>
+<th>Brands</th>
+<th>Estimate</th>
+<th>95% CI</th>
+<th>p</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Primary: product-weighted mean, brand-clustered CR1</td>
+<td>165</td>
+<td>15</td>
+<td>−10.2%</td>
+<td>−12.0% to −8.3%</td>
+<td>&lt; 0.001</td>
+</tr>
+<tr class="even">
+<td>Products treated as independent (naive paired t)</td>
+<td>165</td>
+<td>–</td>
+<td>−10.2%</td>
+<td>−10.7% to −9.6%</td>
+<td>&lt; 0.001</td>
+</tr>
+<tr class="odd">
+<td>Brand cluster bootstrap, percentile CI</td>
+<td>165</td>
+<td>15</td>
+<td>−10.2%</td>
+<td>−11.7% to −8.6%</td>
+<td>–</td>
+</tr>
+<tr class="even">
+<td>Each brand weighted equally</td>
+<td>165</td>
+<td>15</td>
+<td>−10.0%</td>
+<td>−11.7% to −8.2%</td>
+<td>&lt; 0.001</td>
+</tr>
+<tr class="odd">
+<td>Wilcoxon signed-rank (median)</td>
+<td>165</td>
+<td>–</td>
+<td>−9.1%</td>
+<td>–</td>
+<td>&lt; 0.001</td>
+</tr>
+<tr class="even">
+<td>One row per identical (brand, US, CA) price pair</td>
+<td>148</td>
+<td>15</td>
+<td>−10.0%</td>
+<td>−11.8% to −8.2%</td>
+<td>&lt; 0.001</td>
+</tr>
+<tr class="odd">
+<td>Excluding uncertain matches</td>
+<td>137</td>
+<td>14</td>
+<td>−10.1%</td>
+<td>−12.0% to −8.1%</td>
+<td>&lt; 0.001</td>
+</tr>
+<tr class="even">
+<td>Excluding prices read from category listings</td>
+<td>61</td>
+<td>13</td>
+<td>−8.9%</td>
+<td>−10.8% to −7.0%</td>
+<td>&lt; 0.001</td>
+</tr>
+<tr class="odd">
+<td>Excluding items shown as sold out</td>
+<td>154</td>
+<td>14</td>
+<td>−9.9%</td>
+<td>−11.8% to −7.9%</td>
+<td>&lt; 0.001</td>
+</tr>
+</tbody>
+</table>
+<p>Notes: the Wilcoxon row reports the median, not the mean. The naive
+interval is about 31% as wide as the clustered one, which shows how much
+ignoring brand-level dependence would overstate precision. The bootstrap
+percentile interval with 15 clusters can be too narrow (Cameron, Gelbach
+&amp; Miller, 2008).</p>
+<p>Restricting to prices read from product pages leaves 61 products and
+gives −8.9%. This subset is not a random part of the sample: 36 of its
+61 products are watches and 40 come from Rolex, Longchamp, IWC,
+Jaeger-LeCoultre, so the difference may partly reflect composition.</p>
+<p><strong>Influence.</strong> Removing one brand at a time moves the
+estimate between −10.40% (without Dior) and −9.65% (without Coach). No
+single product changes the mean by more than 0.06 percentage points.</p>
+<figure>
+<img src="../figures/leave_one_brand_out.svg"
+alt="Leave one brand out" />
+<figcaption aria-hidden="true">Leave one brand out</figcaption>
+</figure>
+<h3 id="subsets">4.3 Subsets</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Subset</th>
+<th>n</th>
+<th>Brands</th>
+<th>Estimate</th>
+<th>95% CI</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Bag</td>
+<td>87</td>
+<td>9</td>
+<td>−10.0%</td>
+<td>−12.4% to −7.6%</td>
+</tr>
+<tr class="even">
+<td>Small leather goods</td>
+<td>18</td>
+<td>3</td>
+<td>−13.2%</td>
+<td>−16.4% to −9.9%</td>
+</tr>
+<tr class="odd">
+<td>Watch</td>
+<td>60</td>
+<td>6</td>
+<td>−9.4%</td>
+<td>−12.7% to −6.0%</td>
+</tr>
+<tr class="even">
+<td>Accessible luxury</td>
+<td>39</td>
+<td>3</td>
+<td>−11.3%</td>
+<td>−20.1% to −1.5%</td>
+</tr>
+<tr class="odd">
+<td>Luxury</td>
+<td>66</td>
+<td>6</td>
+<td>−10.2%</td>
+<td>−13.6% to −6.5%</td>
+</tr>
+<tr class="even">
+<td>Watchmaker</td>
+<td>60</td>
+<td>6</td>
+<td>−9.4%</td>
+<td>−12.7% to −6.0%</td>
+</tr>
+</tbody>
+</table>
+<p>Subsets with few brands have few degrees of freedom and wide
+intervals; small leather goods come from 3 brands. Brand means range
+from −14.9% (Breitling) to −6.6% (Miu Miu).</p>
+<figure>
+<img src="../figures/distribution.svg" alt="Distribution" />
+<figcaption aria-hidden="true">Distribution</figcaption>
+</figure>
+<h3 id="regression-audit">4.4 Regression audit</h3>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Model</th>
+<th>Term</th>
+<th>Coefficient</th>
+<th>Clustered SE</th>
+<th>p</th>
+<th>R²</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>d ~ log US price</td>
+<td>intercept</td>
+<td>−0.1071</td>
+<td>0.0091</td>
+<td>&lt; 0.001</td>
+<td>0.02</td>
+</tr>
+<tr class="even">
+<td>d ~ log US price</td>
+<td>log US price (centred)</td>
+<td>0.0037</td>
+<td>0.0056</td>
+<td>0.519</td>
+<td>0.02</td>
+</tr>
+<tr class="odd">
+<td>d ~ category + log US price</td>
+<td>intercept (Bag)</td>
+<td>−0.1067</td>
+<td>0.0122</td>
+<td>&lt; 0.001</td>
+<td>0.09</td>
+</tr>
+<tr class="even">
+<td>d ~ category + log US price</td>
+<td>Small leather goods vs Bag</td>
+<td>−0.0381</td>
+<td>0.0118</td>
+<td>0.006</td>
+<td>0.09</td>
+</tr>
+<tr class="odd">
+<td>d ~ category + log US price</td>
+<td>Watch vs Bag</td>
+<td>0.0103</td>
+<td>0.0222</td>
+<td>0.649</td>
+<td>0.09</td>
+</tr>
+<tr class="even">
+<td>d ~ category + log US price</td>
+<td>log US price (centred)</td>
+<td>−0.0015</td>
+<td>0.0063</td>
+<td>0.810</td>
+<td>0.09</td>
+</tr>
+<tr class="odd">
+<td>d ~ brand fixed effects + log US price (slope only)</td>
+<td>log US price (centred)</td>
+<td>−0.0042</td>
+<td>0.0043</td>
+<td>0.339</td>
+<td>0.68</td>
+</tr>
+</tbody>
+</table>
+<p>The log difference is not associated with price level (slope 0.0037
+per unit of log price, p = 0.519; within brands −0.0042, p = 0.339).
+Small leather goods show a larger gap than bags (−0.038, p = 0.006), but
+they come from only 3 brands, so this contrast is closer to a brand
+comparison than a category effect. Watches do not differ from bags (p =
+0.649).</p>
+<figure>
+<img src="../figures/price_scatter.svg" alt="Price level" />
+<figcaption aria-hidden="true">Price level</figcaption>
+</figure>
+<h3 id="exchange-rate-and-tax-scenarios">4.5 Exchange-rate and tax
+scenarios</h3>
+<p>Over the Bank of Canada rates in the two weeks before collection
+(1.4168 to 1.4271), the pre-tax estimate ranges from −9.5% to −10.2%. At
+the implied rate of 1.282 the difference would be zero by
+construction.</p>
+<figure>
+<img src="../figures/fx_sensitivity.svg" alt="FX sensitivity" />
+<figcaption aria-hidden="true">FX sensitivity</figcaption>
+</figure>
+<p>After-tax scenarios (illustrative; the shopper pays the tax of the
+place of purchase):</p>
+<table>
+<thead>
+<tr class="header">
+<th>Canadian tax  US tax</th>
+<th>0%</th>
+<th>4%</th>
+<th>7%</th>
+<th>8.875%</th>
+<th>10.25%</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>5%</td>
+<td>−5.7%</td>
+<td>−9.3%</td>
+<td>−11.8%</td>
+<td>−13.4%</td>
+<td>−14.4%</td>
+</tr>
+<tr class="even">
+<td>13%</td>
+<td>1.5%</td>
+<td>−2.4%</td>
+<td>−5.1%</td>
+<td>−6.8%</td>
+<td>−7.9%</td>
+</tr>
+<tr class="odd">
+<td>14%</td>
+<td>2.4%</td>
+<td>−1.5%</td>
+<td>−4.3%</td>
+<td>−5.9%</td>
+<td>−7.1%</td>
+</tr>
+<tr class="even">
+<td>15%</td>
+<td>3.3%</td>
+<td>−0.7%</td>
+<td>−3.4%</td>
+<td>−5.1%</td>
+<td>−6.3%</td>
+</tr>
+</tbody>
+</table>
+<p>For example, comparing Ontario (13% HST) with a 7% US rate gives
+−5.1% (95% CI −7.0% to −3.1%). Where Canadian tax is much higher than US
+tax, the after-tax difference can disappear or reverse.</p>
+<h2 id="discussion">5. Discussion</h2>
+<p>Across this sample, official Canadian list prices sit below the
+converted US prices, consistent with brands setting Canadian prices at a
+rate below the spot exchange rate. The data cannot say why. Possible
+explanations include list prices being revised less often than the
+exchange rate moves (Canadian prices may have been set when the Canadian
+dollar was stronger), different tax and duty treatment, competitive
+positioning, or deliberate pricing to market; this study does not test
+any of them. The literature on international price differences documents
+large border effects (Engel &amp; Rogers, 1996) and studies identical
+goods sold online across countries (Cavallo, Neiman &amp; Rigobon,
+2014).</p>
+<h2 id="limitations">6. Limitations</h2>
+<ul>
+<li><strong>One date.</strong> All prices were read on 2026-10-13; the
+result is a snapshot and moves with the exchange rate.</li>
+<li><strong>Selection.</strong> Brands were included only if both
+official sites showed readable prices, which excludes several major
+houses (for example Chanel, Louis Vuitton, Gucci and Cartier at
+collection time). Products were chosen, not sampled at random.</li>
+<li><strong>List prices, not transaction prices.</strong> Discounts,
+waiting lists, grey-market premiums and duty or shipping costs are not
+observed. Several Rolex models in particular trade above list
+price.</li>
+<li><strong>Matching.</strong> 27 pairs rely on exact names rather than
+codes; the estimate without uncertain matches is −10.1%.</li>
+<li><strong>Few clusters.</strong> 15 brands give 14 degrees of freedom;
+brand-level conclusions and subset intervals are imprecise.</li>
+<li><strong>Taxes.</strong> US sales tax varies by state and city and
+Canadian provincial taxes vary by province; the scenarios are
+illustrative, and cross-border purchases may owe duty and tax on
+import.</li>
+<li><strong>Manual collection.</strong> Prices were read by hand from
+web pages; source URLs are stored for every price so each can be
+re-checked.</li>
+</ul>
+<h2 id="reproducibility">7. Reproducibility</h2>
+<pre class="bash"><code>cd bag-arbitrage/pipeline
+pip install -r requirements.txt
+python -m unittest discover tests
+python run_analysis.py</code></pre>
+<p><code>run_analysis.py</code> validates the price log, rebuilds the
+website dataset, runs every analysis in this report and writes
+<code>data/results.json</code>, the tables in
+<code>reports/tables/</code>, the figures in <code>figures/</code> and
+this report. Results were produced with Python 3.13.16, NumPy 2.5.3,
+pandas 3.0.5 and SciPy 1.18.1. Bootstrap seed 20261013.</p>
+<h2 id="references">References</h2>
+<ul>
+<li>Cameron, A. C., Gelbach, J. B., &amp; Miller, D. L. (2008).
+Bootstrap-based improvements for inference with clustered errors.
+<em>Review of Economics and Statistics</em>, 90(3), 414–427.</li>
+<li>Cameron, A. C., &amp; Miller, D. L. (2015). A practitioner’s guide
+to cluster-robust inference. <em>Journal of Human Resources</em>, 50(2),
+317–372.</li>
+<li>Cavallo, A., Neiman, B., &amp; Rigobon, R. (2014). Currency unions,
+product introductions, and the real exchange rate. <em>Quarterly Journal
+of Economics</em>, 129(2), 529–595.</li>
+<li>Efron, B., &amp; Tibshirani, R. J. (1993). <em>An Introduction to
+the Bootstrap</em>. Chapman &amp; Hall.</li>
+<li>Engel, C., &amp; Rogers, J. H. (1996). How wide is the border?
+<em>American Economic Review</em>, 86(5), 1112–1125.</li>
+<li>Wilcoxon, F. (1945). Individual comparisons by ranking methods.
+<em>Biometrics Bulletin</em>, 1(6), 80–83.</li>
+<li>Bank of Canada. Daily exchange rates, series FXUSDCAD. Valet API,
+https://www.bankofcanada.ca/valet/observations/FXUSDCAD/json?start_date=2026-09-28&amp;end_date=2026-10-13</li>
+<li>Canada Revenue Agency. GST/HST rates by province.
+https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/charge-collect-which-rate/calculator.html</li>
+</ul>
+</body>
+</html>

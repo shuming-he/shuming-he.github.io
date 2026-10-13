@@ -1,0 +1,10 @@
+body{max-width:46rem;margin:2rem auto;padding:0 16px;font:16px/1.6 Georgia,"Times New Roman",serif;color:#1d1d1f;background:#fff}
+h1,h2,h3{font-family:system-ui,sans-serif;line-height:1.25}
+header .author,header .date{color:#555;margin:.2rem 0}
+table{border-collapse:collapse;width:100%;font:14px/1.4 system-ui,sans-serif;display:block;overflow-x:auto}
+th,td{border-bottom:1px solid #ddd;padding:.35rem .5rem;text-align:left;vertical-align:top}
+img{max-width:100%;height:auto}
+code,pre{font-size:.9em;background:#f4f4f6}
+pre{padding:.75rem;overflow-x:auto}
+a{color:#0b6f86}
+@media (prefers-color-scheme:dark){body{background:#111;color:#eee}th,td{border-color:#333}code,pre{background:#222}a{color:#5cc8e0}img{background:#fff}}

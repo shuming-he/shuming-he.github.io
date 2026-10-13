@@ -11,153 +11,6 @@
   },
   "brands": [
     {
-      "id": "coach",
-      "name": "Coach",
-      "tier": "Accessible luxury",
-      "items": [
-        {
-          "name": "Card Case",
-          "category": "Small leather goods",
-          "style": "CZ000",
-          "price": {
-            "us": 75.0,
-            "ca": 90.0
-          },
-          "url": {
-            "us": "https://www.coach.com/shop/men/wallets",
-            "ca": "https://ca.coach.com/shop/men/wallets"
-          },
-          "image": "https://coach.scene7.com/is/image/Coach/cz000_rwd_a0?$desktopProductTile$"
-        },
-        {
-          "name": "Essential Card Case (CM435)",
-          "category": "Small leather goods",
-          "style": "CM435",
-          "price": {
-            "us": 75.0,
-            "ca": 90.0
-          },
-          "url": {
-            "us": "https://www.coach.com/shop/women/wallets-wristlets",
-            "ca": "https://ca.coach.com/shop/women/wallets-wristlets"
-          },
-          "image": "https://coach.scene7.com/is/image/Coach/cm435_lhblk_a0?$desktopProductTile$"
-        },
-        {
-          "name": "Essential Card Case (CM436)",
-          "category": "Small leather goods",
-          "style": "CM436",
-          "price": {
-            "us": 75.0,
-            "ca": 90.0
-          },
-          "url": {
-            "us": "https://www.coach.com/shop/women/wallets-wristlets",
-            "ca": "https://ca.coach.com/shop/women/wallets-wristlets"
-          },
-          "image": "https://coach.scene7.com/is/image/Coach/cm436_b4bk_a0?$desktopProductTile$"
-        },
-        {
-          "name": "Essential Card Case With Crystal Signature",
-          "category": "Small leather goods",
-          "style": "CFT03",
-          "price": {
-            "us": 95.0,
-            "ca": 120.0
-          },
-          "url": {
-            "us": "https://www.coach.com/shop/women/wallets-wristlets",
-            "ca": "https://ca.coach.com/shop/women/wallets-wristlets"
-          },
-          "image": "https://coach.scene7.com/is/image/Coach/cft03_lhblk_a0?$desktopProductTile$"
-        },
-        {
-          "name": "Essential Card Case With Pillow Quilting",
-          "category": "Small leather goods",
-          "style": "CM434",
-          "price": {
-            "us": 95.0,
-            "ca": 120.0
-          },
-          "url": {
-            "us": "https://www.coach.com/shop/women/wallets-wristlets",
-            "ca": "https://ca.coach.com/en/shop/women/wallets-wristlets"
-          },
-          "image": "https://coach.scene7.com/is/image/Coach/cm434_b4ha_a0?$desktopProductTile$"
-        },
-        {
-          "name": "Money Clip Card Case",
-          "category": "Small leather goods",
-          "style": "CW725",
-          "price": {
-            "us": 95.0,
-            "ca": 120.0
-          },
-          "url": {
-            "us": "https://www.coach.com/shop/men/wallets",
-            "ca": "https://ca.coach.com/shop/men/wallets"
-          },
-          "image": "https://coach.scene7.com/is/image/Coach/cw725_rwd_a0?$desktopProductTile$"
-        },
-        {
-          "name": "Tabby Card Case (CFT14)",
-          "category": "Small leather goods",
-          "style": "CFT14",
-          "price": {
-            "us": 95.0,
-            "ca": 120.0
-          },
-          "url": {
-            "us": "https://www.coach.com/shop/women/wallets-wristlets",
-            "ca": "https://ca.coach.com/shop/women/wallets-wristlets"
-          },
-          "image": "https://coach.scene7.com/is/image/Coach/cft14_lhblk_a0?$desktopProductTile$"
-        },
-        {
-          "name": "Tabby Card Case (CGM78)",
-          "category": "Small leather goods",
-          "style": "CGM78",
-          "price": {
-            "us": 95.0,
-            "ca": 120.0
-          },
-          "url": {
-            "us": "https://www.coach.com/shop/women/wallets-wristlets",
-            "ca": "https://ca.coach.com/shop/women/wallets-wristlets"
-          },
-          "image": "https://coach.scene7.com/is/image/Coach/cgm78_b4ays_a0?$desktopProductTile$"
-        },
-        {
-          "name": "Slim Billfold Wallet",
-          "category": "Small leather goods",
-          "style": "CZ261",
-          "price": {
-            "us": 150.0,
-            "ca": 180.0
-          },
-          "url": {
-            "us": "https://www.coach.com/shop/men/wallets",
-            "ca": "https://ca.coach.com/shop/men/wallets"
-          },
-          "image": "https://coach.scene7.com/is/image/Coach/cz261_rwd_a0?$desktopProductTile$"
-        },
-        {
-          "name": "3-In-1 Wallet",
-          "category": "Small leather goods",
-          "style": "CY911",
-          "price": {
-            "us": 195.0,
-            "ca": 240.0
-          },
-          "url": {
-            "us": "https://www.coach.com/shop/men/wallets",
-            "ca": "https://ca.coach.com/shop/men/wallets"
-          },
-          "image": "https://coach.scene7.com/is/image/Coach/cy911_blk_a0?$desktopProductTile$"
-        }
-      ]
-    },
-    {
       "id": "longchamp",
       "name": "Longchamp",
       "tier": "Accessible luxury",
@@ -609,153 +462,6 @@
             "ca": "https://www.celine.com/en-ca/celine-shop-women/handbags/triomphe/"
           },
           "image": "https://image.celine.com/asset/0bd7a708-dd8d-4c5d-8c48-d3ac3296f33b/188424BF5-38NO_1_LIB.jpg?V2&im=Resize=(200)"
-        }
-      ]
-    },
-    {
-      "id": "dior",
-      "name": "Dior",
-      "tier": "Luxury",
-      "items": [
-        {
-          "name": "Small Dior Promenade Shopping Bag (Blue Oblique Jacquard)",
-          "category": "Bag",
-          "style": "small-blue-oblique",
-          "price": {
-            "us": 3350.0,
-            "ca": 4400.0
-          },
-          "url": {
-            "us": "https://www.dior.com/en_us/fashion/womens-fashion/bags/all-bags",
-            "ca": "https://www.dior.com/en_ca/fashion/womens-fashion/bags/all-bags"
-          },
-          "image": "https://assets.christiandior.com/is/image/diorprod/M1410OTZQM928_SBG_E01-6?$r4x5_raw$&crop=0,0,4000,5000&wid=1600&hei=2000&scale=1&bfc=on&qlt=80"
-        },
-        {
-          "name": "Medium Dior Promenade Shopping Bag (Blue Oblique Jacquard)",
-          "category": "Bag",
-          "style": "medium-blue-oblique",
-          "price": {
-            "us": 3600.0,
-            "ca": 4800.0
-          },
-          "url": {
-            "us": "https://www.dior.com/en_us/fashion/womens-fashion/bags/all-bags",
-            "ca": "https://www.dior.com/en_ca/fashion/womens-fashion/bags/all-bags"
-          },
-          "image": "https://assets.christiandior.com/is/image/diorprod/M1409OTZQM928_SBG_E01?$r4x5_raw$&crop=0,0,4000,5000&wid=1600&hei=2000&scale=1&bfc=on&qlt=80"
-        },
-        {
-          "name": "Small Dior Toujours Hobo Bag Black Cannage Lambskin",
-          "category": "Bag",
-          "style": "small-toujours-hobo-black-lambskin",
-          "price": {
-            "us": 3700.0,
-            "ca": 4800.0
-          },
-          "url": {
-            "us": "https://www.dior.com/en_us/fashion/womens-fashion/bags/all-bags",
-            "ca": "https://www.dior.com/en_ca/fashion/womens-fashion/bags/all-bags"
-          },
-          "image": "https://assets.christiandior.com/is/image/diorprod/M2867ODKZM900_SBG_E01-1?$r4x5_raw$&crop=0,0,4000,5000&wid=1600&hei=2000&scale=1&bfc=on&qlt=80"
-        },
-        {
-          "name": "Medium Dior Promenade Shopping Bag (Khaki Oblique Tweed with Sequins)",
-          "category": "Bag",
-          "style": "medium-khaki-tweed",
-          "price": {
-            "us": 3800.0,
-            "ca": 5000.0
-          },
-          "url": {
-            "us": "https://www.dior.com/en_us/fashion/womens-fashion/bags/all-bags",
-            "ca": "https://www.dior.com/en_ca/fashion/womens-fashion/bags/all-bags"
-          },
-          "image": "https://assets.christiandior.com/is/image/diorprod/M1409OHSVM07I_SBG_E01-1?$r4x5_raw$&crop=0,0,4000,5000&wid=1600&hei=2000&scale=1&bfc=on&qlt=80"
-        },
-        {
-          "name": "Small Dior Book Tote Black Macrocannage Calfskin",
-          "category": "Bag",
-          "style": "book-tote-small-black-macrocannage",
-          "price": {
-            "us": 3900.0,
-            "ca": 5100.0
-          },
-          "url": {
-            "us": "https://www.dior.com/en_us/fashion/products/M1325OWHP_M900",
-            "ca": "https://www.dior.com/en_ca/fashion/products/M1325OWHP_M900"
-          },
-          "image": "https://assets.christiandior.com/is/image/diorprod/M1325OWHPM900_SBG_E01?$r4x5_raw$&crop=0,0,4000,5000&wid=1600&hei=2000&scale=1&bfc=on&qlt=80"
-        },
-        {
-          "name": "Medium Dior Book Tote Blue Dior Oblique Embroidery",
-          "category": "Bag",
-          "style": "book-tote-medium-blue-oblique",
-          "price": {
-            "us": 4000.0,
-            "ca": 5500.0
-          },
-          "url": {
-            "us": "https://www.dior.com/en_us/fashion/products/M1324CZBB_M928",
-            "ca": "https://www.dior.com/en_ca/fashion/products/M1324CZBB_M928"
-          },
-          "image": "https://assets.christiandior.com/is/image/diorprod/M1324CZBBM928_SBG_E01?$r4x5_raw$&crop=0,0,4000,5000&wid=1600&hei=2000&scale=1&bfc=on&qlt=80"
-        },
-        {
-          "name": "Small Dior Promenade Shopping Bag (Black Flat Cannage)",
-          "category": "Bag",
-          "style": "small-black-cannage",
-          "price": {
-            "us": 4000.0,
-            "ca": 5300.0
-          },
-          "url": {
-            "us": "https://www.dior.com/en_us/fashion/womens-fashion/bags/all-bags",
-            "ca": "https://www.dior.com/en_ca/fashion/womens-fashion/bags/all-bags"
-          },
-          "image": "https://assets.christiandior.com/is/image/diorprod/M1410OHSTM911_SBG_E01-3?$r4x5_raw$&crop=0,0,4000,5000&wid=1600&hei=2000&scale=1&bfc=on&qlt=80"
-        },
-        {
-          "name": "Small Dior Promenade Shopping Bag (Marron Bobby Suede)",
-          "category": "Bag",
-          "style": "small-marron-suede",
-          "price": {
-            "us": 4000.0,
-            "ca": 5300.0
-          },
-          "url": {
-            "us": "https://www.dior.com/en_us/fashion/womens-fashion/bags/all-bags",
-            "ca": "https://www.dior.com/en_ca/fashion/womens-fashion/bags/all-bags"
-          },
-          "image": "https://assets.christiandior.com/is/image/diorprod/M1410OHSUM12E_SBG_E01?$r9x10_raw$&crop=0,0,4000,5000&wid=1850&hei=2000&scale=1&bfc=on&qlt=80"
-        },
-        {
-          "name": "Medium Dior Promenade Shopping Bag (Black Flat Cannage)",
-          "category": "Bag",
-          "style": "medium-black-cannage",
-          "price": {
-            "us": 4500.0,
-            "ca": 5900.0
-          },
-          "url": {
-            "us": "https://www.dior.com/en_us/fashion/womens-fashion/bags/all-bags",
-            "ca": "https://www.dior.com/en_ca/fashion/womens-fashion/bags/all-bags"
-          },
-          "image": "https://assets.christiandior.com/is/image/diorprod/M1409OHSTM911_SBG_E01-1?$r4x5_raw$&crop=0,0,4000,5000&wid=1600&hei=2000&scale=1&bfc=on&qlt=80"
-        },
-        {
-          "name": "Saddle Bag with Strap Blue Dior Oblique Jacquard",
-          "category": "Bag",
-          "style": "saddle-strap-blue-oblique",
-          "price": {
-            "us": 4700.0,
-            "ca": 6200.0
-          },
-          "url": {
-            "us": "https://www.dior.com/en_us/fashion/products/M0455CTZQ_M928",
-            "ca": "https://www.dior.com/en_ca/fashion/products/M0455CTZQ_M928"
-          },
-          "image": "https://assets.christiandior.com/is/image/diorprod/M0455CTZQM928_SBG_E01?$r4x5_raw$&crop=0,0,4000,5000&wid=1600&hei=2000&scale=1&bfc=on&qlt=80"
         }
       ]
     },
@@ -2254,6 +1960,456 @@
             "ca": "https://www.rolex.com/en-ca/watches/yacht-master/m226659-0002"
           },
           "image": "https://media.rolex.com/image/upload/q_auto/f_auto/t_v7-cover-majesty-landscape/c_limit,w_1920/v1/a677b2c664f6/catalogue/2026/upright-c/m226659-0002"
+        }
+      ]
+    },
+    {
+      "id": "coach",
+      "name": "Coach",
+      "tier": "Accessible luxury",
+      "items": [
+        {
+          "name": "Card Case",
+          "category": "Small leather goods",
+          "style": "CZ000",
+          "price": {
+            "us": 75.0,
+            "ca": 90.0
+          },
+          "url": {
+            "us": "https://www.coach.com/shop/men/wallets",
+            "ca": "https://ca.coach.com/shop/men/wallets"
+          },
+          "image": "https://coach.scene7.com/is/image/Coach/cz000_rwd_a0?$desktopProductTile$"
+        },
+        {
+          "name": "Essential Card Case (CM435)",
+          "category": "Small leather goods",
+          "style": "CM435",
+          "price": {
+            "us": 75.0,
+            "ca": 90.0
+          },
+          "url": {
+            "us": "https://www.coach.com/shop/women/wallets-wristlets",
+            "ca": "https://ca.coach.com/shop/women/wallets-wristlets"
+          },
+          "image": "https://coach.scene7.com/is/image/Coach/cm435_lhblk_a0?$desktopProductTile$"
+        },
+        {
+          "name": "Essential Card Case (CM436)",
+          "category": "Small leather goods",
+          "style": "CM436",
+          "price": {
+            "us": 75.0,
+            "ca": 90.0
+          },
+          "url": {
+            "us": "https://www.coach.com/shop/women/wallets-wristlets",
+            "ca": "https://ca.coach.com/shop/women/wallets-wristlets"
+          },
+          "image": "https://coach.scene7.com/is/image/Coach/cm436_b4bk_a0?$desktopProductTile$"
+        },
+        {
+          "name": "Essential Card Case With Crystal Signature",
+          "category": "Small leather goods",
+          "style": "CFT03",
+          "price": {
+            "us": 95.0,
+            "ca": 120.0
+          },
+          "url": {
+            "us": "https://www.coach.com/shop/women/wallets-wristlets",
+            "ca": "https://ca.coach.com/shop/women/wallets-wristlets"
+          },
+          "image": "https://coach.scene7.com/is/image/Coach/cft03_lhblk_a0?$desktopProductTile$"
+        },
+        {
+          "name": "Essential Card Case With Pillow Quilting",
+          "category": "Small leather goods",
+          "style": "CM434",
+          "price": {
+            "us": 95.0,
+            "ca": 120.0
+          },
+          "url": {
+            "us": "https://www.coach.com/shop/women/wallets-wristlets",
+            "ca": "https://ca.coach.com/en/shop/women/wallets-wristlets"
+          },
+          "image": "https://coach.scene7.com/is/image/Coach/cm434_b4ha_a0?$desktopProductTile$"
+        },
+        {
+          "name": "Money Clip Card Case",
+          "category": "Small leather goods",
+          "style": "CW725",
+          "price": {
+            "us": 95.0,
+            "ca": 120.0
+          },
+          "url": {
+            "us": "https://www.coach.com/shop/men/wallets",
+            "ca": "https://ca.coach.com/shop/men/wallets"
+          },
+          "image": "https://coach.scene7.com/is/image/Coach/cw725_rwd_a0?$desktopProductTile$"
+        },
+        {
+          "name": "Tabby Card Case (CFT14)",
+          "category": "Small leather goods",
+          "style": "CFT14",
+          "price": {
+            "us": 95.0,
+            "ca": 120.0
+          },
+          "url": {
+            "us": "https://www.coach.com/shop/women/wallets-wristlets",
+            "ca": "https://ca.coach.com/shop/women/wallets-wristlets"
+          },
+          "image": "https://coach.scene7.com/is/image/Coach/cft14_lhblk_a0?$desktopProductTile$"
+        },
+        {
+          "name": "Tabby Card Case (CGM78)",
+          "category": "Small leather goods",
+          "style": "CGM78",
+          "price": {
+            "us": 95.0,
+            "ca": 120.0
+          },
+          "url": {
+            "us": "https://www.coach.com/shop/women/wallets-wristlets",
+            "ca": "https://ca.coach.com/shop/women/wallets-wristlets"
+          },
+          "image": "https://coach.scene7.com/is/image/Coach/cgm78_b4ays_a0?$desktopProductTile$"
+        },
+        {
+          "name": "Slim Billfold Wallet",
+          "category": "Small leather goods",
+          "style": "CZ261",
+          "price": {
+            "us": 150.0,
+            "ca": 180.0
+          },
+          "url": {
+            "us": "https://www.coach.com/shop/men/wallets",
+            "ca": "https://ca.coach.com/shop/men/wallets"
+          },
+          "image": "https://coach.scene7.com/is/image/Coach/cz261_rwd_a0?$desktopProductTile$"
+        },
+        {
+          "name": "3-In-1 Wallet",
+          "category": "Small leather goods",
+          "style": "CY911",
+          "price": {
+            "us": 195.0,
+            "ca": 240.0
+          },
+          "url": {
+            "us": "https://www.coach.com/shop/men/wallets",
+            "ca": "https://ca.coach.com/shop/men/wallets"
+          },
+          "image": "https://coach.scene7.com/is/image/Coach/cy911_blk_a0?$desktopProductTile$"
+        },
+        {
+          "name": "Essential Slim Card Case In Crystal Signature Jacquard",
+          "category": "Small leather goods",
+          "style": "CCD16",
+          "price": {
+            "us": 125.0,
+            "ca": 150.0
+          },
+          "url": {
+            "us": "https://www.coach.com/shop/women/wallets-wristlets",
+            "ca": "https://ca.coach.com/en/shop/women/wallets-wristlets"
+          }
+        },
+        {
+          "name": "Belted Ergo Shoulder Bag 26 In Signature Jacquard",
+          "category": "Bag",
+          "style": "CEN87",
+          "price": {
+            "us": 295.0,
+            "ca": 360.0
+          },
+          "url": {
+            "us": "https://www.coach.com/shop/women/handbags/view-all",
+            "ca": "https://ca.coach.com/en/shop/women/handbags/view-all"
+          }
+        },
+        {
+          "name": "Brooklyn Shoulder Bag 28",
+          "category": "Bag",
+          "style": "CU068",
+          "price": {
+            "us": 295.0,
+            "ca": 360.0
+          },
+          "url": {
+            "us": "https://www.coach.com/products/brooklyn-shoulder-bag-28/CU068.html",
+            "ca": "https://ca.coach.com/products/brooklyn-shoulder-bag-28/CU068.html"
+          }
+        },
+        {
+          "name": "Chelsea Shoulder Bag 30",
+          "category": "Bag",
+          "style": "CDS59",
+          "price": {
+            "us": 325.0,
+            "ca": 400.0
+          },
+          "url": {
+            "us": "https://www.coach.com/products/chelsea-shoulder-bag-30/CDS59.html",
+            "ca": "https://ca.coach.com/en/shop/women/handbags/view-all"
+          }
+        },
+        {
+          "name": "Soft Tabby Shoulder Bag 20",
+          "category": "Bag",
+          "style": "CFQ98",
+          "price": {
+            "us": 375.0,
+            "ca": 460.0
+          },
+          "url": {
+            "us": "https://www.coach.com/shop/women/handbags/view-all",
+            "ca": "https://ca.coach.com/en/shop/women/handbags/view-all"
+          }
+        },
+        {
+          "name": "Tabby Shoulder Bag 20",
+          "category": "Bag",
+          "style": "CW917",
+          "price": {
+            "us": 375.0,
+            "ca": 460.0
+          },
+          "url": {
+            "us": "https://www.coach.com/shop/women/handbags/view-all",
+            "ca": "https://ca.coach.com/en/shop/women/handbags/view-all"
+          }
+        },
+        {
+          "name": "Soft Tabby Shoulder Bag 20 In Crystal Signature Jacquard",
+          "category": "Bag",
+          "style": "CFQ99",
+          "price": {
+            "us": 475.0,
+            "ca": 580.0
+          },
+          "url": {
+            "us": "https://www.coach.com/shop/women/handbags/view-all",
+            "ca": "https://ca.coach.com/en/shop/women/handbags/view-all"
+          }
+        },
+        {
+          "name": "Tabby Shoulder Bag 26",
+          "category": "Bag",
+          "style": "CEN52",
+          "price": {
+            "us": 475.0,
+            "ca": 580.0
+          },
+          "url": {
+            "us": "https://www.coach.com/products/tabby-shoulder-bag-26/CEN52.html",
+            "ca": "https://ca.coach.com/products/tabby-shoulder-bag-26/CEN52.html"
+          }
+        },
+        {
+          "name": "Tabby Shoulder Bag 26 In Crystal Signature Jacquard",
+          "category": "Bag",
+          "style": "CDZ34",
+          "price": {
+            "us": 575.0,
+            "ca": 700.0
+          },
+          "url": {
+            "us": "https://www.coach.com/products/tabby-shoulder-bag-26-in-crystal-signature-jacquard/CDZ34.html",
+            "ca": "https://ca.coach.com/en/products/tabby-shoulder-bag-26-in-crystal-signature-jacquard/CDZ34.html"
+          }
+        }
+      ]
+    },
+    {
+      "id": "dior",
+      "name": "Dior",
+      "tier": "Luxury",
+      "items": [
+        {
+          "name": "Small Dior Promenade Shopping Bag (Blue Oblique Jacquard)",
+          "category": "Bag",
+          "style": "small-blue-oblique",
+          "price": {
+            "us": 3350.0,
+            "ca": 4400.0
+          },
+          "url": {
+            "us": "https://www.dior.com/en_us/fashion/womens-fashion/bags/all-bags",
+            "ca": "https://www.dior.com/en_ca/fashion/womens-fashion/bags/all-bags"
+          },
+          "image": "https://assets.christiandior.com/is/image/diorprod/M1410OTZQM928_SBG_E01-6?$r4x5_raw$&crop=0,0,4000,5000&wid=1600&hei=2000&scale=1&bfc=on&qlt=80"
+        },
+        {
+          "name": "Medium Dior Promenade Shopping Bag (Blue Oblique Jacquard)",
+          "category": "Bag",
+          "style": "medium-blue-oblique",
+          "price": {
+            "us": 3600.0,
+            "ca": 4800.0
+          },
+          "url": {
+            "us": "https://www.dior.com/en_us/fashion/womens-fashion/bags/all-bags",
+            "ca": "https://www.dior.com/en_ca/fashion/womens-fashion/bags/all-bags"
+          },
+          "image": "https://assets.christiandior.com/is/image/diorprod/M1409OTZQM928_SBG_E01?$r4x5_raw$&crop=0,0,4000,5000&wid=1600&hei=2000&scale=1&bfc=on&qlt=80"
+        },
+        {
+          "name": "Small Dior Toujours Hobo Bag Black Cannage Lambskin",
+          "category": "Bag",
+          "style": "small-toujours-hobo-black-lambskin",
+          "price": {
+            "us": 3700.0,
+            "ca": 4800.0
+          },
+          "url": {
+            "us": "https://www.dior.com/en_us/fashion/womens-fashion/bags/all-bags",
+            "ca": "https://www.dior.com/en_ca/fashion/womens-fashion/bags/all-bags"
+          },
+          "image": "https://assets.christiandior.com/is/image/diorprod/M2867ODKZM900_SBG_E01-1?$r4x5_raw$&crop=0,0,4000,5000&wid=1600&hei=2000&scale=1&bfc=on&qlt=80"
+        },
+        {
+          "name": "Medium Dior Promenade Shopping Bag (Khaki Oblique Tweed with Sequins)",
+          "category": "Bag",
+          "style": "medium-khaki-tweed",
+          "price": {
+            "us": 3800.0,
+            "ca": 5000.0
+          },
+          "url": {
+            "us": "https://www.dior.com/en_us/fashion/womens-fashion/bags/all-bags",
+            "ca": "https://www.dior.com/en_ca/fashion/womens-fashion/bags/all-bags"
+          },
+          "image": "https://assets.christiandior.com/is/image/diorprod/M1409OHSVM07I_SBG_E01-1?$r4x5_raw$&crop=0,0,4000,5000&wid=1600&hei=2000&scale=1&bfc=on&qlt=80"
+        },
+        {
+          "name": "Small Dior Book Tote Black Macrocannage Calfskin",
+          "category": "Bag",
+          "style": "M1325OWHP_M900",
+          "price": {
+            "us": 3900.0,
+            "ca": 5100.0
+          },
+          "url": {
+            "us": "https://www.dior.com/en_us/fashion/products/M1325OWHP_M900",
+            "ca": "https://www.dior.com/en_ca/fashion/products/M1325OWHP_M900"
+          },
+          "image": "https://assets.christiandior.com/is/image/diorprod/M1325OWHPM900_SBG_E01?$r4x5_raw$&crop=0,0,4000,5000&wid=1600&hei=2000&scale=1&bfc=on&qlt=80"
+        },
+        {
+          "name": "Medium Dior Book Tote Blue Dior Oblique Embroidery",
+          "category": "Bag",
+          "style": "M1324CZBB_M928",
+          "price": {
+            "us": 4000.0,
+            "ca": 5500.0
+          },
+          "url": {
+            "us": "https://www.dior.com/en_us/fashion/products/M1324CZBB_M928",
+            "ca": "https://www.dior.com/en_ca/fashion/products/M1324CZBB_M928"
+          },
+          "image": "https://assets.christiandior.com/is/image/diorprod/M1324CZBBM928_SBG_E01?$r4x5_raw$&crop=0,0,4000,5000&wid=1600&hei=2000&scale=1&bfc=on&qlt=80"
+        },
+        {
+          "name": "Small Dior Promenade Shopping Bag (Black Flat Cannage)",
+          "category": "Bag",
+          "style": "small-black-cannage",
+          "price": {
+            "us": 4000.0,
+            "ca": 5300.0
+          },
+          "url": {
+            "us": "https://www.dior.com/en_us/fashion/womens-fashion/bags/all-bags",
+            "ca": "https://www.dior.com/en_ca/fashion/womens-fashion/bags/all-bags"
+          },
+          "image": "https://assets.christiandior.com/is/image/diorprod/M1410OHSTM911_SBG_E01-3?$r4x5_raw$&crop=0,0,4000,5000&wid=1600&hei=2000&scale=1&bfc=on&qlt=80"
+        },
+        {
+          "name": "Small Dior Promenade Shopping Bag (Marron Bobby Suede)",
+          "category": "Bag",
+          "style": "small-marron-suede",
+          "price": {
+            "us": 4000.0,
+            "ca": 5300.0
+          },
+          "url": {
+            "us": "https://www.dior.com/en_us/fashion/womens-fashion/bags/all-bags",
+            "ca": "https://www.dior.com/en_ca/fashion/womens-fashion/bags/all-bags"
+          },
+          "image": "https://assets.christiandior.com/is/image/diorprod/M1410OHSUM12E_SBG_E01?$r9x10_raw$&crop=0,0,4000,5000&wid=1850&hei=2000&scale=1&bfc=on&qlt=80"
+        },
+        {
+          "name": "Medium Dior Promenade Shopping Bag (Black Flat Cannage)",
+          "category": "Bag",
+          "style": "medium-black-cannage",
+          "price": {
+            "us": 4500.0,
+            "ca": 5900.0
+          },
+          "url": {
+            "us": "https://www.dior.com/en_us/fashion/womens-fashion/bags/all-bags",
+            "ca": "https://www.dior.com/en_ca/fashion/womens-fashion/bags/all-bags"
+          },
+          "image": "https://assets.christiandior.com/is/image/diorprod/M1409OHSTM911_SBG_E01-1?$r4x5_raw$&crop=0,0,4000,5000&wid=1600&hei=2000&scale=1&bfc=on&qlt=80"
+        },
+        {
+          "name": "Saddle Bag with Strap Blue Dior Oblique Jacquard",
+          "category": "Bag",
+          "style": "M0455CTZQ_M928",
+          "price": {
+            "us": 4700.0,
+            "ca": 6200.0
+          },
+          "url": {
+            "us": "https://www.dior.com/en_us/fashion/products/M0455CTZQ_M928",
+            "ca": "https://www.dior.com/en_ca/fashion/products/M0455CTZQ_M928"
+          },
+          "image": "https://assets.christiandior.com/is/image/diorprod/M0455CTZQM928_SBG_E01?$r4x5_raw$&crop=0,0,4000,5000&wid=1600&hei=2000&scale=1&bfc=on&qlt=80"
+        },
+        {
+          "name": "Small Dior Toujours Hobo Bag Marron Bobby Suede",
+          "category": "Bag",
+          "style": "small-toujours-hobo-marron-bobby-suede",
+          "price": {
+            "us": 3700.0,
+            "ca": 4800.0
+          },
+          "url": {
+            "us": "https://www.dior.com/en_us/fashion/womens-fashion/bags/all-bags",
+            "ca": "https://www.dior.com/en_ca/fashion/womens-fashion/bags/all-bags"
+          }
+        },
+        {
+          "name": "Medium Dior Toujours Bag Chocolate Macrocannage",
+          "category": "Bag",
+          "style": "medium-toujours-chocolate",
+          "price": {
+            "us": 4300.0,
+            "ca": 5800.0
+          },
+          "url": {
+            "us": "https://www.dior.com/en_us/fashion/womens-fashion/bags/all-bags",
+            "ca": "https://www.dior.com/en_ca/fashion/womens-fashion/bags/all-bags"
+          }
+        },
+        {
+          "name": "Medium Dior Toujours Bag Glove Macrocannage",
+          "category": "Bag",
+          "style": "medium-toujours-glove",
+          "price": {
+            "us": 4300.0,
+            "ca": 5800.0
+          },
+          "url": {
+            "us": "https://www.dior.com/en_us/fashion/womens-fashion/bags/all-bags",
+            "ca": "https://www.dior.com/en_ca/fashion/womens-fashion/bags/all-bags"
+          }
         }
       ]
     }

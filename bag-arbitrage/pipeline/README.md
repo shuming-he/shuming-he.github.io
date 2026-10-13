@@ -1,34 +1,37 @@
-# Bag Arbitrage pipeline
+# Cross-Border Luxury Pricing: pipeline
 
-Python code behind [shuming-he.github.io/bag-arbitrage](https://shuming-he.github.io/bag-arbitrage/).
-It collects official list prices for the same products in the US and Canada and writes the JSON file the page reads.
+Code behind [shuming-he.github.io/bag-arbitrage](https://shuming-he.github.io/bag-arbitrage/). It compares official list prices for the same products on brands' US and Canadian websites.
 
-```
-collected_prices.csv ─┐
-                      ├─build_dataset.py──▶ ../data/prices.json ──▶ web page
-products.csv ─scrape.py─▶ raw/prices_<time>.csv ─┘         │
-                                                    analysis.py (SciPy check)
-```
-
-| Step | File | What it does |
-|---|---|---|
-| Collect | `collected_prices.csv` | One row per product per market: list price, currency, style number, source URL and date, read from each brand's official site. A note marks prices read from a category listing or items shown as sold out. |
-| Scrape | `scrape.py` | Fetches each URL in `products.csv`, respects `robots.txt`, waits between requests, and logs every attempt with a status. Works for pages that publish structured price data. |
-| Parse | `parse.py` | Reads the price from schema.org JSON-LD, falling back to price meta tags. Handles `$5,100`, `C$1,295.00` and decimal commas. |
-| Clean + match | `build_dataset.py` | Keeps the latest price per product and market, drops wrong-currency redirects and products missing either market, writes `../data/prices.json` with source URLs. |
-| Test | `analysis.py` | Paired t-test on log price ratios, the implied CAD/USD rate, and an OLS regression with `scipy.stats`, to cross-check the JavaScript on the page. |
-
-## Run it
+## Reproduce everything
 
 ```bash
 pip install -r requirements.txt
-python -m unittest discover tests      # parser tests
-python build_dataset.py                # from collected_prices.csv
-python analysis.py --fx-cad 1.42 --tax-us 7 --tax-ca 13
+python -m unittest discover tests     # 25 tests on synthetic data
+python run_analysis.py                # validation -> dataset -> analysis -> tables, figures, results.json, report
 ```
 
-## Status (13 October 2026)
+`run_analysis.py` is deterministic. The bootstrap uses seed 20261013, and the wild bootstrap enumerates every sign pattern, so re-running it reproduces `../data/results.json` byte for byte.
 
-- 153 products from 15 brands (about 10 per brand) have official prices in both markets.
-- Results at the defaults (USD/CAD 1.42, 7% US tax, 13% HST): Canada vs US −4.4% (95% CI −5.1% to −3.8%), t = −13.58, p < 0.001. Brands price Canada at about C$1.28 per US$1. The gap is not related to price tier (r = 0.03, p = 0.7).
-- Some prices were read from category listing pages; the `note` column says which. Coach's Canadian product pages hide prices, so Coach is represented by wallets and card cases whose prices and photos appear on both countries' listings.
+## Files
+
+| File | Role |
+|---|---|
+| `collected_prices.csv` | Raw price log: one row per product per market, with price, currency, source URL, date and a provenance note |
+| `products.csv` | Product list: brand, tier, category, style code, URLs, photo URL |
+| `review_flags.csv` | Manual notes on identifiers that need checking |
+| `fx_rates.csv` | Bank of Canada daily FXUSDCAD rates, 28 Sep to 9 Oct 2026 |
+| `validate.py` | Format checks, matching flags and exclusions; writes `../data/matched_pairs.csv` and `../reports/data_quality.md` |
+| `build_dataset.py` | Writes `../data/prices.json` for the web page |
+| `bastats.py` | Estimators: paired t, brand-clustered (CR1) mean, brand-equal mean, cluster bootstrap, wild cluster bootstrap-t, Wilcoxon, leave-one-brand-out, clustered OLS |
+| `run_analysis.py` | The single command: primary estimate, robustness checks, subsets, scenarios, regressions |
+| `figures.py` | SVG figures in `../figures/` |
+| `make_report.py` | Renders `../reports/report.md` (and `report.html` with pandoc) from `results.json` |
+| `scrape.py`, `parse.py` | Optional scraper for pages with structured price data (`tests/test_parse.py`) |
+| `analysis.py` | Earlier SciPy cross-check of the page under i.i.d. assumptions; superseded by `run_analysis.py` |
+| `tests/site_consistency.js` | Checks that the page's JavaScript reproduces `results.json` (needs Playwright and a local server) |
+
+## Primary estimand
+
+d_i = ln(P_CA / (P_US × X)) uses list prices before tax. X is the Bank of Canada CAD-per-USD rate for the last business day before collection (2026-10-09, 1.4271). The target is the mean of d over matched products, with standard errors clustered by brand.
+
+All results are in `../data/results.json` and `../reports/report.md`; no result is typed by hand in this README.

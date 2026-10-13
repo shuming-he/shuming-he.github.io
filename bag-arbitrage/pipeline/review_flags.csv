@@ -1,0 +1,12 @@
+brand_id,style,flag,detail
+breitling,RB0137241G1R1,identifier_check,"Product page canonical link ends in RB0137241G1P1 (one character different); the page body shows RB0137241G1R1 everywhere else."
+tory-burch,ella-natuura-drawstring,identifier_check,"Product page found through a search result for another region; the page title matches the product name."
+tory-burch,small-ella-natuura,name_match,"Tory Burch listings show no style codes; US and CA prices matched by exact product name, and neither listing names a colour."
+fendi,8BR850B16BF0ERR,name_change,"Listed as 'Re-Edition' on the US page and as 'tiger print pony-effect leather' on the CA listing; product code identical."
+celine,L10BF5E40.04FL,label_inconsistency,"Celine listing colour labels sometimes contradict image descriptions; product names avoid colours and matching relies on the product code."
+coach,CDS59,name_match,"CA price read from a listing without codes; matched to the style code by exact product name."
+coach,CFQ98,name_match,"US and CA prices read from listings without codes; matched by exact product name, colour variant uncertain."
+coach,CW917,name_match,"US and CA prices read from listings without codes; matched by exact product name, colour variant uncertain."
+coach,CFQ99,name_match,"US and CA prices read from listings without codes; matched by exact product name, colour variant uncertain."
+coach,CEN87,name_match,"US and CA prices read from listings without codes; matched by exact product name, colour variant uncertain."
+coach,CCD16,name_match,"US and CA prices read from listings without codes; matched by exact product name, colour variant uncertain."

@@ -52,10 +52,10 @@ def main() -> None:
                 .merge(products.reindex(columns=["brand_id", "brand", "tier", "product", "category", "style", "image"]), on=["brand_id", "product"]))
     print(f"{len(complete)} of {len(products)} products have prices in both markets")
 
-    # Brands mostly without product photos go last; within a brand, items with a photo come first.
+    # Brands missing any product photo go last; within a brand, items with a photo come first.
     tier_order = {"Accessible luxury": 0, "Luxury": 1, "Watchmaker": 2}
     has_img = complete["image"].fillna("").str.startswith("https://")
-    complete = complete.assign(_noimg=~has_img, _brand_noimg=has_img.groupby(complete["brand_id"]).transform("mean") < 0.5)
+    complete = complete.assign(_noimg=~has_img, _brand_noimg=has_img.groupby(complete["brand_id"]).transform("mean") < 1)
     complete = complete.sort_values(["_brand_noimg", "tier", "brand", "_noimg", "us"],
                                     key=lambda c: c.map(tier_order) if c.name == "tier" else c)
     brands = []
