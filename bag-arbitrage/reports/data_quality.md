@@ -28,8 +28,8 @@ All rows passed: known market, expected currency (USD on US sites, CAD on Canadi
 
 ## Price provenance
 
-- 124 price rows were read from a product page; in 124 of them the URL contains the same style code as the CSV row, so the row can be traced to its page.
-- 207 price rows were read from a category listing; the listing URL is stored, and the product is identified on that listing by its name (and code where the listing shows one).
+- 126 price rows were read from a product page; in 126 of them the URL contains the same style code as the CSV row, so the row can be traced to its page.
+- 205 price rows were read from a category listing; the listing URL is stored, and the product is identified on that listing by its name (and code where the listing shows one).
 
 ## Matching quality and provenance flags
 
@@ -37,12 +37,12 @@ Flags are kept as columns in `data/matched_pairs.csv`; they are used for sensiti
 
 | Flag | Pairs | Meaning |
 |---|---|---|
-| Matched by style code on both pages | 137 | Same official style or reference code on the US and CA pages, no open check |
+| Matched by style code on both pages | 138 | Same official style or reference code on the US and CA pages, no open check |
 | No official code published | 20 | Brand shows no code on its listing (Dior listings, Tory Burch); identified by a slug of the product name |
 | `name_match` | 27 | US and CA prices linked by exact product name (no shared code on at least one page) |
-| `identifier_check` | 2 | Code or page provenance needs a manual check (see `review_flags.csv`) |
-| `uncertain_match` | 28 | `name_match` or `identifier_check` |
-| `listing_price` | 104 | At least one price read from a category listing rather than the product page |
+| `identifier_check` | 1 | Code or page provenance needs a manual check (see `review_flags.csv`) |
+| `uncertain_match` | 27 | `name_match` or `identifier_check` |
+| `listing_price` | 103 | At least one price read from a category listing rather than the product page |
 | `sold_out` | 11 | Listed as sold out in at least one market; the list price was still shown |
 | `repeat_price_pair` | 17 | Same brand and identical (US, CA) prices as an earlier row: often a colour variant of one model, sometimes a different model at the same price point |
 | No product photo | 12 | Display only; does not affect the analysis |
@@ -59,7 +59,7 @@ No pair lies outside 1.5 × IQR.
 
 | Brand | Tier | Pairs | Bag | Small leather goods | Watch | Uncertain match | Listing price |
 |---|---|---|---|---|---|---|---|
-| Breitling | Watchmaker | 10 | 0 | 0 | 10 | 1 | 8 |
+| Breitling | Watchmaker | 10 | 0 | 0 | 10 | 0 | 7 |
 | Celine | Luxury | 11 | 11 | 0 | 0 | 0 | 9 |
 | Chopard | Watchmaker | 10 | 0 | 0 | 10 | 0 | 8 |
 | Coach | Accessible luxury | 19 | 8 | 11 | 0 | 7 | 16 |

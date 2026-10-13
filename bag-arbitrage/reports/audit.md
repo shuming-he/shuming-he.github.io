@@ -21,12 +21,13 @@ Each finding lists the evidence, why it matters, the correction made, and how th
 | A11 | Price-tier regression used i.i.d. errors and a scenario-dependent outcome | Medium | Fixed |
 | A12 | The research question says handbags but the data include watches and small leather goods | Medium | Documented; category subsets added |
 | A13 | US sales-tax rates presented without a source | Medium | Labelled illustrative |
-| A14 | One Breitling reference has a canonical-link mismatch on the source page | Low | Flagged, kept |
+| A14 | One Breitling reference has a canonical-link mismatch on the source page | Low | Resolved (A20) |
 | A15 | Product images are hot-linked from brand servers; loading was not verified from this environment | Low | Documented |
 | A16 | One listed product (Burberry) has no Canadian price | Low | Reported as an exclusion |
 | A17 | Root README still called the data an "illustrative prototype dataset" and gave 153 products | Critical | Fixed (follow-up) |
 | A18 | `results.json` rounded tiny p-values to 0 | Medium | Fixed (follow-up) |
 | A19 | Unit of analysis (listing vs model) and its weighting consequence not stated | Medium | Fixed (follow-up) |
+| A20 | Canadian tax could not be set to 0% from a shared link; Breitling identifier still open | Medium | Fixed (follow-up) |
 
 ## Findings
 
@@ -137,8 +138,13 @@ Each finding lists the evidence, why it matters, the correction made, and how th
 - **Evidence.** For fashion brands a style code identifies a colourway, so colours of one model are separate rows; 17 rows repeat a brand and exact price pair.
 - **Correction.** The report and page define the unit as a product listing and explain the weighting consequence. The model-level approximation (n = 148) is reported next to it, together with its own limitation: it also merges different models at the same price point.
 
+### A20. Scenario tax range and the Breitling identifier — Medium
+- **Evidence.** The Canadian tax slider was widened to 0–15% so the default (0%) reproduces the primary estimate, but the URL parser still clamped `tax_ca` to 5–15%. A shared link with `tax_ca=0` therefore reopened at 5%. The Breitling reference RB0137241G1R1 was still listed as an open identifier check.
+- **Correction.** The parser range now matches the slider (0–15%). The Breitling US and Canadian product pages were re-opened on 13 October 2026. Both show reference RB0137241G1R1, an 18k red gold case and bracelet, and USD 54,900 / CAD 69,700 excluding tax, matching the CSV. On both sites the canonical tag ends in RB0137241G1P1, which the page lists as a related product, so this is a site template quirk. The source URLs now point to the product pages and the flag is marked resolved.
+- **Verification.** A browser test opens `?tax_ca=0` and checks that the slider and state are 0%. After the rerun, the primary estimate is unchanged (the Breitling prices did not change). Only the counts of flagged rows move: product-page pairs 61 → 62, open identifier checks 2 → 1.
+
 ## What was checked and found correct
-- In all 124 price rows read from a product page, the URL contains the same style code as the CSV row (`validate.py`, `code_not_in_url` check).
+- In all 126 price rows read from a product page (124 before the Breitling re-check in A20), the URL contains the same style code as the CSV row (`validate.py`, `code_not_in_url` check).
 - The page's statistics are computed in the browser from `prices.json`, not hard-coded. With products treated as independent, they matched SciPy before the changes.
 - Every price has a source URL, a currency and a collection date. No wrong-currency rows were found.
 - The raw CAD/USD ratio lies between 1.163 and 1.421, and no pair is outside 1.5 × IQR.

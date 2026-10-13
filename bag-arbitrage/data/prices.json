@@ -1613,15 +1613,14 @@
             "ca": 69700.0
           },
           "url": {
-            "us": "https://www.breitling.com/us-en/watches/navitimer/",
-            "ca": "https://www.breitling.com/ca-en/watches/navitimer/"
+            "us": "https://www.breitling.com/us-en/watches/navitimer/navitimer-b01-chronograph-46-my22/RB0137241G1R1/",
+            "ca": "https://www.breitling.com/ca-en/watches/navitimer/navitimer-b01-chronograph-46-my22/RB0137241G1R1/"
           },
           "source": {
-            "us": "category listing",
-            "ca": "category listing"
+            "us": "product page",
+            "ca": "product page"
           },
           "match": "style code",
-          "check": true,
           "image": "https://www-breitling.eu.saleor.cloud/media/thumbnails/products/rb0137241g1r1-soldier_02345bdd_thumbnail_1024.webp"
         },
         {

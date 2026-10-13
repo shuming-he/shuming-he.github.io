@@ -549,7 +549,7 @@ const CAP = { us: "United States", ca: "Canada" };
 const SHORT = { us: "US", ca: "Canada" };
 const COLOR = { us: "var(--us)", ca: "var(--ca)" };
 const SVGNS = "http://www.w3.org/2000/svg";
-const RANGES = { fxca: [1.25, 1.55], taxus: [0, 10.25], taxca: [5, 15] };
+const RANGES = { fxca: [1.25, 1.55], taxus: [0, 10.25], taxca: [0, 15] };   // must match the slider min/max
 const PARAM = { fxca: "fx_cad", taxus: "tax_us", taxca: "tax_ca" };
 const DEFAULTS = { fxca: 1.4271, taxus: 0, taxca: 0 };   // primary setting: Bank of Canada rate for 2026-10-09, before tax
 const state = { ...DEFAULTS, brand: null, group: "all", mode: "research", q: "" };
@@ -781,7 +781,7 @@ function renderEvidence(R) {
   document.getElementById("repro-env").textContent = `Published results: Python ${m.python}, NumPy ${m.numpy}, pandas ${m.pandas}, SciPy ${m.scipy}; bootstrap seed ${m.seed}. Re-running gives identical output.`;
   document.getElementById("l6-title").textContent = `${R.quality.flags.name_match} matches use names`;
   const lp = R.robustness.find(e => e.label.startsWith("Excluding prices read")), um = R.robustness.find(e => e.label.startsWith("Excluding uncertain"));
-  document.getElementById("l6-text").innerHTML = `${R.quality.flags.name_match} of ${p.n} pairs were matched by exact product name because a page showed no style code, and ${R.quality.flags.listing_price} use at least one price read from a category listing rather than a product page; for those, the source link opens the listing, where the product appears by name. Each product in the explorer says which applies. Excluding name matches and the two identifiers under review, the estimate is ${P(um.pct)}; using only product-page prices it is ${P(lp.pct)}.`;
+  document.getElementById("l6-text").innerHTML = `${R.quality.flags.name_match} of ${p.n} pairs were matched by exact product name because a page showed no style code, and ${R.quality.flags.listing_price} use at least one price read from a category listing rather than a product page; for those, the source link opens the listing, where the product appears by name. Each product in the explorer says which applies. Excluding name matches and identifiers under review, the estimate is ${P(um.pct)}; using only product-page prices it is ${P(lp.pct)}.`;
   document.getElementById("l4-title").textContent = `A snapshot from ${fmtDate(R.meta.collected)}`;
 }
 const norm = s => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");

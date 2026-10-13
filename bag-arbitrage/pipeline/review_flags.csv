@@ -1,5 +1,5 @@
 brand_id,style,flag,detail
-breitling,RB0137241G1R1,identifier_check,"Product page canonical link ends in RB0137241G1P1 (one character different); the page body shows RB0137241G1R1 everywhere else."
+breitling,RB0137241G1R1,identifier_resolved,"Re-checked 2026-10-13: the US and Canadian product pages both show reference RB0137241G1R1, 18k red gold case and bracelet, USD 54,900 and CAD 69,700 excl. tax. On both sites the canonical link ends in RB0137241G1P1 (listed there as a related product), a site template quirk; the match is confirmed."
 tory-burch,ella-natuura-drawstring,identifier_check,"Product page found through a search result for another region; the page title matches the product name."
 tory-burch,small-ella-natuura,name_match,"Tory Burch listings show no style codes; US and CA prices matched by exact product name, and neither listing names a colour."
 fendi,8BR850B16BF0ERR,name_change,"Listed as 'Re-Edition' on the US page and as 'tiger print pony-effect leather' on the CA listing; product code identical."

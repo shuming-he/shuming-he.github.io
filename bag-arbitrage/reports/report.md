@@ -32,7 +32,7 @@ Excluded: Medium Check Tote (burberry): no Canadian price collected.
 
 Categories: Bag 87, Watch 60, Small leather goods 18. Items per brand: 10 to 19.
 
-**Matching and provenance.** Products were matched by the brand's style or reference code where both pages show one. 27 pairs were matched by exact product name because at least one page shows no code, and 2 more have an open identifier check. 104 pairs have at least one price read from a category listing, 11 were shown as sold out (list price still displayed), and 17 repeat an earlier row's brand and exact price pair (often colour variants). These are kept and examined in Section 4.2 rather than removed. Full counts are in `reports/data_quality.md`.
+**Matching and provenance.** Products were matched by the brand's style or reference code where both pages show one. 27 pairs were matched by exact product name because at least one page shows no code, and 1 more have an open identifier check. 103 pairs have at least one price read from a category listing, 11 were shown as sold out (list price still displayed), and 17 repeat an earlier row's brand and exact price pair (often colour variants). These are kept and examined in Section 4.2 rather than removed. Full counts are in `reports/data_quality.md`.
 
 **Exchange rate.** Bank of Canada daily average rate (series FXUSDCAD) for the last business day before collection (2026-10-09, 1.4271); 12 October 2026 was a Canadian holiday. Rates from 2026-09-28 to 2026-10-09 are used for sensitivity.
 
@@ -84,15 +84,15 @@ Categories: Bag 87, Watch 60, Small leather goods 18. Items per brand: 10 to 19.
 | Each brand weighted equally | 165 | 15 | −10.0% | −11.7% to −8.2% | < 0.001 |
 | Wilcoxon signed-rank (median) | 165 | – | −9.1% | – | < 0.001 |
 | One row per identical (brand, US, CA) price pair (approximate model level) | 148 | 15 | −10.0% | −11.8% to −8.2% | < 0.001 |
-| Excluding uncertain matches | 137 | 14 | −10.1% | −12.0% to −8.1% | < 0.001 |
-| Excluding prices read from category listings | 61 | 13 | −8.9% | −10.8% to −7.0% | < 0.001 |
+| Excluding uncertain matches | 138 | 14 | −10.1% | −12.0% to −8.2% | < 0.001 |
+| Excluding prices read from category listings | 62 | 13 | −8.9% | −10.8% to −7.0% | < 0.001 |
 | Excluding items shown as sold out | 154 | 14 | −9.9% | −11.8% to −7.9% | < 0.001 |
 
 Notes: the Wilcoxon row reports the median, not the mean. The naive interval is about 31% as wide as the clustered one, which shows how much ignoring brand-level dependence would overstate precision. The bootstrap percentile interval with 15 clusters can be too narrow (Cameron, Gelbach & Miller, 2008).
 
 **How to read the agreement.** All of these intervals describe sampling variability under their own assumptions: the CR1 interval assumes brands are independent draws and relies on an approximation that is rough with 15 clusters; the wild bootstrap is better behaved with few clusters but can only reach p-values as small as 2/2^15; the naive test wrongly treats products within a brand as independent. Their agreement shows that the sign and rough size of the difference are not an artefact of one inference method. It does not address bias from how brands and products were selected, from name-based matching or from the choice of exchange-rate date; those are examined separately through the sample restrictions above and the limitations in Section 6.
 
-Restricting to prices read from product pages leaves 61 products and gives −8.9%. This subset is not a random part of the sample: 36 of its 61 products are watches and 40 come from Rolex, Longchamp, IWC, Jaeger-LeCoultre, so the difference may partly reflect composition.
+Restricting to prices read from product pages leaves 62 products and gives −8.9%. This subset is not a random part of the sample: 37 of its 62 products are watches and 40 come from Rolex, Longchamp, IWC, Jaeger-LeCoultre, so the difference may partly reflect composition.
 
 **Influence.** Removing one brand at a time moves the estimate between −10.40% (without Dior) and −9.65% (without Coach). No single product changes the mean by more than 0.06 percentage points.
 

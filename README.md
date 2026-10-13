@@ -11,7 +11,7 @@ This repository is my portfolio website, live at **https://shuming-he.github.io*
 - On 13 October 2026, prices were read from each brand's own US and Canadian websites for 166 products from 16 brands.
 - 165 products from 15 brands have a price in both markets. One Burberry product has no Canadian price and is reported as an exclusion.
 - Every price row in [`collected_prices.csv`](bag-arbitrage/pipeline/collected_prices.csv) has its currency, source URL, date and a provenance note.
-- In all 124 rows read from a product page, the URL contains the same style code as the row. The other 207 rows were read from category listings, and the note says so.
+- In all 126 rows read from a product page, the URL contains the same style code as the row. The other 205 rows were read from category listings, and the note says so.
 
 **Method.**
 - **Estimand.** The mean over matched product listings of d = ln(P_CA / (P_US × X)).

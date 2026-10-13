@@ -34,5 +34,12 @@ const fs = require('fs');
     
     await ctx.close();
   }
+  // URL parameters must accept the full slider range (a shared link with 0% Canadian tax must reopen at 0%).
+  const ctx2 = await b.newContext(); const q = await ctx2.newPage();
+  await q.goto('http://localhost:8765/bag-arbitrage/?fx_cad=1.4271&tax_us=0&tax_ca=0', { waitUntil: 'domcontentloaded' });
+  await q.waitForSelector('#t-ca .v');
+  const tax = await q.evaluate(() => ({ state: state.taxca, slider: +document.getElementById('taxca').value, min: +document.getElementById('taxca').min, rmin: RANGES.taxca[0] }));
+  console.log('tax_ca=0 link:', JSON.stringify(tax), tax.state === 0 && tax.slider === 0 && tax.min === tax.rmin ? 'OK' : 'FAIL');
+  await ctx2.close();
   await b.close();
 })();

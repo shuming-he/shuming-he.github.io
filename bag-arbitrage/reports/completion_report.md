@@ -127,4 +127,4 @@ The animations you asked for earlier are kept, and they still respect reduced-mo
 - `results.json` no longer rounds tiny p-values to 0 (A18), and a test now covers this.
 - Unit of analysis defined as a product listing, with the model-level comparison explained (A19).
 - The report explains what the agreement between inference methods does and does not show.
-- `validate.py` checks that every product-page price URL contains its style code: 124 of 124 do.
+- `validate.py` checks that every product-page price URL contains its style code: 124 of 124 did at the time; 126 of 126 after the Breitling re-check.
