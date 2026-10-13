@@ -504,7 +504,7 @@ python run_analysis.py</code></pre>
       <div class="limit"><div class="k">L3 · Price definition</div><h3>List prices, not what buyers pay</h3><p>Sales, waiting lists, secondary-market premiums, duty on cross-border purchases and tourist tax refunds are not observed. Popular Rolex models in particular trade above list price.</p></div>
       <div class="limit"><div class="k">L4 · Timing</div><h3 id="l4-title">A one-day snapshot</h3><p>All prices were read on one day. Because list prices change less often than the exchange rate, the measured gap would differ on another date.</p></div>
       <div class="limit"><div class="k">L5 · Inference</div><h3>Fifteen brands</h3><p>Brand-clustered inference rests on 15 clusters, which is few. Brand-level and subset results are imprecise; small leather goods come from only three brands.</p></div>
-      <div class="limit"><div class="k">L6 · Matching</div><h3 id="l6-title">Some matches use names</h3><p>Where a brand shows no style code on its listing, US and Canadian prices were matched by exact product name. Excluding those matches is one of the robustness checks.</p></div>
+      <div class="limit"><div class="k">L6 · Matching and sources</div><h3 id="l6-title">Some matches use names</h3><p id="l6-text">Where a brand shows no style code on its listing, US and Canadian prices were matched by exact product name, and some prices were read from category listing pages rather than product pages. Each product in the explorer says which. Excluding either group is one of the robustness checks.</p></div>
       <div class="limit"><div class="k">L7 · Sources</div><h3>Brand websites only</h3><p>Third-party sources were checked and not used: Hudson's Bay has closed, Saks Canada disallows crawlers, Farfetch and NET-A-PORTER show retailer prices, and Chrono24 is mostly resale listings.</p></div>
       <div class="limit future"><div class="k">Future work</div><h3>Next steps</h3><ul><li>Re-collect monthly to measure how list prices respond to exchange-rate moves</li><li>Add markets such as the UK, EU and Japan</li><li>Use a headless browser for brands that render prices with JavaScript</li></ul></div>
     </div>
@@ -607,7 +607,7 @@ function compute() {
       const p = { us: l.us * (1 + state.taxus / 100), ca: l.ca / state.fxca * (1 + state.taxca / 100) };
       const gap = p.ca / p.us - 1;
       const best = gap < 0 ? "ca" : "us";
-      return { brand: b.name, name: it.name, cat: it.category, style: it.style, url: it.url || {}, image: it.image, list: l, p, gap, ratio: l.ca / l.us, best, worst: best === "ca" ? "us" : "ca" };
+      return { brand: b.name, name: it.name, cat: it.category, style: it.style, url: it.url || {}, image: it.image, source: it.source, match: it.match, check: it.check, list: l, p, gap, ratio: l.ca / l.us, best, worst: best === "ca" ? "us" : "ca" };
     });
     const avg = mean(items.map(i => i.gap));
     const ratio = Math.exp(mean(items.map(i => Math.log(i.ratio))));
@@ -780,6 +780,8 @@ function renderEvidence(R) {
   const m = R.meta;
   document.getElementById("repro-env").textContent = `Published results: Python ${m.python}, NumPy ${m.numpy}, pandas ${m.pandas}, SciPy ${m.scipy}; bootstrap seed ${m.seed}. Re-running gives identical output.`;
   document.getElementById("l6-title").textContent = `${R.quality.flags.name_match} matches use names`;
+  const lp = R.robustness.find(e => e.label.startsWith("Excluding prices read")), um = R.robustness.find(e => e.label.startsWith("Excluding uncertain"));
+  document.getElementById("l6-text").innerHTML = `${R.quality.flags.name_match} of ${p.n} pairs were matched by exact product name because a page showed no style code, and ${R.quality.flags.listing_price} use at least one price read from a category listing rather than a product page; for those, the source link opens the listing, where the product appears by name. Each product in the explorer says which applies. Excluding name matches and the two identifiers under review, the estimate is ${P(um.pct)}; using only product-page prices it is ${P(lp.pct)}.`;
   document.getElementById("l4-title").textContent = `A snapshot from ${fmtDate(R.meta.collected)}`;
 }
 const norm = s => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
@@ -834,7 +836,7 @@ function renderDetail(animate) {
             <div class="pcat">${i.cat}${i.style && i.style.length < 30 && /\d/.test(i.style) ? " · " + i.style : ""}</div>
             <div class="verdict consumer-only">${advice}</div>
             <div class="verdict mono research-only">ln(CA/US) ${sgn(Math.log(i.p.ca / i.p.us))} · CAD/USD ${i.ratio.toFixed(3)}</div>
-            <div class="src">Source: ${i.url.us ? `<a href="${i.url.us}" rel="noopener nofollow" target="_blank">US site</a>` : "US"} · ${i.url.ca ? `<a href="${i.url.ca}" rel="noopener nofollow" target="_blank">Canada site</a>` : "Canada"}</div>
+            <div class="src">Source: ${i.url.us ? `<a href="${i.url.us}" rel="noopener nofollow" target="_blank">US ${i.source ? i.source.us : "site"}</a>` : "US"} · ${i.url.ca ? `<a href="${i.url.ca}" rel="noopener nofollow" target="_blank">Canada ${i.source ? i.source.ca : "site"}</a>` : "Canada"}${i.match ? ` · matched by ${i.match}` : ""}${i.check ? " · identifier under review" : ""}</div>
           </div>
           <div class="mkts">${MK.map(k => `
             <div class="mkt ${k === i.best ? "best" : ""}">
@@ -845,7 +847,7 @@ function renderDetail(animate) {
           </div>
         </div>`; }).join("")}
       </div>
-      <p class="img-note">Product images are loaded from each brand's official website for identification only and remain the property of their owners.</p>
+      <p class="img-note">“Category listing” links open the brand page the price was read from; find the product there by name. Product images are loaded from each brand's official website for identification only and remain the property of their owners.</p>
     </div>`;
 }
 const isPrimary = () => Math.abs(state.fxca - DEFAULTS.fxca) < 1e-9 && state.taxus === 0 && state.taxca === 0;

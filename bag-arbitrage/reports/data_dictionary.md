@@ -59,4 +59,4 @@ Machine-readable output of `run_analysis.py`, read by the website and the report
 
 ## `data/prices.json`
 
-Website dataset written by `build_dataset.py`: `meta` and `brands[]`, each with `items[]` holding `name`, `category`, `style`, `price.us`, `price.ca`, `url.us`, `url.ca` and optional `image`.
+Website dataset written by `build_dataset.py`: `meta` and `brands[]`, each with `items[]` holding `name`, `category`, `style`, `price.us`, `price.ca`, `url.us`, `url.ca`, `source.us` / `source.ca` (`product page` or `category listing`: where that price was read), `match` (`style code` or `product name`), optional `check` (identifier under review) and optional `image`.

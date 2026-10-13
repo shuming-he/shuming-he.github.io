@@ -16,6 +16,8 @@ from pathlib import Path
 
 import pandas as pd
 
+import validate
+
 HERE = Path(__file__).parent
 OUT = HERE.parent / "data" / "prices.json"
 EXPECTED = {"us": "USD", "ca": "CAD"}
@@ -52,6 +54,13 @@ def main() -> None:
                 .merge(products.reindex(columns=["brand_id", "brand", "tier", "product", "category", "style", "image"]), on=["brand_id", "product"]))
     print(f"{len(complete)} of {len(products)} products have prices in both markets")
 
+    # Provenance shown on the page: where each price was read, and how the two markets were matched.
+    notes = latest.pivot_table(index=["brand_id", "product"], columns="market", values="note", aggfunc="last").fillna("")
+    notes.columns = [f"note_{c}" for c in notes.columns]
+    complete = complete.merge(notes.reset_index(), on=["brand_id", "product"], how="left")
+    pairs, _ = validate.build_pairs(*validate.load_raw())
+    complete = complete.merge(pairs[["brand_id", "product", "name_match", "identifier_check"]], on=["brand_id", "product"], how="left")
+
     # Brands missing any product photo go last; within a brand, items with a photo come first.
     tier_order = {"Accessible luxury": 0, "Luxury": 1, "Watchmaker": 2}
     has_img = complete["image"].fillna("").str.startswith("https://")
@@ -64,6 +73,9 @@ def main() -> None:
             {"name": r["product"], "category": r["category"], "style": str(r["style"]),
              "price": {"us": round(float(r["us"]), 2), "ca": round(float(r["ca"]), 2)},
              "url": {"us": r["src_us"], "ca": r["src_ca"]},
+             "source": {m: "category listing" if "category listing" in str(r[f"note_{m}"]) else "product page" for m in EXPECTED},
+             "match": "product name" if r["name_match"] else "style code",
+             **({"check": True} if r["identifier_check"] else {}),
              **({"image": r["image"]} if isinstance(r["image"], str) and r["image"].startswith("https://") else {})}
             for _, r in g.iterrows()]})
 

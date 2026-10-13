@@ -22,7 +22,7 @@ These are in report Section 1 and in the page's "Research question" section.
   - 331 price rows, 166 products and 165 matched pairs.
   - One exclusion: a Burberry product with no Canadian price.
   - 0 format failures.
-  - Flag counts: 30 name matches, 104 listing-page prices, 11 sold out, and 17 repeated price pairs.
+  - Flag counts: 27 name matches, 104 listing-page prices, 11 sold out, and 17 repeated price pairs.
 
 ## D. Primary result
 Produced by `run_analysis.py` and stored in `data/results.json`.
@@ -111,7 +111,7 @@ The animations you asked for earlier are kept, and they still respect reduced-mo
   - The brands and products were chosen, not sampled.
   - The data are list prices, not what buyers actually pay.
   - There are only 15 clusters.
-  - 30 matches rely on product names.
+  - 27 matches rely on product names.
   - US tax rates are illustrative.
   - Product images are hot-linked from brand sites and were not checked from this environment.
 - The project does not guarantee admission anywhere.
