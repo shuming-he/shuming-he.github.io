@@ -1,7 +1,4 @@
 brand_id,product,style,market,price,currency,url,collected,note
-coach,Tabby Shoulder Bag 26,CEN52,us,475,USD,https://www.coach.com/products/tabby-shoulder-bag-26/CEN52.html,2026-10-13,
-coach,Tabby Shoulder Bag 26,CEN52,ca,580,CAD,https://ca.coach.com/products/tabby-shoulder-bag-26/CEN52.html,2026-10-13,
-coach,Brooklyn Shoulder Bag 28,CU068,ca,360,CAD,https://ca.coach.com/products/brooklyn-shoulder-bag-28/CU068.html,2026-10-13,US page shows no price
 rolex,Submariner Date 41,126610LN,us,11350,USD,https://www.rolex.com/en-us/watches/submariner/m126610ln-0001,2026-10-13,
 rolex,Submariner Date 41,126610LN,ca,14350,CAD,https://www.rolex.com/en-ca/watches/submariner/m126610ln-0001,2026-10-13,
 longchamp,Le Pliage Original Tote L,L1899089001,us,180,USD,https://www.longchamp.com/us/en/products/tote-bag-l-L1899089001.html,2026-10-13,
@@ -63,7 +60,6 @@ chopard,Alpine Eagle 41,298600-3001,us,17000,USD,https://www.chopard.com/en-us/w
 chopard,Alpine Eagle 41,298600-3001,ca,22300,CAD,https://www.chopard.com/en-ca/watch/298600-3001.html,2026-10-13,
 chopard,Alpine Eagle 36,298601-3012,us,15100,USD,https://www.chopard.com/en-us/watch/298601-3012.html,2026-10-13,
 chopard,Alpine Eagle 36,298601-3012,ca,19800,CAD,https://www.chopard.com/en-ca/watch/298601-3012.html,2026-10-13,
-coach,Brooklyn Shoulder Bag 28,CU068,us,295,USD,https://www.coach.com/products/brooklyn-shoulder-bag-28/CU068.html,2026-10-13,
 hermes,Neo Garden Voyage 41 Bredies Bag,H087934CKAA,us,9900,USD,https://www.hermes.com/us/en/product/neo-garden-voyage-41-bredies-bag-H087934CKAA/,2026-10-13,price read from category listing
 hermes,Neo Garden Voyage 41 Bredies Bag,H087934CKAA,ca,11600,CAD,https://www.hermes.com/ca/en/product/neo-garden-voyage-41-bredies-bag-H087934CKAA/,2026-10-13,price read from category listing
 dior,Small Dior Promenade Shopping Bag (Blue Oblique Jacquard),small-blue-oblique,us,3350,USD,https://www.dior.com/en_us/fashion/womens-fashion/bags/all-bags,2026-10-13,price read from category listing
@@ -110,20 +106,6 @@ miu-miu,Retour Suede Top-Handle Bag,5BP111_2ZX5_F05YT_V_OOO,us,3200,USD,https://
 miu-miu,Retour Suede Top-Handle Bag,5BP111_2ZX5_F05YT_V_OOO,ca,4200,CAD,https://www.miumiu.com/ca/en/bags/c/10268CA,2026-10-13,price read from category listing
 miu-miu,Arcadie Studded Leather Bag,5BB142_2ZSQ_F0009_V_OBO,us,4500,USD,https://www.miumiu.com/us/en/p/arcadie-studded-leather-bag/5BB142_2ZSQ_F0009_V_OBO,2026-10-13,price read from category listing
 miu-miu,Arcadie Studded Leather Bag,5BB142_2ZSQ_F0009_V_OBO,ca,5900,CAD,https://www.miumiu.com/ca/en/bags/c/10268CA,2026-10-13,price read from category listing
-coach,Chelsea Shoulder Bag 30,CDS59,us,325,USD,https://www.coach.com/products/chelsea-shoulder-bag-30/CDS59.html,2026-10-13,
-coach,Chelsea Shoulder Bag 30,CDS59,ca,400,CAD,https://ca.coach.com/en/shop/women/handbags/view-all,2026-10-13,price read from category listing; matched to style code by exact name
-coach,Soft Tabby Shoulder Bag 20,CFQ98,us,375,USD,https://www.coach.com/shop/women/handbags/view-all,2026-10-13,price read from category listing; matched to style code by exact name
-coach,Soft Tabby Shoulder Bag 20,CFQ98,ca,460,CAD,https://ca.coach.com/en/shop/women/handbags/view-all,2026-10-13,price read from category listing; matched to style code by exact name
-coach,Tabby Shoulder Bag 20,CW917,us,375,USD,https://www.coach.com/shop/women/handbags/view-all,2026-10-13,price read from category listing; matched to style code by exact name
-coach,Tabby Shoulder Bag 20,CW917,ca,460,CAD,https://ca.coach.com/en/shop/women/handbags/view-all,2026-10-13,price read from category listing; matched to style code by exact name
-coach,Soft Tabby Shoulder Bag 20 In Crystal Signature Jacquard,CFQ99,us,475,USD,https://www.coach.com/shop/women/handbags/view-all,2026-10-13,price read from category listing; matched to style code by exact name
-coach,Soft Tabby Shoulder Bag 20 In Crystal Signature Jacquard,CFQ99,ca,580,CAD,https://ca.coach.com/en/shop/women/handbags/view-all,2026-10-13,price read from category listing; matched to style code by exact name
-coach,Belted Ergo Shoulder Bag 26 In Signature Jacquard,CEN87,us,295,USD,https://www.coach.com/shop/women/handbags/view-all,2026-10-13,price read from category listing; matched to style code by exact name
-coach,Belted Ergo Shoulder Bag 26 In Signature Jacquard,CEN87,ca,360,CAD,https://ca.coach.com/en/shop/women/handbags/view-all,2026-10-13,price read from category listing; matched to style code by exact name
-coach,Tabby Shoulder Bag 26 In Crystal Signature Jacquard,CDZ34,us,575,USD,https://www.coach.com/products/tabby-shoulder-bag-26-in-crystal-signature-jacquard/CDZ34.html,2026-10-13,
-coach,Tabby Shoulder Bag 26 In Crystal Signature Jacquard,CDZ34,ca,700,CAD,https://ca.coach.com/en/products/tabby-shoulder-bag-26-in-crystal-signature-jacquard/CDZ34.html,2026-10-13,
-coach,Essential Slim Card Case In Crystal Signature Jacquard,CCD16,us,125,USD,https://www.coach.com/shop/women/wallets-wristlets,2026-10-13,price read from category listing; matched to style code by exact name
-coach,Essential Slim Card Case In Crystal Signature Jacquard,CCD16,ca,150,CAD,https://ca.coach.com/en/shop/women/wallets-wristlets,2026-10-13,price read from category listing; matched to style code by exact name
 coach,Essential Card Case With Pillow Quilting,CM434,us,95,USD,https://www.coach.com/shop/women/wallets-wristlets,2026-10-13,price read from category listing; matched to style code by exact name
 coach,Essential Card Case With Pillow Quilting,CM434,ca,120,CAD,https://ca.coach.com/en/shop/women/wallets-wristlets,2026-10-13,price read from category listing; matched to style code by exact name
 longchamp,Le Pliage Original S Handbag Navy,L1621089P68,us,150,USD,https://www.longchamp.com/us/en/products/handbag-s-L1621089P68.html,2026-10-13,
@@ -176,12 +158,6 @@ celine,Flair Shiny Calfskin Chestnut,L10AT5B53.18CH,us,4550,USD,https://www.celi
 celine,Flair Shiny Calfskin Chestnut,L10AT5B53.18CH,ca,6200,CAD,https://www.celine.com/en-ca/celine-shop-women/handbags/,2026-10-13,price read from category listing
 dior,Small Dior Toujours Hobo Bag Black Cannage Lambskin,small-toujours-hobo-black-lambskin,us,3700,USD,https://www.dior.com/en_us/fashion/womens-fashion/bags/all-bags,2026-10-13,price read from category listing
 dior,Small Dior Toujours Hobo Bag Black Cannage Lambskin,small-toujours-hobo-black-lambskin,ca,4800,CAD,https://www.dior.com/en_ca/fashion/womens-fashion/bags/all-bags,2026-10-13,price read from category listing
-dior,Small Dior Toujours Hobo Bag Marron Bobby Suede,small-toujours-hobo-marron-bobby-suede,us,3700,USD,https://www.dior.com/en_us/fashion/womens-fashion/bags/all-bags,2026-10-13,price read from category listing
-dior,Small Dior Toujours Hobo Bag Marron Bobby Suede,small-toujours-hobo-marron-bobby-suede,ca,4800,CAD,https://www.dior.com/en_ca/fashion/womens-fashion/bags/all-bags,2026-10-13,price read from category listing
-dior,Medium Dior Toujours Bag Glove Macrocannage,medium-toujours-glove,us,4300,USD,https://www.dior.com/en_us/fashion/womens-fashion/bags/all-bags,2026-10-13,price read from category listing
-dior,Medium Dior Toujours Bag Glove Macrocannage,medium-toujours-glove,ca,5800,CAD,https://www.dior.com/en_ca/fashion/womens-fashion/bags/all-bags,2026-10-13,price read from category listing
-dior,Medium Dior Toujours Bag Chocolate Macrocannage,medium-toujours-chocolate,us,4300,USD,https://www.dior.com/en_us/fashion/womens-fashion/bags/all-bags,2026-10-13,price read from category listing
-dior,Medium Dior Toujours Bag Chocolate Macrocannage,medium-toujours-chocolate,ca,5800,CAD,https://www.dior.com/en_ca/fashion/womens-fashion/bags/all-bags,2026-10-13,price read from category listing
 fendi,Baguette 26424 Camel Shearling,8BR850B1E5F0XT5,us,3900,USD,https://www.fendi.com/us-en/woman/bags,2026-10-13,price read from category listing; sold out in US and CA
 fendi,Baguette 26424 Camel Shearling,8BR850B1E5F0XT5,ca,4750,CAD,https://www.fendi.com/ca-en/woman/bags,2026-10-13,price read from category listing; sold out in US and CA
 fendi,My Peekaboo XS Black Leather,8BN372B1E6F0QA1,us,4300,USD,https://www.fendi.com/us-en/woman/bags/peekaboo,2026-10-13,price read from category listing; sold out in US and CA
@@ -306,3 +282,27 @@ chopard,Alpine Eagle Cadence 8HF Titanium,298600-3020,us,25300,USD,https://www.c
 chopard,Alpine Eagle Cadence 8HF Titanium,298600-3020,ca,33300,CAD,https://www.chopard.com/en-ca/watches/alpine-eagle,2026-10-13,price read from category listing
 chopard,Alpine Eagle 41 XP TT Titanium,298630-3001,us,30500,USD,https://www.chopard.com/en-us/watches/alpine-eagle,2026-10-13,price read from category listing
 chopard,Alpine Eagle 41 XP TT Titanium,298630-3001,ca,40100,CAD,https://www.chopard.com/en-ca/watches/alpine-eagle,2026-10-13,price read from category listing
+coach,Tabby Card Case (CFT14),CFT14,us,95,USD,https://www.coach.com/shop/women/wallets-wristlets,2026-10-13,price read from category listing
+coach,Tabby Card Case (CFT14),CFT14,ca,120,CAD,https://ca.coach.com/shop/women/wallets-wristlets,2026-10-13,price read from category listing
+coach,Tabby Card Case (CGM78),CGM78,us,95,USD,https://www.coach.com/shop/women/wallets-wristlets,2026-10-13,price read from category listing
+coach,Tabby Card Case (CGM78),CGM78,ca,120,CAD,https://ca.coach.com/shop/women/wallets-wristlets,2026-10-13,price read from category listing
+coach,Essential Card Case (CM436),CM436,us,75,USD,https://www.coach.com/shop/women/wallets-wristlets,2026-10-13,price read from category listing
+coach,Essential Card Case (CM436),CM436,ca,90,CAD,https://ca.coach.com/shop/women/wallets-wristlets,2026-10-13,price read from category listing
+coach,Essential Card Case With Crystal Signature,CFT03,us,95,USD,https://www.coach.com/shop/women/wallets-wristlets,2026-10-13,price read from category listing
+coach,Essential Card Case With Crystal Signature,CFT03,ca,120,CAD,https://ca.coach.com/shop/women/wallets-wristlets,2026-10-13,price read from category listing
+coach,Essential Card Case (CM435),CM435,us,75,USD,https://www.coach.com/shop/women/wallets-wristlets,2026-10-13,price read from category listing
+coach,Essential Card Case (CM435),CM435,ca,90,CAD,https://ca.coach.com/shop/women/wallets-wristlets,2026-10-13,price read from category listing
+coach,3-In-1 Wallet,CY911,us,195,USD,https://www.coach.com/shop/men/wallets,2026-10-13,price read from category listing
+coach,3-In-1 Wallet,CY911,ca,240,CAD,https://ca.coach.com/shop/men/wallets,2026-10-13,price read from category listing
+coach,Slim Billfold Wallet,CZ261,us,150,USD,https://www.coach.com/shop/men/wallets,2026-10-13,price read from category listing
+coach,Slim Billfold Wallet,CZ261,ca,180,CAD,https://ca.coach.com/shop/men/wallets,2026-10-13,price read from category listing
+coach,Money Clip Card Case,CW725,us,95,USD,https://www.coach.com/shop/men/wallets,2026-10-13,price read from category listing
+coach,Money Clip Card Case,CW725,ca,120,CAD,https://ca.coach.com/shop/men/wallets,2026-10-13,price read from category listing
+coach,Card Case,CZ000,us,75,USD,https://www.coach.com/shop/men/wallets,2026-10-13,price read from category listing
+coach,Card Case,CZ000,ca,90,CAD,https://ca.coach.com/shop/men/wallets,2026-10-13,price read from category listing
+dior,Medium Dior Book Tote Blue Dior Oblique Embroidery,book-tote-medium-blue-oblique,us,4000,USD,https://www.dior.com/en_us/fashion/products/M1324CZBB_M928,2026-10-13,
+dior,Medium Dior Book Tote Blue Dior Oblique Embroidery,book-tote-medium-blue-oblique,ca,5500,CAD,https://www.dior.com/en_ca/fashion/products/M1324CZBB_M928,2026-10-13,
+dior,Small Dior Book Tote Black Macrocannage Calfskin,book-tote-small-black-macrocannage,us,3900,USD,https://www.dior.com/en_us/fashion/products/M1325OWHP_M900,2026-10-13,
+dior,Small Dior Book Tote Black Macrocannage Calfskin,book-tote-small-black-macrocannage,ca,5100,CAD,https://www.dior.com/en_ca/fashion/products/M1325OWHP_M900,2026-10-13,
+dior,Saddle Bag with Strap Blue Dior Oblique Jacquard,saddle-strap-blue-oblique,us,4700,USD,https://www.dior.com/en_us/fashion/products/M0455CTZQ_M928,2026-10-13,
+dior,Saddle Bag with Strap Blue Dior Oblique Jacquard,saddle-strap-blue-oblique,ca,6200,CAD,https://www.dior.com/en_ca/fashion/products/M0455CTZQ_M928,2026-10-13,
