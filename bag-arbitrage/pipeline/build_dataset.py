@@ -49,7 +49,7 @@ def main() -> None:
     urls.columns = [f"src_{c}" for c in urls.columns]
     complete = (wide.dropna(subset=list(EXPECTED))
                 .merge(urls.reset_index(), on=["brand_id", "product"])
-                .merge(products[["brand_id", "brand", "tier", "product", "category", "style"]], on=["brand_id", "product"]))
+                .merge(products.reindex(columns=["brand_id", "brand", "tier", "product", "category", "style", "image"]), on=["brand_id", "product"]))
     print(f"{len(complete)} of {len(products)} products have prices in both markets")
 
     tier_order = {"Accessible luxury": 0, "Luxury": 1, "Watchmaker": 2}
@@ -59,7 +59,8 @@ def main() -> None:
         brands.append({"id": bid, "name": name, "tier": tier, "items": [
             {"name": r["product"], "category": r["category"], "style": str(r["style"]),
              "price": {"us": round(float(r["us"]), 2), "ca": round(float(r["ca"]), 2)},
-             "url": {"us": r["src_us"], "ca": r["src_ca"]}}
+             "url": {"us": r["src_us"], "ca": r["src_ca"]},
+             **({"image": r["image"]} if isinstance(r["image"], str) and r["image"].startswith("https://") else {})}
             for _, r in g.iterrows()]})
 
     out = {
