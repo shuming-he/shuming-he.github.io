@@ -43,7 +43,7 @@ a.project:hover { border-color: var(--fg-3); background: var(--surface-2); trans
 .project .arrow { font-size: 22px; color: var(--fg-2); }
 .project.soon { border-style: dashed; background: transparent; }
 .project.soon h3 { color: var(--fg-2); }
-.project .preview { width: 100%; height: 6px; border-radius: 3px; background: linear-gradient(90deg, var(--us) 0 33%, var(--ca) 33% 66%, var(--cn) 66% 100%); opacity: .85; margin-top: 4px; }
+.project .preview { width: 100%; height: 6px; border-radius: 3px; background: linear-gradient(90deg, var(--us) 0 50%, var(--ca) 50% 100%); opacity: .85; margin-top: 4px; }
 @media (max-width: 680px) {
   .project { grid-template-columns: minmax(0, 1fr); gap: 10px; padding: 20px; }
   .project .side { flex-direction: row; align-items: center; justify-content: space-between; }
@@ -93,9 +93,9 @@ a.project:hover { border-color: var(--fg-3); background: var(--surface-2); trans
         <span class="idx">P/01</span>
         <div>
           <h3>Bag Arbitrage</h3>
-          <p>Do identical luxury bags and watches cost more in China or Canada than in the US once currency and tax are accounted for? 47 matched products, 15 brands, paired t-tests and regression, with an interactive explorer.</p>
-          <div class="snap"><span><b>47</b> products</span><span><b>15</b> brands</span><span><b>3</b> markets</span><span>paired t-test</span><span>log-ratio analysis</span><span>OLS regression</span></div>
-          <div class="stack"><span>Python</span><span>Web scraping</span><span>Inferential statistics</span><span>JavaScript + SVG</span></div>
+          <p>Is the same luxury bag or watch cheaper in Canada or the US once currency and tax are accounted for? Real list prices from 15 brands' official US and Canadian websites, a paired t-test, the exchange rate brands really use, and an interactive explorer.</p>
+          <div class="snap"><span><b>31</b> products</span><span><b>15</b> brands</span><span><b>US vs Canada</b></span><span>real list prices</span><span>paired t-test</span><span>OLS regression</span></div>
+          <div class="stack"><span>Python</span><span>Data collection</span><span>Inferential statistics</span><span>JavaScript + SVG</span></div>
           <div class="preview" aria-hidden="true"></div>
         </div>
         <div class="side"><span class="tag live">Live</span><span class="arrow" aria-hidden="true">→</span></div>

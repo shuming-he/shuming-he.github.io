@@ -23,7 +23,7 @@ import requests
 from parse import extract_price
 
 HERE = Path(__file__).parent
-MARKETS = {"us": "USD", "ca": "CAD", "cn": "CNY"}
+MARKETS = {"us": "USD", "ca": "CAD"}
 USER_AGENT = "BagArbitrageResearchBot/0.1 (student data science project; https://shuming-he.github.io/bag-arbitrage/)"
 
 _robots: dict[str, urllib.robotparser.RobotFileParser] = {}
@@ -66,7 +66,7 @@ def main() -> None:
         products = [p for p in products if p["brand_id"] == args.brand]
 
     session = requests.Session()
-    session.headers.update({"User-Agent": USER_AGENT, "Accept-Language": "en-US,en;q=0.9,zh-CN;q=0.8"})
+    session.headers.update({"User-Agent": USER_AGENT, "Accept-Language": "en-US,en;q=0.9"})
 
     out_dir = HERE / "raw"
     out_dir.mkdir(exist_ok=True)
@@ -100,7 +100,7 @@ def main() -> None:
 
     print(f"\n{n_ok}/{n_try} prices captured -> {out_path.relative_to(HERE)}")
     if n_try == 0:
-        print("No URLs in products.csv yet. Add official product page URLs to url_us / url_ca / url_cn.")
+        print("No URLs in products.csv yet. Add official product page URLs to url_us / url_ca.")
 
 
 if __name__ == "__main__":

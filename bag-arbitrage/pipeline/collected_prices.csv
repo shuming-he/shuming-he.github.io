@@ -1,0 +1,65 @@
+brand_id,product,style,market,price,currency,url,collected,note
+coach,Tabby Shoulder Bag 26,CEN52,us,475,USD,https://www.coach.com/products/tabby-shoulder-bag-26/CEN52.html,2026-10-13,
+coach,Tabby Shoulder Bag 26,CEN52,ca,580,CAD,https://ca.coach.com/products/tabby-shoulder-bag-26/CEN52.html,2026-10-13,
+coach,Brooklyn Shoulder Bag 28,CU068,ca,360,CAD,https://ca.coach.com/products/brooklyn-shoulder-bag-28/CU068.html,2026-10-13,US page shows no price
+rolex,Submariner Date 41,126610LN,us,11350,USD,https://www.rolex.com/en-us/watches/submariner/m126610ln-0001,2026-10-13,
+rolex,Submariner Date 41,126610LN,ca,14350,CAD,https://www.rolex.com/en-ca/watches/submariner/m126610ln-0001,2026-10-13,
+longchamp,Le Pliage Original Tote L,L1899089001,us,180,USD,https://www.longchamp.com/us/en/products/tote-bag-l-L1899089001.html,2026-10-13,
+longchamp,Le Pliage Original Tote L,L1899089001,ca,240,CAD,https://www.longchamp.com/ca/en/products/tote-bag-l-L1899089001.html,2026-10-13,
+rolex,Datejust 41,126300,us,8950,USD,https://www.rolex.com/en-us/watches/datejust/m126300-0001,2026-10-13,
+rolex,Datejust 41,126300,ca,11300,CAD,https://www.rolex.com/en-ca/watches/datejust/m126300-0001,2026-10-13,
+omega,Speedmaster Moonwatch Professional,310.30.42.50.01.002,us,9000,USD,https://www.omegawatches.com/en-us/watch-omega-speedmaster-moonwatch-professional-co-axial-master-chronometer-chronograph-42-mm-31030425001002,2026-10-13,
+omega,Speedmaster Moonwatch Professional,310.30.42.50.01.002,ca,11800,CAD,https://www.omegawatches.com/en-ca/watch-omega-speedmaster-moonwatch-professional-co-axial-master-chronometer-chronograph-42-mm-31030425001002,2026-10-13,
+iwc,Portugieser Chronograph,IW371605,us,9200,USD,https://www.iwc.com/us-en/watches/portugieser/iw371605-portugieser-chronograph,2026-10-13,
+iwc,Portugieser Chronograph,IW371605,ca,12100,CAD,https://www.iwc.com/ca-en/watches/portugieser/iw371605-portugieser-chronograph,2026-10-13,
+omega,Seamaster Diver 300M,210.30.42.20.01.001,us,6700,USD,https://www.omegawatches.com/en-us/watch-omega-seamaster-diver-300m-co-axial-master-chronometer-42-mm-21030422001001,2026-10-13,
+omega,Seamaster Diver 300M,210.30.42.20.01.001,ca,8700,CAD,https://www.omegawatches.com/en-ca/watch-omega-seamaster-diver-300m-co-axial-master-chronometer-42-mm-21030422001001,2026-10-13,
+iwc,Pilot's Watch Mark XX,IW328201,us,5900,USD,https://www.iwc.com/us-en/watches/pilot-watches/iw328201-pilots-watch-mark-xx,2026-10-13,
+iwc,Pilot's Watch Mark XX,IW328201,ca,7900,CAD,https://www.iwc.com/ca-en/watches/pilot-watches/iw328201-pilots-watch-mark-xx,2026-10-13,
+breitling,Navitimer B01 Chronograph 43,AB0138211B1A1,us,10700,USD,https://www.breitling.com/us-en/watches/navitimer/navitimer-b01-chronograph-43-my22/AB0138211B1A1/,2026-10-13,
+breitling,Navitimer B01 Chronograph 43,AB0138211B1A1,ca,12900,CAD,https://www.breitling.com/ca-en/watches/navitimer/navitimer-b01-chronograph-43-my22/AB0138211B1A1/,2026-10-13,
+prada,Re-Edition 2005 Re-Nylon Bag,1BH204_R064_F0002,us,2250,USD,https://www.prada.com/us/en/p/prada-re-edition-2005-re-nylon-bag/1BH204_R064_F0002_V_V9L,2026-10-13,
+prada,Re-Edition 2005 Re-Nylon Bag,1BH204_R064_F0002,ca,2950,CAD,https://www.prada.com/ca/en/p/prada-re-edition-2005-re-nylon-bag/1BH204_R064_F0002_V_V9L,2026-10-13,
+jaeger-lecoultre,Reverso Tribute Monoface,Q7168420,us,9600,USD,https://www.jaeger-lecoultre.com/us-en/watches/reverso/reverso-tribute/reverso-tribute-monoface-stainless-steel-q7168420,2026-10-13,
+jaeger-lecoultre,Reverso Tribute Monoface,Q7168420,ca,12500,CAD,https://www.jaeger-lecoultre.com/ca-en/watches/reverso/reverso-tribute/reverso-tribute-monoface-stainless-steel-q7168420,2026-10-13,
+burberry,Medium Check Tote,80939781,us,1790,USD,https://us.burberry.com/medium-check-tote-p80939781,2026-10-13,list price; on sale for 1253 when collected
+celine,Classique Triomphe Bag,187363BF4.38NO,us,4350,USD,https://www.celine.com/en-us/celine-shop-women/handbags/triomphe/classique-triomphe-bag-in-shiny-calfskin-187363BF4.38NO.html,2026-10-13,
+celine,Classique Triomphe Bag,187363BF4.38NO,ca,5400,CAD,https://www.celine.com/en-ca/celine-shop-women/handbags/triomphe/classique-triomphe-bag-in-shiny-calfskin-187363BF4.38NO.html,2026-10-13,
+celine,Teen Triomphe Bag,188423BF4.38NO,us,4150,USD,https://www.celine.com/en-us/celine-shop-women/handbags/triomphe/teen-triomphe-bag-in-shiny-calfskin-188423BF4.38NO.html,2026-10-13,
+celine,Teen Triomphe Bag,188423BF4.38NO,ca,5100,CAD,https://www.celine.com/en-ca/celine-shop-women/handbags/triomphe/teen-triomphe-bag-in-shiny-calfskin-188423BF4.38NO.html,2026-10-13,
+iwc,Portofino Automatic,IW356501,us,5400,USD,https://www.iwc.com/us-en/watches/portofino/iw356501-portofino-automatic,2026-10-13,
+iwc,Portofino Automatic,IW356501,ca,7600,CAD,https://www.iwc.com/ca-en/watches/portofino/iw356501-portofino-automatic,2026-10-13,
+longchamp,Le Pliage Original Tote M,L2605089001,us,165,USD,https://www.longchamp.com/us/en/products/tote-bag-m-L2605089001.html,2026-10-13,
+longchamp,Le Pliage Original Tote M,L2605089001,ca,220,CAD,https://www.longchamp.com/ca/en/products/tote-bag-m-L2605089001.html,2026-10-13,
+breitling,Superocean Automatic 42,A17375E71C1A1,us,5900,USD,https://www.breitling.com/us-en/watches/superocean/superocean-automatic-42-my22/A17375E71C1A1/,2026-10-13,
+breitling,Superocean Automatic 42,A17375E71C1A1,ca,7050,CAD,https://www.breitling.com/ca-en/watches/superocean/superocean-automatic-42-my22/A17375E71C1A1/,2026-10-13,
+prada,Galleria Medium Saffiano,1BA863_NZV_F0002_V_EOO,us,5100,USD,https://www.prada.com/us/en/p/prada-galleria-medium-saffiano-leather-bag/1BA863_NZV_F0002_V_EOO,2026-10-13,
+prada,Galleria Medium Saffiano,1BA863_NZV_F0002_V_EOO,ca,6600,CAD,https://www.prada.com/ca/en/p/prada-galleria-medium-saffiano-leather-bag/1BA863_NZV_F0002_V_EOO,2026-10-13,
+jaeger-lecoultre,Polaris Date,Q906863J,us,13100,USD,https://www.jaeger-lecoultre.com/us-en/watches/polaris/polaris-date-stainless-steel-q906863j,2026-10-13,
+jaeger-lecoultre,Polaris Date,Q906863J,ca,17100,CAD,https://www.jaeger-lecoultre.com/ca-en/watches/polaris/polaris-date-stainless-steel-q906863j,2026-10-13,
+dior,Medium Dior Promenade Shopping Bag (Black Flat Cannage),medium-black-cannage,us,4500,USD,https://www.dior.com/en_us/fashion/womens-fashion/bags/all-bags,2026-10-13,price read from category listing
+dior,Medium Dior Promenade Shopping Bag (Black Flat Cannage),medium-black-cannage,ca,5900,CAD,https://www.dior.com/en_ca/fashion/womens-fashion/bags/all-bags,2026-10-13,price read from category listing
+dior,Small Dior Promenade Shopping Bag (Black Flat Cannage),small-black-cannage,us,4000,USD,https://www.dior.com/en_us/fashion/womens-fashion/bags/all-bags,2026-10-13,price read from category listing
+dior,Small Dior Promenade Shopping Bag (Black Flat Cannage),small-black-cannage,ca,5300,CAD,https://www.dior.com/en_ca/fashion/womens-fashion/bags/all-bags,2026-10-13,price read from category listing
+dior,Medium Dior Promenade Shopping Bag (Blue Oblique Jacquard),medium-blue-oblique,us,3600,USD,https://www.dior.com/en_us/fashion/womens-fashion/bags/all-bags,2026-10-13,price read from category listing
+dior,Medium Dior Promenade Shopping Bag (Blue Oblique Jacquard),medium-blue-oblique,ca,4800,CAD,https://www.dior.com/en_ca/fashion/womens-fashion/bags/all-bags,2026-10-13,price read from category listing
+fendi,Medium Roll (FF Zucca shopper),8BH444B1J2F1PR4,us,1650,USD,https://www.fendi.com/us-en/woman/bags/medium-roll-ff-zucca-superlight-fabric-shopper-8bh444b1j2f1pr4,2026-10-13,US listing marked sold out; list price shown
+fendi,Medium Roll (FF Zucca shopper),8BH444B1J2F1PR4,ca,2050,CAD,https://www.fendi.com/ca-en/woman/bags/medium-roll-ff-zucca-superlight-fabric-shopper-8bh444b1j2f1pr4,2026-10-13,
+fendi,Baguette 26424 (FF Zucca jacquard),8BR850B17AF14YN,us,3100,USD,https://www.fendi.com/us-en/woman/bags/baguette-26424-ff-zucca-jacquard-fabric-bag-8br850b17af14yn,2026-10-13,US listing marked sold out; list price shown
+fendi,Baguette 26424 (FF Zucca jacquard),8BR850B17AF14YN,ca,3800,CAD,https://www.fendi.com/ca-en/woman/bags/baguette-26424-ff-zucca-jacquard-fabric-bag-8br850b17af14yn,2026-10-13,
+miu-miu,Ivy Leather Bag,5BG231_2CRW_F0046_V_MLN,us,2390,USD,https://www.miumiu.com/us/en/p/ivy-leather-bag/5BG231_2CRW_F0046_V_MLN,2026-10-13,
+miu-miu,Ivy Leather Bag,5BG231_2CRW_F0046_V_MLN,ca,3100,CAD,https://www.miumiu.com/ca/en/p/ivy-leather-bag/5BG231_2CRW_F0046_V_MLN,2026-10-13,
+miu-miu,Ivy Suede Handbag,5BA352_2ZX5_F06AK_V_OOO,us,1950,USD,https://www.miumiu.com/us/en/p/ivy-suede-handbag/5BA352_2ZX5_F06AK_V_OOO,2026-10-13,
+miu-miu,Ivy Suede Handbag,5BA352_2ZX5_F06AK_V_OOO,ca,2550,CAD,https://www.miumiu.com/ca/en/p/ivy-suede-handbag/5BA352_2ZX5_F06AK_V_OOO,2026-10-13,
+tory-burch,Ella Tote,ella-tote,us,260,USD,https://www.toryburch.com/en-us/handbags/,2026-10-13,price read from category listing
+tory-burch,Ella Tote,ella-tote,ca,365,CAD,https://www.toryburch.com/en-ca/handbags/,2026-10-13,price read from category listing
+tory-burch,Ella natuura Drawstring Tote,ella-natuura-drawstring,us,395,USD,https://www.toryburch.com/en-us/handbags/,2026-10-13,price read from category listing
+tory-burch,Ella natuura Drawstring Tote,ella-natuura-drawstring,ca,540,CAD,https://www.toryburch.com/en-ca/handbags/,2026-10-13,price read from category listing
+tory-burch,Romy Distressed Tote,romy-distressed-tote,us,595,USD,https://www.toryburch.com/en-us/handbags/,2026-10-13,price read from category listing
+tory-burch,Romy Distressed Tote,romy-distressed-tote,ca,745,CAD,https://www.toryburch.com/en-ca/handbags/,2026-10-13,price read from category listing
+hermes,Hermès Videpoches Bag,H088914CK37,us,5500,USD,https://www.hermes.com/us/en/product/hermes-videpoches-bag-H088914CK37/,2026-10-13,price read from category listing
+hermes,Hermès Videpoches Bag,H088914CK37,ca,6650,CAD,https://www.hermes.com/ca/en/product/hermes-videpoches-bag-H088914CK37/,2026-10-13,price read from category listing
+chopard,Alpine Eagle 41,298600-3001,us,17000,USD,https://www.chopard.com/en-us/watch/298600-3001.html,2026-10-13,
+chopard,Alpine Eagle 41,298600-3001,ca,22300,CAD,https://www.chopard.com/en-ca/watch/298600-3001.html,2026-10-13,
+chopard,Alpine Eagle 36,298601-3012,us,15100,USD,https://www.chopard.com/en-us/watch/298601-3012.html,2026-10-13,
+chopard,Alpine Eagle 36,298601-3012,ca,19800,CAD,https://www.chopard.com/en-ca/watch/298601-3012.html,2026-10-13,

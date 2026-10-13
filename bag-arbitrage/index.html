@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Bag Arbitrage · Cross-Market Luxury Price Analysis</title>
-<meta name="description" content="Data science project by Shuming He: cross-market luxury price arbitrage analysis with web scraping, paired t-tests and interactive visualization.">
+<title>Bag Arbitrage · US vs Canada Luxury Prices</title>
+<meta name="description" content="Data science project by Shuming He: official US and Canadian list prices for 31 luxury bags and watches, compared with paired t-tests, regression and interactive charts.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://shuming-he.github.io/bag-arbitrage/">
-<meta property="og:title" content="Bag Arbitrage · Cross-Market Luxury Price Analysis">
-<meta property="og:description" content="End-to-end data science portfolio project by Shuming He: 47 products, 3 markets, paired t-tests and regression.">
+<meta property="og:title" content="Bag Arbitrage · US vs Canada Luxury Prices">
+<meta property="og:description" content="Is the same luxury bag or watch cheaper in Canada or the US? Real list prices for 31 products from 15 brands, with paired t-tests and regression.">
 <meta name="twitter:card" content="summary">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,7 +19,7 @@
    Research mode reorders sections so statistics lead; Consumer mode leads with the brand explorer. */
 
 .hero { padding-block: 56px 28px; position: relative; overflow: hidden; }
-.hero::before { content: ""; position: absolute; inset: -45% -12% auto auto; width: 720px; height: 720px; border-radius: 50%; background: radial-gradient(circle at 30% 30%, color-mix(in oklab, var(--ca) 36%, transparent), transparent 60%), radial-gradient(circle at 70% 60%, color-mix(in oklab, var(--cn) 24%, transparent), transparent 62%); filter: blur(30px); opacity: .5; pointer-events: none; }
+.hero::before { content: ""; position: absolute; inset: -45% -12% auto auto; width: 720px; height: 720px; border-radius: 50%; background: radial-gradient(circle at 30% 30%, color-mix(in oklab, var(--ca) 36%, transparent), transparent 60%), radial-gradient(circle at 70% 60%, color-mix(in oklab, var(--us) 26%, transparent), transparent 62%); filter: blur(30px); opacity: .5; pointer-events: none; }
 .hero > .wrap { position: relative; }
 .hero h1 { font-family: var(--font-display); font-weight: 800; line-height: .98; letter-spacing: -.02em; font-size: clamp(40px, 7vw, 84px); margin: 14px 0 10px; text-wrap: balance; }
 .hero .subtitle { font-family: var(--font-mono); font-size: clamp(13px, 1.6vw, 15px); color: var(--chrome); margin: 0 0 28px; }
@@ -38,8 +38,8 @@
 .seg button[aria-pressed=true] { background: var(--chrome); color: var(--bg); }
 .mode-desc { font-size: 13px; color: var(--fg-2); margin: 0; }
 
-.notice-proto { margin-top: 16px; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 14px; align-items: start; padding: 16px 20px; border-radius: var(--radius); border: 1px solid color-mix(in oklab, var(--warn) 55%, transparent); background: color-mix(in oklab, var(--warn) 10%, transparent); }
-.notice-proto svg { width: 22px; height: 22px; color: var(--warn); margin-top: 2px; }
+.notice-proto { margin-top: 16px; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 14px; align-items: start; padding: 16px 20px; border-radius: var(--radius); border: 1px solid color-mix(in oklab, var(--good) 45%, transparent); background: color-mix(in oklab, var(--good) 8%, transparent); }
+.notice-proto svg { width: 22px; height: 22px; color: var(--good); margin-top: 2px; }
 .notice-proto b { color: var(--fg); }
 .notice-proto p { margin: 0; color: var(--fg-2); font-size: 14.5px; }
 .notice-proto a { white-space: nowrap; }
@@ -130,7 +130,7 @@ input[type=range] { accent-color: var(--chrome); width: 120px; height: 28px; }
 .brand-card .mini div { display: flex; justify-content: space-between; gap: 8px; }
 .brand-card .foot { font: 600 10.5px var(--font-mono); text-transform: uppercase; letter-spacing: .08em; display: inline-flex; align-items: center; gap: 6px; color: var(--fg-2); border-top: 1px solid var(--line); padding-top: 10px; }
 .dot { width: 11px; height: 11px; border-radius: 50%; display: inline-block; flex: none; }
-.dot.us { background: var(--us); } .dot.ca { background: var(--ca); } .dot.cn { background: var(--cn); }
+.dot.us { background: var(--us); } .dot.ca { background: var(--ca); }
 .legend { display: flex; flex-wrap: wrap; gap: 10px 22px; font-size: 13px; color: var(--fg-2); }
 .key { display: inline-flex; align-items: center; gap: 8px; }
 
@@ -148,6 +148,8 @@ input[type=range] { accent-color: var(--chrome); width: 120px; height: 28px; }
 .product .verdict { margin-top: 10px; font-size: 13px; color: var(--fg-2); }
 .product .verdict b { color: var(--fg); }
 .product .verdict.mono { font-family: var(--font-mono); font-size: 12.5px; }
+.product .src { margin-top: 8px; font: 500 12px var(--font-mono); color: var(--fg-3); }
+.product .src a { color: var(--fg-2); }
 .mkts { display: grid; gap: 8px; }
 .mkt { display: grid; grid-template-columns: 74px minmax(0, 1fr) 150px; gap: 12px; align-items: center; font-size: 13px; }
 @media (max-width: 480px) { .mkt { grid-template-columns: 62px minmax(0, 1fr) 118px; gap: 8px; } }
@@ -228,13 +230,13 @@ svg .baseline { stroke: var(--fg-3); }
 <header class="hero" id="top">
   <div class="wrap">
     <div class="eyebrow">Data Science Project · P/01</div>
-    <h1>Same bag. <span class="chrome">Three markets.</span></h1>
-    <p class="subtitle">Cross-market luxury price arbitrage analysis · US · Canada · China</p>
+    <h1>Same bag. <span class="chrome">Two prices.</span></h1>
+    <p class="subtitle">Luxury list prices compared across the border · United States vs Canada</p>
 
     <div class="head-grid">
       <div class="abstract" aria-labelledby="abs-k">
         <div class="k" id="abs-k">Abstract</div>
-        <p id="abstract-text">Do identical luxury goods carry a systematic price premium in Canada or China relative to the United States once exchange rates and consumption taxes are accounted for? I matched <span class="n">47 products</span> from <span class="n">15 brands</span> across <span class="n">3 markets</span> and built a pipeline that scrapes official list prices, matches models by style number, normalizes currency and tax, and tests the gaps with paired t-tests on log price ratios.</p>
+        <p id="abstract-text">Is the same luxury bag or watch cheaper in Canada or in the United States once the exchange rate and sales tax are accounted for? I collected official list prices for matched products from each brand's US and Canadian websites and tested the gap with a paired t-test on log price ratios.</p>
       </div>
       <div class="mode-panel">
         <div class="k">View</div>
@@ -247,12 +249,12 @@ svg .baseline { stroke: var(--fg-3); }
     </div>
 
     <div class="notice-proto" role="note">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4m0 3v.01"/></svg>
-      <p><b>This is prototype demonstration data.</b> Prices on this page are an illustrative sample, not live market prices. Scraper code exists in the <a href="https://github.com/shuming-he/shuming-he.github.io/tree/main/bag-arbitrage/pipeline" rel="noopener">GitHub repo</a> but is not running on this webpage.</p>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg>
+      <p id="data-note"><b>Real prices.</b> Every price is an official list price read from the brand's own US and Canadian websites, and every product links to both source pages. This is a snapshot, not a live feed: brands change prices, so check the source before you buy.</p>
     </div>
 
     <div class="pipeline" aria-label="Pipeline">
-      <span class="step">Scrape</span><span class="sep" aria-hidden="true">→</span>
+      <span class="step">Collect</span><span class="sep" aria-hidden="true">→</span>
       <span class="step">Clean</span><span class="sep" aria-hidden="true">→</span>
       <span class="step">Normalize</span><span class="sep" aria-hidden="true">→</span>
       <span class="step">Test</span>
@@ -271,11 +273,10 @@ svg .baseline { stroke: var(--fg-3); }
       <div class="ttl"><span>Assumptions · every number on the page updates</span>
         <button class="share" type="button" id="share"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg>Copy share link</button>
       </div>
-      <label for="fxcn">USD/CNY <input type="range" id="fxcn" min="6.6" max="7.6" step="0.01" value="7.10"><output id="fxcn-out" for="fxcn">7.10</output></label>
-      <label for="fxca">USD/CAD <input type="range" id="fxca" min="1.25" max="1.50" step="0.01" value="1.38"><output id="fxca-out" for="fxca">1.38</output></label>
+      <label for="fxca">USD/CAD <input type="range" id="fxca" min="1.25" max="1.55" step="0.01" value="1.42"><output id="fxca-out" for="fxca">1.42</output></label>
       <label for="taxus">US sales tax <input type="range" id="taxus" min="0" max="10.25" step="0.25" value="7"><output id="taxus-out" for="taxus">7.00%</output></label>
       <label for="taxca">Canada HST <input type="range" id="taxca" min="5" max="15" step="1" value="13"><output id="taxca-out" for="taxca">13%</output></label>
-      <span class="hint">13% is Ontario HST and 5% is Alberta GST. A US tax of 0% matches Oregon. China list prices already include 13% VAT.</span>
+      <span class="hint">1.42 Canadian dollars per US dollar was the market rate on 2 October 2026. 13% is Ontario HST and 5% is Alberta GST. A US tax of 0% matches Oregon; 8.875% matches New York City.</span>
     </div>
   </section>
 
@@ -284,8 +285,8 @@ svg .baseline { stroke: var(--fg-3); }
       <div class="eyebrow">Explore</div>
       <div>
         <h2>Prices by brand</h2>
-        <p class="consumer-only">Each card shows how much more or less a brand charges in Canada and China than in the US, on average. Open a brand to see every product and where it is cheapest.</p>
-        <p class="research-only">Product-level observations behind the tests. Each card shows the brand's mean gap against the US; open one to see each product's log price ratios.</p>
+        <p class="consumer-only">Each card shows how much more or less a brand costs in Canada than in the US, on average, after tax. Open a brand to see every product, which side of the border is cheaper, and the source pages.</p>
+        <p class="research-only">Product-level observations behind the test. Each card shows the brand's mean gap and its implied exchange rate (CAD list ÷ USD list); open one to see each product's log price ratio.</p>
       </div>
     </div>
     <div class="search-row">
@@ -304,14 +305,13 @@ svg .baseline { stroke: var(--fg-3); }
     <div class="sec-head">
       <div class="eyebrow">Compare</div>
       <div>
-        <h2>Which brands cost more outside the US?</h2>
-        <p>Mean price gap against the US for each brand, after tax and currency conversion. Dots right of zero mean that market is more expensive than the US.</p>
+        <h2>Which brands are cheaper in Canada?</h2>
+        <p>Mean price gap between Canada and the US for each brand, after tax and currency conversion. Dots left of zero mean the brand is cheaper in Canada.</p>
       </div>
     </div>
     <div class="module">
       <div class="legend" style="margin-bottom:10px">
-        <span class="key"><span class="dot ca"></span>Canada vs US</span>
-        <span class="key"><span class="dot cn"></span>China vs US</span>
+        <span class="key"><span class="dot ca"></span>Canada vs US, brand mean</span>
       </div>
       <div class="chart" id="brand-chart"></div>
     </div>
@@ -327,20 +327,20 @@ svg .baseline { stroke: var(--fg-3); }
     </div>
     <div class="grid-2">
       <div class="module">
-        <p class="module-title">China vs US</p>
-        <p class="module-sub">H₀: mean ln(China ÷ US) = 0</p>
-        <div class="test" id="t-cn"></div>
-        <p class="verdict-text" id="v-cn"></p>
-      </div>
-      <div class="module">
-        <p class="module-title">Canada vs US</p>
+        <p class="module-title">Canada vs US, after tax</p>
         <p class="module-sub">H₀: mean ln(Canada ÷ US) = 0</p>
         <div class="test" id="t-ca"></div>
         <p class="verdict-text" id="v-ca"></p>
       </div>
+      <div class="module">
+        <p class="module-title">The exchange rate brands use</p>
+        <p class="module-sub">CAD list price ÷ USD list price, before tax</p>
+        <div class="test" id="t-fx"></div>
+        <p class="verdict-text" id="v-fx"></p>
+      </div>
     </div>
     <div class="module" style="margin-top:18px">
-      <p class="module-title">Does the China premium depend on price tier?</p>
+      <p class="module-title">Does the Canada gap depend on price tier?</p>
       <p class="module-sub" id="ols-sub"></p>
       <div class="chart" id="scatter"></div>
       <p class="plain" id="ols-plain"></p>
@@ -352,17 +352,17 @@ svg .baseline { stroke: var(--fg-3); }
       <div class="eyebrow">Method</div>
       <div>
         <h2>From product pages to a test statistic</h2>
-        <p>Every number goes through the same five-step pipeline, so a price in Toronto and a price in Shanghai are compared fairly.</p>
+        <p>Every number goes through the same five-step pipeline, so a price in Toronto and a price in New York are compared fairly.</p>
       </div>
     </div>
     <ol class="pipe">
-      <li><h3>Scrape</h3><p>Fetch each product page from the brand's official US, Canada and China sites with <code>requests</code> and read the price from the page's structured data with <code>BeautifulSoup</code>. Every row is timestamped.</p></li>
-      <li><h3>Clean</h3><p>Parse local price formats (¥12,800 / C$1,295.00), drop out-of-stock and duplicate rows, and match the same model across markets by style number.</p></li>
-      <li><h3>Normalize</h3><p>Convert CAD and CNY to USD. Add US sales tax and Canadian HST; China list prices already include 13% VAT.</p></li>
-      <li><h3>Test</h3><p>Paired t-tests on log price ratios and an OLS regression of the China premium on log US price, reproduced in Python with <code>scipy.stats</code>.</p></li>
+      <li><h3>Collect</h3><p>Open the same product on the brand's official US and Canadian sites and record the list price, style number, source URL and date in <code>collected_prices.csv</code>. <code>scrape.py</code> automates this for pages that publish structured price data.</p></li>
+      <li><h3>Clean</h3><p>Parse price formats ($5,100 / C$ 6,600.00), drop sale prices and pages that redirect to the other country, and keep only products priced in both markets.</p></li>
+      <li><h3>Normalize</h3><p>Convert CAD to USD at the chosen rate, then add US sales tax and Canadian HST so both sides are what a shopper pays at the till.</p></li>
+      <li><h3>Test</h3><p>A paired t-test on log price ratios, the implied exchange rate in brand pricing, and an OLS regression of the gap on log US price, reproduced in Python with <code>scipy.stats</code>.</p></li>
       <li><h3>Visualize</h3><p>Export one JSON file that this page reads and renders with hand-built SVG charts in plain JavaScript.</p></li>
     </ol>
-    <p class="code-link">Pipeline source: <a href="https://github.com/shuming-he/shuming-he.github.io/tree/main/bag-arbitrage/pipeline" rel="noopener">bag-arbitrage/pipeline</a> · Dataset read by this page: <a href="data/prices.json">data/prices.json</a></p>
+    <p class="code-link">Pipeline source: <a href="https://github.com/shuming-he/shuming-he.github.io/tree/main/bag-arbitrage/pipeline" rel="noopener">bag-arbitrage/pipeline</a> · Price log with every source URL: <a href="https://github.com/shuming-he/shuming-he.github.io/blob/main/bag-arbitrage/pipeline/collected_prices.csv" rel="noopener">collected_prices.csv</a> · Dataset read by this page: <a href="data/prices.json">data/prices.json</a></p>
   </section>
 
   <section class="block wrap" id="limits">
@@ -374,10 +374,11 @@ svg .baseline { stroke: var(--fg-3); }
       </div>
     </div>
     <div class="limits">
-      <div class="limit"><div class="k">L1 · Sample size</div><h3>Only 47 matched products</h3><p>Three or four models per brand cannot represent a full catalogue. Brand-level means rest on very few observations, so they are descriptive, not tests.</p></div>
-      <div class="limit"><div class="k">L2 · Price definition</div><h3>Official list prices only</h3><p>The data uses official MSRP. It excludes discounts, outlet prices, tourist tax refunds, and the secondary-market and wait-list premiums that dominate what buyers actually pay for Rolex, AP and Patek watches.</p></div>
-      <div class="limit"><div class="k">L3 · Freshness</div><h3>Static prototype page</h3><p>The scraper is not executed client-side. Prices are a fixed sample, and brand sites change prices, block automated requests, and render some pages with JavaScript, which limits how often data can be refreshed.</p></div>
-      <div class="limit future"><div class="k">Future work</div><h3>Next steps</h3><ul><li>Expand the product sample across more categories</li><li>Add inflation adjustment and track prices over time</li><li>Add more geographic markets such as the UK, EU and Japan</li></ul></div>
+      <div class="limit"><div class="k">L1 · Sample size</div><h3 id="l1-title">A small, hand-picked sample</h3><p>One to three models per brand cannot represent a full catalogue, and I chose well-known models rather than a random sample. Brand-level means rest on very few observations, so they are descriptive, not tests.</p></div>
+      <div class="limit"><div class="k">L2 · Coverage</div><h3>Brands that could not be included</h3><p>Some brands on my list publish no online prices (Audemars Piguet, Patek Philippe, Vacheron Constantin, A. Lange &amp; Söhne, Panerai, Zenith, Piaget, Chanel bags). Others blocked automated access, failed to load, or sent the Canadian page to the US site (Louis Vuitton, Gucci, Saint Laurent, Bottega Veneta, Balenciaga, Cartier, Loewe, Givenchy, Burberry), and Marc Jacobs disallows crawlers. Leaving them out may bias the result.</p></div>
+      <div class="limit"><div class="k">L3 · Price definition</div><h3>Official list prices only</h3><p>The data uses list prices before tax. It excludes sales, outlet prices, duty and tax refunds for travellers, and the waitlists and secondary-market premiums that decide what buyers really pay for a Rolex.</p></div>
+      <div class="limit"><div class="k">L4 · Freshness</div><h3 id="l4-title">A one-day snapshot</h3><p>Prices were read once and are not refreshed by this page. Brands reprice when exchange rates move, so the gap measured here can change. A few prices were read from category listings rather than product pages; the CSV marks which.</p></div>
+      <div class="limit future"><div class="k">Future work</div><h3>Next steps</h3><ul><li>Use a headless browser to cover brands that render prices with JavaScript</li><li>Re-collect monthly to see how brands react to exchange-rate moves</li><li>Add more markets such as the UK, EU and Japan</li></ul></div>
     </div>
   </section>
 
@@ -396,7 +397,7 @@ svg .baseline { stroke: var(--fg-3); }
         <div class="stack">
           <span>Python</span><span>requests</span><span>BeautifulSoup</span><span>pandas</span><span>SciPy</span><span>JavaScript</span><span>SVG</span><span>GitHub Pages</span>
         </div>
-        <p class="small">Prices are for analysis only and change often. This project is not affiliated with any brand shown.</p>
+        <p class="small">Prices are official list prices from each brand's website, for analysis only, and change often. This project is not affiliated with any brand shown.</p>
       </div>
     </div>
   </section>
@@ -414,33 +415,37 @@ svg .baseline { stroke: var(--fg-3); }
 
 <script src="/assets/site.js"></script>
 <script>
-const MK = ["us", "ca", "cn"];
-const LABEL = { us: "United States", ca: "Canada", cn: "China" };
-const SHORT = { us: "US", ca: "Canada", cn: "China" };
-const COLOR = { us: "var(--us)", ca: "var(--ca)", cn: "var(--cn)" };
+const MK = ["us", "ca"];
+const LABEL = { us: "the United States", ca: "Canada" };
+const CAP = { us: "United States", ca: "Canada" };
+const SHORT = { us: "US", ca: "Canada" };
+const COLOR = { us: "var(--us)", ca: "var(--ca)" };
 const SVGNS = "http://www.w3.org/2000/svg";
-const RANGES = { fxcn: [6.6, 7.6], fxca: [1.25, 1.5], taxus: [0, 10.25], taxca: [5, 15] };
-const PARAM = { fxcn: "fx_cny", fxca: "fx_cad", taxus: "tax_us", taxca: "tax_ca" };
-const state = { fxcn: 7.10, fxca: 1.38, taxus: 7, taxca: 13, brand: null, group: "all", mode: "consumer", q: "" };
+const RANGES = { fxca: [1.25, 1.55], taxus: [0, 10.25], taxca: [5, 15] };
+const PARAM = { fxca: "fx_cad", taxus: "tax_us", taxca: "tax_ca" };
+const state = { fxca: 1.42, taxus: 7, taxca: 13, brand: null, group: "all", mode: "consumer", q: "" };
 let RAW = null, WATCH_NOTE = "", B = [];
 
 const TERMS = {
   paired: ["Paired t-test", "Compares the two prices of the same product, then asks whether the average difference is larger than chance alone would produce. Pairing removes differences between products."],
   pvalue: ["p-value", "If there were truly no price gap, this is the chance of seeing a gap at least this large. Below 0.05 is the usual cutoff for calling a result significant."],
-  logratio: ["Log price ratio", "ln(price A ÷ price B). Zero means equal prices; +0.10 means roughly 10% more expensive. It treats a 10% gap the same on a $175 tote and a $40,000 watch."],
-  r2: ["R²", "The share of the variation in the China premium that price tier explains. 0 means none of it, 1 means all of it."],
+  logratio: ["Log price ratio", "ln(price A ÷ price B). Zero means equal prices; +0.10 means roughly 10% more expensive. It treats a 10% gap the same on a $180 tote and a $22,000 watch."],
+  r2: ["R²", "The share of the variation in the Canada gap that price tier explains. 0 means none of it, 1 means all of it."],
   ci: ["95% confidence interval", "The range of average gaps that fits the data. If the study were repeated many times, about 95% of such ranges would contain the true average."],
   geo: ["Geometric mean gap", "The average of the log ratios, turned back into a percentage. A few extreme products move it less than a simple average."],
   tstat: ["t statistic", "The average gap divided by its standard error. The further from zero, the less likely the gap is just noise. df is the number of products minus one."],
-  ols: ["OLS regression", "Ordinary least squares: the straight line that best fits the points. Its slope says how the China premium changes as price goes up."],
+  ols: ["OLS regression", "Ordinary least squares: the straight line that best fits the points. Its slope says how the Canada gap changes as price goes up."],
+  implied: ["Implied exchange rate", "The Canadian list price divided by the US list price for the same product. If brands converted at the market rate, this would equal the USD/CAD rate."],
+  breakeven: ["Break-even rate", "The USD/CAD rate at which the average after-tax gap is exactly zero, given the tax rates you chose. Above it Canada is cheaper; below it the US is."],
 };
 
 const usd = v => "$" + Math.round(v).toLocaleString("en-US");
-const local = (k, v) => (k === "us" ? "$" : k === "ca" ? "C$" : "¥") + v.toLocaleString("en-US");
-const pct = (v, d = 0) => (v > 0 ? "+" : v < 0 ? "−" : "") + Math.abs(v * 100).toFixed(d) + "%";
+const local = (k, v) => (k === "us" ? "$" : "C$") + v.toLocaleString("en-US");
+const pct = (v, d = 0) => { const a = Math.abs(v * 100).toFixed(d); return (+a === 0 ? "" : v > 0 ? "+" : "−") + a + "%"; };
 const sgn = (v, d = 3) => (v >= 0 ? "+" : "−") + Math.abs(v).toFixed(d);
 const mean = a => a.reduce((s, x) => s + x, 0) / a.length;
 const term = (k, text) => `<span class="term" tabindex="0" data-term="${k}">${text}</span>`;
+const fmtDate = s => s ? new Date(s + "T12:00:00").toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" }) : "";
 
 // ---------- state from URL / storage ----------
 function readState() {
@@ -457,6 +462,7 @@ function readState() {
 }
 function writeURL() {
   const q = new URLSearchParams(location.search);
+  q.delete("fx_cny");
   for (const k in PARAM) q.set(PARAM[k], String(state[k]));
   q.set("mode", state.mode);
   const url = location.pathname + "?" + q.toString() + (state.brand ? "#" + state.brand : "");
@@ -468,14 +474,16 @@ function compute() {
   return RAW.brands.map(b => {
     const items = b.items.map(it => {
       const l = it.price;
-      const p = { us: l.us * (1 + state.taxus / 100), ca: l.ca / state.fxca * (1 + state.taxca / 100), cn: l.cn / state.fxcn };
-      const order = MK.slice().sort((a, c) => p[a] - p[c]);
-      return { brand: b.name, name: it.name, cat: it.category, list: l, p, best: order[0], worst: order[2], gap: { ca: p.ca / p.us - 1, cn: p.cn / p.us - 1 } };
+      const p = { us: l.us * (1 + state.taxus / 100), ca: l.ca / state.fxca * (1 + state.taxca / 100) };
+      const gap = p.ca / p.us - 1;
+      const best = gap < 0 ? "ca" : "us";
+      return { brand: b.name, name: it.name, cat: it.category, style: it.style, url: it.url || {}, list: l, p, gap, ratio: l.ca / l.us, best, worst: best === "ca" ? "us" : "ca" };
     });
-    const avg = { ca: mean(items.map(i => i.gap.ca)), cn: mean(items.map(i => i.gap.cn)) };
-    const wins = { us: 0, ca: 0, cn: 0 }; items.forEach(i => wins[i.best]++);
-    const cheapest = MK.slice().sort((a, c) => wins[c] - wins[a] || (a === "us" ? -1 : 1))[0];
-    return { ...b, items, avg, wins, cheapest };
+    const avg = mean(items.map(i => i.gap));
+    const ratio = Math.exp(mean(items.map(i => Math.log(i.ratio))));
+    const wins = { us: 0, ca: 0 }; items.forEach(i => wins[i.best]++);
+    const cheapest = wins.ca > wins.us ? "ca" : wins.us > wins.ca ? "us" : (avg < 0 ? "ca" : "us");
+    return { ...b, items, avg, ratio, wins, cheapest };
   });
 }
 
@@ -486,17 +494,27 @@ function ibeta(a, b, x) { if (x <= 0) return 0; if (x >= 1) return 1; const bt =
 const tTwoSided = (t, df) => ibeta(df / 2, 0.5, df / (df + t * t));
 function tCrit(df) { let lo = 0, hi = 20; for (let i = 0; i < 60; i++) { const m = (lo + hi) / 2; tTwoSided(m, df) > 0.05 ? lo = m : hi = m; } return (lo + hi) / 2; }
 
-function pairedTest(all, k) {
-  const logs = all.map(i => Math.log(i.p[k] / i.p.us));
+function pairedTest(all) {
+  const logs = all.map(i => Math.log(i.p.ca / i.p.us));
   const n = logs.length, m = mean(logs), sd = Math.sqrt(logs.reduce((s, x) => s + (x - m) ** 2, 0) / (n - 1));
   const se = sd / Math.sqrt(n), t = m / se, df = n - 1, p = tTwoSided(Math.abs(t), df), tc = tCrit(df);
   return { n, m, t, df, p, lo: Math.exp(m - tc * se) - 1, hi: Math.exp(m + tc * se) - 1, geo: Math.exp(m) - 1 };
 }
+// Implied exchange rate in brand pricing, and the market rate at which the after-tax gap would vanish.
+function fxStats(all) {
+  const logs = all.map(i => Math.log(i.ratio));
+  const n = logs.length, m = mean(logs), sd = Math.sqrt(logs.reduce((s, x) => s + (x - m) ** 2, 0) / (n - 1));
+  const tc = tCrit(n - 1), se = sd / Math.sqrt(n);
+  const rs = all.map(i => i.ratio);
+  return { implied: Math.exp(m), lo: Math.exp(m - tc * se), hi: Math.exp(m + tc * se), min: Math.min(...rs), max: Math.max(...rs),
+    breakeven: Math.exp(m) * (1 + state.taxca / 100) / (1 + state.taxus / 100), pretax: Math.exp(m) / state.fxca - 1 };
+}
 function ols(all) {
-  const xs = all.map(i => Math.log10(i.list.us)), ys = all.map(i => i.gap.cn);
+  const xs = all.map(i => Math.log10(i.list.us)), ys = all.map(i => i.gap), n = xs.length;
   const mx = mean(xs), my = mean(ys);
   const sxy = xs.reduce((s, x, i) => s + (x - mx) * (ys[i] - my), 0), sxx = xs.reduce((s, x) => s + (x - mx) ** 2, 0), syy = ys.reduce((s, y) => s + (y - my) ** 2, 0);
-  const b = sxy / sxx; return { a: my - b * mx, b, r: sxy / Math.sqrt(sxx * syy), xs, ys };
+  const b = sxy / sxx, r = sxy / Math.sqrt(sxx * syy);
+  return { a: my - b * mx, b, r, p: tTwoSided(Math.abs(r * Math.sqrt((n - 2) / (1 - r * r))), n - 2), xs, ys };
 }
 const fmtP = p => p < 0.001 ? "< 0.001" : p.toFixed(3);
 
@@ -522,7 +540,7 @@ function placeTip(x, y) {
 function showTip(e, html) { tip.innerHTML = html; tip.hidden = false; placeTip(e.clientX, e.clientY); }
 function showTipAt(node, html) { tip.innerHTML = html; tip.hidden = false; const r = node.getBoundingClientRect(); placeTip(r.left, r.bottom); }
 const hideTip = () => { tip.hidden = true; };
-const itemTip = i => `<div class="t">${i.brand} ${i.name}</div>` + MK.map(k => `<div class="r"><span>${LABEL[k]}</span><span>${usd(i.p[k])}</span></div>`).join("");
+const itemTip = i => `<div class="t">${i.brand} ${i.name}</div>` + MK.map(k => `<div class="r"><span>${CAP[k]}</span><span>${usd(i.p[k])}</span></div>`).join("");
 const termHtml = k => `<div class="t">${TERMS[k][0]}</div>${TERMS[k][1]}`;
 let pinned = null;
 document.addEventListener("pointerover", e => { const t = e.target.closest(".term"); if (t && e.pointerType === "mouse") showTipAt(t, termHtml(t.dataset.term)); });
@@ -537,28 +555,28 @@ document.addEventListener("click", e => {
 addEventListener("scroll", () => { if (pinned) { pinned = null; hideTip(); } }, { passive: true });
 
 // ---------- renderers ----------
-function renderAbstract(all, tcn, tca, reg) {
+function renderAbstract(all, tca, fx, reg) {
   const brands = RAW.brands.length;
-  const trend = reg.r < 0 ? "shrinks as list price rises" : "grows as list price rises";
+  const side = tca.geo < 0 ? "cheaper" : "more expensive";
+  const trend = reg.p >= 0.05 ? "shows no clear link to price tier" : reg.r < 0 ? "shrinks as list price rises" : "grows as list price rises";
   document.getElementById("abstract-text").innerHTML =
-    `Do identical luxury goods carry a systematic price premium in Canada or China relative to the United States once exchange rates and consumption taxes are accounted for? ` +
-    `I matched <span class="n">${all.length} products</span> from <span class="n">${brands} brands</span> across <span class="n">3 markets</span> and built a pipeline that scrapes official list prices, matches models by style number, normalizes currency and tax, and tests the gaps with paired t-tests on log price ratios. ` +
-    `On the prototype sample, China prices average <span class="n">${pct(tcn.geo, 1)}</span> versus the US (p ${fmtP(tcn.p)}) and Canada <span class="n">${pct(tca.geo, 1)}</span> (p ${fmtP(tca.p)}). ` +
-    `The China premium ${trend} (r = <span class="n">${reg.r.toFixed(2)}</span>).`;
+    `Is the same luxury bag or watch cheaper in Canada or in the United States once the exchange rate and sales tax are accounted for? ` +
+    `I collected official list prices for <span class="n">${all.length} matched products</span> from <span class="n">${brands} brands</span> on each brand's US and Canadian websites (${fmtDate(RAW.meta.collected)}) and tested the gap with a paired t-test on log price ratios. ` +
+    `At USD/CAD <span class="n">${state.fxca.toFixed(2)}</span> with ${state.taxus}% US sales tax and ${state.taxca}% HST, Canadian prices are <span class="n">${pct(tca.geo, 1)}</span> versus the US (95% CI ${pct(tca.lo, 1)} to ${pct(tca.hi, 1)}, p ${fmtP(tca.p)}), so Canada is ${tca.p < 0.05 ? "significantly " + side : "not significantly different"}. ` +
+    `The reason is that brands price Canada at about <span class="n">C$${fx.implied.toFixed(2)}</span> per US dollar, ${fx.implied < state.fxca ? "below" : "above"} the market rate. The gap ${trend} (r = <span class="n">${reg.r.toFixed(2)}</span>).`;
 }
-function renderStats(all, tcn, tca) {
-  const wins = { us: 0, ca: 0, cn: 0 }; all.forEach(i => wins[i.best]++);
+function renderStats(all, tca, fx) {
+  const wins = { us: 0, ca: 0 }; all.forEach(i => wins[i.best]++);
   document.getElementById("stats-row").innerHTML = `
-    <div class="stat"><div class="k">China vs US</div><div class="v">${pct(tcn.geo, 1)}</div><div class="s">geometric mean, p ${fmtP(tcn.p)}</div></div>
-    <div class="stat"><div class="k">Canada vs US</div><div class="v">${pct(tca.geo, 1)}</div><div class="s">geometric mean, p ${fmtP(tca.p)}</div></div>
-    <div class="stat"><div class="k">Cheapest in US</div><div class="v">${wins.us}<span style="font-size:.5em;color:var(--fg-3)"> / ${all.length}</span></div><div class="s">products after tax</div></div>
-    <div class="stat"><div class="k">Dataset</div><div class="v">${all.length}</div><div class="s">products · ${RAW.brands.length} brands · 3 markets</div></div>`;
+    <div class="stat"><div class="k">Canada vs US</div><div class="v">${pct(tca.geo, 1)}</div><div class="s">after tax, p ${fmtP(tca.p)}</div></div>
+    <div class="stat"><div class="k">Brands' CAD rate</div><div class="v">${fx.implied.toFixed(2)}</div><div class="s">vs market ${state.fxca.toFixed(2)}</div></div>
+    <div class="stat"><div class="k">Cheaper in Canada</div><div class="v">${wins.ca}<span style="font-size:.5em;color:var(--fg-3)"> / ${all.length}</span></div><div class="s">products after tax</div></div>
+    <div class="stat"><div class="k">Dataset</div><div class="v">${all.length}</div><div class="s">products · ${RAW.brands.length} brands · real prices</div></div>`;
 }
 function renderTicker(all) {
-  const items = all.map(i => `<span class="tick"><b>${i.brand.toUpperCase()} ${i.name.toUpperCase()}</b> US ${local("us", i.list.us)} · CA ${local("ca", i.list.ca)} · CN ${local("cn", i.list.cn)} <span class="${i.gap.cn >= 0 ? "up" : "down"}">CN ${i.gap.cn >= 0 ? "▲" : "▼"} ${pct(i.gap.cn, 1)}</span></span>`).join("");
-  document.getElementById("ticker").innerHTML = items;
+  document.getElementById("ticker").innerHTML = all.map(i => `<span class="tick"><b>${i.brand.toUpperCase()} ${i.name.toUpperCase()}</b> US ${local("us", i.list.us)} · CA ${local("ca", i.list.ca)} <span class="${i.gap >= 0 ? "up" : "down"}">CA ${i.gap >= 0 ? "▲" : "▼"} ${pct(i.gap, 1)}</span></span>`).join("");
 }
-const norm = s => s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+const norm = s => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
 const brandHit = b => !state.q || norm(b.name).includes(state.q);
 const itemHit = i => !state.q || norm(i.name).includes(state.q);
 function visibleItems(b) { return brandHit(b) ? b.items : b.items.filter(itemHit); }
@@ -569,13 +587,13 @@ function renderGrid() {
   if (!list.length) { document.getElementById("brand-grid").innerHTML = `<p class="empty">No brand or product matches “${state.q}”.</p>`; return; }
   document.getElementById("brand-grid").innerHTML = list.map(b => `
     <button class="brand-card" data-id="${b.id}" aria-current="${state.brand === b.id}" aria-controls="detail">
-      <span class="tier">${b.tier} · ${b.items.length} items</span>
+      <span class="tier">${b.tier} · ${b.items.length} item${b.items.length === 1 ? "" : "s"}</span>
       <span class="bname">${b.name}</span>
       <span class="mini">
-        <div><span>Canada</span><span class="${b.avg.ca >= 0 ? "up" : "down"}">${pct(b.avg.ca)}</span></div>
-        <div><span>China</span><span class="${b.avg.cn >= 0 ? "up" : "down"}">${pct(b.avg.cn)}</span></div>
+        <div><span>Canada vs US</span><span class="${b.avg >= 0 ? "up" : "down"}">${pct(b.avg)}</span></div>
+        <div><span>CAD per USD</span><span>${b.ratio.toFixed(2)}</span></div>
       </span>
-      <span class="foot consumer-only"><span class="dot ${b.cheapest}"></span>Usually cheapest: ${SHORT[b.cheapest]}</span>
+      <span class="foot consumer-only"><span class="dot ${b.cheapest}"></span>Usually cheaper: ${SHORT[b.cheapest]}</span>
       <span class="foot research-only">n = ${b.items.length} · descriptive only</span>
     </button>`).join("");
 }
@@ -590,21 +608,25 @@ function renderDetail() {
       <div class="detail-head">
         <div><div class="eyebrow">${b.tier}</div><h3>${b.name}</h3></div>
         <div class="meta">
-          <div><div class="k">Canada vs US</div><div class="v ${b.avg.ca >= 0 ? "up" : "down"}">${pct(b.avg.ca, 1)}</div></div>
-          <div><div class="k">China vs US</div><div class="v ${b.avg.cn >= 0 ? "up" : "down"}">${pct(b.avg.cn, 1)}</div></div>
-          <div class="consumer-only"><div class="k">Cheapest market</div><div class="v">${SHORT[b.cheapest]}</div></div>
+          <div><div class="k">Canada vs US</div><div class="v ${b.avg >= 0 ? "up" : "down"}">${pct(b.avg, 1)}</div></div>
+          <div><div class="k">CAD per USD</div><div class="v">${b.ratio.toFixed(2)}</div></div>
+          <div class="consumer-only"><div class="k">Usually cheaper</div><div class="v">${SHORT[b.cheapest]}</div></div>
         </div>
       </div>
       ${b.tier === "Watchmaker" ? `<p class="watch-note">${WATCH_NOTE}</p>` : ""}
-      <div class="legend" style="margin-bottom:14px"><span>Bars show the price in USD with tax. The local list price is in grey.</span></div>
+      <div class="legend" style="margin-bottom:14px"><span>Bars show the price in USD with tax. The local list price before tax is in grey.</span></div>
       <div class="products">${shown.map(i => {
         const save = i.p[i.worst] - i.p[i.best];
+        const advice = Math.abs(i.gap) < 0.01
+          ? `About the same price on both sides of the border.`
+          : `Buy in <b>${CAP[i.best]}</b>. You save <b>${usd(save)}</b> compared with ${LABEL[i.worst]}.`;
         return `<div class="product">
           <div>
             <div class="pname">${i.name}</div>
-            <div class="pcat">${i.cat}</div>
-            <div class="verdict consumer-only">Buy in <b>${LABEL[i.best]}</b>. You save <b>${usd(save)}</b> compared with ${LABEL[i.worst]}.</div>
-            <div class="verdict mono research-only">ln(CN/US) ${sgn(Math.log(i.p.cn / i.p.us))} · ln(CA/US) ${sgn(Math.log(i.p.ca / i.p.us))}</div>
+            <div class="pcat">${i.cat}${i.style && i.style.length < 30 && /\d/.test(i.style) ? " · " + i.style : ""}</div>
+            <div class="verdict consumer-only">${advice}</div>
+            <div class="verdict mono research-only">ln(CA/US) ${sgn(Math.log(i.p.ca / i.p.us))} · CAD/USD ${i.ratio.toFixed(3)}</div>
+            <div class="src">Source: ${i.url.us ? `<a href="${i.url.us}" rel="noopener nofollow" target="_blank">US site</a>` : "US"} · ${i.url.ca ? `<a href="${i.url.ca}" rel="noopener nofollow" target="_blank">Canada site</a>` : "Canada"}</div>
           </div>
           <div class="mkts">${MK.map(k => `
             <div class="mkt ${k === i.best ? "best" : ""}">
@@ -619,12 +641,12 @@ function renderDetail() {
 }
 function renderBrandChart() {
   const box = document.getElementById("brand-chart"); box.innerHTML = "";
-  const list = B.slice().sort((a, b) => b.avg.cn - a.avg.cn);
-  const vals = list.flatMap(b => [b.avg.ca, b.avg.cn]);
+  const list = B.slice().sort((a, b) => a.avg - b.avg);
+  const vals = list.map(b => b.avg);
   const ticks = niceTicks(Math.min(-0.05, ...vals), Math.max(0.05, ...vals), 6);
-  const W = 1040, left = 150, right = 60, top = 28, rowH = 32, H = top + list.length * rowH + 8;
+  const W = 1040, left = 170, right = 60, top = 28, rowH = 32, H = top + list.length * rowH + 8;
   const x = v => left + (v - ticks[0]) / (ticks[ticks.length - 1] - ticks[0]) * (W - left - right);
-  const svg = el("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "Mean price gap versus the US by brand" }, box);
+  const svg = el("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "Mean price gap between Canada and the US by brand" }, box);
   svg.style.minWidth = "600px";
   const g = el("g", { class: "grid" }, svg), ax = el("g", { class: "axis" }, svg);
   ticks.forEach(t => { el("line", { x1: x(t), x2: x(t), y1: top - 6, y2: H - 6 }, g); txt(ax, { x: x(t), y: 14, "text-anchor": "middle" }, pct(t)); });
@@ -632,58 +654,70 @@ function renderBrandChart() {
   list.forEach((b, i) => {
     const y = top + i * rowH + rowH / 2;
     txt(svg, { x: left - 14, y: y + 4, "text-anchor": "end", fill: "var(--fg)" }, b.name);
-    el("line", { x1: x(Math.min(b.avg.ca, b.avg.cn)), x2: x(Math.max(b.avg.ca, b.avg.cn)), y1: y, y2: y, stroke: "var(--fg-3)", "stroke-width": 2, opacity: .5 }, svg);
-    ["ca", "cn"].forEach(k => el("circle", { cx: x(b.avg[k]), cy: y, r: 7, fill: COLOR[k], stroke: "var(--surface)", "stroke-width": 2 }, svg));
-    txt(svg, { x: x(Math.max(b.avg.ca, b.avg.cn)) + 14, y: y + 4, "font-size": 11 }, pct(b.avg.cn));
+    el("line", { x1: x(0), x2: x(b.avg), y1: y, y2: y, stroke: "var(--ca)", "stroke-width": 3, opacity: .45 }, svg);
+    el("circle", { cx: x(b.avg), cy: y, r: 7, fill: "var(--ca)", stroke: "var(--surface)", "stroke-width": 2 }, svg);
+    const right_ = b.avg >= 0;
+    txt(svg, { x: x(b.avg) + (right_ ? 14 : -14), y: y + 4, "font-size": 11, "text-anchor": right_ ? "start" : "end" }, pct(b.avg, 1));
     const hit = el("rect", { x: 0, y: y - rowH / 2, width: W, height: rowH, fill: "transparent" }, svg);
     hit.style.cursor = "pointer";
-    hit.addEventListener("mousemove", e => { hit.setAttribute("fill", "rgba(255,255,255,0.03)"); showTip(e, `<div class="t">${b.name}</div><div class="r"><span>Canada vs US</span><span>${pct(b.avg.ca, 1)}</span></div><div class="r"><span>China vs US</span><span>${pct(b.avg.cn, 1)}</span></div><div class="r"><span>Click to open</span><span></span></div>`); });
+    hit.addEventListener("mousemove", e => { hit.setAttribute("fill", "rgba(255,255,255,0.03)"); showTip(e, `<div class="t">${b.name}</div><div class="r"><span>Canada vs US</span><span>${pct(b.avg, 1)}</span></div><div class="r"><span>CAD per USD</span><span>${b.ratio.toFixed(2)}</span></div><div class="r"><span>Click to open</span><span></span></div>`); });
     hit.addEventListener("mouseleave", () => { hit.setAttribute("fill", "transparent"); hideTip(); });
     hit.addEventListener("click", () => openBrand(b.id, true));
   });
 }
-function renderTest(t, k) {
-  document.getElementById("t-" + k).innerHTML = `
+function renderTest(t) {
+  document.getElementById("t-ca").innerHTML = `
     <div><div class="k">${term("geo", "Geometric mean gap")}</div><div class="v">${pct(t.geo, 1)}</div></div>
     <div><div class="k">${term("ci", "95% CI")}</div><div class="v">${pct(t.lo, 1)} to ${pct(t.hi, 1)}</div></div>
     <div><div class="k">${term("tstat", `t (df = ${t.df})`)}</div><div class="v">${t.t.toFixed(2)}</div></div>
     <div><div class="k">${term("pvalue", "p-value")}</div><div class="v">${fmtP(t.p)}</div></div>`;
-  document.getElementById("v-" + k).innerHTML = t.p < 0.05
-    ? `With these settings, ${LABEL[k]} is <b>significantly ${t.m > 0 ? "more expensive" : "cheaper"}</b> than the US across ${t.n} matched products.`
-    : `With these settings, the gap between ${LABEL[k]} and the US is <b>not statistically significant</b>.`;
+  document.getElementById("v-ca").innerHTML = t.p < 0.05
+    ? `With these settings, Canada is <b>significantly ${t.m > 0 ? "more expensive" : "cheaper"}</b> than the US across ${t.n} matched products.`
+    : `With these settings, the gap between Canada and the US is <b>not statistically significant</b>.`;
+}
+function renderFx(fx) {
+  document.getElementById("t-fx").innerHTML = `
+    <div><div class="k">${term("implied", "Implied rate")}</div><div class="v">${fx.implied.toFixed(3)}</div></div>
+    <div><div class="k">${term("ci", "95% CI")}</div><div class="v">${fx.lo.toFixed(2)} to ${fx.hi.toFixed(2)}</div></div>
+    <div><div class="k">Market rate</div><div class="v">${state.fxca.toFixed(2)}</div></div>
+    <div><div class="k">${term("breakeven", "Break-even rate")}</div><div class="v">${fx.breakeven.toFixed(2)}</div></div>`;
+  document.getElementById("v-fx").innerHTML =
+    `Brands charge about <b>C$${fx.implied.toFixed(2)} for every US$1</b> (range ${fx.min.toFixed(2)} to ${fx.max.toFixed(2)}). At a market rate of ${state.fxca.toFixed(2)}, Canadian list prices are <b>${pct(fx.pretax, 1)}</b> before tax. ` +
+    `With the tax rates above, Canada stays cheaper on average as long as one US dollar buys more than <b>C$${fx.breakeven.toFixed(2)}</b>.`;
 }
 function renderScatter(all, reg) {
   const box = document.getElementById("scatter"); box.innerHTML = "";
   const { a, b, r, ys } = reg;
-  document.getElementById("ols-sub").innerHTML = `${term("ols", "OLS")}: each doubling of US price changes the China premium by ${pct(b * Math.log10(2), 1)} · r = ${r.toFixed(2)} · ${term("r2", "R²")} = ${(r * r).toFixed(2)}`;
-  document.getElementById("ols-plain").textContent = `In plain terms: price tier explains about ${Math.round(r * r * 100)}% of the variation in the China premium. ${r < 0 ? "Cheaper fashion items tend to carry larger China markups than five-figure watches." : "More expensive items tend to carry larger China markups."}`;
+  document.getElementById("ols-sub").innerHTML = `${term("ols", "OLS")}: each doubling of US price changes the Canada gap by ${pct(b * Math.log10(2), 1)} · r = ${r.toFixed(2)} · ${term("r2", "R²")} = ${(r * r).toFixed(2)} · ${term("pvalue", "p")} = ${fmtP(reg.p)}`;
+  document.getElementById("ols-plain").textContent = `In plain terms: price tier explains about ${Math.round(r * r * 100)}% of the variation in the Canada gap. ` +
+    (reg.p >= 0.05 ? "That is not significant, so a $200 tote and a $20,000 watch get roughly the same cross-border discount." : r < 0 ? "More expensive items tend to get a bigger Canadian discount." : "Cheaper items tend to get a bigger Canadian discount.");
   const W = 1040, H = 320, left = 60, right = 24, top = 16, bottom = 40;
-  const xt = [100, 300, 1000, 3000, 10000, 30000, 100000], L0 = 2, L1 = 5;
+  const xt = [100, 300, 1000, 3000, 10000, 30000], L0 = 2, L1 = Math.log10(40000);
   const yt = niceTicks(Math.min(-0.05, ...ys), Math.max(0.05, ...ys), 5);
   const X = v => left + (Math.log10(v) - L0) / (L1 - L0) * (W - left - right);
   const Y = v => top + (1 - (v - yt[0]) / (yt[yt.length - 1] - yt[0])) * (H - top - bottom);
-  const svg = el("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "China premium versus US price, log scale" }, box);
+  const svg = el("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "Canada gap versus US price, log scale" }, box);
   svg.style.minWidth = "560px";
   const g = el("g", { class: "grid" }, svg), ax = el("g", { class: "axis" }, svg);
   yt.forEach(t => { el("line", { x1: left, x2: W - right, y1: Y(t), y2: Y(t) }, g); txt(ax, { x: left - 8, y: Y(t) + 4, "text-anchor": "end" }, pct(t)); });
   xt.forEach(t => { el("line", { x1: X(t), x2: X(t), y1: top, y2: H - bottom }, g); txt(ax, { x: X(t), y: H - 14, "text-anchor": "middle" }, usd(t)); });
   el("line", { x1: left, x2: W - right, y1: Y(0), y2: Y(0), class: "baseline", "stroke-width": 1.5 }, svg);
-  el("line", { x1: X(100), x2: X(100000), y1: Y(a + b * L0), y2: Y(a + b * L1), stroke: "var(--chrome)", "stroke-width": 2, "stroke-dasharray": "6 6", opacity: .8 }, svg);
+  el("line", { x1: X(100), x2: X(Math.pow(10, L1)), y1: Y(a + b * L0), y2: Y(a + b * L1), stroke: "var(--chrome)", "stroke-width": 2, "stroke-dasharray": "6 6", opacity: .8 }, svg);
   all.forEach(i => {
-    const d = el("circle", { cx: X(i.list.us), cy: Y(i.gap.cn), r: 6.5, fill: "var(--cn)", stroke: "var(--surface)", "stroke-width": 2 }, svg);
-    d.addEventListener("mousemove", e => showTip(e, itemTip(i) + `<div class="r"><span>China vs US</span><span>${pct(i.gap.cn, 1)}</span></div>`));
+    const d = el("circle", { cx: X(i.list.us), cy: Y(i.gap), r: 6.5, fill: i.cat === "Watch" ? "var(--us)" : "var(--ca)", stroke: "var(--surface)", "stroke-width": 2 }, svg);
+    d.addEventListener("mousemove", e => showTip(e, itemTip(i) + `<div class="r"><span>Canada vs US</span><span>${pct(i.gap, 1)}</span></div>`));
     d.addEventListener("mouseleave", hideTip);
   });
-  txt(svg, { x: W - right, y: H - 1, "text-anchor": "end", "font-size": 11 }, "US list price (log scale)");
+  txt(svg, { x: W - right, y: H - 1, "text-anchor": "end", "font-size": 11 }, "US list price (log scale) · purple = bags, blue = watches");
 }
 
 function renderAll() {
   B = compute();
   const all = B.flatMap(b => b.items);
-  const tcn = pairedTest(all, "cn"), tca = pairedTest(all, "ca"), reg = ols(all);
-  renderAbstract(all, tcn, tca, reg); renderStats(all, tcn, tca); renderTicker(all);
+  const tca = pairedTest(all), fx = fxStats(all), reg = ols(all);
+  renderAbstract(all, tca, fx, reg); renderStats(all, tca, fx); renderTicker(all);
   renderGrid(); renderDetail(); renderBrandChart();
-  renderTest(tcn, "cn"); renderTest(tca, "ca"); renderScatter(all, reg);
+  renderTest(tca); renderFx(fx); renderScatter(all, reg);
 }
 function openBrand(id, scroll) {
   state.brand = id; renderGrid(); renderDetail(); writeURL();
@@ -693,7 +727,7 @@ function openBrand(id, scroll) {
 // ---------- mode ----------
 const MODE_DESC = {
   research: "Statistics first. Shopping advice is hidden and products are shown as log price ratios.",
-  consumer: "Brand explorer first, with the cheapest market and savings for every product.",
+  consumer: "Brand explorer first, with the cheaper side of the border and the saving for every product.",
 };
 function setMode(m, persist) {
   state.mode = m;
@@ -705,7 +739,7 @@ function setMode(m, persist) {
 document.querySelectorAll(".seg button").forEach(b => b.addEventListener("click", () => setMode(b.dataset.mode, true)));
 
 // ---------- controls ----------
-const FMT = { fxcn: v => v.toFixed(2), fxca: v => v.toFixed(2), taxus: v => v.toFixed(2) + "%", taxca: v => v + "%" };
+const FMT = { fxca: v => v.toFixed(2), taxus: v => v.toFixed(2) + "%", taxca: v => v + "%" };
 function syncInputs() { for (const k in FMT) { document.getElementById(k).value = state[k]; document.getElementById(k + "-out").textContent = FMT[k](state[k]); } }
 for (const k in FMT) {
   const inp = document.getElementById(k);
@@ -745,7 +779,10 @@ fetch("data/prices.json")
   .then(data => {
     RAW = data; WATCH_NOTE = data.meta.watch_note || "";
     if (!RAW.brands.some(b => b.id === state.brand)) state.brand = "coach";
-    document.getElementById("pipe-done").textContent = `${RAW.brands.reduce((n, b) => n + b.items.length, 0)} products loaded`;
+    const n = RAW.brands.reduce((s, b) => s + b.items.length, 0);
+    document.getElementById("pipe-done").textContent = `${n} products loaded`;
+    document.getElementById("l1-title").textContent = `Only ${n} matched products`;
+    if (data.meta.collected) document.getElementById("l4-title").textContent = `A snapshot from ${fmtDate(data.meta.collected)}`;
     renderAll(); writeURL();
   })
   .catch(() => {

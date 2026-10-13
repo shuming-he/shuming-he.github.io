@@ -1,48 +1,34 @@
-brand_id,brand,tier,product,category,url_us,url_ca,url_cn
-coach,Coach,Accessible luxury,Tabby Shoulder Bag 26,Bag,,,
-coach,Coach,Accessible luxury,Brooklyn Shoulder Bag 28,Bag,,,
-coach,Coach,Accessible luxury,Rogue Bag 25,Bag,,,
-coach,Coach,Accessible luxury,Willow Tote 24,Bag,,,
-michael-kors,Michael Kors,Accessible luxury,Jet Set Travel Large Tote,Bag,,,
-michael-kors,Michael Kors,Accessible luxury,Marilyn Medium Satchel,Bag,,,
-michael-kors,Michael Kors,Accessible luxury,Lexington Chronograph 44mm,Watch,,,
-michael-kors,Michael Kors,Accessible luxury,Parker Pavé Watch 39mm,Watch,,,
-kate-spade,Kate Spade,Accessible luxury,Knott Medium Satchel,Bag,,,
-kate-spade,Kate Spade,Accessible luxury,Deco Shoulder Bag,Bag,,,
-kate-spade,Kate Spade,Accessible luxury,Bleecker Medium Tote,Bag,,,
-tory-burch,Tory Burch,Accessible luxury,Kira Chevron Shoulder Bag,Bag,,,
-tory-burch,Tory Burch,Accessible luxury,Fleming Soft Shoulder Bag,Bag,,,
-tory-burch,Tory Burch,Accessible luxury,Ella Tote,Bag,,,
-longchamp,Longchamp,Accessible luxury,Le Pliage Original Tote L,Bag,,,
-longchamp,Longchamp,Accessible luxury,Le Pliage Green Tote M,Bag,,,
-longchamp,Longchamp,Accessible luxury,Le Roseau Shoulder Bag,Bag,,,
-marc-jacobs,Marc Jacobs,Accessible luxury,The Tote Bag Medium,Bag,,,
-marc-jacobs,Marc Jacobs,Accessible luxury,The Snapshot,Bag,,,
-marc-jacobs,Marc Jacobs,Accessible luxury,The Small Tote Bag,Bag,,,
-burberry,Burberry,Luxury,Medium Check Tote,Bag,,,
-burberry,Burberry,Luxury,Lola Small Bag,Bag,,,
-burberry,Burberry,Luxury,Knight Medium Bag,Bag,,,
-gucci,Gucci,Luxury,GG Marmont Small Shoulder Bag,Bag,,,
-gucci,Gucci,Luxury,Jackie 1961 Small Bag,Bag,,,
-gucci,Gucci,Luxury,Horsebit 1955 Shoulder Bag,Bag,,,
-prada,Prada,Luxury,Re-Edition 2005 Re-Nylon Bag,Bag,,,
-prada,Prada,Luxury,Galleria Saffiano Medium Bag,Bag,,,
-prada,Prada,Luxury,Re-Nylon Backpack,Bag,,,
-louis-vuitton,Louis Vuitton,Luxury,Neverfull MM,Bag,,,
-louis-vuitton,Louis Vuitton,Luxury,Speedy Bandoulière 25,Bag,,,
-louis-vuitton,Louis Vuitton,Luxury,Alma BB,Bag,,,
-omega,Omega,Watchmaker,Speedmaster Moonwatch Professional,Watch,,,
-omega,Omega,Watchmaker,Seamaster Diver 300M,Watch,,,
-omega,Omega,Watchmaker,Seamaster Aqua Terra 41,Watch,,,
-iwc,IWC,Watchmaker,Portugieser Chronograph 41,Watch,,,
-iwc,IWC,Watchmaker,Pilot's Watch Mark XX,Watch,,,
-iwc,IWC,Watchmaker,Portofino Automatic 40,Watch,,,
-rolex,Rolex,Watchmaker,Submariner Date 41,Watch,,,
-rolex,Rolex,Watchmaker,Datejust 41,Watch,,,
-rolex,Rolex,Watchmaker,Oyster Perpetual 41,Watch,,,
-audemars-piguet,Audemars Piguet,Watchmaker,Royal Oak Selfwinding 41,Watch,,,
-audemars-piguet,Audemars Piguet,Watchmaker,Royal Oak Offshore Chronograph 42,Watch,,,
-audemars-piguet,Audemars Piguet,Watchmaker,Code 11.59 Selfwinding 41,Watch,,,
-patek-philippe,Patek Philippe,Watchmaker,Calatrava 5227G,Watch,,,
-patek-philippe,Patek Philippe,Watchmaker,Aquanaut 5167A,Watch,,,
-patek-philippe,Patek Philippe,Watchmaker,Nautilus 5811/1G,Watch,,,
+brand_id,brand,tier,product,category,style,url_us,url_ca
+coach,Coach,Accessible luxury,Tabby Shoulder Bag 26,Bag,CEN52,https://www.coach.com/products/tabby-shoulder-bag-26/CEN52.html,https://ca.coach.com/products/tabby-shoulder-bag-26/CEN52.html
+coach,Coach,Accessible luxury,Brooklyn Shoulder Bag 28,Bag,CU068,,https://ca.coach.com/products/brooklyn-shoulder-bag-28/CU068.html
+rolex,Rolex,Watchmaker,Submariner Date 41,Watch,126610LN,https://www.rolex.com/en-us/watches/submariner/m126610ln-0001,https://www.rolex.com/en-ca/watches/submariner/m126610ln-0001
+longchamp,Longchamp,Accessible luxury,Le Pliage Original Tote L,Bag,L1899089001,https://www.longchamp.com/us/en/products/tote-bag-l-L1899089001.html,https://www.longchamp.com/ca/en/products/tote-bag-l-L1899089001.html
+rolex,Rolex,Watchmaker,Datejust 41,Watch,126300,https://www.rolex.com/en-us/watches/datejust/m126300-0001,https://www.rolex.com/en-ca/watches/datejust/m126300-0001
+omega,Omega,Watchmaker,Speedmaster Moonwatch Professional,Watch,310.30.42.50.01.002,https://www.omegawatches.com/en-us/watch-omega-speedmaster-moonwatch-professional-co-axial-master-chronometer-chronograph-42-mm-31030425001002,https://www.omegawatches.com/en-ca/watch-omega-speedmaster-moonwatch-professional-co-axial-master-chronometer-chronograph-42-mm-31030425001002
+iwc,IWC,Watchmaker,Portugieser Chronograph,Watch,IW371605,https://www.iwc.com/us-en/watches/portugieser/iw371605-portugieser-chronograph,https://www.iwc.com/ca-en/watches/portugieser/iw371605-portugieser-chronograph
+omega,Omega,Watchmaker,Seamaster Diver 300M,Watch,210.30.42.20.01.001,https://www.omegawatches.com/en-us/watch-omega-seamaster-diver-300m-co-axial-master-chronometer-42-mm-21030422001001,https://www.omegawatches.com/en-ca/watch-omega-seamaster-diver-300m-co-axial-master-chronometer-42-mm-21030422001001
+iwc,IWC,Watchmaker,Pilot's Watch Mark XX,Watch,IW328201,https://www.iwc.com/us-en/watches/pilot-watches/iw328201-pilots-watch-mark-xx,https://www.iwc.com/ca-en/watches/pilot-watches/iw328201-pilots-watch-mark-xx
+breitling,Breitling,Watchmaker,Navitimer B01 Chronograph 43,Watch,AB0138211B1A1,https://www.breitling.com/us-en/watches/navitimer/navitimer-b01-chronograph-43-my22/AB0138211B1A1/,https://www.breitling.com/ca-en/watches/navitimer/navitimer-b01-chronograph-43-my22/AB0138211B1A1/
+prada,Prada,Luxury,Re-Edition 2005 Re-Nylon Bag,Bag,1BH204_R064_F0002,https://www.prada.com/us/en/p/prada-re-edition-2005-re-nylon-bag/1BH204_R064_F0002_V_V9L,https://www.prada.com/ca/en/p/prada-re-edition-2005-re-nylon-bag/1BH204_R064_F0002_V_V9L
+jaeger-lecoultre,Jaeger-LeCoultre,Watchmaker,Reverso Tribute Monoface,Watch,Q7168420,https://www.jaeger-lecoultre.com/us-en/watches/reverso/reverso-tribute/reverso-tribute-monoface-stainless-steel-q7168420,https://www.jaeger-lecoultre.com/ca-en/watches/reverso/reverso-tribute/reverso-tribute-monoface-stainless-steel-q7168420
+burberry,Burberry,Luxury,Medium Check Tote,Bag,80939781,https://us.burberry.com/medium-check-tote-p80939781,
+celine,Celine,Luxury,Classique Triomphe Bag,Bag,187363BF4.38NO,https://www.celine.com/en-us/celine-shop-women/handbags/triomphe/classique-triomphe-bag-in-shiny-calfskin-187363BF4.38NO.html,https://www.celine.com/en-ca/celine-shop-women/handbags/triomphe/classique-triomphe-bag-in-shiny-calfskin-187363BF4.38NO.html
+celine,Celine,Luxury,Teen Triomphe Bag,Bag,188423BF4.38NO,https://www.celine.com/en-us/celine-shop-women/handbags/triomphe/teen-triomphe-bag-in-shiny-calfskin-188423BF4.38NO.html,https://www.celine.com/en-ca/celine-shop-women/handbags/triomphe/teen-triomphe-bag-in-shiny-calfskin-188423BF4.38NO.html
+iwc,IWC,Watchmaker,Portofino Automatic,Watch,IW356501,https://www.iwc.com/us-en/watches/portofino/iw356501-portofino-automatic,https://www.iwc.com/ca-en/watches/portofino/iw356501-portofino-automatic
+longchamp,Longchamp,Accessible luxury,Le Pliage Original Tote M,Bag,L2605089001,https://www.longchamp.com/us/en/products/tote-bag-m-L2605089001.html,https://www.longchamp.com/ca/en/products/tote-bag-m-L2605089001.html
+breitling,Breitling,Watchmaker,Superocean Automatic 42,Watch,A17375E71C1A1,https://www.breitling.com/us-en/watches/superocean/superocean-automatic-42-my22/A17375E71C1A1/,https://www.breitling.com/ca-en/watches/superocean/superocean-automatic-42-my22/A17375E71C1A1/
+prada,Prada,Luxury,Galleria Medium Saffiano,Bag,1BA863_NZV_F0002_V_EOO,https://www.prada.com/us/en/p/prada-galleria-medium-saffiano-leather-bag/1BA863_NZV_F0002_V_EOO,https://www.prada.com/ca/en/p/prada-galleria-medium-saffiano-leather-bag/1BA863_NZV_F0002_V_EOO
+jaeger-lecoultre,Jaeger-LeCoultre,Watchmaker,Polaris Date,Watch,Q906863J,https://www.jaeger-lecoultre.com/us-en/watches/polaris/polaris-date-stainless-steel-q906863j,https://www.jaeger-lecoultre.com/ca-en/watches/polaris/polaris-date-stainless-steel-q906863j
+dior,Dior,Luxury,Medium Dior Promenade Shopping Bag (Black Flat Cannage),Bag,medium-black-cannage,https://www.dior.com/en_us/fashion/womens-fashion/bags/all-bags,https://www.dior.com/en_ca/fashion/womens-fashion/bags/all-bags
+dior,Dior,Luxury,Small Dior Promenade Shopping Bag (Black Flat Cannage),Bag,small-black-cannage,https://www.dior.com/en_us/fashion/womens-fashion/bags/all-bags,https://www.dior.com/en_ca/fashion/womens-fashion/bags/all-bags
+dior,Dior,Luxury,Medium Dior Promenade Shopping Bag (Blue Oblique Jacquard),Bag,medium-blue-oblique,https://www.dior.com/en_us/fashion/womens-fashion/bags/all-bags,https://www.dior.com/en_ca/fashion/womens-fashion/bags/all-bags
+fendi,Fendi,Luxury,Medium Roll (FF Zucca shopper),Bag,8BH444B1J2F1PR4,https://www.fendi.com/us-en/woman/bags/medium-roll-ff-zucca-superlight-fabric-shopper-8bh444b1j2f1pr4,https://www.fendi.com/ca-en/woman/bags/medium-roll-ff-zucca-superlight-fabric-shopper-8bh444b1j2f1pr4
+fendi,Fendi,Luxury,Baguette 26424 (FF Zucca jacquard),Bag,8BR850B17AF14YN,https://www.fendi.com/us-en/woman/bags/baguette-26424-ff-zucca-jacquard-fabric-bag-8br850b17af14yn,https://www.fendi.com/ca-en/woman/bags/baguette-26424-ff-zucca-jacquard-fabric-bag-8br850b17af14yn
+miu-miu,Miu Miu,Luxury,Ivy Leather Bag,Bag,5BG231_2CRW_F0046_V_MLN,https://www.miumiu.com/us/en/p/ivy-leather-bag/5BG231_2CRW_F0046_V_MLN,https://www.miumiu.com/ca/en/p/ivy-leather-bag/5BG231_2CRW_F0046_V_MLN
+miu-miu,Miu Miu,Luxury,Ivy Suede Handbag,Bag,5BA352_2ZX5_F06AK_V_OOO,https://www.miumiu.com/us/en/p/ivy-suede-handbag/5BA352_2ZX5_F06AK_V_OOO,https://www.miumiu.com/ca/en/p/ivy-suede-handbag/5BA352_2ZX5_F06AK_V_OOO
+tory-burch,Tory Burch,Accessible luxury,Ella Tote,Bag,ella-tote,https://www.toryburch.com/en-us/handbags/,https://www.toryburch.com/en-ca/handbags/
+tory-burch,Tory Burch,Accessible luxury,Ella natuura Drawstring Tote,Bag,ella-natuura-drawstring,https://www.toryburch.com/en-us/handbags/,https://www.toryburch.com/en-ca/handbags/
+tory-burch,Tory Burch,Accessible luxury,Romy Distressed Tote,Bag,romy-distressed-tote,https://www.toryburch.com/en-us/handbags/,https://www.toryburch.com/en-ca/handbags/
+hermes,Hermès,Luxury,Hermès Videpoches Bag,Bag,H088914CK37,https://www.hermes.com/us/en/product/hermes-videpoches-bag-H088914CK37/,https://www.hermes.com/ca/en/product/hermes-videpoches-bag-H088914CK37/
+chopard,Chopard,Watchmaker,Alpine Eagle 41,Watch,298600-3001,https://www.chopard.com/en-us/watch/298600-3001.html,https://www.chopard.com/en-ca/watch/298600-3001.html
+chopard,Chopard,Watchmaker,Alpine Eagle 36,Watch,298601-3012,https://www.chopard.com/en-us/watch/298601-3012.html,https://www.chopard.com/en-ca/watch/298601-3012.html

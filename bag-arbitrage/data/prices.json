@@ -1,14 +1,13 @@
 {
   "meta": {
-    "dataset": "prototype-sample",
-    "description": "Illustrative list prices used to build and test the site. Not scraped.",
-    "collected": null,
+    "dataset": "official-list-prices",
+    "description": "Official list prices read from each brand's US and Canadian websites.",
+    "collected": "2026-10-13",
     "currency": {
       "us": "USD before sales tax",
-      "ca": "CAD before sales tax",
-      "cn": "CNY, 13% VAT included"
+      "ca": "CAD before sales tax"
     },
-    "watch_note": "These are authorized dealer list prices. Popular Rolex, AP and Patek models often have waitlists and sell above list on the secondary market, which this comparison does not include."
+    "watch_note": "These are official list prices. Popular Rolex models often have waitlists and sell above list on the secondary market, which this comparison does not include."
   },
   "brands": [
     {
@@ -19,148 +18,14 @@
         {
           "name": "Tabby Shoulder Bag 26",
           "category": "Bag",
+          "style": "CEN52",
           "price": {
-            "us": 495,
-            "ca": 650,
-            "cn": 4600
-          }
-        },
-        {
-          "name": "Brooklyn Shoulder Bag 28",
-          "category": "Bag",
-          "price": {
-            "us": 450,
-            "ca": 595,
-            "cn": 4300
-          }
-        },
-        {
-          "name": "Rogue Bag 25",
-          "category": "Bag",
-          "price": {
-            "us": 750,
-            "ca": 995,
-            "cn": 7300
-          }
-        },
-        {
-          "name": "Willow Tote 24",
-          "category": "Bag",
-          "price": {
-            "us": 450,
-            "ca": 595,
-            "cn": 4100
-          }
-        }
-      ]
-    },
-    {
-      "id": "michael-kors",
-      "name": "Michael Kors",
-      "tier": "Accessible luxury",
-      "items": [
-        {
-          "name": "Jet Set Travel Large Tote",
-          "category": "Bag",
-          "price": {
-            "us": 398,
-            "ca": 498,
-            "cn": 2950
-          }
-        },
-        {
-          "name": "Marilyn Medium Satchel",
-          "category": "Bag",
-          "price": {
-            "us": 458,
-            "ca": 578,
-            "cn": 3450
-          }
-        },
-        {
-          "name": "Lexington Chronograph 44mm",
-          "category": "Watch",
-          "price": {
-            "us": 325,
-            "ca": 425,
-            "cn": 2650
-          }
-        },
-        {
-          "name": "Parker Pavé Watch 39mm",
-          "category": "Watch",
-          "price": {
-            "us": 350,
-            "ca": 450,
-            "cn": 2850
-          }
-        }
-      ]
-    },
-    {
-      "id": "kate-spade",
-      "name": "Kate Spade",
-      "tier": "Accessible luxury",
-      "items": [
-        {
-          "name": "Knott Medium Satchel",
-          "category": "Bag",
-          "price": {
-            "us": 398,
-            "ca": 498,
-            "cn": 3200
-          }
-        },
-        {
-          "name": "Deco Shoulder Bag",
-          "category": "Bag",
-          "price": {
-            "us": 398,
-            "ca": 498,
-            "cn": 3300
-          }
-        },
-        {
-          "name": "Bleecker Medium Tote",
-          "category": "Bag",
-          "price": {
-            "us": 348,
-            "ca": 448,
-            "cn": 2800
-          }
-        }
-      ]
-    },
-    {
-      "id": "tory-burch",
-      "name": "Tory Burch",
-      "tier": "Accessible luxury",
-      "items": [
-        {
-          "name": "Kira Chevron Shoulder Bag",
-          "category": "Bag",
-          "price": {
-            "us": 598,
-            "ca": 798,
-            "cn": 5600
-          }
-        },
-        {
-          "name": "Fleming Soft Shoulder Bag",
-          "category": "Bag",
-          "price": {
-            "us": 698,
-            "ca": 898,
-            "cn": 6500
-          }
-        },
-        {
-          "name": "Ella Tote",
-          "category": "Bag",
-          "price": {
-            "us": 298,
-            "ca": 398,
-            "cn": 2700
+            "us": 475.0,
+            "ca": 580.0
+          },
+          "url": {
+            "us": "https://www.coach.com/products/tabby-shoulder-bag-26/CEN52.html",
+            "ca": "https://ca.coach.com/products/tabby-shoulder-bag-26/CEN52.html"
           }
         }
       ]
@@ -171,132 +36,240 @@
       "tier": "Accessible luxury",
       "items": [
         {
+          "name": "Le Pliage Original Tote M",
+          "category": "Bag",
+          "style": "L2605089001",
+          "price": {
+            "us": 165.0,
+            "ca": 220.0
+          },
+          "url": {
+            "us": "https://www.longchamp.com/us/en/products/tote-bag-m-L2605089001.html",
+            "ca": "https://www.longchamp.com/ca/en/products/tote-bag-m-L2605089001.html"
+          }
+        },
+        {
           "name": "Le Pliage Original Tote L",
           "category": "Bag",
+          "style": "L1899089001",
           "price": {
-            "us": 175,
-            "ca": 235,
-            "cn": 1350
-          }
-        },
-        {
-          "name": "Le Pliage Green Tote M",
-          "category": "Bag",
-          "price": {
-            "us": 160,
-            "ca": 215,
-            "cn": 1300
-          }
-        },
-        {
-          "name": "Le Roseau Shoulder Bag",
-          "category": "Bag",
-          "price": {
-            "us": 590,
-            "ca": 790,
-            "cn": 5400
+            "us": 180.0,
+            "ca": 240.0
+          },
+          "url": {
+            "us": "https://www.longchamp.com/us/en/products/tote-bag-l-L1899089001.html",
+            "ca": "https://www.longchamp.com/ca/en/products/tote-bag-l-L1899089001.html"
           }
         }
       ]
     },
     {
-      "id": "marc-jacobs",
-      "name": "Marc Jacobs",
+      "id": "tory-burch",
+      "name": "Tory Burch",
       "tier": "Accessible luxury",
       "items": [
         {
-          "name": "The Tote Bag Medium",
+          "name": "Ella Tote",
           "category": "Bag",
+          "style": "ella-tote",
           "price": {
-            "us": 395,
-            "ca": 525,
-            "cn": 3400
+            "us": 260.0,
+            "ca": 365.0
+          },
+          "url": {
+            "us": "https://www.toryburch.com/en-us/handbags/",
+            "ca": "https://www.toryburch.com/en-ca/handbags/"
           }
         },
         {
-          "name": "The Snapshot",
+          "name": "Ella natuura Drawstring Tote",
           "category": "Bag",
+          "style": "ella-natuura-drawstring",
           "price": {
-            "us": 325,
-            "ca": 425,
-            "cn": 2700
+            "us": 395.0,
+            "ca": 540.0
+          },
+          "url": {
+            "us": "https://www.toryburch.com/en-us/handbags/",
+            "ca": "https://www.toryburch.com/en-ca/handbags/"
           }
         },
         {
-          "name": "The Small Tote Bag",
+          "name": "Romy Distressed Tote",
           "category": "Bag",
+          "style": "romy-distressed-tote",
           "price": {
-            "us": 295,
-            "ca": 395,
-            "cn": 2500
+            "us": 595.0,
+            "ca": 745.0
+          },
+          "url": {
+            "us": "https://www.toryburch.com/en-us/handbags/",
+            "ca": "https://www.toryburch.com/en-ca/handbags/"
           }
         }
       ]
     },
     {
-      "id": "burberry",
-      "name": "Burberry",
+      "id": "celine",
+      "name": "Celine",
       "tier": "Luxury",
       "items": [
         {
-          "name": "Medium Check Tote",
+          "name": "Teen Triomphe Bag",
           "category": "Bag",
+          "style": "188423BF4.38NO",
           "price": {
-            "us": 1490,
-            "ca": 2050,
-            "cn": 11500
+            "us": 4150.0,
+            "ca": 5100.0
+          },
+          "url": {
+            "us": "https://www.celine.com/en-us/celine-shop-women/handbags/triomphe/teen-triomphe-bag-in-shiny-calfskin-188423BF4.38NO.html",
+            "ca": "https://www.celine.com/en-ca/celine-shop-women/handbags/triomphe/teen-triomphe-bag-in-shiny-calfskin-188423BF4.38NO.html"
           }
         },
         {
-          "name": "Lola Small Bag",
+          "name": "Classique Triomphe Bag",
           "category": "Bag",
+          "style": "187363BF4.38NO",
           "price": {
-            "us": 2290,
-            "ca": 3100,
-            "cn": 17900
-          }
-        },
-        {
-          "name": "Knight Medium Bag",
-          "category": "Bag",
-          "price": {
-            "us": 2890,
-            "ca": 3950,
-            "cn": 22500
+            "us": 4350.0,
+            "ca": 5400.0
+          },
+          "url": {
+            "us": "https://www.celine.com/en-us/celine-shop-women/handbags/triomphe/classique-triomphe-bag-in-shiny-calfskin-187363BF4.38NO.html",
+            "ca": "https://www.celine.com/en-ca/celine-shop-women/handbags/triomphe/classique-triomphe-bag-in-shiny-calfskin-187363BF4.38NO.html"
           }
         }
       ]
     },
     {
-      "id": "gucci",
-      "name": "Gucci",
+      "id": "dior",
+      "name": "Dior",
       "tier": "Luxury",
       "items": [
         {
-          "name": "GG Marmont Small Shoulder Bag",
+          "name": "Medium Dior Promenade Shopping Bag (Blue Oblique Jacquard)",
           "category": "Bag",
+          "style": "medium-blue-oblique",
           "price": {
-            "us": 2990,
-            "ca": 4050,
-            "cn": 22500
+            "us": 3600.0,
+            "ca": 4800.0
+          },
+          "url": {
+            "us": "https://www.dior.com/en_us/fashion/womens-fashion/bags/all-bags",
+            "ca": "https://www.dior.com/en_ca/fashion/womens-fashion/bags/all-bags"
           }
         },
         {
-          "name": "Jackie 1961 Small Bag",
+          "name": "Small Dior Promenade Shopping Bag (Black Flat Cannage)",
           "category": "Bag",
+          "style": "small-black-cannage",
           "price": {
-            "us": 3800,
-            "ca": 5150,
-            "cn": 28500
+            "us": 4000.0,
+            "ca": 5300.0
+          },
+          "url": {
+            "us": "https://www.dior.com/en_us/fashion/womens-fashion/bags/all-bags",
+            "ca": "https://www.dior.com/en_ca/fashion/womens-fashion/bags/all-bags"
           }
         },
         {
-          "name": "Horsebit 1955 Shoulder Bag",
+          "name": "Medium Dior Promenade Shopping Bag (Black Flat Cannage)",
           "category": "Bag",
+          "style": "medium-black-cannage",
           "price": {
-            "us": 3500,
-            "ca": 4750,
-            "cn": 26500
+            "us": 4500.0,
+            "ca": 5900.0
+          },
+          "url": {
+            "us": "https://www.dior.com/en_us/fashion/womens-fashion/bags/all-bags",
+            "ca": "https://www.dior.com/en_ca/fashion/womens-fashion/bags/all-bags"
+          }
+        }
+      ]
+    },
+    {
+      "id": "fendi",
+      "name": "Fendi",
+      "tier": "Luxury",
+      "items": [
+        {
+          "name": "Medium Roll (FF Zucca shopper)",
+          "category": "Bag",
+          "style": "8BH444B1J2F1PR4",
+          "price": {
+            "us": 1650.0,
+            "ca": 2050.0
+          },
+          "url": {
+            "us": "https://www.fendi.com/us-en/woman/bags/medium-roll-ff-zucca-superlight-fabric-shopper-8bh444b1j2f1pr4",
+            "ca": "https://www.fendi.com/ca-en/woman/bags/medium-roll-ff-zucca-superlight-fabric-shopper-8bh444b1j2f1pr4"
+          }
+        },
+        {
+          "name": "Baguette 26424 (FF Zucca jacquard)",
+          "category": "Bag",
+          "style": "8BR850B17AF14YN",
+          "price": {
+            "us": 3100.0,
+            "ca": 3800.0
+          },
+          "url": {
+            "us": "https://www.fendi.com/us-en/woman/bags/baguette-26424-ff-zucca-jacquard-fabric-bag-8br850b17af14yn",
+            "ca": "https://www.fendi.com/ca-en/woman/bags/baguette-26424-ff-zucca-jacquard-fabric-bag-8br850b17af14yn"
+          }
+        }
+      ]
+    },
+    {
+      "id": "hermes",
+      "name": "Hermès",
+      "tier": "Luxury",
+      "items": [
+        {
+          "name": "Hermès Videpoches Bag",
+          "category": "Bag",
+          "style": "H088914CK37",
+          "price": {
+            "us": 5500.0,
+            "ca": 6650.0
+          },
+          "url": {
+            "us": "https://www.hermes.com/us/en/product/hermes-videpoches-bag-H088914CK37/",
+            "ca": "https://www.hermes.com/ca/en/product/hermes-videpoches-bag-H088914CK37/"
+          }
+        }
+      ]
+    },
+    {
+      "id": "miu-miu",
+      "name": "Miu Miu",
+      "tier": "Luxury",
+      "items": [
+        {
+          "name": "Ivy Suede Handbag",
+          "category": "Bag",
+          "style": "5BA352_2ZX5_F06AK_V_OOO",
+          "price": {
+            "us": 1950.0,
+            "ca": 2550.0
+          },
+          "url": {
+            "us": "https://www.miumiu.com/us/en/p/ivy-suede-handbag/5BA352_2ZX5_F06AK_V_OOO",
+            "ca": "https://www.miumiu.com/ca/en/p/ivy-suede-handbag/5BA352_2ZX5_F06AK_V_OOO"
+          }
+        },
+        {
+          "name": "Ivy Leather Bag",
+          "category": "Bag",
+          "style": "5BG231_2CRW_F0046_V_MLN",
+          "price": {
+            "us": 2390.0,
+            "ca": 3100.0
+          },
+          "url": {
+            "us": "https://www.miumiu.com/us/en/p/ivy-leather-bag/5BG231_2CRW_F0046_V_MLN",
+            "ca": "https://www.miumiu.com/ca/en/p/ivy-leather-bag/5BG231_2CRW_F0046_V_MLN"
           }
         }
       ]
@@ -309,96 +282,93 @@
         {
           "name": "Re-Edition 2005 Re-Nylon Bag",
           "category": "Bag",
+          "style": "1BH204_R064_F0002",
           "price": {
-            "us": 2150,
-            "ca": 2950,
-            "cn": 16700
+            "us": 2250.0,
+            "ca": 2950.0
+          },
+          "url": {
+            "us": "https://www.prada.com/us/en/p/prada-re-edition-2005-re-nylon-bag/1BH204_R064_F0002_V_V9L",
+            "ca": "https://www.prada.com/ca/en/p/prada-re-edition-2005-re-nylon-bag/1BH204_R064_F0002_V_V9L"
           }
         },
         {
-          "name": "Galleria Saffiano Medium Bag",
+          "name": "Galleria Medium Saffiano",
           "category": "Bag",
+          "style": "1BA863_NZV_F0002_V_EOO",
           "price": {
-            "us": 4900,
-            "ca": 6600,
-            "cn": 36500
-          }
-        },
-        {
-          "name": "Re-Nylon Backpack",
-          "category": "Bag",
-          "price": {
-            "us": 2050,
-            "ca": 2800,
-            "cn": 15900
+            "us": 5100.0,
+            "ca": 6600.0
+          },
+          "url": {
+            "us": "https://www.prada.com/us/en/p/prada-galleria-medium-saffiano-leather-bag/1BA863_NZV_F0002_V_EOO",
+            "ca": "https://www.prada.com/ca/en/p/prada-galleria-medium-saffiano-leather-bag/1BA863_NZV_F0002_V_EOO"
           }
         }
       ]
     },
     {
-      "id": "louis-vuitton",
-      "name": "Louis Vuitton",
-      "tier": "Luxury",
-      "items": [
-        {
-          "name": "Neverfull MM",
-          "category": "Bag",
-          "price": {
-            "us": 2160,
-            "ca": 2950,
-            "cn": 16800
-          }
-        },
-        {
-          "name": "Speedy Bandoulière 25",
-          "category": "Bag",
-          "price": {
-            "us": 2150,
-            "ca": 2900,
-            "cn": 16500
-          }
-        },
-        {
-          "name": "Alma BB",
-          "category": "Bag",
-          "price": {
-            "us": 2250,
-            "ca": 3050,
-            "cn": 17500
-          }
-        }
-      ]
-    },
-    {
-      "id": "omega",
-      "name": "Omega",
+      "id": "breitling",
+      "name": "Breitling",
       "tier": "Watchmaker",
       "items": [
         {
-          "name": "Speedmaster Moonwatch Professional",
+          "name": "Superocean Automatic 42",
           "category": "Watch",
+          "style": "A17375E71C1A1",
           "price": {
-            "us": 7900,
-            "ca": 10900,
-            "cn": 58400
+            "us": 5900.0,
+            "ca": 7050.0
+          },
+          "url": {
+            "us": "https://www.breitling.com/us-en/watches/superocean/superocean-automatic-42-my22/A17375E71C1A1/",
+            "ca": "https://www.breitling.com/ca-en/watches/superocean/superocean-automatic-42-my22/A17375E71C1A1/"
           }
         },
         {
-          "name": "Seamaster Diver 300M",
+          "name": "Navitimer B01 Chronograph 43",
           "category": "Watch",
+          "style": "AB0138211B1A1",
           "price": {
-            "us": 6200,
-            "ca": 8500,
-            "cn": 46000
+            "us": 10700.0,
+            "ca": 12900.0
+          },
+          "url": {
+            "us": "https://www.breitling.com/us-en/watches/navitimer/navitimer-b01-chronograph-43-my22/AB0138211B1A1/",
+            "ca": "https://www.breitling.com/ca-en/watches/navitimer/navitimer-b01-chronograph-43-my22/AB0138211B1A1/"
+          }
+        }
+      ]
+    },
+    {
+      "id": "chopard",
+      "name": "Chopard",
+      "tier": "Watchmaker",
+      "items": [
+        {
+          "name": "Alpine Eagle 36",
+          "category": "Watch",
+          "style": "298601-3012",
+          "price": {
+            "us": 15100.0,
+            "ca": 19800.0
+          },
+          "url": {
+            "us": "https://www.chopard.com/en-us/watch/298601-3012.html",
+            "ca": "https://www.chopard.com/en-ca/watch/298601-3012.html"
           }
         },
         {
-          "name": "Seamaster Aqua Terra 41",
+          "name": "Alpine Eagle 41",
           "category": "Watch",
+          "style": "298600-3001",
           "price": {
-            "us": 6800,
-            "ca": 9300,
-            "cn": 50400
+            "us": 17000.0,
+            "ca": 22300.0
+          },
+          "url": {
+            "us": "https://www.chopard.com/en-us/watch/298600-3001.html",
+            "ca": "https://www.chopard.com/en-ca/watch/298600-3001.html"
           }
         }
       ]
@@ -409,30 +379,108 @@
       "tier": "Watchmaker",
       "items": [
         {
-          "name": "Portugieser Chronograph 41",
+          "name": "Portofino Automatic",
           "category": "Watch",
+          "style": "IW356501",
           "price": {
-            "us": 8900,
-            "ca": 12200,
-            "cn": 66700
+            "us": 5400.0,
+            "ca": 7600.0
+          },
+          "url": {
+            "us": "https://www.iwc.com/us-en/watches/portofino/iw356501-portofino-automatic",
+            "ca": "https://www.iwc.com/ca-en/watches/portofino/iw356501-portofino-automatic"
           }
         },
         {
           "name": "Pilot's Watch Mark XX",
           "category": "Watch",
+          "style": "IW328201",
           "price": {
-            "us": 5600,
-            "ca": 7700,
-            "cn": 41500
+            "us": 5900.0,
+            "ca": 7900.0
+          },
+          "url": {
+            "us": "https://www.iwc.com/us-en/watches/pilot-watches/iw328201-pilots-watch-mark-xx",
+            "ca": "https://www.iwc.com/ca-en/watches/pilot-watches/iw328201-pilots-watch-mark-xx"
           }
         },
         {
-          "name": "Portofino Automatic 40",
+          "name": "Portugieser Chronograph",
           "category": "Watch",
+          "style": "IW371605",
           "price": {
-            "us": 5300,
-            "ca": 7250,
-            "cn": 39000
+            "us": 9200.0,
+            "ca": 12100.0
+          },
+          "url": {
+            "us": "https://www.iwc.com/us-en/watches/portugieser/iw371605-portugieser-chronograph",
+            "ca": "https://www.iwc.com/ca-en/watches/portugieser/iw371605-portugieser-chronograph"
+          }
+        }
+      ]
+    },
+    {
+      "id": "jaeger-lecoultre",
+      "name": "Jaeger-LeCoultre",
+      "tier": "Watchmaker",
+      "items": [
+        {
+          "name": "Reverso Tribute Monoface",
+          "category": "Watch",
+          "style": "Q7168420",
+          "price": {
+            "us": 9600.0,
+            "ca": 12500.0
+          },
+          "url": {
+            "us": "https://www.jaeger-lecoultre.com/us-en/watches/reverso/reverso-tribute/reverso-tribute-monoface-stainless-steel-q7168420",
+            "ca": "https://www.jaeger-lecoultre.com/ca-en/watches/reverso/reverso-tribute/reverso-tribute-monoface-stainless-steel-q7168420"
+          }
+        },
+        {
+          "name": "Polaris Date",
+          "category": "Watch",
+          "style": "Q906863J",
+          "price": {
+            "us": 13100.0,
+            "ca": 17100.0
+          },
+          "url": {
+            "us": "https://www.jaeger-lecoultre.com/us-en/watches/polaris/polaris-date-stainless-steel-q906863j",
+            "ca": "https://www.jaeger-lecoultre.com/ca-en/watches/polaris/polaris-date-stainless-steel-q906863j"
+          }
+        }
+      ]
+    },
+    {
+      "id": "omega",
+      "name": "Omega",
+      "tier": "Watchmaker",
+      "items": [
+        {
+          "name": "Seamaster Diver 300M",
+          "category": "Watch",
+          "style": "210.30.42.20.01.001",
+          "price": {
+            "us": 6700.0,
+            "ca": 8700.0
+          },
+          "url": {
+            "us": "https://www.omegawatches.com/en-us/watch-omega-seamaster-diver-300m-co-axial-master-chronometer-42-mm-21030422001001",
+            "ca": "https://www.omegawatches.com/en-ca/watch-omega-seamaster-diver-300m-co-axial-master-chronometer-42-mm-21030422001001"
+          }
+        },
+        {
+          "name": "Speedmaster Moonwatch Professional",
+          "category": "Watch",
+          "style": "310.30.42.50.01.002",
+          "price": {
+            "us": 9000.0,
+            "ca": 11800.0
+          },
+          "url": {
+            "us": "https://www.omegawatches.com/en-us/watch-omega-speedmaster-moonwatch-professional-co-axial-master-chronometer-chronograph-42-mm-31030425001002",
+            "ca": "https://www.omegawatches.com/en-ca/watch-omega-speedmaster-moonwatch-professional-co-axial-master-chronometer-chronograph-42-mm-31030425001002"
           }
         }
       ]
@@ -443,98 +491,29 @@
       "tier": "Watchmaker",
       "items": [
         {
-          "name": "Submariner Date 41",
-          "category": "Watch",
-          "price": {
-            "us": 10800,
-            "ca": 14700,
-            "cn": 81000
-          }
-        },
-        {
           "name": "Datejust 41",
           "category": "Watch",
+          "style": "126300",
           "price": {
-            "us": 9250,
-            "ca": 12600,
-            "cn": 69500
+            "us": 8950.0,
+            "ca": 11300.0
+          },
+          "url": {
+            "us": "https://www.rolex.com/en-us/watches/datejust/m126300-0001",
+            "ca": "https://www.rolex.com/en-ca/watches/datejust/m126300-0001"
           }
         },
         {
-          "name": "Oyster Perpetual 41",
+          "name": "Submariner Date 41",
           "category": "Watch",
+          "style": "126610LN",
           "price": {
-            "us": 6900,
-            "ca": 9400,
-            "cn": 51800
-          }
-        }
-      ]
-    },
-    {
-      "id": "audemars-piguet",
-      "name": "Audemars Piguet",
-      "tier": "Watchmaker",
-      "items": [
-        {
-          "name": "Royal Oak Selfwinding 41",
-          "category": "Watch",
-          "price": {
-            "us": 34600,
-            "ca": 47400,
-            "cn": 263000
-          }
-        },
-        {
-          "name": "Royal Oak Offshore Chronograph 42",
-          "category": "Watch",
-          "price": {
-            "us": 38200,
-            "ca": 52300,
-            "cn": 290000
-          }
-        },
-        {
-          "name": "Code 11.59 Selfwinding 41",
-          "category": "Watch",
-          "price": {
-            "us": 29800,
-            "ca": 40800,
-            "cn": 226000
-          }
-        }
-      ]
-    },
-    {
-      "id": "patek-philippe",
-      "name": "Patek Philippe",
-      "tier": "Watchmaker",
-      "items": [
-        {
-          "name": "Calatrava 5227G",
-          "category": "Watch",
-          "price": {
-            "us": 41600,
-            "ca": 57000,
-            "cn": 316000
-          }
-        },
-        {
-          "name": "Aquanaut 5167A",
-          "category": "Watch",
-          "price": {
-            "us": 25900,
-            "ca": 35500,
-            "cn": 196000
-          }
-        },
-        {
-          "name": "Nautilus 5811/1G",
-          "category": "Watch",
-          "price": {
-            "us": 79000,
-            "ca": 108000,
-            "cn": 600000
+            "us": 11350.0,
+            "ca": 14350.0
+          },
+          "url": {
+            "us": "https://www.rolex.com/en-us/watches/submariner/m126610ln-0001",
+            "ca": "https://www.rolex.com/en-ca/watches/submariner/m126610ln-0001"
           }
         }
       ]
