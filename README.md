@@ -7,7 +7,7 @@ This repository is my portfolio website, live at **https://shuming-he.github.io*
 
 | # | Project | Live demo | Code | Status |
 |---|---|---|---|---|
-| P01 | **Bag Arbitrage**: is the same luxury bag or watch cheaper in Canada or the US once currency and tax are accounted for? 31 products from 15 brands with real list prices from official US and Canadian websites, a paired t-test on log price ratios, the implied exchange rate in brand pricing, OLS regression, interactive explorer. | [shuming-he.github.io/bag-arbitrage](https://shuming-he.github.io/bag-arbitrage/) | [`bag-arbitrage/`](bag-arbitrage/) · pipeline in [`bag-arbitrage/pipeline/`](bag-arbitrage/pipeline/) | Live |
+| P01 | **Bag Arbitrage**: is the same luxury bag or watch cheaper in Canada or the US once currency and tax are accounted for? 153 products from 15 brands with real list prices from official US and Canadian websites, a paired t-test on log price ratios, the implied exchange rate in brand pricing, OLS regression, interactive explorer. | [shuming-he.github.io/bag-arbitrage](https://shuming-he.github.io/bag-arbitrage/) | [`bag-arbitrage/`](bag-arbitrage/) · pipeline in [`bag-arbitrage/pipeline/`](bag-arbitrage/pipeline/) | Live |
 
 ## Repository layout
 

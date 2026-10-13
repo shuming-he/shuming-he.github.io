@@ -16,6 +16,45 @@
       "tier": "Accessible luxury",
       "items": [
         {
+          "name": "Essential Card Case With Pillow Quilting",
+          "category": "Small leather goods",
+          "style": "CM434",
+          "price": {
+            "us": 95.0,
+            "ca": 120.0
+          },
+          "url": {
+            "us": "https://www.coach.com/shop/women/wallets-wristlets",
+            "ca": "https://ca.coach.com/en/shop/women/wallets-wristlets"
+          }
+        },
+        {
+          "name": "Essential Slim Card Case In Crystal Signature Jacquard",
+          "category": "Small leather goods",
+          "style": "CCD16",
+          "price": {
+            "us": 125.0,
+            "ca": 150.0
+          },
+          "url": {
+            "us": "https://www.coach.com/shop/women/wallets-wristlets",
+            "ca": "https://ca.coach.com/en/shop/women/wallets-wristlets"
+          }
+        },
+        {
+          "name": "Belted Ergo Shoulder Bag 26 In Signature Jacquard",
+          "category": "Bag",
+          "style": "CEN87",
+          "price": {
+            "us": 295.0,
+            "ca": 360.0
+          },
+          "url": {
+            "us": "https://www.coach.com/shop/women/handbags/view-all",
+            "ca": "https://ca.coach.com/en/shop/women/handbags/view-all"
+          }
+        },
+        {
           "name": "Brooklyn Shoulder Bag 28",
           "category": "Bag",
           "style": "CU068",
@@ -26,6 +65,58 @@
           "url": {
             "us": "https://www.coach.com/products/brooklyn-shoulder-bag-28/CU068.html",
             "ca": "https://ca.coach.com/products/brooklyn-shoulder-bag-28/CU068.html"
+          }
+        },
+        {
+          "name": "Chelsea Shoulder Bag 30",
+          "category": "Bag",
+          "style": "CDS59",
+          "price": {
+            "us": 325.0,
+            "ca": 400.0
+          },
+          "url": {
+            "us": "https://www.coach.com/products/chelsea-shoulder-bag-30/CDS59.html",
+            "ca": "https://ca.coach.com/en/shop/women/handbags/view-all"
+          }
+        },
+        {
+          "name": "Soft Tabby Shoulder Bag 20",
+          "category": "Bag",
+          "style": "CFQ98",
+          "price": {
+            "us": 375.0,
+            "ca": 460.0
+          },
+          "url": {
+            "us": "https://www.coach.com/shop/women/handbags/view-all",
+            "ca": "https://ca.coach.com/en/shop/women/handbags/view-all"
+          }
+        },
+        {
+          "name": "Tabby Shoulder Bag 20",
+          "category": "Bag",
+          "style": "CW917",
+          "price": {
+            "us": 375.0,
+            "ca": 460.0
+          },
+          "url": {
+            "us": "https://www.coach.com/shop/women/handbags/view-all",
+            "ca": "https://ca.coach.com/en/shop/women/handbags/view-all"
+          }
+        },
+        {
+          "name": "Soft Tabby Shoulder Bag 20 In Crystal Signature Jacquard",
+          "category": "Bag",
+          "style": "CFQ99",
+          "price": {
+            "us": 475.0,
+            "ca": 580.0
+          },
+          "url": {
+            "us": "https://www.coach.com/shop/women/handbags/view-all",
+            "ca": "https://ca.coach.com/en/shop/women/handbags/view-all"
           }
         },
         {
@@ -40,6 +131,19 @@
             "us": "https://www.coach.com/products/tabby-shoulder-bag-26/CEN52.html",
             "ca": "https://ca.coach.com/products/tabby-shoulder-bag-26/CEN52.html"
           }
+        },
+        {
+          "name": "Tabby Shoulder Bag 26 In Crystal Signature Jacquard",
+          "category": "Bag",
+          "style": "CDZ34",
+          "price": {
+            "us": 575.0,
+            "ca": 700.0
+          },
+          "url": {
+            "us": "https://www.coach.com/products/tabby-shoulder-bag-26-in-crystal-signature-jacquard/CDZ34.html",
+            "ca": "https://ca.coach.com/en/products/tabby-shoulder-bag-26-in-crystal-signature-jacquard/CDZ34.html"
+          }
         }
       ]
     },
@@ -48,6 +152,32 @@
       "name": "Longchamp",
       "tier": "Accessible luxury",
       "items": [
+        {
+          "name": "Le Pliage Original S Handbag Navy",
+          "category": "Bag",
+          "style": "L1621089P68",
+          "price": {
+            "us": 150.0,
+            "ca": 200.0
+          },
+          "url": {
+            "us": "https://www.longchamp.com/us/en/products/handbag-s-L1621089P68.html",
+            "ca": "https://www.longchamp.com/ca/en/products/handbag-s-L1621089P68.html"
+          }
+        },
+        {
+          "name": "Le Pliage Original L Handbag Navy",
+          "category": "Bag",
+          "style": "L1626089P68",
+          "price": {
+            "us": 165.0,
+            "ca": 220.0
+          },
+          "url": {
+            "us": "https://www.longchamp.com/us/en/products/handbag-l-L1626089P68.html",
+            "ca": "https://www.longchamp.com/ca/en/products/handbag-l-L1626089P68.html"
+          }
+        },
         {
           "name": "Le Pliage Original Tote M",
           "category": "Bag",
@@ -72,6 +202,84 @@
           "url": {
             "us": "https://www.longchamp.com/us/en/products/tote-bag-l-L1899089001.html",
             "ca": "https://www.longchamp.com/ca/en/products/tote-bag-l-L1899089001.html"
+          }
+        },
+        {
+          "name": "Le Pliage Original L Travel Bag Navy",
+          "category": "Bag",
+          "style": "L1624089P68",
+          "price": {
+            "us": 205.0,
+            "ca": 275.0
+          },
+          "url": {
+            "us": "https://www.longchamp.com/us/en/products/travel-bag-s-L1624089P68.html",
+            "ca": "https://www.longchamp.com/ca/en/products/travel-bag-s-L1624089P68.html"
+          }
+        },
+        {
+          "name": "Le Pliage Original XL Travel Bag Navy",
+          "category": "Bag",
+          "style": "L1625089P68",
+          "price": {
+            "us": 230.0,
+            "ca": 305.0
+          },
+          "url": {
+            "us": "https://www.longchamp.com/us/en/products/travel-bag-xl-L1625089P68.html",
+            "ca": "https://www.longchamp.com/ca/en/products/travel-bag-xl-L1625089P68.html"
+          }
+        },
+        {
+          "name": "Le Foulonne S Crossbody Bag Black",
+          "category": "Bag",
+          "style": "10337021001",
+          "price": {
+            "us": 515.0,
+            "ca": 685.0
+          },
+          "url": {
+            "us": "https://www.longchamp.com/us/en/products/crossbody-bag-s-10337021001.html",
+            "ca": "https://www.longchamp.com/ca/en/products/crossbody-bag-s-10337021001.html"
+          }
+        },
+        {
+          "name": "Le Foulonne S Crossbody Bag Coffee",
+          "category": "Bag",
+          "style": "10329021M02",
+          "price": {
+            "us": 725.0,
+            "ca": 965.0
+          },
+          "url": {
+            "us": "https://www.longchamp.com/us/en/products/crossbody-bag-s-10329021M02.html",
+            "ca": "https://www.longchamp.com/ca/en/products/crossbody-bag-s-10329021M02.html"
+          }
+        },
+        {
+          "name": "Le Roseau L Tote Bag Vegetal",
+          "category": "Bag",
+          "style": "10327HJD514",
+          "price": {
+            "us": 780.0,
+            "ca": 1035.0
+          },
+          "url": {
+            "us": "https://www.longchamp.com/us/en/products/tote-bag-l-10327HJD514.html",
+            "ca": "https://www.longchamp.com/ca/en/products/tote-bag-l-10327HJD514.html"
+          }
+        },
+        {
+          "name": "Le Roseau S Handbag Paper",
+          "category": "Bag",
+          "style": "10273HFP555",
+          "price": {
+            "us": 820.0,
+            "ca": 1090.0
+          },
+          "url": {
+            "us": "https://www.longchamp.com/us/en/products/handbag-s-10273HFP555.html",
+            "ca": "https://www.longchamp.com/ca/en/products/handbag-s-10273HFP555.html"
           }
         }
       ]
@@ -108,12 +316,38 @@
           }
         },
         {
+          "name": "Mini Romy Suede Bucket Bag",
+          "category": "Bag",
+          "style": "mini-romy-suede-bucket-bag",
+          "price": {
+            "us": 295.0,
+            "ca": 365.0
+          },
+          "url": {
+            "us": "https://www.toryburch.com/en-us/handbags/",
+            "ca": "https://www.toryburch.com/en-ca/handbags/"
+          }
+        },
+        {
           "name": "Small Ella natuura Drawstring Tote",
           "category": "Bag",
           "style": "small-ella-natuura",
           "price": {
             "us": 295.0,
             "ca": 395.0
+          },
+          "url": {
+            "us": "https://www.toryburch.com/en-us/handbags/",
+            "ca": "https://www.toryburch.com/en-ca/handbags/"
+          }
+        },
+        {
+          "name": "Bunny Knot Crescent Bag",
+          "category": "Bag",
+          "style": "bunny-knot-crescent-bag",
+          "price": {
+            "us": 395.0,
+            "ca": 495.0
           },
           "url": {
             "us": "https://www.toryburch.com/en-us/handbags/",
@@ -160,6 +394,19 @@
           }
         },
         {
+          "name": "Small Bunny Knot Shoulder Bag",
+          "category": "Bag",
+          "style": "small-bunny-knot-shoulder-bag",
+          "price": {
+            "us": 495.0,
+            "ca": 595.0
+          },
+          "url": {
+            "us": "https://www.toryburch.com/en-us/handbags/",
+            "ca": "https://www.toryburch.com/en-ca/handbags/"
+          }
+        },
+        {
           "name": "Romy Distressed Tote",
           "category": "Bag",
           "style": "romy-distressed-tote",
@@ -179,6 +426,19 @@
       "name": "Celine",
       "tier": "Luxury",
       "items": [
+        {
+          "name": "Le 17 Grained Calfskin Burnt Red",
+          "category": "Bag",
+          "style": "L105F5E02.27BT",
+          "price": {
+            "us": 3550.0,
+            "ca": 4500.0
+          },
+          "url": {
+            "us": "https://www.celine.com/en-us/celine-shop-women/handbags/",
+            "ca": "https://www.celine.com/en-ca/celine-shop-women/handbags/"
+          }
+        },
         {
           "name": "Small Flair in Suede and Lambskin",
           "category": "Bag",
@@ -219,6 +479,19 @@
           }
         },
         {
+          "name": "Teen Triomphe Bag Toile Triomphe Tan",
+          "category": "Bag",
+          "style": "188882BZ4.04LU",
+          "price": {
+            "us": 3800.0,
+            "ca": 5100.0
+          },
+          "url": {
+            "us": "https://www.celine.com/en-us/celine-shop-women/handbags/triomphe/",
+            "ca": "https://www.celine.com/en-ca/celine-shop-women/handbags/triomphe/"
+          }
+        },
+        {
           "name": "Teen Triomphe Bag",
           "category": "Bag",
           "style": "188423BF4.38NO",
@@ -256,6 +529,45 @@
             "us": "https://www.celine.com/en-us/celine-shop-women/handbags/",
             "ca": "https://www.celine.com/en-ca/celine-shop-women/handbags/"
           }
+        },
+        {
+          "name": "Teen Triomphe Bag Shiny Calfskin Enamel Closure",
+          "category": "Bag",
+          "style": "188424K49.GFS3",
+          "price": {
+            "us": 4450.0,
+            "ca": 5400.0
+          },
+          "url": {
+            "us": "https://www.celine.com/en-us/celine-shop-women/handbags/triomphe/",
+            "ca": "https://www.celine.com/en-ca/celine-shop-women/handbags/triomphe/"
+          }
+        },
+        {
+          "name": "Flair Shiny Calfskin Chestnut",
+          "category": "Bag",
+          "style": "L10AT5B53.18CH",
+          "price": {
+            "us": 4550.0,
+            "ca": 6200.0
+          },
+          "url": {
+            "us": "https://www.celine.com/en-us/celine-shop-women/handbags/",
+            "ca": "https://www.celine.com/en-ca/celine-shop-women/handbags/"
+          }
+        },
+        {
+          "name": "Teen Triomphe Bag Lizard",
+          "category": "Bag",
+          "style": "188424BF5.38NO",
+          "price": {
+            "us": 8900.0,
+            "ca": 10700.0
+          },
+          "url": {
+            "us": "https://www.celine.com/en-us/celine-shop-women/handbags/triomphe/",
+            "ca": "https://www.celine.com/en-ca/celine-shop-women/handbags/triomphe/"
+          }
         }
       ]
     },
@@ -283,6 +595,32 @@
           "style": "medium-blue-oblique",
           "price": {
             "us": 3600.0,
+            "ca": 4800.0
+          },
+          "url": {
+            "us": "https://www.dior.com/en_us/fashion/womens-fashion/bags/all-bags",
+            "ca": "https://www.dior.com/en_ca/fashion/womens-fashion/bags/all-bags"
+          }
+        },
+        {
+          "name": "Small Dior Toujours Hobo Bag Black Cannage Lambskin",
+          "category": "Bag",
+          "style": "small-toujours-hobo-black-lambskin",
+          "price": {
+            "us": 3700.0,
+            "ca": 4800.0
+          },
+          "url": {
+            "us": "https://www.dior.com/en_us/fashion/womens-fashion/bags/all-bags",
+            "ca": "https://www.dior.com/en_ca/fashion/womens-fashion/bags/all-bags"
+          }
+        },
+        {
+          "name": "Small Dior Toujours Hobo Bag Marron Bobby Suede",
+          "category": "Bag",
+          "style": "small-toujours-hobo-marron-bobby-suede",
+          "price": {
+            "us": 3700.0,
             "ca": 4800.0
           },
           "url": {
@@ -323,6 +661,32 @@
           "price": {
             "us": 4000.0,
             "ca": 5300.0
+          },
+          "url": {
+            "us": "https://www.dior.com/en_us/fashion/womens-fashion/bags/all-bags",
+            "ca": "https://www.dior.com/en_ca/fashion/womens-fashion/bags/all-bags"
+          }
+        },
+        {
+          "name": "Medium Dior Toujours Bag Chocolate Macrocannage",
+          "category": "Bag",
+          "style": "medium-toujours-chocolate",
+          "price": {
+            "us": 4300.0,
+            "ca": 5800.0
+          },
+          "url": {
+            "us": "https://www.dior.com/en_us/fashion/womens-fashion/bags/all-bags",
+            "ca": "https://www.dior.com/en_ca/fashion/womens-fashion/bags/all-bags"
+          }
+        },
+        {
+          "name": "Medium Dior Toujours Bag Glove Macrocannage",
+          "category": "Bag",
+          "style": "medium-toujours-glove",
+          "price": {
+            "us": 4300.0,
+            "ca": 5800.0
           },
           "url": {
             "us": "https://www.dior.com/en_us/fashion/womens-fashion/bags/all-bags",
@@ -402,6 +766,19 @@
           }
         },
         {
+          "name": "Baguette 26424 Camel Shearling",
+          "category": "Bag",
+          "style": "8BR850B1E5F0XT5",
+          "price": {
+            "us": 3900.0,
+            "ca": 4750.0
+          },
+          "url": {
+            "us": "https://www.fendi.com/us-en/woman/bags",
+            "ca": "https://www.fendi.com/ca-en/woman/bags"
+          }
+        },
+        {
           "name": "Baguette 26424 (Black Shearling)",
           "category": "Bag",
           "style": "8BR850B14KF1XFP",
@@ -426,6 +803,58 @@
             "us": "https://www.fendi.com/us-en/woman/bags/baguette-26424-dark-honey-leather-bag-8br850b1ebf15w8",
             "ca": "https://www.fendi.com/ca-en/woman/bags/baguette-26424-dark-honey-leather-bag-8br850b1ebf15w8"
           }
+        },
+        {
+          "name": "My Peekaboo XS Black Leather",
+          "category": "Bag",
+          "style": "8BN372B1E6F0QA1",
+          "price": {
+            "us": 4300.0,
+            "ca": 5200.0
+          },
+          "url": {
+            "us": "https://www.fendi.com/us-en/woman/bags/peekaboo",
+            "ca": "https://www.fendi.com/ca-en/woman/bags/peekaboo"
+          }
+        },
+        {
+          "name": "My Peekaboo XS Camel Shearling",
+          "category": "Bag",
+          "style": "8BN372B1E5F0XT5",
+          "price": {
+            "us": 5100.0,
+            "ca": 6100.0
+          },
+          "url": {
+            "us": "https://www.fendi.com/us-en/woman/bags/peekaboo",
+            "ca": "https://www.fendi.com/ca-en/woman/bags/peekaboo"
+          }
+        },
+        {
+          "name": "My Peekaboo Medium Crackled Black Leather",
+          "category": "Bag",
+          "style": "8BN375B14FF0QA1",
+          "price": {
+            "us": 6100.0,
+            "ca": 7300.0
+          },
+          "url": {
+            "us": "https://www.fendi.com/us-en/woman/bags/peekaboo",
+            "ca": "https://www.fendi.com/ca-en/woman/bags/peekaboo"
+          }
+        },
+        {
+          "name": "My Peekaboo Small Black Shearling",
+          "category": "Bag",
+          "style": "8BN374B14KF1XFP",
+          "price": {
+            "us": 6500.0,
+            "ca": 8000.0
+          },
+          "url": {
+            "us": "https://www.fendi.com/us-en/woman/bags/peekaboo",
+            "ca": "https://www.fendi.com/ca-en/woman/bags/peekaboo"
+          }
         }
       ]
     },
@@ -434,6 +863,84 @@
       "name": "Hermès",
       "tier": "Luxury",
       "items": [
+        {
+          "name": "Charnière Compact wallet Beige",
+          "category": "Small leather goods",
+          "style": "H086057CK18",
+          "price": {
+            "us": 2875.0,
+            "ca": 3550.0
+          },
+          "url": {
+            "us": "https://www.hermes.com/us/en/category/women/bags-and-small-leather-goods/small-leather-goods/",
+            "ca": "https://www.hermes.com/ca/en/category/women/bags-and-small-leather-goods/small-leather-goods/"
+          }
+        },
+        {
+          "name": "Roulis Slim wallet Black",
+          "category": "Small leather goods",
+          "style": "H082213CP89",
+          "price": {
+            "us": 3325.0,
+            "ca": 4100.0
+          },
+          "url": {
+            "us": "https://www.hermes.com/us/en/category/women/bags-and-small-leather-goods/small-leather-goods/",
+            "ca": "https://www.hermes.com/ca/en/category/women/bags-and-small-leather-goods/small-leather-goods/"
+          }
+        },
+        {
+          "name": "Maillon Compact wallet Beige",
+          "category": "Small leather goods",
+          "style": "H087381CC37",
+          "price": {
+            "us": 3400.0,
+            "ca": 4175.0
+          },
+          "url": {
+            "us": "https://www.hermes.com/us/en/category/women/bags-and-small-leather-goods/small-leather-goods/",
+            "ca": "https://www.hermes.com/ca/en/category/women/bags-and-small-leather-goods/small-leather-goods/"
+          }
+        },
+        {
+          "name": "Hermèsnap Vertical To Go pouch Black",
+          "category": "Small leather goods",
+          "style": "H088129CK89",
+          "price": {
+            "us": 3650.0,
+            "ca": 4500.0
+          },
+          "url": {
+            "us": "https://www.hermes.com/us/en/category/women/bags-and-small-leather-goods/small-leather-goods/",
+            "ca": "https://www.hermes.com/ca/en/category/women/bags-and-small-leather-goods/small-leather-goods/"
+          }
+        },
+        {
+          "name": "Hermès Videpoches bag Beige",
+          "category": "Bag",
+          "style": "H087987CK18",
+          "price": {
+            "us": 3975.0,
+            "ca": 4800.0
+          },
+          "url": {
+            "us": "https://www.hermes.com/us/en/category/women/bags-and-small-leather-goods/bags-and-clutches/",
+            "ca": "https://www.hermes.com/ca/en/category/women/bags-and-small-leather-goods/bags-and-clutches/"
+          }
+        },
+        {
+          "name": "Medor To Go wallet Red",
+          "category": "Small leather goods",
+          "style": "H087904CC4D",
+          "price": {
+            "us": 5050.0,
+            "ca": 6200.0
+          },
+          "url": {
+            "us": "https://www.hermes.com/us/en/category/women/bags-and-small-leather-goods/small-leather-goods/",
+            "ca": "https://www.hermes.com/ca/en/category/women/bags-and-small-leather-goods/small-leather-goods/"
+          }
+        },
         {
           "name": "Hermès Videpoches Bag",
           "category": "Bag",
@@ -445,6 +952,32 @@
           "url": {
             "us": "https://www.hermes.com/us/en/product/hermes-videpoches-bag-H088914CK37/",
             "ca": "https://www.hermes.com/ca/en/product/hermes-videpoches-bag-H088914CK37/"
+          }
+        },
+        {
+          "name": "Medor To Go wallet Black",
+          "category": "Small leather goods",
+          "style": "H087986CC89",
+          "price": {
+            "us": 6900.0,
+            "ca": 8500.0
+          },
+          "url": {
+            "us": "https://www.hermes.com/us/en/category/women/bags-and-small-leather-goods/small-leather-goods/",
+            "ca": "https://www.hermes.com/ca/en/category/women/bags-and-small-leather-goods/small-leather-goods/"
+          }
+        },
+        {
+          "name": "In-the-Loop plush belt bag Grey",
+          "category": "Bag",
+          "style": "H084987CKAB",
+          "price": {
+            "us": 8300.0,
+            "ca": 10100.0
+          },
+          "url": {
+            "us": "https://www.hermes.com/us/en/category/women/bags-and-small-leather-goods/bags-and-clutches/",
+            "ca": "https://www.hermes.com/ca/en/category/women/bags-and-small-leather-goods/bags-and-clutches/"
           }
         },
         {
@@ -468,6 +1001,19 @@
       "tier": "Luxury",
       "items": [
         {
+          "name": "Spirit Suede Pouch",
+          "category": "Small leather goods",
+          "style": "5NE841_2IEE_F0003",
+          "price": {
+            "us": 1750.0,
+            "ca": 2400.0
+          },
+          "url": {
+            "us": "https://www.miumiu.com/us/en/bags/c/10268US",
+            "ca": "https://www.miumiu.com/ca/en/bags/c/10268CA"
+          }
+        },
+        {
           "name": "Ivy Suede Handbag",
           "category": "Bag",
           "style": "5BA352_2ZX5_F06AK_V_OOO",
@@ -478,6 +1024,32 @@
           "url": {
             "us": "https://www.miumiu.com/us/en/p/ivy-suede-handbag/5BA352_2ZX5_F06AK_V_OOO",
             "ca": "https://www.miumiu.com/ca/en/p/ivy-suede-handbag/5BA352_2ZX5_F06AK_V_OOO"
+          }
+        },
+        {
+          "name": "Spirit Suede Bag",
+          "category": "Bag",
+          "style": "5BC216_2CSS_F0379_V_OOO",
+          "price": {
+            "us": 1970.0,
+            "ca": 2800.0
+          },
+          "url": {
+            "us": "https://www.miumiu.com/us/en/bags/c/10268US",
+            "ca": "https://www.miumiu.com/ca/en/bags/c/10268CA"
+          }
+        },
+        {
+          "name": "Spirit Nappa Leather Bag Black",
+          "category": "Bag",
+          "style": "5BC217_QJB_F0002_V_WOO",
+          "price": {
+            "us": 2200.0,
+            "ca": 2950.0
+          },
+          "url": {
+            "us": "https://www.miumiu.com/us/en/bags/c/10268US",
+            "ca": "https://www.miumiu.com/ca/en/bags/c/10268CA"
           }
         },
         {
@@ -494,12 +1066,38 @@
           }
         },
         {
+          "name": "Ivy Suede Tote Bag",
+          "category": "Bag",
+          "style": "5BG231_2ZX5_F06AK_V_MLN",
+          "price": {
+            "us": 2390.0,
+            "ca": 3100.0
+          },
+          "url": {
+            "us": "https://www.miumiu.com/us/en/bags/c/10268US",
+            "ca": "https://www.miumiu.com/ca/en/bags/c/10268CA"
+          }
+        },
+        {
           "name": "Retour Suede Top-Handle Bag",
           "category": "Bag",
           "style": "5BP111_2ZX5_F05YT_V_OOO",
           "price": {
             "us": 3200.0,
             "ca": 4200.0
+          },
+          "url": {
+            "us": "https://www.miumiu.com/us/en/bags/c/10268US",
+            "ca": "https://www.miumiu.com/ca/en/bags/c/10268CA"
+          }
+        },
+        {
+          "name": "Arcadie Leather Bag",
+          "category": "Bag",
+          "style": "5BB142_ACR3_F0K74_V_OON",
+          "price": {
+            "us": 3300.0,
+            "ca": 4400.0
           },
           "url": {
             "us": "https://www.miumiu.com/us/en/bags/c/10268US",
@@ -540,6 +1138,45 @@
       "tier": "Luxury",
       "items": [
         {
+          "name": "Re-Edition 2008 Re-Nylon Mini-Bag Black",
+          "category": "Bag",
+          "style": "1NE075_RDH0_F0002",
+          "price": {
+            "us": 1150.0,
+            "ca": 1490.0
+          },
+          "url": {
+            "us": "https://www.prada.com/us/en/womens/essentials/prada-re-edition/c/10103US",
+            "ca": "https://www.prada.com/ca/en/womens/essentials/prada-re-edition/c/10103CA"
+          }
+        },
+        {
+          "name": "Re-Edition 2005 Saffiano Leather Mini-Bag",
+          "category": "Bag",
+          "style": "1N204T_NZV_F03CW",
+          "price": {
+            "us": 2150.0,
+            "ca": 2800.0
+          },
+          "url": {
+            "us": "https://www.prada.com/us/en/womens/essentials/prada-re-edition/c/10103US",
+            "ca": "https://www.prada.com/ca/en/womens/essentials/prada-re-edition/c/10103CA"
+          }
+        },
+        {
+          "name": "Re-Edition 2005 Suede Mini-Bag",
+          "category": "Bag",
+          "style": "1N204T_2G64_F05VI",
+          "price": {
+            "us": 2150.0,
+            "ca": 2800.0
+          },
+          "url": {
+            "us": "https://www.prada.com/us/en/womens/essentials/prada-re-edition/c/10103US",
+            "ca": "https://www.prada.com/ca/en/womens/essentials/prada-re-edition/c/10103CA"
+          }
+        },
+        {
           "name": "Re-Edition 2005 Re-Nylon Bag",
           "category": "Bag",
           "style": "1BH204_R064_F0002",
@@ -550,6 +1187,32 @@
           "url": {
             "us": "https://www.prada.com/us/en/p/prada-re-edition-2005-re-nylon-bag/1BH204_R064_F0002_V_V9L",
             "ca": "https://www.prada.com/ca/en/p/prada-re-edition-2005-re-nylon-bag/1BH204_R064_F0002_V_V9L"
+          }
+        },
+        {
+          "name": "Re-Nylon and Saffiano Mini Shoulder Bag Black",
+          "category": "Bag",
+          "style": "1BH230_R064_F0002_V_V9O",
+          "price": {
+            "us": 2400.0,
+            "ca": 3100.0
+          },
+          "url": {
+            "us": "https://www.prada.com/us/en/womens/essentials/prada-re-edition/c/10103US",
+            "ca": "https://www.prada.com/ca/en/womens/essentials/prada-re-edition/c/10103CA"
+          }
+        },
+        {
+          "name": "Re-Edition 2005 Saffiano Leather Bag Black",
+          "category": "Bag",
+          "style": "1BH204_NZV_F0002_V_V2P",
+          "price": {
+            "us": 2850.0,
+            "ca": 3700.0
+          },
+          "url": {
+            "us": "https://www.prada.com/us/en/womens/essentials/prada-re-edition/c/10103US",
+            "ca": "https://www.prada.com/ca/en/womens/essentials/prada-re-edition/c/10103CA"
           }
         },
         {
@@ -638,6 +1301,32 @@
           }
         },
         {
+          "name": "Navitimer B01 Chronograph 46 AB0137211B1P1",
+          "category": "Watch",
+          "style": "AB0137211B1P1",
+          "price": {
+            "us": 10300.0,
+            "ca": 12400.0
+          },
+          "url": {
+            "us": "https://www.breitling.com/us-en/watches/navitimer/",
+            "ca": "https://www.breitling.com/ca-en/watches/navitimer/"
+          }
+        },
+        {
+          "name": "Navitimer B01 Chronograph 43 Tribute to Concorde",
+          "category": "Watch",
+          "style": "AB01389C1C1P1",
+          "price": {
+            "us": 10600.0,
+            "ca": 12700.0
+          },
+          "url": {
+            "us": "https://www.breitling.com/us-en/watches/navitimer/",
+            "ca": "https://www.breitling.com/ca-en/watches/navitimer/"
+          }
+        },
+        {
           "name": "Navitimer B01 Chronograph 43",
           "category": "Watch",
           "style": "AB0138211B1A1",
@@ -649,6 +1338,84 @@
             "us": "https://www.breitling.com/us-en/watches/navitimer/navitimer-b01-chronograph-43-my22/AB0138211B1A1/",
             "ca": "https://www.breitling.com/ca-en/watches/navitimer/navitimer-b01-chronograph-43-my22/AB0138211B1A1/"
           }
+        },
+        {
+          "name": "Navitimer B01 Chronograph 43 Aston Martin F1",
+          "category": "Watch",
+          "style": "EB01381A1B1X1",
+          "price": {
+            "us": 11500.0,
+            "ca": 13600.0
+          },
+          "url": {
+            "us": "https://www.breitling.com/us-en/watches/navitimer/",
+            "ca": "https://www.breitling.com/ca-en/watches/navitimer/"
+          }
+        },
+        {
+          "name": "Navitimer B01 Chronograph 46 UB01372A1C1P1",
+          "category": "Watch",
+          "style": "UB01372A1C1P1",
+          "price": {
+            "us": 14500.0,
+            "ca": 18400.0
+          },
+          "url": {
+            "us": "https://www.breitling.com/us-en/watches/navitimer/",
+            "ca": "https://www.breitling.com/ca-en/watches/navitimer/"
+          }
+        },
+        {
+          "name": "Navitimer B19 Chronograph 43 Perpetual Calendar PB1921251B1P1",
+          "category": "Watch",
+          "style": "PB1921251B1P1",
+          "price": {
+            "us": 31700.0,
+            "ca": 38000.0
+          },
+          "url": {
+            "us": "https://www.breitling.com/us-en/watches/navitimer/",
+            "ca": "https://www.breitling.com/ca-en/watches/navitimer/"
+          }
+        },
+        {
+          "name": "Navitimer B19 Chronograph 43 Perpetual Calendar LB19211A1C1P1",
+          "category": "Watch",
+          "style": "LB19211A1C1P1",
+          "price": {
+            "us": 52000.0,
+            "ca": 60500.0
+          },
+          "url": {
+            "us": "https://www.breitling.com/us-en/watches/navitimer/",
+            "ca": "https://www.breitling.com/ca-en/watches/navitimer/"
+          }
+        },
+        {
+          "name": "Navitimer B01 Chronograph 46 Red Gold",
+          "category": "Watch",
+          "style": "RB0137241G1R1",
+          "price": {
+            "us": 54900.0,
+            "ca": 69700.0
+          },
+          "url": {
+            "us": "https://www.breitling.com/us-en/watches/navitimer/",
+            "ca": "https://www.breitling.com/ca-en/watches/navitimer/"
+          }
+        },
+        {
+          "name": "Navitimer B19 Chronograph 43 Perpetual Calendar 140th Anniversary",
+          "category": "Watch",
+          "style": "RB19101A1H1P1",
+          "price": {
+            "us": 81900.0,
+            "ca": 104000.0
+          },
+          "url": {
+            "us": "https://www.breitling.com/us-en/watches/navitimer/",
+            "ca": "https://www.breitling.com/ca-en/watches/navitimer/"
+          }
         }
       ]
     },
@@ -657,6 +1424,19 @@
       "name": "Chopard",
       "tier": "Watchmaker",
       "items": [
+        {
+          "name": "Alpine Eagle 33 Lucent Steel",
+          "category": "Watch",
+          "style": "298617-3001",
+          "price": {
+            "us": 12900.0,
+            "ca": 16900.0
+          },
+          "url": {
+            "us": "https://www.chopard.com/en-us/watches/alpine-eagle",
+            "ca": "https://www.chopard.com/en-ca/watches/alpine-eagle"
+          }
+        },
         {
           "name": "Alpine Eagle 36",
           "category": "Watch",
@@ -681,6 +1461,97 @@
           "url": {
             "us": "https://www.chopard.com/en-us/watch/298600-3001.html",
             "ca": "https://www.chopard.com/en-ca/watch/298600-3001.html"
+          }
+        },
+        {
+          "name": "Alpine Eagle 41 AM",
+          "category": "Watch",
+          "style": "298600-3038",
+          "price": {
+            "us": 17100.0,
+            "ca": 22500.0
+          },
+          "url": {
+            "us": "https://www.chopard.com/en-us/watches/alpine-eagle",
+            "ca": "https://www.chopard.com/en-ca/watches/alpine-eagle"
+          }
+        },
+        {
+          "name": "Alpine Eagle 41 Lucent Steel 298600-3035",
+          "category": "Watch",
+          "style": "298600-3035",
+          "price": {
+            "us": 18700.0,
+            "ca": 24500.0
+          },
+          "url": {
+            "us": "https://www.chopard.com/en-us/watches/alpine-eagle",
+            "ca": "https://www.chopard.com/en-ca/watches/alpine-eagle"
+          }
+        },
+        {
+          "name": "Alpine Eagle XL Chrono Lucent Steel",
+          "category": "Watch",
+          "style": "298609-3004",
+          "price": {
+            "us": 23200.0,
+            "ca": 30400.0
+          },
+          "url": {
+            "us": "https://www.chopard.com/en-us/watches/alpine-eagle",
+            "ca": "https://www.chopard.com/en-ca/watches/alpine-eagle"
+          }
+        },
+        {
+          "name": "Alpine Eagle Cadence 8HF Titanium",
+          "category": "Watch",
+          "style": "298600-3020",
+          "price": {
+            "us": 25300.0,
+            "ca": 33300.0
+          },
+          "url": {
+            "us": "https://www.chopard.com/en-us/watches/alpine-eagle",
+            "ca": "https://www.chopard.com/en-ca/watches/alpine-eagle"
+          }
+        },
+        {
+          "name": "Alpine Eagle 41 XP TT Titanium",
+          "category": "Watch",
+          "style": "298630-3001",
+          "price": {
+            "us": 30500.0,
+            "ca": 40100.0
+          },
+          "url": {
+            "us": "https://www.chopard.com/en-us/watches/alpine-eagle",
+            "ca": "https://www.chopard.com/en-ca/watches/alpine-eagle"
+          }
+        },
+        {
+          "name": "Alpine Eagle 41 XPS",
+          "category": "Watch",
+          "style": "298623-3003",
+          "price": {
+            "us": 31000.0,
+            "ca": 40800.0
+          },
+          "url": {
+            "us": "https://www.chopard.com/en-us/watches/alpine-eagle",
+            "ca": "https://www.chopard.com/en-ca/watches/alpine-eagle"
+          }
+        },
+        {
+          "name": "Alpine Eagle 41 XP CS Rose Gold",
+          "category": "Watch",
+          "style": "295396-5001",
+          "price": {
+            "us": 96400.0,
+            "ca": 127000.0
+          },
+          "url": {
+            "us": "https://www.chopard.com/en-us/watches/alpine-eagle",
+            "ca": "https://www.chopard.com/en-ca/watches/alpine-eagle"
           }
         }
       ]
@@ -717,6 +1588,32 @@
           }
         },
         {
+          "name": "Pilot's Watch Automatic TOP GUN Ceramic",
+          "category": "Watch",
+          "style": "IW326906",
+          "price": {
+            "us": 7200.0,
+            "ca": 9500.0
+          },
+          "url": {
+            "us": "https://www.iwc.com/us-en/watches/pilot-watches/iw326906-pilots-watch-automatic-top-gun",
+            "ca": "https://www.iwc.com/ca-en/watches/pilot-watches/iw326906-pilots-watch-automatic-top-gun"
+          }
+        },
+        {
+          "name": "Pilot's Watch Chronograph 41",
+          "category": "Watch",
+          "style": "IW388111",
+          "price": {
+            "us": 7800.0,
+            "ca": 10100.0
+          },
+          "url": {
+            "us": "https://www.iwc.com/us-en/watches/pilot-watches/iw388111-pilots-watch-chronograph-41",
+            "ca": "https://www.iwc.com/ca-en/watches/pilot-watches/iw388111-pilots-watch-chronograph-41"
+          }
+        },
+        {
           "name": "Portugieser Chronograph",
           "category": "Watch",
           "style": "IW371605",
@@ -728,6 +1625,71 @@
             "us": "https://www.iwc.com/us-en/watches/portugieser/iw371605-portugieser-chronograph",
             "ca": "https://www.iwc.com/ca-en/watches/portugieser/iw371605-portugieser-chronograph"
           }
+        },
+        {
+          "name": "Big Pilot's Watch 43",
+          "category": "Watch",
+          "style": "IW329301",
+          "price": {
+            "us": 10000.0,
+            "ca": 12900.0
+          },
+          "url": {
+            "us": "https://www.iwc.com/us-en/watches/pilot-watches/iw329301-big-pilots-watch-43",
+            "ca": "https://www.iwc.com/ca-en/watches/pilot-watches/iw329301-big-pilots-watch-43"
+          }
+        },
+        {
+          "name": "Portugieser Chronograph Steel IW371617",
+          "category": "Watch",
+          "style": "IW371617",
+          "price": {
+            "us": 10200.0,
+            "ca": 13600.0
+          },
+          "url": {
+            "us": "https://www.iwc.com/us-en/watches/portugieser/iw371617-portugieser-chronograph",
+            "ca": "https://www.iwc.com/ca-en/watches/portugieser/iw371617-portugieser-chronograph"
+          }
+        },
+        {
+          "name": "Portugieser Automatic 42",
+          "category": "Watch",
+          "style": "IW501702",
+          "price": {
+            "us": 14400.0,
+            "ca": 19300.0
+          },
+          "url": {
+            "us": "https://www.iwc.com/us-en/watches/portugieser/iw501702-portugieser-automatic-42",
+            "ca": "https://www.iwc.com/ca-en/watches/portugieser/iw501702-portugieser-automatic-42"
+          }
+        },
+        {
+          "name": "Portugieser Yacht Club Chronograph",
+          "category": "Watch",
+          "style": "IW390702",
+          "price": {
+            "us": 14400.0,
+            "ca": 19000.0
+          },
+          "url": {
+            "us": "https://www.iwc.com/us-en/watches/portugieser/iw390702-portugieser-yacht-club-chronograph",
+            "ca": "https://www.iwc.com/ca-en/watches/portugieser/iw390702-portugieser-yacht-club-chronograph"
+          }
+        },
+        {
+          "name": "Portugieser Chronograph 5N Gold",
+          "category": "Watch",
+          "style": "IW371611",
+          "price": {
+            "us": 25600.0,
+            "ca": 34500.0
+          },
+          "url": {
+            "us": "https://www.iwc.com/us-en/watches/portugieser/iw371611-portugieser-chronograph",
+            "ca": "https://www.iwc.com/ca-en/watches/portugieser/iw371611-portugieser-chronograph"
+          }
         }
       ]
     },
@@ -736,6 +1698,19 @@
       "name": "Jaeger-LeCoultre",
       "tier": "Watchmaker",
       "items": [
+        {
+          "name": "Reverso Classic Small Monoface Steel Quartz",
+          "category": "Watch",
+          "style": "Q2618541",
+          "price": {
+            "us": 7200.0,
+            "ca": 9400.0
+          },
+          "url": {
+            "us": "https://www.jaeger-lecoultre.com/us-en/watches/reverso/reverso-classic/reverso-classic-monoface-stainless-steel-q2618541",
+            "ca": "https://www.jaeger-lecoultre.com/ca-en/watches/reverso/reverso-classic/reverso-classic-monoface-stainless-steel-q2618541"
+          }
+        },
         {
           "name": "Reverso Tribute Monoface",
           "category": "Watch",
@@ -750,6 +1725,32 @@
           }
         },
         {
+          "name": "Polaris Date 40",
+          "category": "Watch",
+          "style": "Q9128981",
+          "price": {
+            "us": 10400.0,
+            "ca": 14200.0
+          },
+          "url": {
+            "us": "https://www.jaeger-lecoultre.com/us-en/watches/polaris/polaris-date-q9128981",
+            "ca": "https://www.jaeger-lecoultre.com/ca-en/watches/polaris/polaris-date-q9128981"
+          }
+        },
+        {
+          "name": "Reverso Classic Large Monoface Small Seconds",
+          "category": "Watch",
+          "style": "Q3858524",
+          "price": {
+            "us": 11400.0,
+            "ca": 14900.0
+          },
+          "url": {
+            "us": "https://www.jaeger-lecoultre.com/us-en/watches/reverso/reverso-classic/reverso-classic-monoface-small-seconds-q3858524",
+            "ca": "https://www.jaeger-lecoultre.com/ca-en/watches/reverso/reverso-classic/reverso-classic-monoface-small-seconds-q3858524"
+          }
+        },
+        {
           "name": "Polaris Date",
           "category": "Watch",
           "style": "Q906863J",
@@ -760,6 +1761,71 @@
           "url": {
             "us": "https://www.jaeger-lecoultre.com/us-en/watches/polaris/polaris-date-stainless-steel-q906863j",
             "ca": "https://www.jaeger-lecoultre.com/ca-en/watches/polaris/polaris-date-stainless-steel-q906863j"
+          }
+        },
+        {
+          "name": "Reverso Classic Large Duoface Small Seconds",
+          "category": "Watch",
+          "style": "Q3848423",
+          "price": {
+            "us": 15000.0,
+            "ca": 19600.0
+          },
+          "url": {
+            "us": "https://www.jaeger-lecoultre.com/us-en/watches/reverso/reverso-classic/reverso-classic-duoface-small-seconds-stainless-steel-q3848423",
+            "ca": "https://www.jaeger-lecoultre.com/ca-en/watches/reverso/reverso-classic/reverso-classic-duoface-small-seconds-stainless-steel-q3848423"
+          }
+        },
+        {
+          "name": "Reverso Classic Small Duetto",
+          "category": "Watch",
+          "style": "Q2668423",
+          "price": {
+            "us": 15300.0,
+            "ca": 21100.0
+          },
+          "url": {
+            "us": "https://www.jaeger-lecoultre.com/us-en/watches/reverso/reverso-classic/reverso-classic-duetto-q2668423",
+            "ca": "https://www.jaeger-lecoultre.com/ca-en/watches/reverso/reverso-classic/reverso-classic-duetto-q2668423"
+          }
+        },
+        {
+          "name": "Polaris Chronograph Steel",
+          "category": "Watch",
+          "style": "Q9028181",
+          "price": {
+            "us": 17600.0,
+            "ca": 23000.0
+          },
+          "url": {
+            "us": "https://www.jaeger-lecoultre.com/us-en/watches/polaris/polaris-chronograph-stainless-steel-q9028181",
+            "ca": "https://www.jaeger-lecoultre.com/ca-en/watches/polaris/polaris-chronograph-stainless-steel-q9028181"
+          }
+        },
+        {
+          "name": "Reverso Classic Small Monoface Pink Gold",
+          "category": "Watch",
+          "style": "Q2602542",
+          "price": {
+            "us": 17900.0,
+            "ca": 24600.0
+          },
+          "url": {
+            "us": "https://www.jaeger-lecoultre.com/us-en/watches/reverso/reverso-classic/reverso-classic-q2602542",
+            "ca": "https://www.jaeger-lecoultre.com/ca-en/watches/reverso/reverso-classic/reverso-classic-q2602542"
+          }
+        },
+        {
+          "name": "Polaris Perpetual Calendar Steel",
+          "category": "Watch",
+          "style": "Q9088180",
+          "price": {
+            "us": 41900.0,
+            "ca": 55000.0
+          },
+          "url": {
+            "us": "https://www.jaeger-lecoultre.com/us-en/watches/polaris/polaris-perpetual-calendar-stainless-steel-q9088180",
+            "ca": "https://www.jaeger-lecoultre.com/ca-en/watches/polaris/polaris-perpetual-calendar-stainless-steel-q9088180"
           }
         }
       ]
@@ -783,6 +1849,71 @@
           }
         },
         {
+          "name": "Seamaster Aqua Terra 150M 41 Summer Blue Rubber Strap",
+          "category": "Watch",
+          "style": "220.12.41.21.03.008",
+          "price": {
+            "us": 7200.0,
+            "ca": 9400.0
+          },
+          "url": {
+            "us": "https://www.omegawatches.com/en-us/watches/seamaster/aqua-terra-150m/catalog",
+            "ca": "https://www.omegawatches.com/en-ca/watches/seamaster/aqua-terra-150m/catalog"
+          }
+        },
+        {
+          "name": "Constellation 39 Steel Bracelet",
+          "category": "Watch",
+          "style": "131.10.39.20.02.001",
+          "price": {
+            "us": 7400.0,
+            "ca": 9700.0
+          },
+          "url": {
+            "us": "https://www.omegawatches.com/en-us/watches/constellation/constellation/catalog",
+            "ca": "https://www.omegawatches.com/en-ca/watches/constellation/constellation/catalog"
+          }
+        },
+        {
+          "name": "Seamaster Aqua Terra 150M 41 Steel Bracelet",
+          "category": "Watch",
+          "style": "220.10.41.21.02.005",
+          "price": {
+            "us": 7400.0,
+            "ca": 9700.0
+          },
+          "url": {
+            "us": "https://www.omegawatches.com/en-us/watches/seamaster/aqua-terra-150m/catalog",
+            "ca": "https://www.omegawatches.com/en-ca/watches/seamaster/aqua-terra-150m/catalog"
+          }
+        },
+        {
+          "name": "Seamaster Aqua Terra 150M 41 Steel Rubber Strap 220.32",
+          "category": "Watch",
+          "style": "220.32.41.21.03.001",
+          "price": {
+            "us": 7800.0,
+            "ca": 10200.0
+          },
+          "url": {
+            "us": "https://www.omegawatches.com/en-us/watches/seamaster/aqua-terra-150m/catalog",
+            "ca": "https://www.omegawatches.com/en-ca/watches/seamaster/aqua-terra-150m/catalog"
+          }
+        },
+        {
+          "name": "Constellation 41 Steel Bracelet",
+          "category": "Watch",
+          "style": "131.30.41.21.04.001",
+          "price": {
+            "us": 8200.0,
+            "ca": 10800.0
+          },
+          "url": {
+            "us": "https://www.omegawatches.com/en-us/watches/constellation/constellation/catalog",
+            "ca": "https://www.omegawatches.com/en-ca/watches/constellation/constellation/catalog"
+          }
+        },
+        {
           "name": "Speedmaster Moonwatch Professional",
           "category": "Watch",
           "style": "310.30.42.50.01.002",
@@ -794,6 +1925,45 @@
             "us": "https://www.omegawatches.com/en-us/watch-omega-speedmaster-moonwatch-professional-co-axial-master-chronometer-chronograph-42-mm-31030425001002",
             "ca": "https://www.omegawatches.com/en-ca/watch-omega-speedmaster-moonwatch-professional-co-axial-master-chronometer-chronograph-42-mm-31030425001002"
           }
+        },
+        {
+          "name": "Seamaster Aqua Terra 150M 41 Steel and Sedna Gold Rubber Strap",
+          "category": "Watch",
+          "style": "220.22.41.21.06.001",
+          "price": {
+            "us": 11400.0,
+            "ca": 15000.0
+          },
+          "url": {
+            "us": "https://www.omegawatches.com/en-us/watches/seamaster/aqua-terra-150m/catalog",
+            "ca": "https://www.omegawatches.com/en-ca/watches/seamaster/aqua-terra-150m/catalog"
+          }
+        },
+        {
+          "name": "Constellation 41 Yellow Gold Leather Strap",
+          "category": "Watch",
+          "style": "131.63.41.21.01.001",
+          "price": {
+            "us": 30100.0,
+            "ca": 39400.0
+          },
+          "url": {
+            "us": "https://www.omegawatches.com/en-us/watches/constellation/constellation/catalog",
+            "ca": "https://www.omegawatches.com/en-ca/watches/constellation/constellation/catalog"
+          }
+        },
+        {
+          "name": "Seamaster Aqua Terra 150M 41 Moonshine Gold Bracelet",
+          "category": "Watch",
+          "style": "220.50.41.21.02.004",
+          "price": {
+            "us": 46500.0,
+            "ca": 60900.0
+          },
+          "url": {
+            "us": "https://www.omegawatches.com/en-us/watches/seamaster/aqua-terra-150m/catalog",
+            "ca": "https://www.omegawatches.com/en-ca/watches/seamaster/aqua-terra-150m/catalog"
+          }
         }
       ]
     },
@@ -802,6 +1972,32 @@
       "name": "Rolex",
       "tier": "Watchmaker",
       "items": [
+        {
+          "name": "Explorer 36",
+          "category": "Watch",
+          "style": "124270",
+          "price": {
+            "us": 7900.0,
+            "ca": 10050.0
+          },
+          "url": {
+            "us": "https://www.rolex.com/en-us/watches/explorer/m124270-0001",
+            "ca": "https://www.rolex.com/en-ca/watches/explorer/m124270-0001"
+          }
+        },
+        {
+          "name": "Air-King 40",
+          "category": "Watch",
+          "style": "126900",
+          "price": {
+            "us": 8150.0,
+            "ca": 10350.0
+          },
+          "url": {
+            "us": "https://www.rolex.com/en-us/watches/air-king/m126900-0001",
+            "ca": "https://www.rolex.com/en-ca/watches/air-king/m126900-0001"
+          }
+        },
         {
           "name": "Datejust 41",
           "category": "Watch",
@@ -816,6 +2012,32 @@
           }
         },
         {
+          "name": "Submariner 41",
+          "category": "Watch",
+          "style": "124060",
+          "price": {
+            "us": 10050.0,
+            "ca": 12800.0
+          },
+          "url": {
+            "us": "https://www.rolex.com/en-us/watches/submariner/m124060-0001",
+            "ca": "https://www.rolex.com/en-ca/watches/submariner/m124060-0001"
+          }
+        },
+        {
+          "name": "Explorer II 42",
+          "category": "Watch",
+          "style": "226570",
+          "price": {
+            "us": 10600.0,
+            "ca": 13450.0
+          },
+          "url": {
+            "us": "https://www.rolex.com/en-us/watches/explorer/m226570-0001",
+            "ca": "https://www.rolex.com/en-ca/watches/explorer/m226570-0001"
+          }
+        },
+        {
           "name": "Submariner Date 41",
           "category": "Watch",
           "style": "126610LN",
@@ -826,6 +2048,58 @@
           "url": {
             "us": "https://www.rolex.com/en-us/watches/submariner/m126610ln-0001",
             "ca": "https://www.rolex.com/en-ca/watches/submariner/m126610ln-0001"
+          }
+        },
+        {
+          "name": "Datejust 41 Oystersteel and White Gold",
+          "category": "Watch",
+          "style": "126334",
+          "price": {
+            "us": 11850.0,
+            "ca": 15050.0
+          },
+          "url": {
+            "us": "https://www.rolex.com/en-us/watches/datejust/m126334-0002",
+            "ca": "https://www.rolex.com/en-ca/watches/datejust/m126334-0002"
+          }
+        },
+        {
+          "name": "Cosmograph Daytona 40 Oystersteel",
+          "category": "Watch",
+          "style": "126500LN",
+          "price": {
+            "us": 16900.0,
+            "ca": 21300.0
+          },
+          "url": {
+            "us": "https://www.rolex.com/en-us/watches/cosmograph-daytona/m126500ln-0001",
+            "ca": "https://www.rolex.com/en-ca/watches/cosmograph-daytona/m126500ln-0001"
+          }
+        },
+        {
+          "name": "Sky-Dweller 42 Oystersteel and White Gold",
+          "category": "Watch",
+          "style": "336934",
+          "price": {
+            "us": 17750.0,
+            "ca": 22450.0
+          },
+          "url": {
+            "us": "https://www.rolex.com/en-us/watches/sky-dweller/m336934-0001",
+            "ca": "https://www.rolex.com/en-ca/watches/sky-dweller/m336934-0001"
+          }
+        },
+        {
+          "name": "Yacht-Master 42 White Gold",
+          "category": "Watch",
+          "style": "226659",
+          "price": {
+            "us": 40000.0,
+            "ca": 50700.0
+          },
+          "url": {
+            "us": "https://www.rolex.com/en-us/watches/yacht-master/m226659-0002",
+            "ca": "https://www.rolex.com/en-ca/watches/yacht-master/m226659-0002"
           }
         }
       ]

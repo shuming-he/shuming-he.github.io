@@ -29,6 +29,6 @@ python analysis.py --fx-cad 1.42 --tax-us 7 --tax-ca 13
 
 ## Status (13 October 2026)
 
-- 31 products from 15 brands have official prices in both markets.
-- Results at the defaults (USD/CAD 1.42, 7% US tax, 13% HST): Canada vs US −4.0% (95% CI −5.4% to −2.5%), t = −5.35, p < 0.001. Brands price Canada at about C$1.29 per US$1. The gap is not related to price tier (r = −0.24, p = 0.20).
-- Brands left out, and why, are listed in the Limitations section of the page.
+- 153 products from 15 brands (about 10 per brand) have official prices in both markets.
+- Results at the defaults (USD/CAD 1.42, 7% US tax, 13% HST): Canada vs US −4.5% (95% CI −5.1% to −3.9%), t = −13.70, p < 0.001. Brands price Canada at about C$1.28 per US$1. The gap is not related to price tier (r = 0.03, p = 0.7).
+- Some prices were read from category listing pages; the `note` column says which. Six Coach items were matched across markets by product name because Coach's Canadian product pages hide prices.

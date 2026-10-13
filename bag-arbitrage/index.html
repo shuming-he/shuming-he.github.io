@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Bag Arbitrage · US vs Canada Luxury Prices</title>
-<meta name="description" content="Data science project by Shuming He: official US and Canadian list prices for 31 luxury bags and watches, compared with paired t-tests, regression and interactive charts.">
+<meta name="description" content="Data science project by Shuming He: official US and Canadian list prices for 153 luxury bags and watches, compared with paired t-tests, regression and interactive charts.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://shuming-he.github.io/bag-arbitrage/">
 <meta property="og:title" content="Bag Arbitrage · US vs Canada Luxury Prices">
-<meta property="og:description" content="Is the same luxury bag or watch cheaper in Canada or the US? Real list prices for 31 products from 15 brands, with paired t-tests and regression.">
+<meta property="og:description" content="Is the same luxury bag or watch cheaper in Canada or the US? Real list prices for 153 products from 15 brands, with paired t-tests and regression.">
 <meta name="twitter:card" content="summary">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -65,7 +65,7 @@
 @media (max-width: 860px) { .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 
 .ticker { border-block: 1px solid var(--line); background: var(--surface); overflow: hidden; white-space: nowrap; }
-.ticker-track { display: inline-flex; gap: 40px; padding-block: 12px; padding-left: 100%; animation: tick 160s linear infinite; }
+.ticker-track { display: inline-flex; gap: 40px; padding-block: 12px; padding-left: 100%; animation: tick 700s linear infinite; }
 .ticker:hover .ticker-track { animation-play-state: paused; }
 @keyframes tick { from { transform: translateX(0); } to { transform: translateX(-100%); } }
 .tick { font-family: var(--font-mono); font-size: 13px; color: var(--fg-2); display: inline-flex; gap: 10px; align-items: baseline; }
@@ -374,7 +374,7 @@ svg .baseline { stroke: var(--fg-3); }
       </div>
     </div>
     <div class="limits">
-      <div class="limit"><div class="k">L1 · Sample size</div><h3 id="l1-title">A small, hand-picked sample</h3><p>One to three models per brand cannot represent a full catalogue, and I chose well-known models rather than a random sample. Brand-level means rest on very few observations, so they are descriptive, not tests.</p></div>
+      <div class="limit"><div class="k">L1 · Sample size</div><h3 id="l1-title">A small, hand-picked sample</h3><p>About ten models per brand cannot represent a full catalogue, and I chose well-known models rather than a random sample. Brand-level means rest on very few observations, so they are descriptive, not tests.</p></div>
       <div class="limit"><div class="k">L2 · Coverage</div><h3>Brands that could not be included</h3><p>Some brands on my list publish no online prices (Audemars Piguet, Patek Philippe, Vacheron Constantin, A. Lange &amp; Söhne, Panerai, Zenith, Piaget, Chanel bags). Others blocked automated access, failed to load, or sent the Canadian page to the US site (Louis Vuitton, Gucci, Saint Laurent, Bottega Veneta, Balenciaga, Cartier, Loewe, Givenchy, Burberry), and Marc Jacobs disallows crawlers. Leaving them out may bias the result.</p></div>
       <div class="limit"><div class="k">L3 · Price definition</div><h3>Official list prices only</h3><p>The data uses list prices before tax. It excludes sales, outlet prices, duty and tax refunds for travellers, and the waitlists and secondary-market premiums that decide what buyers really pay for a Rolex.</p></div>
       <div class="limit"><div class="k">L4 · Freshness</div><h3 id="l4-title">A one-day snapshot</h3><p>Prices were read once and are not refreshed by this page. Brands reprice when exchange rates move, so the gap measured here can change. A few prices were read from category listings rather than product pages; the CSV marks which.</p></div>
@@ -644,13 +644,13 @@ function renderBrandChart() {
   const box = document.getElementById("brand-chart"); box.innerHTML = "";
   const list = B.slice().sort((a, b) => a.avg - b.avg);
   const vals = list.map(b => b.avg);
-  const ticks = niceTicks(Math.min(-0.05, ...vals), Math.max(0.05, ...vals), 6);
+  const ticks = niceTicks(Math.min(-0.05, ...vals) - 0.02, Math.max(0.05, ...vals), 6);
   const W = 1040, left = 170, right = 60, top = 28, rowH = 32, H = top + list.length * rowH + 8;
   const x = v => left + (v - ticks[0]) / (ticks[ticks.length - 1] - ticks[0]) * (W - left - right);
   const svg = el("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "Mean price gap between Canada and the US by brand" }, box);
   svg.style.minWidth = "600px";
   const g = el("g", { class: "grid" }, svg), ax = el("g", { class: "axis" }, svg);
-  ticks.forEach(t => { el("line", { x1: x(t), x2: x(t), y1: top - 6, y2: H - 6 }, g); txt(ax, { x: x(t), y: 14, "text-anchor": "middle" }, pct(t)); });
+  ticks.forEach(t => { el("line", { x1: x(t), x2: x(t), y1: top - 6, y2: H - 6 }, g); txt(ax, { x: x(t), y: 14, "text-anchor": "middle" }, pct(t, Number.isInteger(+(t * 100).toFixed(6)) ? 0 : 1)); });
   el("line", { x1: x(0), x2: x(0), y1: top - 6, y2: H - 6, class: "baseline", "stroke-width": 1.5 }, svg);
   list.forEach((b, i) => {
     const y = top + i * rowH + rowH / 2;
@@ -693,14 +693,14 @@ function renderScatter(all, reg) {
   document.getElementById("ols-plain").textContent = `In plain terms: price tier explains about ${Math.round(r * r * 100)}% of the variation in the Canada gap. ` +
     (reg.p >= 0.05 ? "That is not significant, so a $200 tote and a $20,000 watch get roughly the same cross-border discount." : r < 0 ? "More expensive items tend to get a bigger Canadian discount." : "Cheaper items tend to get a bigger Canadian discount.");
   const W = 1040, H = 320, left = 60, right = 24, top = 16, bottom = 40;
-  const xt = [100, 300, 1000, 3000, 10000, 30000], L0 = 2, L1 = Math.log10(40000);
+  const xt = [100, 300, 1000, 3000, 10000, 30000, 100000], L0 = 2, L1 = Math.log10(150000);
   const yt = niceTicks(Math.min(-0.05, ...ys), Math.max(0.05, ...ys), 5);
   const X = v => left + (Math.log10(v) - L0) / (L1 - L0) * (W - left - right);
   const Y = v => top + (1 - (v - yt[0]) / (yt[yt.length - 1] - yt[0])) * (H - top - bottom);
   const svg = el("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "Canada gap versus US price, log scale" }, box);
   svg.style.minWidth = "560px";
   const g = el("g", { class: "grid" }, svg), ax = el("g", { class: "axis" }, svg);
-  yt.forEach(t => { el("line", { x1: left, x2: W - right, y1: Y(t), y2: Y(t) }, g); txt(ax, { x: left - 8, y: Y(t) + 4, "text-anchor": "end" }, pct(t)); });
+  yt.forEach(t => { el("line", { x1: left, x2: W - right, y1: Y(t), y2: Y(t) }, g); txt(ax, { x: left - 8, y: Y(t) + 4, "text-anchor": "end" }, pct(t, Number.isInteger(+(t * 100).toFixed(6)) ? 0 : 1)); });
   xt.forEach(t => { el("line", { x1: X(t), x2: X(t), y1: top, y2: H - bottom }, g); txt(ax, { x: X(t), y: H - 14, "text-anchor": "middle" }, usd(t)); });
   el("line", { x1: left, x2: W - right, y1: Y(0), y2: Y(0), class: "baseline", "stroke-width": 1.5 }, svg);
   el("line", { x1: X(100), x2: X(Math.pow(10, L1)), y1: Y(a + b * L0), y2: Y(a + b * L1), stroke: "var(--chrome)", "stroke-width": 2, "stroke-dasharray": "6 6", opacity: .8 }, svg);
