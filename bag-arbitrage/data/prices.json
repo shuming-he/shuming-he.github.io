@@ -16,6 +16,19 @@
       "tier": "Accessible luxury",
       "items": [
         {
+          "name": "Brooklyn Shoulder Bag 28",
+          "category": "Bag",
+          "style": "CU068",
+          "price": {
+            "us": 295.0,
+            "ca": 360.0
+          },
+          "url": {
+            "us": "https://www.coach.com/products/brooklyn-shoulder-bag-28/CU068.html",
+            "ca": "https://ca.coach.com/products/brooklyn-shoulder-bag-28/CU068.html"
+          }
+        },
+        {
           "name": "Tabby Shoulder Bag 26",
           "category": "Bag",
           "style": "CEN52",
@@ -82,12 +95,64 @@
           }
         },
         {
+          "name": "Ella Printed Tote",
+          "category": "Bag",
+          "style": "ella-printed-tote",
+          "price": {
+            "us": 280.0,
+            "ca": 345.0
+          },
+          "url": {
+            "us": "https://www.toryburch.com/en-us/handbags/",
+            "ca": "https://www.toryburch.com/en-ca/handbags/"
+          }
+        },
+        {
+          "name": "Small Ella natuura Drawstring Tote",
+          "category": "Bag",
+          "style": "small-ella-natuura",
+          "price": {
+            "us": 295.0,
+            "ca": 395.0
+          },
+          "url": {
+            "us": "https://www.toryburch.com/en-us/handbags/",
+            "ca": "https://www.toryburch.com/en-ca/handbags/"
+          }
+        },
+        {
           "name": "Ella natuura Drawstring Tote",
           "category": "Bag",
           "style": "ella-natuura-drawstring",
           "price": {
             "us": 395.0,
             "ca": 540.0
+          },
+          "url": {
+            "us": "https://www.toryburch.com/en-us/handbags/",
+            "ca": "https://www.toryburch.com/en-ca/handbags/"
+          }
+        },
+        {
+          "name": "Romy Studded Suede Bucket Bag",
+          "category": "Bag",
+          "style": "romy-studded-bucket",
+          "price": {
+            "us": 450.0,
+            "ca": 550.0
+          },
+          "url": {
+            "us": "https://www.toryburch.com/en-us/handbags/",
+            "ca": "https://www.toryburch.com/en-ca/handbags/"
+          }
+        },
+        {
+          "name": "Romy Shearling Bucket Bag",
+          "category": "Bag",
+          "style": "romy-shearling-bucket",
+          "price": {
+            "us": 495.0,
+            "ca": 620.0
           },
           "url": {
             "us": "https://www.toryburch.com/en-us/handbags/",
@@ -115,6 +180,45 @@
       "tier": "Luxury",
       "items": [
         {
+          "name": "Small Flair in Suede and Lambskin",
+          "category": "Bag",
+          "style": "L10BF5E40.04FL",
+          "price": {
+            "us": 3550.0,
+            "ca": 4800.0
+          },
+          "url": {
+            "us": "https://www.celine.com/en-us/celine-shop-women/handbags/",
+            "ca": "https://www.celine.com/en-ca/celine-shop-women/handbags/"
+          }
+        },
+        {
+          "name": "Le 17 in Calfskin",
+          "category": "Bag",
+          "style": "L105F5C11.38NO",
+          "price": {
+            "us": 3650.0,
+            "ca": 4600.0
+          },
+          "url": {
+            "us": "https://www.celine.com/en-us/celine-shop-women/handbags/",
+            "ca": "https://www.celine.com/en-ca/celine-shop-women/handbags/"
+          }
+        },
+        {
+          "name": "Small Flair in Grained Calfskin",
+          "category": "Bag",
+          "style": "L10BF5C12.38NO",
+          "price": {
+            "us": 3650.0,
+            "ca": 4950.0
+          },
+          "url": {
+            "us": "https://www.celine.com/en-us/celine-shop-women/handbags/",
+            "ca": "https://www.celine.com/en-ca/celine-shop-women/handbags/"
+          }
+        },
+        {
           "name": "Teen Triomphe Bag",
           "category": "Bag",
           "style": "188423BF4.38NO",
@@ -139,6 +243,19 @@
             "us": "https://www.celine.com/en-us/celine-shop-women/handbags/triomphe/classique-triomphe-bag-in-shiny-calfskin-187363BF4.38NO.html",
             "ca": "https://www.celine.com/en-ca/celine-shop-women/handbags/triomphe/classique-triomphe-bag-in-shiny-calfskin-187363BF4.38NO.html"
           }
+        },
+        {
+          "name": "Flair in Grained Calfskin",
+          "category": "Bag",
+          "style": "L10AT5C12.38NO",
+          "price": {
+            "us": 4450.0,
+            "ca": 6050.0
+          },
+          "url": {
+            "us": "https://www.celine.com/en-us/celine-shop-women/handbags/",
+            "ca": "https://www.celine.com/en-ca/celine-shop-women/handbags/"
+          }
         }
       ]
     },
@@ -147,6 +264,19 @@
       "name": "Dior",
       "tier": "Luxury",
       "items": [
+        {
+          "name": "Small Dior Promenade Shopping Bag (Blue Oblique Jacquard)",
+          "category": "Bag",
+          "style": "small-blue-oblique",
+          "price": {
+            "us": 3350.0,
+            "ca": 4400.0
+          },
+          "url": {
+            "us": "https://www.dior.com/en_us/fashion/womens-fashion/bags/all-bags",
+            "ca": "https://www.dior.com/en_ca/fashion/womens-fashion/bags/all-bags"
+          }
+        },
         {
           "name": "Medium Dior Promenade Shopping Bag (Blue Oblique Jacquard)",
           "category": "Bag",
@@ -161,9 +291,35 @@
           }
         },
         {
+          "name": "Medium Dior Promenade Shopping Bag (Khaki Oblique Tweed with Sequins)",
+          "category": "Bag",
+          "style": "medium-khaki-tweed",
+          "price": {
+            "us": 3800.0,
+            "ca": 5000.0
+          },
+          "url": {
+            "us": "https://www.dior.com/en_us/fashion/womens-fashion/bags/all-bags",
+            "ca": "https://www.dior.com/en_ca/fashion/womens-fashion/bags/all-bags"
+          }
+        },
+        {
           "name": "Small Dior Promenade Shopping Bag (Black Flat Cannage)",
           "category": "Bag",
           "style": "small-black-cannage",
+          "price": {
+            "us": 4000.0,
+            "ca": 5300.0
+          },
+          "url": {
+            "us": "https://www.dior.com/en_us/fashion/womens-fashion/bags/all-bags",
+            "ca": "https://www.dior.com/en_ca/fashion/womens-fashion/bags/all-bags"
+          }
+        },
+        {
+          "name": "Small Dior Promenade Shopping Bag (Marron Bobby Suede)",
+          "category": "Bag",
+          "style": "small-marron-suede",
           "price": {
             "us": 4000.0,
             "ca": 5300.0
@@ -218,6 +374,58 @@
             "us": "https://www.fendi.com/us-en/woman/bags/baguette-26424-ff-zucca-jacquard-fabric-bag-8br850b17af14yn",
             "ca": "https://www.fendi.com/ca-en/woman/bags/baguette-26424-ff-zucca-jacquard-fabric-bag-8br850b17af14yn"
           }
+        },
+        {
+          "name": "Baguette 26424 (Crackled Black Leather)",
+          "category": "Bag",
+          "style": "8BR850B14MF0QA1",
+          "price": {
+            "us": 3500.0,
+            "ca": 4300.0
+          },
+          "url": {
+            "us": "https://www.fendi.com/us-en/woman/bags/baguette-26424-crackled-black-leather-bag-8br850b14mf0qa1",
+            "ca": "https://www.fendi.com/ca-en/woman/bags/baguette-26424-crackled-black-leather-bag-8br850b14mf0qa1"
+          }
+        },
+        {
+          "name": "Baguette 26424 (Tiger Print Re-Edition)",
+          "category": "Bag",
+          "style": "8BR850B16BF0ERR",
+          "price": {
+            "us": 3700.0,
+            "ca": 4600.0
+          },
+          "url": {
+            "us": "https://www.fendi.com/us-en/woman/bags/baguette-26424-tiger-print-cavallino-leather-re-edition-bag-8br850b16bf0err",
+            "ca": "https://www.fendi.com/ca-en/woman/bags/baguette-26424-tiger-print-cavallino-leather-re-edition-bag-8br850b16bf0err"
+          }
+        },
+        {
+          "name": "Baguette 26424 (Black Shearling)",
+          "category": "Bag",
+          "style": "8BR850B14KF1XFP",
+          "price": {
+            "us": 4100.0,
+            "ca": 5100.0
+          },
+          "url": {
+            "us": "https://www.fendi.com/us-en/woman/bags/baguette-26424-black-shearling-bag-8br850b14kf1xfp",
+            "ca": "https://www.fendi.com/ca-en/woman/bags/baguette-26424-black-shearling-bag-8br850b14kf1xfp"
+          }
+        },
+        {
+          "name": "Baguette 26424 (Dark Honey Leather)",
+          "category": "Bag",
+          "style": "8BR850B1EBF15W8",
+          "price": {
+            "us": 4100.0,
+            "ca": 5100.0
+          },
+          "url": {
+            "us": "https://www.fendi.com/us-en/woman/bags/baguette-26424-dark-honey-leather-bag-8br850b1ebf15w8",
+            "ca": "https://www.fendi.com/ca-en/woman/bags/baguette-26424-dark-honey-leather-bag-8br850b1ebf15w8"
+          }
         }
       ]
     },
@@ -237,6 +445,19 @@
           "url": {
             "us": "https://www.hermes.com/us/en/product/hermes-videpoches-bag-H088914CK37/",
             "ca": "https://www.hermes.com/ca/en/product/hermes-videpoches-bag-H088914CK37/"
+          }
+        },
+        {
+          "name": "Neo Garden Voyage 41 Bredies Bag",
+          "category": "Bag",
+          "style": "H087934CKAA",
+          "price": {
+            "us": 9900.0,
+            "ca": 11600.0
+          },
+          "url": {
+            "us": "https://www.hermes.com/us/en/product/neo-garden-voyage-41-bredies-bag-H087934CKAA/",
+            "ca": "https://www.hermes.com/ca/en/product/neo-garden-voyage-41-bredies-bag-H087934CKAA/"
           }
         }
       ]
@@ -271,6 +492,45 @@
             "us": "https://www.miumiu.com/us/en/p/ivy-leather-bag/5BG231_2CRW_F0046_V_MLN",
             "ca": "https://www.miumiu.com/ca/en/p/ivy-leather-bag/5BG231_2CRW_F0046_V_MLN"
           }
+        },
+        {
+          "name": "Retour Suede Top-Handle Bag",
+          "category": "Bag",
+          "style": "5BP111_2ZX5_F05YT_V_OOO",
+          "price": {
+            "us": 3200.0,
+            "ca": 4200.0
+          },
+          "url": {
+            "us": "https://www.miumiu.com/us/en/bags/c/10268US",
+            "ca": "https://www.miumiu.com/ca/en/bags/c/10268CA"
+          }
+        },
+        {
+          "name": "Retour Suede Bag",
+          "category": "Bag",
+          "style": "5BB207_2ZX5_F05YT_V_OOO",
+          "price": {
+            "us": 3500.0,
+            "ca": 4700.0
+          },
+          "url": {
+            "us": "https://www.miumiu.com/us/en/p/retour-suede-bag/5BB207_2ZX5_F05YT_V_OOO",
+            "ca": "https://www.miumiu.com/ca/en/p/retour-suede-bag/5BB207_2ZX5_F05YT_V_OOO"
+          }
+        },
+        {
+          "name": "Arcadie Studded Leather Bag",
+          "category": "Bag",
+          "style": "5BB142_2ZSQ_F0009_V_OBO",
+          "price": {
+            "us": 4500.0,
+            "ca": 5900.0
+          },
+          "url": {
+            "us": "https://www.miumiu.com/us/en/p/arcadie-studded-leather-bag/5BB142_2ZSQ_F0009_V_OBO",
+            "ca": "https://www.miumiu.com/ca/en/bags/c/10268CA"
+          }
         }
       ]
     },
@@ -293,6 +553,45 @@
           }
         },
         {
+          "name": "Galleria Mini Saffiano",
+          "category": "Bag",
+          "style": "1BA916_NZV_F0002_V_EOO",
+          "price": {
+            "us": 3950.0,
+            "ca": 5100.0
+          },
+          "url": {
+            "us": "https://www.prada.com/us/en/womens/essentials/prada-galleria/c/10102US",
+            "ca": "https://www.prada.com/ca/en/womens/essentials/prada-galleria/c/10102CA"
+          }
+        },
+        {
+          "name": "Galleria Medium Saffiano (1BA457)",
+          "category": "Bag",
+          "style": "1BA457_NZV_F0002_V_EOM",
+          "price": {
+            "us": 4400.0,
+            "ca": 5800.0
+          },
+          "url": {
+            "us": "https://www.prada.com/us/en/womens/essentials/prada-galleria/c/10102US",
+            "ca": "https://www.prada.com/ca/en/womens/essentials/prada-galleria/c/10102CA"
+          }
+        },
+        {
+          "name": "Galleria Small Saffiano",
+          "category": "Bag",
+          "style": "1BA896_NZV_F0002_V_EOO",
+          "price": {
+            "us": 4800.0,
+            "ca": 6200.0
+          },
+          "url": {
+            "us": "https://www.prada.com/us/en/womens/essentials/prada-galleria/c/10102US",
+            "ca": "https://www.prada.com/ca/en/womens/essentials/prada-galleria/c/10102CA"
+          }
+        },
+        {
           "name": "Galleria Medium Saffiano",
           "category": "Bag",
           "style": "1BA863_NZV_F0002_V_EOO",
@@ -303,6 +602,19 @@
           "url": {
             "us": "https://www.prada.com/us/en/p/prada-galleria-medium-saffiano-leather-bag/1BA863_NZV_F0002_V_EOO",
             "ca": "https://www.prada.com/ca/en/p/prada-galleria-medium-saffiano-leather-bag/1BA863_NZV_F0002_V_EOO"
+          }
+        },
+        {
+          "name": "Galleria Large Saffiano",
+          "category": "Bag",
+          "style": "1BA274_NZV_F0002_V_EOO",
+          "price": {
+            "us": 5500.0,
+            "ca": 7100.0
+          },
+          "url": {
+            "us": "https://www.prada.com/us/en/womens/essentials/prada-galleria/c/10102US",
+            "ca": "https://www.prada.com/ca/en/womens/essentials/prada-galleria/c/10102CA"
           }
         }
       ]
