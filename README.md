@@ -1,6 +1,6 @@
 # Shuming He · Data Science Portfolio
 
-I'm a Mathematics & Statistics student at the University of Toronto applying to graduate programs in data science.
+I am a first-year Mathematics & Statistics student at the University of Toronto, building toward graduate study in data science.
 This repository is my portfolio website, live at **https://shuming-he.github.io**.
 
 ## Projects
@@ -16,7 +16,6 @@ This repository is my portfolio website, live at **https://shuming-he.github.io*
 | Path | What it is |
 |---|---|
 | `index.html` | Portfolio home |
-| `cv.pdf` | CV download (added separately) |
 | `assets/` | Shared styles and scripts |
 | `bag-arbitrage/index.html` | Bag Arbitrage project page |
 | `bag-arbitrage/data/prices.json` | Dataset the page reads |
