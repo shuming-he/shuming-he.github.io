@@ -4,7 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Bag Arbitrage · Cross-Market Luxury Price Analysis</title>
-<meta name="description" content="Data Science Project: Cross-market luxury price arbitrage analysis. Paired t-tests and regression on 47 matched products across the US, Canada and China, by Shuming He.">
+<meta name="description" content="Data-science graduate-application project: cross-market luxury price arbitrage analysis with web scraping, paired t-tests and interactive visualization.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://shuming-he.github.io/bag-arbitrage/">
+<meta property="og:title" content="Bag Arbitrage · Cross-Market Luxury Price Analysis">
+<meta property="og:description" content="End-to-end data science portfolio project by Shuming He: 47 products, 3 markets, paired t-tests and regression.">
+<meta name="twitter:card" content="summary">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@500;700;800&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap">
@@ -60,9 +65,9 @@
 @media (max-width: 860px) { .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 
 .ticker { border-block: 1px solid var(--line); background: var(--surface); overflow: hidden; white-space: nowrap; }
-.ticker-track { display: inline-flex; gap: 40px; padding-block: 12px; animation: tick 100s linear infinite; }
+.ticker-track { display: inline-flex; gap: 40px; padding-block: 12px; padding-left: 100%; animation: tick 160s linear infinite; }
 .ticker:hover .ticker-track { animation-play-state: paused; }
-@keyframes tick { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@keyframes tick { from { transform: translateX(0); } to { transform: translateX(-100%); } }
 .tick { font-family: var(--font-mono); font-size: 13px; color: var(--fg-2); display: inline-flex; gap: 10px; align-items: baseline; }
 .tick b { color: var(--fg); font-weight: 500; }
 .up { color: var(--cn); } .down { color: var(--us); }
@@ -88,12 +93,12 @@ section.block { padding-block: 60px 8px; }
 
 #assume-sec { padding-top: 28px; }
 .assume { display: flex; flex-wrap: wrap; gap: 14px 28px; align-items: center; padding: 16px 20px; background: var(--surface-2); border: 1px solid var(--line); border-radius: var(--radius); }
-.assume .ttl { font-family: var(--font-mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--fg-3); flex-basis: 100%; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.assume .ttl { font-family: var(--font-mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--fg-3); flex-basis: 100%; display: flex; justify-content: space-between; align-items: center; gap: 10px 12px; flex-wrap: wrap; }
 .assume label { font-size: 13px; color: var(--fg-2); display: flex; align-items: center; gap: 10px; }
 .assume output { font-family: var(--font-mono); color: var(--fg); min-width: 54px; display: inline-block; }
 input[type=range] { accent-color: var(--chrome); width: 120px; height: 28px; }
 .assume .hint { font-size: 12px; color: var(--fg-3); flex-basis: 100%; }
-.share { display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 14px; border-radius: 10px; border: 1px solid var(--line); background: var(--surface); color: var(--fg); font: 600 13px var(--font-body); letter-spacing: 0; text-transform: none; cursor: pointer; }
+.share { display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 14px; border-radius: 10px; border: 1px solid var(--line); background: var(--surface); color: var(--fg); font: 600 13px var(--font-body); letter-spacing: 0; text-transform: none; cursor: pointer; white-space: nowrap; }
 .share:hover { border-color: var(--fg-3); }
 .share svg { width: 16px; height: 16px; }
 @media (max-width: 480px) { .assume label { width: 100%; justify-content: space-between; } input[type=range] { flex: 1; width: auto; } }
@@ -102,6 +107,15 @@ input[type=range] { accent-color: var(--chrome); width: 120px; height: 28px; }
 .chip { font: 500 13px var(--font-body); color: var(--fg-2); background: transparent; border: 1px solid var(--line); border-radius: 999px; padding: 0 16px; min-height: 40px; cursor: pointer; }
 .chip:hover { color: var(--fg); border-color: var(--fg-3); }
 .chip[aria-pressed=true] { color: var(--bg); background: var(--chrome); border-color: var(--chrome); }
+.search-row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-bottom: 14px; }
+.search-row .chips { margin-bottom: 0; }
+.search { flex: 1 1 240px; min-width: 0; display: flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 14px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+.search:focus-within { border-color: var(--chrome); }
+.search svg { width: 16px; height: 16px; color: var(--fg-3); flex: none; }
+.search input { flex: 1; min-width: 0; border: 0; outline: 0; background: transparent; color: var(--fg); font: 500 15px var(--font-body); }
+.search input::placeholder { color: var(--fg-3); }
+.search-count { font: 500 12px var(--font-mono); color: var(--fg-3); }
+.empty { color: var(--fg-3); font-size: 14px; padding: 18px 0; grid-column: 1 / -1; }
 .watch-note { font-size: 13px; color: var(--fg-3); margin: 0 0 14px; max-width: 80ch; }
 
 .brands { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
@@ -256,7 +270,7 @@ svg .baseline { stroke: var(--fg-3); }
   <section class="wrap" id="assume-sec">
     <div class="assume" role="group" aria-label="Assumptions">
       <div class="ttl"><span>Assumptions · every number on the page updates</span>
-        <button class="share" type="button" id="share"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg>Copy link to these settings</button>
+        <button class="share" type="button" id="share"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg>Copy share link</button>
       </div>
       <label for="fxcn">USD/CNY <input type="range" id="fxcn" min="6.6" max="7.6" step="0.01" value="7.10"><output id="fxcn-out" for="fxcn">7.10</output></label>
       <label for="fxca">USD/CAD <input type="range" id="fxca" min="1.25" max="1.50" step="0.01" value="1.38"><output id="fxca-out" for="fxca">1.38</output></label>
@@ -275,10 +289,13 @@ svg .baseline { stroke: var(--fg-3); }
         <p class="research-only">Product-level observations behind the tests. Each card shows the brand's mean gap against the US; open one to see each product's log price ratios.</p>
       </div>
     </div>
-    <div class="chips" id="group-chips" role="group" aria-label="Filter brands">
-      <button class="chip" data-g="all" aria-pressed="true">All brands</button>
-      <button class="chip" data-g="fashion" aria-pressed="false">Fashion houses</button>
-      <button class="chip" data-g="watch" aria-pressed="false">Watchmakers</button>
+    <div class="search-row">
+      <label class="search" for="q"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="q" type="search" placeholder="Search a brand or product, e.g. Rolex or Tote" autocomplete="off"><span class="search-count" id="q-count"></span></label>
+      <div class="chips" id="group-chips" role="group" aria-label="Filter brands">
+        <button class="chip" data-g="all" aria-pressed="true">All</button>
+        <button class="chip" data-g="fashion" aria-pressed="false">Fashion</button>
+        <button class="chip" data-g="watch" aria-pressed="false">Watches</button>
+      </div>
     </div>
     <div class="brands" id="brand-grid"></div>
     <div id="detail"></div>
@@ -405,7 +422,7 @@ const COLOR = { us: "var(--us)", ca: "var(--ca)", cn: "var(--cn)" };
 const SVGNS = "http://www.w3.org/2000/svg";
 const RANGES = { fxcn: [6.6, 7.6], fxca: [1.25, 1.5], taxus: [0, 10.25], taxca: [5, 15] };
 const PARAM = { fxcn: "fx_cny", fxca: "fx_cad", taxus: "tax_us", taxca: "tax_ca" };
-const state = { fxcn: 7.10, fxca: 1.38, taxus: 7, taxca: 13, brand: null, group: "all", mode: "consumer" };
+const state = { fxcn: 7.10, fxca: 1.38, taxus: 7, taxca: 13, brand: null, group: "all", mode: "consumer", q: "" };
 let RAW = null, WATCH_NOTE = "", B = [];
 
 const TERMS = {
@@ -540,10 +557,18 @@ function renderStats(all, tcn, tca) {
 }
 function renderTicker(all) {
   const items = all.map(i => `<span class="tick"><b>${i.brand.toUpperCase()} ${i.name.toUpperCase()}</b> US ${local("us", i.list.us)} · CA ${local("ca", i.list.ca)} · CN ${local("cn", i.list.cn)} <span class="${i.gap.cn >= 0 ? "up" : "down"}">CN ${i.gap.cn >= 0 ? "▲" : "▼"} ${pct(i.gap.cn, 1)}</span></span>`).join("");
-  document.getElementById("ticker").innerHTML = items + items;
+  document.getElementById("ticker").innerHTML = items;
 }
+const norm = s => s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+const brandHit = b => !state.q || norm(b.name).includes(state.q);
+const itemHit = i => !state.q || norm(i.name).includes(state.q);
+function visibleItems(b) { return brandHit(b) ? b.items : b.items.filter(itemHit); }
 function renderGrid() {
-  document.getElementById("brand-grid").innerHTML = B.filter(b => state.group === "all" || (state.group === "watch") === (b.tier === "Watchmaker")).map(b => `
+  const list = B.filter(b => (state.group === "all" || (state.group === "watch") === (b.tier === "Watchmaker")) && visibleItems(b).length);
+  const nItems = list.reduce((n, b) => n + visibleItems(b).length, 0);
+  document.getElementById("q-count").textContent = state.q ? `${nItems} match${nItems === 1 ? "" : "es"}` : "";
+  if (!list.length) { document.getElementById("brand-grid").innerHTML = `<p class="empty">No brand or product matches “${state.q}”.</p>`; return; }
+  document.getElementById("brand-grid").innerHTML = list.map(b => `
     <button class="brand-card" data-id="${b.id}" aria-current="${state.brand === b.id}" aria-controls="detail">
       <span class="tier">${b.tier} · ${b.items.length} items</span>
       <span class="bname">${b.name}</span>
@@ -559,6 +584,7 @@ function renderDetail() {
   const box = document.getElementById("detail");
   const b = B.find(x => x.id === state.brand);
   if (!b) { box.innerHTML = ""; return; }
+  const shown = visibleItems(b).length ? visibleItems(b) : b.items;
   const maxP = Math.max(...b.items.flatMap(i => MK.map(k => i.p[k])));
   box.innerHTML = `
     <div class="module" style="padding:24px">
@@ -572,7 +598,7 @@ function renderDetail() {
       </div>
       ${b.tier === "Watchmaker" ? `<p class="watch-note">${WATCH_NOTE}</p>` : ""}
       <div class="legend" style="margin-bottom:14px"><span>Bars show the price in USD with tax. The local list price is in grey.</span></div>
-      <div class="products">${b.items.map(i => {
+      <div class="products">${shown.map(i => {
         const save = i.p[i.worst] - i.p[i.best];
         return `<div class="product">
           <div>
@@ -691,6 +717,14 @@ document.getElementById("group-chips").addEventListener("click", e => {
   state.group = c.dataset.g;
   document.querySelectorAll("#group-chips .chip").forEach(x => x.setAttribute("aria-pressed", x === c ? "true" : "false"));
   renderGrid();
+});
+document.getElementById("q").addEventListener("input", e => {
+  state.q = norm(e.target.value.trim());
+  if (!RAW) return;
+  renderGrid();
+  const vis = B.filter(b => visibleItems(b).length);
+  if (state.q && vis.length && !vis.some(b => b.id === state.brand)) { state.brand = vis[0].id; writeURL(); renderGrid(); }
+  renderDetail();
 });
 document.getElementById("brand-grid").addEventListener("click", e => { const c = e.target.closest(".brand-card"); if (c) openBrand(c.dataset.id, true); });
 

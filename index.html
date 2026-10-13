@@ -4,7 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Shuming He · Data Science Portfolio</title>
-<meta name="description" content="Data science portfolio of Shuming He: statistics, data pipelines and interactive visualization projects.">
+<meta name="description" content="Data science portfolio of Shuming He, Mathematics &amp; Statistics at the University of Toronto: statistics, data pipelines and interactive visualization projects.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://shuming-he.github.io/">
+<meta property="og:title" content="Shuming He · Data Science Portfolio">
+<meta property="og:description" content="Projects in web scraping, inferential statistics and interactive visualization.">
+<meta name="twitter:card" content="summary">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@500;700;800&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap">
@@ -32,6 +37,8 @@ a.project:hover { border-color: var(--fg-3); background: var(--surface-2); trans
 .project p { margin: 0 0 12px; color: var(--fg-2); max-width: 70ch; }
 .project .stack { display: flex; flex-wrap: wrap; gap: 6px; }
 .project .stack span { font-family: var(--font-mono); font-size: 11.5px; color: var(--fg-2); border: 1px solid var(--line); border-radius: 999px; padding: 2px 9px; }
+.project .snap { display: flex; flex-wrap: wrap; gap: 6px 16px; font-family: var(--font-mono); font-size: 12.5px; color: var(--fg-2); margin: 0 0 12px; }
+.project .snap b { color: var(--chrome); font-weight: 600; }
 .project .side { display: flex; flex-direction: column; align-items: flex-end; gap: 14px; }
 .project .arrow { font-size: 22px; color: var(--fg-2); }
 .project.soon { border-style: dashed; background: transparent; }
@@ -68,11 +75,11 @@ a.project:hover { border-color: var(--fg-3); background: var(--surface-2); trans
   <div class="wrap">
     <div class="eyebrow">Data Science Portfolio</div>
     <h1>Shuming <span class="chrome">He</span></h1>
-    <p class="role">Statistics &amp; Data Science · University of Toronto</p>
+    <p class="role">Mathematics &amp; Statistics · University of Toronto</p>
     <p class="lede">I like questions that can be answered with data I collect myself. My projects cover the whole pipeline: scraping and cleaning messy sources, testing hypotheses with the right statistics, and presenting the results as interactive pages anyone can explore.</p>
     <div class="cta">
       <a class="btn solid" href="/bag-arbitrage/">View featured project</a>
-      <a class="btn" data-cv data-cv-label="Download CV (PDF)" data-cv-soon="CV coming soon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 20h14"/></svg>Download CV (PDF)</a>
+      <a class="btn" data-cv data-cv-label="Download CV (PDF)" data-cv-soon="CV coming soon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 20h14"/></svg><span class="lbl">Download CV (PDF)</span></a>
     </div>
   </div>
 </header>
@@ -86,7 +93,8 @@ a.project:hover { border-color: var(--fg-3); background: var(--surface-2); trans
         <div>
           <h3>Bag Arbitrage</h3>
           <p>Do identical luxury bags and watches cost more in China or Canada than in the US once currency and tax are accounted for? 47 matched products, 15 brands, paired t-tests and regression, with an interactive explorer.</p>
-          <div class="stack"><span>Python</span><span>Web scraping</span><span>Inferential statistics</span><span>Regression</span><span>JavaScript + SVG</span></div>
+          <div class="snap"><span><b>47</b> products</span><span><b>15</b> brands</span><span><b>3</b> markets</span><span>paired t-test</span><span>log-ratio analysis</span><span>OLS regression</span></div>
+          <div class="stack"><span>Python</span><span>Web scraping</span><span>Inferential statistics</span><span>JavaScript + SVG</span></div>
           <div class="preview" aria-hidden="true"></div>
         </div>
         <div class="side"><span class="tag live">Live</span><span class="arrow" aria-hidden="true">→</span></div>

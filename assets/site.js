@@ -1,6 +1,6 @@
 // Shared behaviour for every page: CV link availability and back-to-top.
 (function () {
-  const CV_PATH = "/assets/Shuming_He_CV.pdf";
+  const CV_PATH = "/cv.pdf";
 
   function setCv(available) {
     document.querySelectorAll("[data-cv]").forEach(a => {
