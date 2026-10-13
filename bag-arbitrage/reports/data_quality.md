@@ -26,6 +26,11 @@ Categories: Bag 87, Watch 60, Small leather goods 18.
 
 All rows passed: known market, expected currency (USD on US sites, CAD on Canadian sites), positive price, market-specific URL, one price per product and market.
 
+## Price provenance
+
+- 124 price rows were read from a product page; in 124 of them the URL contains the same style code as the CSV row, so the row can be traced to its page.
+- 207 price rows were read from a category listing; the listing URL is stored, and the product is identified on that listing by its name (and code where the listing shows one).
+
 ## Matching quality and provenance flags
 
 Flags are kept as columns in `data/matched_pairs.csv`; they are used for sensitivity analyses, not to drop rows.

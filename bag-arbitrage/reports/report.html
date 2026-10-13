@@ -78,14 +78,27 @@ Ontario HST and 7% US sales tax, the average gap narrows to −5.1%.</p>
 <p><strong>Question.</strong> For identical products sold on a brand’s
 official US and Canadian websites, how do Canadian list prices compare
 with US list prices converted at the market exchange rate?</p>
-<p><strong>Unit and population.</strong> The unit is a product (a style
-or reference sold in both markets). The target population is products
-that the selected brands list with a visible price on both their US and
-Canadian official websites. The sample is not random: brands were
-included when both sites showed prices that could be read, and products
-were chosen to cover each brand’s core lines (about ten per brand).
-Results describe this sample; extending them to other brands or products
-requires assumptions discussed in Section 6.</p>
+<p><strong>Unit of analysis.</strong> The unit is a <em>product
+listing</em>: one style or reference code as the brand sells it in both
+markets. For fashion brands the code usually identifies a colourway as
+well as a model, so two colours of one bag are two listings. Listings
+are the level at which brands publish prices, and they can be traced
+one-to-one to source pages, which is why they are the primary unit. The
+cost is that a model sold in several colours at the same price gets more
+weight: 17 listings repeat an earlier listing’s brand and exact (US, CA)
+price pair. A model-level analysis that keeps one row per such pair
+gives −10.0% (n = 148, 95% CI −11.8% to −8.2%) against −10.2% for
+listings, so the choice of unit does not change the conclusion. The
+price-pair rule is only an approximation of ‘model’: it also merges
+different models that happen to share a price point (two Omega
+references at US$7,400 / C$9,700, for example).</p>
+<p><strong>Population.</strong> The target population is product
+listings that the selected brands show with a visible price on both
+their US and Canadian official websites. The sample is not random:
+brands were included when both sites showed prices that could be read,
+and products were chosen to cover each brand’s core lines (about ten per
+brand). Results describe this sample; extending them to other brands or
+products requires assumptions discussed in Section 6.</p>
 <p><strong>Estimand.</strong> For product <em>i</em> with US price
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>P</mi><mi>i</mi><mrow><mi>U</mi><mi>S</mi></mrow></msubsup><annotation encoding="application/x-tex">P^{US}_i</annotation></semantics></math>
 (USD) and Canadian price
@@ -214,8 +227,9 @@ since US sales tax varies by state and locality.</p>
 </tr>
 <tr class="even">
 <td>p (wild cluster bootstrap-t)</td>
-<td>6.1e-05 (all 32768 Rademacher sign patterns enumerated; this is the
-smallest p-value attainable with this many clusters)</td>
+<td>6.1 × 10<sup>−5</sup> (all 32768 Rademacher sign patterns
+enumerated; this is the smallest p-value attainable with this many
+clusters)</td>
 </tr>
 <tr class="odd">
 <td>Geometric ratio exp(mean d)</td>
@@ -311,7 +325,8 @@ while the market rate was C$1.43.</p>
 <td>&lt; 0.001</td>
 </tr>
 <tr class="even">
-<td>One row per identical (brand, US, CA) price pair</td>
+<td>One row per identical (brand, US, CA) price pair (approximate model
+level)</td>
 <td>148</td>
 <td>15</td>
 <td>−10.0%</td>
@@ -349,6 +364,18 @@ interval is about 31% as wide as the clustered one, which shows how much
 ignoring brand-level dependence would overstate precision. The bootstrap
 percentile interval with 15 clusters can be too narrow (Cameron, Gelbach
 &amp; Miller, 2008).</p>
+<p><strong>How to read the agreement.</strong> All of these intervals
+describe sampling variability under their own assumptions: the CR1
+interval assumes brands are independent draws and relies on an
+approximation that is rough with 15 clusters; the wild bootstrap is
+better behaved with few clusters but can only reach p-values as small as
+2/2^15; the naive test wrongly treats products within a brand as
+independent. Their agreement shows that the sign and rough size of the
+difference are not an artefact of one inference method. It does not
+address bias from how brands and products were selected, from name-based
+matching or from the choice of exchange-rate date; those are examined
+separately through the sample restrictions above and the limitations in
+Section 6.</p>
 <p>Restricting to prices read from product pages leaves 61 products and
 gives −8.9%. This subset is not a random part of the sample: 36 of its
 61 products are watches and 40 come from Rolex, Longchamp, IWC,

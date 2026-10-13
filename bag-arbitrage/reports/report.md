@@ -12,7 +12,9 @@ This study compares official list prices for the same products on the US and Can
 
 **Question.** For identical products sold on a brand's official US and Canadian websites, how do Canadian list prices compare with US list prices converted at the market exchange rate?
 
-**Unit and population.** The unit is a product (a style or reference sold in both markets). The target population is products that the selected brands list with a visible price on both their US and Canadian official websites. The sample is not random: brands were included when both sites showed prices that could be read, and products were chosen to cover each brand's core lines (about ten per brand). Results describe this sample; extending them to other brands or products requires assumptions discussed in Section 6.
+**Unit of analysis.** The unit is a *product listing*: one style or reference code as the brand sells it in both markets. For fashion brands the code usually identifies a colourway as well as a model, so two colours of one bag are two listings. Listings are the level at which brands publish prices, and they can be traced one-to-one to source pages, which is why they are the primary unit. The cost is that a model sold in several colours at the same price gets more weight: 17 listings repeat an earlier listing's brand and exact (US, CA) price pair. A model-level analysis that keeps one row per such pair gives −10.0% (n = 148, 95% CI −11.8% to −8.2%) against −10.2% for listings, so the choice of unit does not change the conclusion. The price-pair rule is only an approximation of 'model': it also merges different models that happen to share a price point (two Omega references at US$7,400 / C$9,700, for example).
+
+**Population.** The target population is product listings that the selected brands show with a visible price on both their US and Canadian official websites. The sample is not random: brands were included when both sites showed prices that could be read, and products were chosen to cover each brand's core lines (about ten per brand). Results describe this sample; extending them to other brands or products requires assumptions discussed in Section 6.
 
 **Estimand.** For product *i* with US price $P^{US}_i$ (USD) and Canadian price $P^{CA}_i$ (CAD), both before tax, and exchange rate $X$ (CAD per USD),
 
@@ -61,7 +63,7 @@ Categories: Bag 87, Watch 60, Small leather goods 18. Items per brand: 10 to 19.
 | 95% CI for mean d | −0.1277 to −0.0865 |
 | t (df) | −11.17 (14) |
 | p (CR1, t with G−1 df) | < 0.001 |
-| p (wild cluster bootstrap-t) | 6.1e-05 (all 32768 Rademacher sign patterns enumerated; this is the smallest p-value attainable with this many clusters) |
+| p (wild cluster bootstrap-t) | 6.1 × 10^−5^ (all 32768 Rademacher sign patterns enumerated; this is the smallest p-value attainable with this many clusters) |
 | Geometric ratio exp(mean d) | 0.8984 |
 | Percentage difference | −10.16% (95% CI −11.99% to −8.29%) |
 | Implied exchange rate in list prices | C$1.282 per US$ (95% CI 1.256 to 1.309) |
@@ -81,12 +83,14 @@ Categories: Bag 87, Watch 60, Small leather goods 18. Items per brand: 10 to 19.
 | Brand cluster bootstrap, percentile CI | 165 | 15 | −10.2% | −11.7% to −8.6% | – |
 | Each brand weighted equally | 165 | 15 | −10.0% | −11.7% to −8.2% | < 0.001 |
 | Wilcoxon signed-rank (median) | 165 | – | −9.1% | – | < 0.001 |
-| One row per identical (brand, US, CA) price pair | 148 | 15 | −10.0% | −11.8% to −8.2% | < 0.001 |
+| One row per identical (brand, US, CA) price pair (approximate model level) | 148 | 15 | −10.0% | −11.8% to −8.2% | < 0.001 |
 | Excluding uncertain matches | 137 | 14 | −10.1% | −12.0% to −8.1% | < 0.001 |
 | Excluding prices read from category listings | 61 | 13 | −8.9% | −10.8% to −7.0% | < 0.001 |
 | Excluding items shown as sold out | 154 | 14 | −9.9% | −11.8% to −7.9% | < 0.001 |
 
 Notes: the Wilcoxon row reports the median, not the mean. The naive interval is about 31% as wide as the clustered one, which shows how much ignoring brand-level dependence would overstate precision. The bootstrap percentile interval with 15 clusters can be too narrow (Cameron, Gelbach & Miller, 2008).
+
+**How to read the agreement.** All of these intervals describe sampling variability under their own assumptions: the CR1 interval assumes brands are independent draws and relies on an approximation that is rough with 15 clusters; the wild bootstrap is better behaved with few clusters but can only reach p-values as small as 2/2^15; the naive test wrongly treats products within a brand as independent. Their agreement shows that the sign and rough size of the difference are not an artefact of one inference method. It does not address bias from how brands and products were selected, from name-based matching or from the choice of exchange-rate date; those are examined separately through the sample restrictions above and the limitations in Section 6.
 
 Restricting to prices read from product pages leaves 61 products and gives −8.9%. This subset is not a random part of the sample: 36 of its 61 products are watches and 40 come from Rolex, Longchamp, IWC, Jaeger-LeCoultre, so the difference may partly reflect composition.
 

@@ -322,7 +322,7 @@ svg .baseline { stroke: var(--fg-3); }
       </div>
     </div>
     <div class="grid-3">
-      <div class="module"><p class="module-title">Unit and population</p><p class="plain-2">A product sold under the same style or reference in both markets. The population is products that the selected brands list with a visible price on both official sites. Brands and products were chosen, not sampled at random, so results describe this sample.</p></div>
+      <div class="module"><p class="module-title">Unit and population</p><p class="plain-2">The unit is a product listing: one style or reference code as sold in both markets, so two colours of one bag count as two listings. A model-level check (one row per identical price pair) gives almost the same answer; see Statistical evidence. The population is listings the selected brands show with a price on both official sites. Brands and products were chosen, not sampled at random, so results describe this sample.</p></div>
       <div class="module"><p class="module-title">Estimand</p><p class="formula" aria-label="d sub i equals the natural log of the Canadian price divided by the exchange rate times the US price">d<sub>i</sub> = ln( P<sup>CA</sup><sub>i</sub> ⁄ (X · P<sup>US</sup><sub>i</sub>) )</p><p class="plain-2">Prices before sales tax; X is the Bank of Canada CAD-per-USD rate on the last business day before collection. The target is the mean of d<sub>i</sub>; d &lt; 0 means cheaper in Canada.</p></div>
       <div class="module"><p class="module-title">Hypotheses and inference</p><p class="plain-2">H₀: mean d = 0 against a two-sided alternative. Products from one brand are priced together, so standard errors are clustered by brand and the t reference has one degree of freedom per brand, minus one.</p></div>
     </div>
@@ -455,7 +455,7 @@ svg .baseline { stroke: var(--fg-3); }
       <li><h3><button class="step-btn" type="button" aria-expanded="false">Validate<span class="plus" aria-hidden="true">+</span></button></h3><p class="sum">Format checks and matching flags.</p><div class="step-detail"><div><p><code>validate.py</code> rejects wrong currencies and non-positive prices, reports unmatched products, and flags name-based matches, listing-page prices, sold-out items and repeated price pairs. Flagged rows stay in the sample and get their own sensitivity analysis.</p></div></div></li>
       <li><h3><button class="step-btn" type="button" aria-expanded="false">Normalize<span class="plus" aria-hidden="true">+</span></button></h3><p class="sum">Log difference at a dated exchange rate.</p><div class="step-detail"><div><p>d = ln(CA price ÷ (US price × rate)), using the Bank of Canada FXUSDCAD rate for 9 October 2026. Tax and other rates are scenarios: each shifts every d by the same constant.</p></div></div></li>
       <li><h3><button class="step-btn" type="button" aria-expanded="false">Estimate<span class="plus" aria-hidden="true">+</span></button></h3><p class="sum">Mean d with brand-clustered inference.</p><div class="step-detail"><div><p>CR1 cluster-robust standard error by brand with t(G − 1) critical values, a wild cluster bootstrap-t, and a regression of d on log price and category, all in <code>bastats.py</code>.</p></div></div></li>
-      <li><h3><button class="step-btn" type="button" aria-expanded="false">Check<span class="plus" aria-hidden="true">+</span></button></h3><p class="sum">Robustness, influence, tests.</p><div class="step-detail"><div><p>Alternative weightings and samples, leave-one-brand-out, and 25 unit tests on synthetic data with known answers (<code>tests/</code>).</p></div></div></li>
+      <li><h3><button class="step-btn" type="button" aria-expanded="false">Check<span class="plus" aria-hidden="true">+</span></button></h3><p class="sum">Robustness, influence, tests.</p><div class="step-detail"><div><p>Alternative weightings and samples, leave-one-brand-out, and 26 unit tests, mostly on synthetic data with known answers (<code>tests/</code>).</p></div></div></li>
     </ol>
   </section>
 
@@ -692,6 +692,7 @@ addEventListener("scroll", () => { if (pinned) { pinned = null; hideTip(); } }, 
 const P = v => pct(v / 100, 1);                 // results.json stores percentages
 const Pci = e => e.ci_low_pct == null ? "–" : `${P(e.ci_low_pct)} to ${P(e.ci_high_pct)}`;
 const fmtPv = p => p == null ? "–" : p < 0.001 ? "< 0.001" : p.toFixed(3);
+const sci = p => { const [m, e] = p.toExponential(1).split("e"); return `${m} × 10<sup>${e.replace("-", "−").replace("+", "")}</sup>`; };
 function renderAbstract(R) {
   const p = R.primary, q = R.quality, d = R.distribution;
   const tax = R.tax_scenarios.find(t => t.ca_rate === 13 && t.us_rate === 7);
@@ -718,7 +719,7 @@ function renderFindings(R) {
   const tax = R.tax_scenarios.find(t => t.ca_rate === 13 && t.us_rate === 7);
   const lo = R.brands[0], hi = R.brands[R.brands.length - 1];
   document.getElementById("finding-cards").innerHTML = [
-    ["1 · Main result", P(p.pct), `Canadian list prices are lower than converted US prices, before tax (95% CI ${Pci(p)}). A wild cluster bootstrap gives p = ${w.p.toPrecision(2)}${Math.abs(w.p - w.min_possible_p) < 1e-12 ? `, the smallest value possible with ${p.brands} brands` : ""}.`],
+    ["1 · Main result", P(p.pct), `Canadian list prices are lower than converted US prices, before tax (95% CI ${Pci(p)}). A wild cluster bootstrap gives p = ${sci(w.p)}${Math.abs(w.p - w.min_possible_p) < 1e-12 ? `, the smallest value possible with ${p.brands} brands` : ""}.`],
     ["2 · Robust to choices", `${P(Math.min(...rob))} to ${P(Math.max(...rob))}`, `Range of estimates across brand-equal weighting, collapsing colour variants, dropping uncertain matches, listing-page prices or sold-out items. Dropping any one brand gives ${P(loo.min_pct)} to ${P(loo.max_pct)}.`],
     ["3 · Not about price level", `slope ${reg.coef >= 0 ? "+" : "−"}${Math.abs(reg.coef).toFixed(3)}`, `The difference is not associated with how expensive a product is (p = ${fmtPv(reg.p)}, brand-clustered). Brand means range from ${P(lo.pct)} (${lo.brand}) to ${P(hi.pct)} (${hi.brand}).`],
     ["4 · Taxes can close the gap", P(tax.pct), `Scenario only: with 13% Ontario HST and 7% US sales tax. Where Canadian tax is much higher than US tax the after-tax gap can disappear or reverse; see the scenario explorer.`],
@@ -758,7 +759,7 @@ function renderEvidence(R) {
     <div><div class="k">${term("tstat", `t (df = ${p.df})`)}</div><div class="v">${p.stat.toFixed(2)}</div></div>
     <div><div class="k">${term("pvalue", "p-value")}</div><div class="v">${fmtPv(p.p)}</div></div>
     <div><div class="k">Mean d (SE)</div><div class="v">${sgn(p.mean_log, 4)} (${p.se.toFixed(4)})</div></div>
-    <div><div class="k">${term("wild", "Wild bootstrap p")}</div><div class="v">${w.p.toPrecision(2)}</div></div>`;
+    <div><div class="k">${term("wild", "Wild bootstrap p")}</div><div class="v">${sci(w.p)}</div></div>`;
   document.getElementById("v-primary").innerHTML = `Across <b>${p.n} products from ${p.brands} brands</b>, Canadian list prices are <b>${Math.abs(p.pct).toFixed(1)}% lower</b> than US prices converted at ${p.fx}. ` +
     `SD of d = ${p.sd.toFixed(4)}; geometric ratio ${p.ratio.toFixed(4)}. The wild bootstrap enumerates all ${2 ** p.brands} sign patterns.`;
   const r1 = R.regressions[0], r2 = R.regressions[1], r3 = R.regressions[2];

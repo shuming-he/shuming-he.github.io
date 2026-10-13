@@ -6,7 +6,7 @@ Code behind [shuming-he.github.io/bag-arbitrage](https://shuming-he.github.io/ba
 
 ```bash
 pip install -r requirements.txt
-python -m unittest discover tests     # 25 tests on synthetic data
+python -m unittest discover tests     # 26 tests (statistics on synthetic data, validation, parser)
 python run_analysis.py                # validation -> dataset -> analysis -> tables, figures, results.json, report
 ```
 

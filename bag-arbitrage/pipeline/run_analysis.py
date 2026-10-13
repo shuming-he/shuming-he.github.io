@@ -93,7 +93,7 @@ def main() -> None:
     add("Each brand weighted equally", bs.brand_equal(d, cl), "weighting")
     add("Wilcoxon signed-rank (median)", bs.wilcoxon_signed_rank(d), "inference")
     collapsed = bs.collapse_identical_variants(df)
-    add("One row per identical (brand, US, CA) price pair", bs.cluster_robust_mean(collapsed["d"], collapsed["brand"].to_numpy()), "sample")
+    add("One row per identical (brand, US, CA) price pair (approximate model level)", bs.cluster_robust_mean(collapsed["d"], collapsed["brand"].to_numpy()), "sample")
     for flag, label in [("uncertain_match", "Excluding uncertain matches"), ("listing_price", "Excluding prices read from category listings"),
                         ("sold_out", "Excluding items shown as sold out")]:
         keep = ~df[flag]
@@ -220,7 +220,8 @@ def clean(o):
     if isinstance(o, (np.integer,)):
         return int(o)
     if isinstance(o, (float, np.floating)):
-        return None if not np.isfinite(o) else round(float(o), 10)
+        # 10 significant digits; rounding to decimal places would turn tiny p-values into 0
+        return None if not np.isfinite(o) else float(f"{float(o):.10g}")
     return o
 
 

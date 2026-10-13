@@ -34,6 +34,27 @@ def load_raw() -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     return prices, products, flags
 
 
+def _alnum(s) -> str:
+    return re.sub(r"[^a-z0-9]", "", str(s).lower())
+
+
+def code_in_url(style, url) -> bool:
+    return _alnum(style) in _alnum(url)
+
+
+def product_page_row(r) -> bool:
+    """Price read from a product page (not a category listing) for a product with an official code."""
+    return "category listing" not in str(r["note"]) and not SLUG.match(str(r["style"]))
+
+
+def provenance_counts(prices: pd.DataFrame) -> dict:
+    page = prices.apply(product_page_row, axis=1)
+    hit = [code_in_url(s, u) for s, u in zip(prices["style"], prices["url"])]
+    return {"product_page_rows": int(page.sum()),
+            "product_page_rows_code_in_url": int((page & pd.Series(hit, index=prices.index)).sum()),
+            "listing_rows": int(prices["note"].str.contains("category listing").sum())}
+
+
 def row_checks(prices: pd.DataFrame) -> pd.DataFrame:
     """Return one row per failed check on the long price log."""
     issues = []
@@ -50,6 +71,8 @@ def row_checks(prices: pd.DataFrame) -> pd.DataFrame:
             add("non_positive_price", str(r.price))
         if not MARKET_URL[r.market].search(str(r.url)):
             add("url_market_unclear", str(r.url))
+        if product_page_row(r) and not code_in_url(r["style"], r.url):
+            add("code_not_in_url", "price read from a product page whose URL does not contain the style code")
     dup = prices.duplicated(subset=["brand_id", "product", "market"], keep=False)
     for i in prices.index[dup]:
         r = prices.loc[i]
@@ -104,6 +127,7 @@ def quality_summary(prices, products, pairs, excluded, issues) -> dict:
     iqr = q3 - q1
     outliers = pairs[(pairs["raw_ratio"] < q1 - 1.5 * iqr) | (pairs["raw_ratio"] > q3 + 1.5 * iqr)]
     return {
+        "provenance": provenance_counts(prices),
         "price_rows": int(len(prices)),
         "products_listed": int(len(products)),
         "brands_listed": int(products["brand_id"].nunique()),
@@ -162,7 +186,13 @@ def write_report(q: dict, pairs: pd.DataFrame, path: Path) -> None:
     else:
         lines.append("All rows passed: known market, expected currency (USD on US sites, CAD on Canadian sites), "
                      "positive price, market-specific URL, one price per product and market.")
+    pv = q["provenance"]
     lines += [
+        "",
+        "## Price provenance",
+        "",
+        f"- {pv['product_page_rows']} price rows were read from a product page; in {pv['product_page_rows_code_in_url']} of them the URL contains the same style code as the CSV row, so the row can be traced to its page.",
+        f"- {pv['listing_rows']} price rows were read from a category listing; the listing URL is stored, and the product is identified on that listing by its name (and code where the listing shows one).",
         "",
         "## Matching quality and provenance flags",
         "",

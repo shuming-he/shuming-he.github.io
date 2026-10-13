@@ -12,6 +12,11 @@
     "scipy": "1.18.1"
   },
   "quality": {
+    "provenance": {
+      "product_page_rows": 124,
+      "product_page_rows_code_in_url": 124,
+      "listing_rows": 207
+    },
     "price_rows": 331,
     "products_listed": 166,
     "brands_listed": 16,
@@ -55,10 +60,10 @@
     "without_image": 12,
     "distinct_price_pairs": 148,
     "raw_ratio": {
-      "min": 1.1634615385,
-      "q1": 1.2328767123,
-      "median": 1.2970711297,
-      "q3": 1.3174273859,
+      "min": 1.163461538,
+      "q1": 1.232876712,
+      "median": 1.29707113,
+      "q3": 1.317427386,
       "max": 1.421319797
     },
     "row_issues": 0,
@@ -69,33 +74,33 @@
     "n": 165,
     "clusters": 15,
     "mean_log": -0.1070976159,
-    "se": 0.0095894966,
+    "se": 0.009589496569,
     "ci_low": -0.1276650405,
-    "ci_high": -0.0865301914,
-    "stat": -11.168220894,
+    "ci_high": -0.08653019136,
+    "stat": -11.16822089,
     "df": 14,
-    "p": 2.34e-08,
+    "p": 2.338555369e-08,
     "note": "",
-    "pct": -10.1562033161,
-    "ci_low_pct": -11.9851856269,
-    "ci_high_pct": -8.2892140366,
+    "pct": -10.15620332,
+    "ci_low_pct": -11.98518563,
+    "ci_high_pct": -8.289214037,
     "ratio": 0.8984379668,
-    "sd": 0.0419060773,
+    "sd": 0.04190607726,
     "brands": 15,
     "fx": 1.4271,
     "fx_date": "2026-10-09",
-    "implied_fx": 1.2821608225,
+    "implied_fx": 1.282160822,
     "implied_fx_ci": [
-      1.2560594159,
-      1.3088046265
+      1.256059416,
+      1.308804626
     ]
   },
   "wild_bootstrap": {
     "method": "Wild cluster bootstrap-t (Rademacher, H0 imposed)",
-    "t": -11.168220894,
-    "p": 6.10352e-05,
+    "t": -11.16822089,
+    "p": 6.103515625e-05,
     "draws": "all 32768 Rademacher sign patterns enumerated",
-    "min_possible_p": 6.10352e-05
+    "min_possible_p": 6.103515625e-05
   },
   "robustness": [
     {
@@ -103,16 +108,16 @@
       "n": 165,
       "clusters": 15,
       "mean_log": -0.1070976159,
-      "se": 0.0095894966,
+      "se": 0.009589496569,
       "ci_low": -0.1276650405,
-      "ci_high": -0.0865301914,
-      "stat": -11.168220894,
+      "ci_high": -0.08653019136,
+      "stat": -11.16822089,
       "df": 14,
-      "p": 2.34e-08,
+      "p": 2.338555369e-08,
       "note": "",
-      "pct": -10.1562033161,
-      "ci_low_pct": -11.9851856269,
-      "ci_high_pct": -8.2892140366,
+      "pct": -10.15620332,
+      "ci_low_pct": -11.98518563,
+      "ci_high_pct": -8.289214037,
       "ratio": 0.8984379668,
       "label": "Primary: product-weighted mean, brand-clustered CR1",
       "kind": "inference"
@@ -122,16 +127,16 @@
       "n": 165,
       "clusters": null,
       "mean_log": -0.1070976159,
-      "se": 0.0032623837,
+      "se": 0.00326238369,
       "ci_low": -0.1135393053,
       "ci_high": -0.1006559265,
-      "stat": -32.8280257998,
+      "stat": -32.8280258,
       "df": 164,
-      "p": 0.0,
+      "p": 5.403072858e-74,
       "note": "",
-      "pct": -10.1562033161,
-      "ci_low_pct": -10.7330890941,
-      "ci_high_pct": -9.5755894243,
+      "pct": -10.15620332,
+      "ci_low_pct": -10.73308909,
+      "ci_high_pct": -9.575589424,
       "ratio": 0.8984379668,
       "label": "Products treated as independent (naive paired t)",
       "kind": "inference"
@@ -141,16 +146,16 @@
       "n": 165,
       "clusters": 15,
       "mean_log": -0.1070976159,
-      "se": 0.0090997344,
+      "se": 0.009099734363,
       "ci_low": -0.1248249316,
-      "ci_high": -0.0895699458,
+      "ci_high": -0.08956994576,
       "stat": null,
       "df": null,
       "p": null,
       "note": "Few clusters: bootstrap intervals can be too narrow (Cameron, Gelbach & Miller 2008).",
-      "pct": -10.1562033161,
-      "ci_low_pct": -11.7348586544,
-      "ci_high_pct": -8.5675690222,
+      "pct": -10.15620332,
+      "ci_low_pct": -11.73485865,
+      "ci_high_pct": -8.567569022,
       "ratio": 0.8984379668,
       "label": "Brand cluster bootstrap, percentile CI",
       "kind": "inference"
@@ -160,16 +165,16 @@
       "n": 165,
       "clusters": 15,
       "mean_log": -0.1049549278,
-      "se": 0.0090474779,
+      "se": 0.009047477885,
       "ci_low": -0.124359838,
-      "ci_high": -0.0855500177,
-      "stat": -11.6004624904,
+      "ci_high": -0.08555001772,
+      "stat": -11.60046249,
       "df": 14,
-      "p": 1.44e-08,
+      "p": 1.442769929e-08,
       "note": "",
-      "pct": -9.9634896931,
-      "ci_low_pct": -11.6937975542,
-      "ci_high_pct": -8.1992774718,
+      "pct": -9.963489693,
+      "ci_low_pct": -11.69379755,
+      "ci_high_pct": -8.199277472,
       "ratio": 0.9003651031,
       "label": "Each brand weighted equally",
       "kind": "weighting"
@@ -178,15 +183,15 @@
       "method": "Wilcoxon signed-rank (median, products independent)",
       "n": 165,
       "clusters": null,
-      "mean_log": -0.0955356676,
+      "mean_log": -0.09553566758,
       "se": null,
       "ci_low": null,
       "ci_high": null,
       "stat": 0.0,
       "df": null,
-      "p": 0.0,
+      "p": 7.901615347e-29,
       "note": "Estimate shown is the median d, not the mean.",
-      "pct": -9.1114056683,
+      "pct": -9.111405668,
       "ci_low_pct": null,
       "ci_high_pct": null,
       "ratio": 0.9088859433,
@@ -198,18 +203,18 @@
       "n": 148,
       "clusters": 15,
       "mean_log": -0.1058728166,
-      "se": 0.0092420454,
+      "se": 0.009242045423,
       "ci_low": -0.1256950326,
-      "ci_high": -0.0860506006,
-      "stat": -11.4555611649,
+      "ci_high": -0.08605060064,
+      "stat": -11.45556116,
       "df": 14,
-      "p": 1.69e-08,
+      "p": 1.693512417e-08,
       "note": "",
-      "pct": -10.0460952791,
-      "ci_low_pct": -11.8116248446,
-      "ci_high_pct": -8.2452198458,
+      "pct": -10.04609528,
+      "ci_low_pct": -11.81162484,
+      "ci_high_pct": -8.245219846,
       "ratio": 0.8995390472,
-      "label": "One row per identical (brand, US, CA) price pair",
+      "label": "One row per identical (brand, US, CA) price pair (approximate model level)",
       "kind": "sample"
     },
     {
@@ -217,16 +222,16 @@
       "n": 137,
       "clusters": 14,
       "mean_log": -0.1065408822,
-      "se": 0.0100137287,
+      "se": 0.01001372867,
       "ci_low": -0.1281742277,
-      "ci_high": -0.0849075366,
-      "stat": -10.6394816276,
+      "ci_high": -0.08490753665,
+      "stat": -10.63948163,
       "df": 13,
-      "p": 8.72e-08,
+      "p": 8.724440416e-08,
       "note": "",
-      "pct": -10.1061703161,
-      "ci_low_pct": -12.0299902373,
-      "ci_high_pct": -8.1402782945,
+      "pct": -10.10617032,
+      "ci_low_pct": -12.02999024,
+      "ci_high_pct": -8.140278294,
       "ratio": 0.8989382968,
       "label": "Excluding uncertain matches",
       "kind": "sample"
@@ -236,16 +241,16 @@
       "n": 61,
       "clusters": 13,
       "mean_log": -0.0932570114,
-      "se": 0.0094470309,
+      "se": 0.009447030914,
       "ci_low": -0.1138403236,
-      "ci_high": -0.0726736992,
-      "stat": -9.8715683526,
+      "ci_high": -0.07267369924,
+      "stat": -9.871568353,
       "df": 12,
-      "p": 4.117e-07,
+      "p": 4.117394088e-07,
       "note": "",
-      "pct": -8.9040656729,
-      "ci_low_pct": -10.7599560167,
-      "ci_high_pct": -7.0095791024,
+      "pct": -8.904065673,
+      "ci_low_pct": -10.75995602,
+      "ci_high_pct": -7.009579102,
       "ratio": 0.9109593433,
       "label": "Excluding prices read from category listings",
       "kind": "sample"
@@ -255,16 +260,16 @@
       "n": 154,
       "clusters": 14,
       "mean_log": -0.1038522666,
-      "se": 0.0097926626,
+      "se": 0.00979266255,
       "ci_low": -0.1250080278,
-      "ci_high": -0.0826965054,
-      "stat": -10.6051103138,
+      "ci_high": -0.08269650537,
+      "stat": -10.60511031,
       "df": 13,
-      "p": 9.06e-08,
+      "p": 9.062397663e-08,
       "note": "",
-      "pct": -9.8641551676,
-      "ci_low_pct": -11.7510181937,
-      "ci_high_pct": -7.9369488762,
+      "pct": -9.864155168,
+      "ci_low_pct": -11.75101819,
+      "ci_high_pct": -7.936948876,
       "ratio": 0.9013584483,
       "label": "Excluding items shown as sold out",
       "kind": "sample"
@@ -276,16 +281,16 @@
       "n": 87,
       "clusters": 9,
       "mean_log": -0.1057488676,
-      "se": 0.0115778555,
+      "se": 0.01157785552,
       "ci_low": -0.1324474503,
-      "ci_high": -0.0790502849,
-      "stat": -9.1337180174,
+      "ci_high": -0.07905028489,
+      "stat": -9.133718017,
       "df": 8,
-      "p": 1.66249e-05,
+      "p": 1.662489869e-05,
       "note": "",
-      "pct": -10.0349448895,
-      "ci_low_pct": -12.4051036268,
-      "ci_high_pct": -7.6006539633,
+      "pct": -10.03494489,
+      "ci_low_pct": -12.40510363,
+      "ci_high_pct": -7.600653963,
       "ratio": 0.8996505511,
       "label": "Bag"
     },
@@ -294,16 +299,16 @@
       "n": 18,
       "clusters": 3,
       "mean_log": -0.1416454387,
-      "se": 0.0086219101,
+      "se": 0.008621910098,
       "ci_low": -0.1787425237,
       "ci_high": -0.1045483537,
-      "stat": -16.4285450796,
+      "stat": -16.42854508,
       "df": 2,
-      "p": 0.0036846504,
+      "p": 0.003684650369,
       "note": "",
-      "pct": -13.2071064061,
-      "ci_low_pct": -16.3678795457,
-      "ci_high_pct": -9.9268757329,
+      "pct": -13.20710641,
+      "ci_low_pct": -16.36787955,
+      "ci_high_pct": -9.926875733,
       "ratio": 0.8679289359,
       "label": "Small leather goods"
     },
@@ -314,14 +319,14 @@
       "mean_log": -0.0986889542,
       "se": 0.0142905943,
       "ci_low": -0.1354240963,
-      "ci_high": -0.0619538121,
-      "stat": -6.9058677453,
+      "ci_high": -0.06195381209,
+      "stat": -6.905867745,
       "df": 5,
-      "p": 0.0009756164,
+      "p": 0.0009756163804,
       "note": "",
-      "pct": -9.3975520696,
-      "ci_low_pct": -12.6654549454,
-      "ci_high_pct": -6.0073700979,
+      "pct": -9.39755207,
+      "ci_low_pct": -12.66545495,
+      "ci_high_pct": -6.007370098,
       "ratio": 0.9060244793,
       "label": "Watch"
     },
@@ -330,16 +335,16 @@
       "n": 39,
       "clusters": 3,
       "mean_log": -0.1200240336,
-      "se": 0.0243088794,
+      "se": 0.02430887938,
       "ci_low": -0.2246166998,
-      "ci_high": -0.0154313674,
+      "ci_high": -0.01543136736,
       "stat": -4.937456462,
       "df": 2,
       "p": 0.0386568722,
       "note": "",
-      "pct": -11.3100878898,
-      "ci_low_pct": -20.1177651146,
-      "ci_high_pct": -1.5312913891,
+      "pct": -11.31008789,
+      "ci_low_pct": -20.11776511,
+      "ci_high_pct": -1.531291389,
       "ratio": 0.8868991211,
       "label": "Accessible luxury"
     },
@@ -348,16 +353,16 @@
       "n": 66,
       "clusters": 6,
       "mean_log": -0.1071035162,
-      "se": 0.0153380238,
+      "se": 0.01533802376,
       "ci_low": -0.1465311615,
-      "ci_high": -0.0676758709,
-      "stat": -6.9828758818,
+      "ci_high": -0.06767587092,
+      "stat": -6.982875882,
       "df": 5,
-      "p": 0.0009271371,
+      "p": 0.0009271370964,
       "note": "",
-      "pct": -10.1567334157,
-      "ci_low_pct": -13.6301182212,
-      "ci_high_pct": -6.5436656355,
+      "pct": -10.15673342,
+      "ci_low_pct": -13.63011822,
+      "ci_high_pct": -6.543665635,
       "ratio": 0.8984326658,
       "label": "Luxury"
     },
@@ -368,21 +373,21 @@
       "mean_log": -0.0986889542,
       "se": 0.0142905943,
       "ci_low": -0.1354240963,
-      "ci_high": -0.0619538121,
-      "stat": -6.9058677453,
+      "ci_high": -0.06195381209,
+      "stat": -6.905867745,
       "df": 5,
-      "p": 0.0009756164,
+      "p": 0.0009756163804,
       "note": "",
-      "pct": -9.3975520696,
-      "ci_low_pct": -12.6654549454,
-      "ci_high_pct": -6.0073700979,
+      "pct": -9.39755207,
+      "ci_low_pct": -12.66545495,
+      "ci_high_pct": -6.007370098,
       "ratio": 0.9060244793,
       "label": "Watchmaker"
     }
   ],
   "leave_one_brand_out": {
-    "min_pct": -10.4041787408,
-    "max_pct": -9.6474380181,
+    "min_pct": -10.40417874,
+    "max_pct": -9.647438018,
     "min_dropped": "Dior",
     "max_dropped": "Coach",
     "rows": [
@@ -390,91 +395,91 @@
         "dropped": "Rolex",
         "n": 155,
         "mean_log": -0.1063510654,
-        "pct": -10.0891053334
+        "pct": -10.08910533
       },
       {
         "dropped": "Longchamp",
         "n": 155,
         "mean_log": -0.1095489302,
-        "pct": -10.3761689829
+        "pct": -10.37616898
       },
       {
         "dropped": "Omega",
         "n": 155,
         "mean_log": -0.1084632755,
-        "pct": -10.278815615
+        "pct": -10.27881562
       },
       {
         "dropped": "IWC",
         "n": 155,
         "mean_log": -0.1094756488,
-        "pct": -10.3696009794
+        "pct": -10.36960098
       },
       {
         "dropped": "Breitling",
         "n": 155,
         "mean_log": -0.1036270625,
-        "pct": -9.8438539149
+        "pct": -9.843853915
       },
       {
         "dropped": "Prada",
         "n": 154,
         "mean_log": -0.1080197732,
-        "pct": -10.2390152409
+        "pct": -10.23901524
       },
       {
         "dropped": "Jaeger-LeCoultre",
         "n": 155,
         "mean_log": -0.1092735157,
-        "pct": -10.3514818833
+        "pct": -10.35148188
       },
       {
         "dropped": "Celine",
         "n": 154,
         "mean_log": -0.1074328837,
-        "pct": -10.1863199914
+        "pct": -10.18631999
       },
       {
         "dropped": "Dior",
         "n": 152,
         "mean_log": -0.1098615048,
-        "pct": -10.4041787408
+        "pct": -10.40417874
       },
       {
         "dropped": "Fendi",
         "n": 154,
         "mean_log": -0.1038522666,
-        "pct": -9.8641551676
+        "pct": -9.864155168
       },
       {
         "dropped": "Miu Miu",
         "n": 155,
         "mean_log": -0.1096078767,
-        "pct": -10.3814518413
+        "pct": -10.38145184
       },
       {
         "dropped": "Tory Burch",
         "n": 155,
         "mean_log": -0.1067127721,
-        "pct": -10.1216208331
+        "pct": -10.12162083
       },
       {
         "dropped": "Hermès",
         "n": 155,
         "mean_log": -0.1038495475,
-        "pct": -9.8639100807
+        "pct": -9.863910081
       },
       {
         "dropped": "Chopard",
         "n": 155,
         "mean_log": -0.1086500937,
-        "pct": -10.2955755965
+        "pct": -10.2955756
       },
       {
         "dropped": "Coach",
         "n": 146,
         "mean_log": -0.1014508132,
-        "pct": -9.6474380181
+        "pct": -9.647438018
       }
     ]
   },
@@ -493,37 +498,37 @@
     {
       "brand": "Miu Miu",
       "product": "Spirit Suede Bag",
-      "d": -0.0040585387,
+      "d": -0.004058538693,
       "mean_without": -0.107725903,
-      "change_pct_points": -0.0564299656
+      "change_pct_points": -0.05642996559
     },
     {
       "brand": "Breitling",
       "product": "Navitimer B19 Chronograph 43 Perpetual Calendar LB19211A1C1P1",
       "d": -0.2042447667,
       "mean_without": -0.1065052553,
-      "change_pct_points": 0.0532356979
+      "change_pct_points": 0.05323569787
     },
     {
       "brand": "IWC",
       "product": "Portofino Automatic",
       "d": -0.0138951194,
       "mean_without": -0.1076659239,
-      "change_pct_points": -0.0510444341
+      "change_pct_points": -0.05104443409
     },
     {
       "brand": "Tory Burch",
       "product": "Ella Tote",
-      "d": -0.0164286906,
+      "d": -0.01642869056,
       "mean_without": -0.1076504752,
-      "change_pct_points": -0.0496572506
+      "change_pct_points": -0.04965725065
     },
     {
       "brand": "Hermès",
       "product": "Neo Garden Voyage 41 Bredies Bag",
       "d": -0.1971740722,
       "mean_without": -0.1065483693,
-      "change_pct_points": 0.0493599616
+      "change_pct_points": 0.04935996158
     }
   ],
   "brands": [
@@ -531,150 +536,150 @@
       "brand": "Breitling",
       "n": 10,
       "mean_log": -0.160891195,
-      "pct": -14.8615299047,
-      "se": 0.0100981326,
-      "ci_low_pct": -16.7843502521,
-      "ci_high_pct": -12.8942799565,
+      "pct": -14.8615299,
+      "se": 0.01009813255,
+      "ci_low_pct": -16.78435025,
+      "ci_high_pct": -12.89427996,
       "tier": "Watchmaker"
     },
     {
       "brand": "Hermès",
       "n": 10,
       "mean_log": -0.1574426764,
-      "pct": -14.5674214734,
-      "se": 0.0051249674,
-      "ci_low_pct": -15.5521631799,
-      "ci_high_pct": -13.5711967465,
+      "pct": -14.56742147,
+      "se": 0.005124967358,
+      "ci_low_pct": -15.55216318,
+      "ci_high_pct": -13.57119675,
       "tier": "Luxury"
     },
     {
       "brand": "Fendi",
       "n": 11,
       "mean_log": -0.1525325066,
-      "pct": -14.1469014436,
-      "se": 0.0045061724,
-      "ci_low_pct": -15.0045860439,
-      "ci_high_pct": -13.2805619896,
+      "pct": -14.14690144,
+      "se": 0.004506172398,
+      "ci_low_pct": -15.00458604,
+      "ci_high_pct": -13.28056199,
       "tier": "Luxury"
     },
     {
       "brand": "Coach",
       "n": 19,
       "mean_log": -0.1504888373,
-      "pct": -13.9712666949,
-      "se": 0.0044831136,
-      "ci_low_pct": -14.7777392279,
-      "ci_high_pct": -13.1571623773,
+      "pct": -13.97126669,
+      "se": 0.004483113649,
+      "ci_low_pct": -14.77773923,
+      "ci_high_pct": -13.15716238,
       "tier": "Accessible luxury"
     },
     {
       "brand": "Rolex",
       "n": 10,
       "mean_log": -0.1186691502,
-      "pct": -11.1898419568,
-      "se": 0.001072825,
-      "ci_low_pct": -11.4051138895,
-      "ci_high_pct": -10.9740469464,
+      "pct": -11.18984196,
+      "se": 0.001072824989,
+      "ci_low_pct": -11.40511389,
+      "ci_high_pct": -10.97404695,
       "tier": "Watchmaker"
     },
     {
       "brand": "Tory Burch",
       "n": 10,
       "mean_log": -0.113062695,
-      "pct": -10.6905334204,
-      "se": 0.0166006525,
-      "ci_low_pct": -13.9822039253,
-      "ci_high_pct": -7.2728995079,
+      "pct": -10.69053342,
+      "se": 0.01660065254,
+      "ci_low_pct": -13.98220393,
+      "ci_high_pct": -7.272899508,
       "tier": "Accessible luxury"
     },
     {
       "brand": "Celine",
       "n": 11,
       "mean_log": -0.102403868,
-      "pct": -9.7335079412,
-      "se": 0.0151955563,
-      "ci_low_pct": -12.7385740799,
-      "ci_high_pct": -6.6249548103,
+      "pct": -9.733507941,
+      "se": 0.01519555631,
+      "ci_low_pct": -12.73857408,
+      "ci_high_pct": -6.62495481,
       "tier": "Luxury"
     },
     {
       "brand": "Prada",
       "n": 11,
-      "mean_log": -0.0941874137,
-      "pct": -8.9887821207,
-      "se": 0.0020780745,
-      "ci_low_pct": -9.4092116763,
-      "ci_high_pct": -8.5664013621,
+      "mean_log": -0.09418741367,
+      "pct": -8.988782121,
+      "se": 0.002078074518,
+      "ci_low_pct": -9.409211676,
+      "ci_high_pct": -8.566401362,
       "tier": "Luxury"
     },
     {
       "brand": "Omega",
       "n": 10,
-      "mean_log": -0.0859298925,
-      "pct": -8.2341436302,
-      "se": 0.0012557944,
-      "ci_low_pct": -8.4944625448,
-      "ci_high_pct": -7.9730841491,
+      "mean_log": -0.08592989252,
+      "pct": -8.23414363,
+      "se": 0.001255794439,
+      "ci_low_pct": -8.494462545,
+      "ci_high_pct": -7.973084149,
       "tier": "Watchmaker"
     },
     {
       "brand": "Chopard",
       "n": 10,
-      "mean_log": -0.083034211,
-      "pct": -7.9680338332,
-      "se": 0.0007051718,
-      "ci_low_pct": -8.1147270655,
-      "ci_high_pct": -7.8211064077,
+      "mean_log": -0.08303421095,
+      "pct": -7.968033833,
+      "se": 0.0007051718266,
+      "ci_low_pct": -8.114727065,
+      "ci_high_pct": -7.821106408,
       "tier": "Watchmaker"
     },
     {
       "brand": "Dior",
       "n": 13,
       "mean_log": -0.0747813767,
-      "pct": -7.2053665155,
-      "se": 0.0046445708,
-      "ci_low_pct": -8.1396803262,
-      "ci_high_pct": -6.2615497735,
+      "pct": -7.205366515,
+      "se": 0.004644570772,
+      "ci_low_pct": -8.139680326,
+      "ci_high_pct": -6.261549774,
       "tier": "Luxury"
     },
     {
       "brand": "Jaeger-LeCoultre",
       "n": 10,
-      "mean_log": -0.0733711693,
-      "pct": -7.0744145269,
-      "se": 0.0076268017,
-      "ci_low_pct": -8.6639106502,
-      "ci_high_pct": -5.4572568523,
+      "mean_log": -0.07337116933,
+      "pct": -7.074414527,
+      "se": 0.00762680167,
+      "ci_low_pct": -8.66391065,
+      "ci_high_pct": -5.457256852,
       "tier": "Watchmaker"
     },
     {
       "brand": "IWC",
       "n": 10,
-      "mean_log": -0.0702381072,
-      "pct": -6.7828163383,
-      "se": 0.0077354408,
-      "ci_low_pct": -8.3998145852,
-      "ci_high_pct": -5.1372735713,
+      "mean_log": -0.07023810724,
+      "pct": -6.782816338,
+      "se": 0.007735440835,
+      "ci_low_pct": -8.399814585,
+      "ci_high_pct": -5.137273571,
       "tier": "Watchmaker"
     },
     {
       "brand": "Longchamp",
       "n": 10,
-      "mean_log": -0.069102245,
-      "pct": -6.6768743045,
-      "se": 0.0010278971,
-      "ci_low_pct": -6.8936231816,
-      "ci_high_pct": -6.4596208424,
+      "mean_log": -0.06910224502,
+      "pct": -6.676874304,
+      "se": 0.001027897081,
+      "ci_low_pct": -6.893623182,
+      "ci_high_pct": -6.459620842,
       "tier": "Accessible luxury"
     },
     {
       "brand": "Miu Miu",
       "n": 10,
-      "mean_log": -0.0681885737,
-      "pct": -6.5915686806,
-      "se": 0.0090600896,
-      "ci_low_pct": -8.4865216575,
-      "ci_high_pct": -4.6573772566,
+      "mean_log": -0.06818857374,
+      "pct": -6.591568681,
+      "se": 0.009060089573,
+      "ci_low_pct": -8.486521658,
+      "ci_high_pct": -4.657377257,
       "tier": "Luxury"
     }
   ],
@@ -682,121 +687,121 @@
     {
       "date": "2026-09-28",
       "fx": 1.4168,
-      "pct": -9.5030475384,
-      "ci_low_pct": -11.345326375,
-      "ci_high_pct": -7.6224854261
+      "pct": -9.503047538,
+      "ci_low_pct": -11.34532638,
+      "ci_high_pct": -7.622485426
     },
     {
       "date": "2026-09-29",
       "fx": 1.4188,
       "pct": -9.630615839,
-      "ci_low_pct": -11.4702977221,
+      "ci_low_pct": -11.47029772,
       "ci_high_pct": -7.752704646
     },
     {
       "date": "2026-10-01",
       "fx": 1.4243,
       "pct": -9.979581375,
-      "ci_low_pct": -11.8121592418,
-      "ci_high_pct": -8.1089218224
+      "ci_low_pct": -11.81215924,
+      "ci_high_pct": -8.108921822
     },
     {
       "date": "2026-10-02",
       "fx": 1.4246,
-      "pct": -9.9985383633,
-      "ci_low_pct": -11.830730316,
-      "ci_high_pct": -8.1282727444
+      "pct": -9.998538363,
+      "ci_low_pct": -11.83073032,
+      "ci_high_pct": -8.128272744
     },
     {
       "date": "2026-10-05",
       "fx": 1.4254,
-      "pct": -10.0490513206,
-      "ci_low_pct": -11.8802149629,
-      "ci_high_pct": -8.1798353807
+      "pct": -10.04905132,
+      "ci_low_pct": -11.88021496,
+      "ci_high_pct": -8.179835381
     },
     {
       "date": "2026-10-06",
       "fx": 1.4226,
-      "pct": -9.8720074177,
-      "ci_low_pct": -11.7067752061,
-      "ci_high_pct": -7.9991124362
+      "pct": -9.872007418,
+      "ci_low_pct": -11.70677521,
+      "ci_high_pct": -7.999112436
     },
     {
       "date": "2026-10-07",
       "fx": 1.4257,
-      "pct": -10.0679790646,
-      "ci_low_pct": -11.8987573881,
-      "ci_high_pct": -8.1991564506
+      "pct": -10.06797906,
+      "ci_low_pct": -11.89875739,
+      "ci_high_pct": -8.199156451
     },
     {
       "date": "2026-10-08",
       "fx": 1.424,
-      "pct": -9.9606163992,
-      "ci_low_pct": -11.7935803428,
+      "pct": -9.960616399,
+      "ci_low_pct": -11.79358034,
       "ci_high_pct": -8.089562747
     },
     {
       "date": "2026-10-09",
       "fx": 1.4271,
-      "pct": -10.1562033161,
-      "ci_low_pct": -11.9851856269,
-      "ci_high_pct": -8.2892140366
+      "pct": -10.15620332,
+      "ci_low_pct": -11.98518563,
+      "ci_high_pct": -8.289214037
     },
     {
       "date": "hypothetical",
       "fx": 1.25,
-      "pct": 2.5728657981,
+      "pct": 2.572865798,
       "ci_low_pct": 0.4847532735,
-      "ci_high_pct": 4.7043701187
+      "ci_high_pct": 4.704370119
     },
     {
       "date": "hypothetical",
       "fx": 1.3,
-      "pct": -1.3722444249,
-      "ci_low_pct": -3.3800449293,
+      "pct": -1.372244425,
+      "ci_low_pct": -3.380044929,
       "ci_high_pct": 0.6772789602
     },
     {
       "date": "hypothetical",
       "fx": 1.35,
       "pct": -5.025124261,
-      "ci_low_pct": -6.9585617838,
-      "ci_high_pct": -3.0515091494
+      "ci_low_pct": -6.958561784,
+      "ci_high_pct": -3.051509149
     },
     {
       "date": "hypothetical",
       "fx": 1.4,
-      "pct": -8.4170841089,
-      "ci_low_pct": -10.2814702915,
-      "ci_high_pct": -6.5139552512
+      "pct": -8.417084109,
+      "ci_low_pct": -10.28147029,
+      "ci_high_pct": -6.513955251
     },
     {
       "date": "hypothetical",
       "fx": 1.42,
-      "pct": -9.7069843327,
-      "ci_low_pct": -11.545111555,
-      "ci_high_pct": -7.8306601068
+      "pct": -9.706984333,
+      "ci_low_pct": -11.54511156,
+      "ci_high_pct": -7.830660107
     },
     {
       "date": "hypothetical",
       "fx": 1.45,
-      "pct": -11.5751156913,
-      "ci_low_pct": -13.3752126953,
-      "ci_high_pct": -9.7376119667
+      "pct": -11.57511569,
+      "ci_low_pct": -13.3752127,
+      "ci_high_pct": -9.737611967
     },
     {
       "date": "hypothetical",
       "fx": 1.5,
-      "pct": -14.5226118349,
-      "ci_low_pct": -16.2627056054,
-      "ci_high_pct": -12.7463582345
+      "pct": -14.52261183,
+      "ci_low_pct": -16.26270561,
+      "ci_high_pct": -12.74635823
     },
     {
       "date": "hypothetical",
       "fx": 1.55,
-      "pct": -17.279946937,
-      "ci_low_pct": -18.9639086504,
-      "ci_high_pct": -15.5609918398
+      "pct": -17.27994694,
+      "ci_low_pct": -18.96390865,
+      "ci_high_pct": -15.56099184
     }
   ],
   "tax_scenarios": [
@@ -805,62 +810,62 @@
       "ca_rate": 5.0,
       "us_tax": "No sales tax (e.g. Oregon)",
       "us_rate": 0.0,
-      "pct": -5.6640134819,
-      "ci_low_pct": -7.5844449082,
-      "ci_high_pct": -3.7036747385
+      "pct": -5.664013482,
+      "ci_low_pct": -7.584444908,
+      "ci_high_pct": -3.703674738
     },
     {
       "ca_tax": "GST only (AB, and before provincial tax elsewhere)",
       "ca_rate": 5.0,
       "us_tax": "4%",
       "us_rate": 4.0,
-      "pct": -9.2923206557,
-      "ci_low_pct": -11.1388893348,
-      "ci_high_pct": -7.4073795562
+      "pct": -9.292320656,
+      "ci_low_pct": -11.13888933,
+      "ci_high_pct": -7.407379556
     },
     {
       "ca_tax": "GST only (AB, and before provincial tax elsewhere)",
       "ca_rate": 5.0,
       "us_tax": "7%",
       "us_rate": 7.0,
-      "pct": -11.8355266186,
-      "ci_low_pct": -13.6303223442,
-      "ci_high_pct": -10.003434335
+      "pct": -11.83552662,
+      "ci_low_pct": -13.63032234,
+      "ci_high_pct": -10.00343434
     },
     {
       "ca_tax": "GST only (AB, and before provincial tax elsewhere)",
       "ca_rate": 5.0,
       "us_tax": "8.875%",
       "us_rate": 8.875,
-      "pct": -13.3538585368,
-      "ci_low_pct": -15.1177450363,
-      "ci_high_pct": -11.553317785
+      "pct": -13.35385854,
+      "ci_low_pct": -15.11774504,
+      "ci_high_pct": -11.55331779
     },
     {
       "ca_tax": "GST only (AB, and before provincial tax elsewhere)",
       "ca_rate": 5.0,
       "us_tax": "10.25%",
       "us_rate": 10.25,
-      "pct": -14.4344793487,
-      "ci_low_pct": -16.1763672637,
-      "ci_high_pct": -12.6563943206
+      "pct": -14.43447935,
+      "ci_low_pct": -16.17636726,
+      "ci_high_pct": -12.65639432
     },
     {
       "ca_tax": "HST Ontario",
       "ca_rate": 13.0,
       "us_tax": "No sales tax (e.g. Oregon)",
       "us_rate": 0.0,
-      "pct": 1.5234902528,
+      "pct": 1.523490253,
       "ci_low_pct": -0.5432597584,
-      "ci_high_pct": 3.6331881386
+      "ci_high_pct": 3.633188139
     },
     {
       "ca_tax": "HST Ontario",
       "ca_rate": 13.0,
       "us_tax": "4%",
       "us_rate": 4.0,
-      "pct": -2.3812593723,
-      "ci_low_pct": -4.3685189985,
+      "pct": -2.381259372,
+      "ci_low_pct": -4.368518998,
       "ci_high_pct": -0.3527037129
     },
     {
@@ -868,44 +873,44 @@
       "ca_rate": 13.0,
       "us_tax": "7%",
       "us_rate": 7.0,
-      "pct": -5.1182334086,
-      "ci_low_pct": -7.0497754751,
-      "ci_high_pct": -3.1465531415
+      "pct": -5.118233409,
+      "ci_low_pct": -7.049775475,
+      "ci_high_pct": -3.146553141
     },
     {
       "ca_tax": "HST Ontario",
       "ca_rate": 13.0,
       "us_tax": "8.875%",
       "us_rate": 8.875,
-      "pct": -6.7522477586,
-      "ci_low_pct": -8.6505256105,
-      "ci_high_pct": -4.8145229496
+      "pct": -6.752247759,
+      "ci_low_pct": -8.65052561,
+      "ci_high_pct": -4.81452295
     },
     {
       "ca_tax": "HST Ontario",
       "ca_rate": 13.0,
       "us_tax": "10.25%",
       "us_rate": 10.25,
-      "pct": -7.9152015848,
-      "ci_low_pct": -9.7898047695,
-      "ci_high_pct": -6.0016434117
+      "pct": -7.915201585,
+      "ci_low_pct": -9.78980477,
+      "ci_high_pct": -6.001643412
     },
     {
       "ca_tax": "HST Nova Scotia",
       "ca_rate": 14.0,
       "us_tax": "No sales tax (e.g. Oregon)",
       "us_rate": 0.0,
-      "pct": 2.4219282196,
+      "pct": 2.42192822,
       "ci_low_pct": 0.3368883853,
-      "ci_high_pct": 4.5502959982
+      "ci_high_pct": 4.550295998
     },
     {
       "ca_tax": "HST Nova Scotia",
       "ca_rate": 14.0,
       "us_tax": "4%",
       "us_rate": 4.0,
-      "pct": -1.5173767119,
-      "ci_low_pct": -3.5222227064,
+      "pct": -1.517376712,
+      "ci_low_pct": -3.522222706,
       "ci_high_pct": 0.5291307675
     },
     {
@@ -913,36 +918,36 @@
       "ca_rate": 14.0,
       "us_tax": "7%",
       "us_rate": 7.0,
-      "pct": -4.2785717573,
-      "ci_low_pct": -6.2272071165,
-      "ci_high_pct": -2.2894429923
+      "pct": -4.278571757,
+      "ci_low_pct": -6.227207117,
+      "ci_high_pct": -2.289442992
     },
     {
       "ca_tax": "HST Nova Scotia",
       "ca_rate": 14.0,
       "us_tax": "8.875%",
       "us_rate": 8.875,
-      "pct": -5.9270464114,
-      "ci_low_pct": -7.8421231822,
-      "ci_high_pct": -3.9721735952
+      "pct": -5.927046411,
+      "ci_low_pct": -7.842123182,
+      "ci_high_pct": -3.972173595
     },
     {
       "ca_tax": "HST Nova Scotia",
       "ca_rate": 14.0,
       "us_tax": "10.25%",
       "us_rate": 10.25,
-      "pct": -7.1002918643,
-      "ci_low_pct": -8.9914844577,
-      "ci_high_pct": -5.1697995481
+      "pct": -7.100291864,
+      "ci_low_pct": -8.991484458,
+      "ci_high_pct": -5.169799548
     },
     {
       "ca_tax": "HST New Brunswick / Newfoundland and Labrador / PEI",
       "ca_rate": 15.0,
       "us_tax": "No sales tax (e.g. Oregon)",
       "us_rate": 0.0,
-      "pct": 3.3203661865,
-      "ci_low_pct": 1.2170365291,
-      "ci_high_pct": 5.4674038579
+      "pct": 3.320366186,
+      "ci_low_pct": 1.217036529,
+      "ci_high_pct": 5.467403858
     },
     {
       "ca_tax": "HST New Brunswick / Newfoundland and Labrador / PEI",
@@ -950,58 +955,58 @@
       "us_tax": "4%",
       "us_rate": 4.0,
       "pct": -0.6534940515,
-      "ci_low_pct": -2.6759264144,
-      "ci_high_pct": 1.4109652479
+      "ci_low_pct": -2.675926414,
+      "ci_high_pct": 1.410965248
     },
     {
       "ca_tax": "HST New Brunswick / Newfoundland and Labrador / PEI",
       "ca_rate": 15.0,
       "us_tax": "7%",
       "us_rate": 7.0,
-      "pct": -3.4389101061,
-      "ci_low_pct": -5.4046387579,
-      "ci_high_pct": -1.4323328431
+      "pct": -3.438910106,
+      "ci_low_pct": -5.404638758,
+      "ci_high_pct": -1.432332843
     },
     {
       "ca_tax": "HST New Brunswick / Newfoundland and Labrador / PEI",
       "ca_rate": 15.0,
       "us_tax": "8.875%",
       "us_rate": 8.875,
-      "pct": -5.1018450641,
+      "pct": -5.101845064,
       "ci_low_pct": -7.033720754,
-      "ci_high_pct": -3.1298242408
+      "ci_high_pct": -3.129824241
     },
     {
       "ca_tax": "HST New Brunswick / Newfoundland and Labrador / PEI",
       "ca_rate": 15.0,
       "us_tax": "10.25%",
       "us_rate": 10.25,
-      "pct": -6.2853821438,
+      "pct": -6.285382144,
       "ci_low_pct": -8.193164146,
-      "ci_high_pct": -4.3379556845
+      "ci_high_pct": -4.337955684
     }
   ],
   "breakeven_fx": {
-    "5/0": 1.3462688636,
-    "5/4": 1.2944892919,
-    "5/7": 1.2581951996,
-    "5/8.875": 1.2365270848,
-    "5/10.25": 1.2211055452,
-    "13/0": 1.4488417294,
-    "13/4": 1.3931170475,
+    "5/0": 1.346268864,
+    "5/4": 1.294489292,
+    "5/7": 1.2581952,
+    "5/8.875": 1.236527085,
+    "5/10.25": 1.221105545,
+    "13/0": 1.448841729,
+    "13/4": 1.393117047,
     "13/7": 1.354057691,
-    "13/8.875": 1.3307386722,
-    "13/10.25": 1.3141421582,
-    "14/0": 1.4616633376,
-    "14/4": 1.4054455169,
-    "14/7": 1.3660405025,
-    "14/8.875": 1.3425151207,
-    "14/10.25": 1.3257717348,
-    "15/0": 1.4744849458,
-    "15/4": 1.4177739864,
-    "15/7": 1.3780233139,
-    "15/8.875": 1.3542915691,
-    "15/10.25": 1.3374013114
+    "13/8.875": 1.330738672,
+    "13/10.25": 1.314142158,
+    "14/0": 1.461663338,
+    "14/4": 1.405445517,
+    "14/7": 1.366040502,
+    "14/8.875": 1.342515121,
+    "14/10.25": 1.325771735,
+    "15/0": 1.474484946,
+    "15/4": 1.417773986,
+    "15/7": 1.378023314,
+    "15/8.875": 1.354291569,
+    "15/10.25": 1.337401311
   },
   "regressions": [
     {
@@ -1010,21 +1015,21 @@
         {
           "term": "intercept",
           "coef": -0.1070976159,
-          "se_cluster": 0.0091494738,
-          "t": -11.7053306339,
-          "p": 1.29e-08
+          "se_cluster": 0.009149473799,
+          "t": -11.70533063,
+          "p": 1.2861088e-08
         },
         {
           "term": "log US price (centred)",
-          "coef": 0.0037261592,
-          "se_cluster": 0.0056256945,
+          "coef": 0.003726159175,
+          "se_cluster": 0.00562569445,
           "t": 0.662346526,
           "p": 0.518504733
         }
       ],
       "n": 165,
       "clusters": 15,
-      "r2": 0.0215197264
+      "r2": 0.02151972644
     },
     {
       "model": "d ~ category + log US price",
@@ -1032,43 +1037,43 @@
         {
           "term": "intercept (Bag)",
           "coef": -0.1066807501,
-          "se_cluster": 0.0121842669,
-          "t": -8.7556150337,
-          "p": 4.717e-07
+          "se_cluster": 0.01218426686,
+          "t": -8.755615034,
+          "p": 4.717050665e-07
         },
         {
           "term": "Small leather goods vs Bag",
-          "coef": -0.0381484653,
-          "se_cluster": 0.0118247277,
-          "t": -3.2261601537,
-          "p": 0.00609501
+          "coef": -0.03814846531,
+          "se_cluster": 0.01182472769,
+          "t": -3.226160154,
+          "p": 0.006095010047
         },
         {
           "term": "Watch vs Bag",
-          "coef": 0.0102981584,
+          "coef": 0.01029815842,
           "se_cluster": 0.0221577338,
           "t": 0.4647658697,
           "p": 0.6492450109
         },
         {
           "term": "log US price (centred)",
-          "coef": -0.0015370823,
-          "se_cluster": 0.0062616556,
+          "coef": -0.001537082262,
+          "se_cluster": 0.006261655571,
           "t": -0.2454753769,
           "p": 0.8096503257
         }
       ],
       "n": 165,
       "clusters": 15,
-      "r2": 0.0915336406
+      "r2": 0.09153364064
     },
     {
       "model": "d ~ brand fixed effects + log US price (slope only)",
       "terms": [
         {
           "term": "log US price (centred)",
-          "coef": -0.0042427059,
-          "se_cluster": 0.0042887661,
+          "coef": -0.004242705942,
+          "se_cluster": 0.004288766137,
           "t": -0.989260269,
           "p": 0.3393260878
         }
@@ -1080,9 +1085,9 @@
     }
   ],
   "distribution": {
-    "min_pct": -18.4737202395,
+    "min_pct": -18.47372024,
     "max_pct": -0.4050313955,
-    "median_pct": -9.1114056683,
+    "median_pct": -9.111405668,
     "share_cheaper_in_canada": 1.0,
     "n_cheaper": 165,
     "n_dearer": 0,

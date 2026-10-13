@@ -35,6 +35,11 @@ def pval(p):
     return f"{p:.3f}"
 
 
+def sci(p):
+    m, e = f"{p:.1e}".split("e")
+    return f"{m} × 10^{int(e)}^".replace("^-", "^−")
+
+
 def ci(e):
     return f"{pct(e['ci_low_pct'])} to {pct(e['ci_high_pct'])}" if e.get("ci_low_pct") is not None else "–"
 
@@ -87,8 +92,19 @@ def render(r: dict) -> Path:
     a("**Question.** For identical products sold on a brand's official US and Canadian websites, how do Canadian list "
       "prices compare with US list prices converted at the market exchange rate?")
     a("")
-    a("**Unit and population.** The unit is a product (a style or reference sold in both markets). The target population "
-      "is products that the selected brands list with a visible price on both their US and Canadian official websites. "
+    col = rob["One row per identical (brand, US, CA) price pair (approximate model level)"]
+    a("**Unit of analysis.** The unit is a *product listing*: one style or reference code as the brand sells it in both "
+      "markets. For fashion brands the code usually identifies a colourway as well as a model, so two colours of one bag are "
+      "two listings. Listings are the level at which brands publish prices, and they can be traced one-to-one to "
+      "source pages, which is why they are the primary unit. The cost is that a model sold in several colours at the same "
+      f"price gets more weight: {q['flags']['repeat_price_pair']} listings repeat an earlier listing's brand and exact "
+      f"(US, CA) price pair. A model-level analysis that keeps one row per such pair gives {pct(col['pct'])} "
+      f"(n = {col['n']}, 95% CI {ci(col)}) against {pct(p['pct'])} for listings, so the choice of unit does not change "
+      "the conclusion. The price-pair rule is only an approximation of 'model': it also merges different models that "
+      "happen to share a price point (two Omega references at US$7,400 / C$9,700, for example).")
+    a("")
+    a("**Population.** The target population "
+      "is product listings that the selected brands show with a visible price on both their US and Canadian official websites. "
       "The sample is not random: brands were included when both sites showed prices that could be read, and products were "
       "chosen to cover each brand's core lines (about ten per brand). Results describe this sample; extending them to other "
       "brands or products requires assumptions discussed in Section 6.")
@@ -164,7 +180,7 @@ def render(r: dict) -> Path:
             ("Mean d", num(p["mean_log"], 4)), ("SD of d", num(p["sd"], 4)), ("Clustered SE", num(p["se"], 4)),
             ("95% CI for mean d", f"{num(p['ci_low'], 4)} to {num(p['ci_high'], 4)}"),
             ("t (df)", f"{num(p['stat'], 2)} ({p['df']:.0f})"), ("p (CR1, t with G−1 df)", pval(p["p"])),
-            ("p (wild cluster bootstrap-t)", f"{w['p']:.2g} ({w['draws']}" +
+            ("p (wild cluster bootstrap-t)", f"{sci(w['p'])} ({w['draws']}" +
              ("; this is the smallest p-value attainable with this many clusters)" if abs(w["p"] - w["min_possible_p"]) < 1e-12 else ")")),
             ("Geometric ratio exp(mean d)", num(p["ratio"], 4)),
             ("Percentage difference", f"{pct(p['pct'], 2)} (95% CI {pct(p['ci_low_pct'], 2)} to {pct(p['ci_high_pct'], 2)})"),
@@ -191,6 +207,14 @@ def render(r: dict) -> Path:
       f"{(rob['Products treated as independent (naive paired t)']['ci_high_pct'] - rob['Products treated as independent (naive paired t)']['ci_low_pct']) / (p['ci_high_pct'] - p['ci_low_pct']):.0%} "
       "as wide as the clustered one, which shows how much ignoring brand-level dependence would overstate precision. "
       "The bootstrap percentile interval with 15 clusters can be too narrow (Cameron, Gelbach & Miller, 2008).")
+    a("")
+    a("**How to read the agreement.** All of these intervals describe sampling variability under their own assumptions: "
+      "the CR1 interval assumes brands are independent draws and relies on an approximation that is rough with 15 clusters; "
+      "the wild bootstrap is better behaved with few clusters but can only reach p-values as small as 2/2^15; the naive test "
+      "wrongly treats products within a brand as independent. Their agreement shows that the sign and rough size of the "
+      "difference are not an artefact of one inference method. It does not address bias from how brands and products were "
+      "selected, from name-based matching or from the choice of exchange-rate date; those are examined separately through the "
+      "sample restrictions above and the limitations in Section 6.")
     a("")
     lp = rob["Excluding prices read from category listings"]
     pp = r["product_page_sample"]

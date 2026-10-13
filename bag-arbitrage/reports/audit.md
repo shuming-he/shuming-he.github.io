@@ -24,6 +24,9 @@ Each finding lists the evidence, why it matters, the correction made, and how th
 | A14 | One Breitling reference has a canonical-link mismatch on the source page | Low | Flagged, kept |
 | A15 | Product images are hot-linked from brand servers; loading was not verified from this environment | Low | Documented |
 | A16 | One listed product (Burberry) has no Canadian price | Low | Reported as an exclusion |
+| A17 | Root README still called the data an "illustrative prototype dataset" and gave 153 products | Critical | Fixed (follow-up) |
+| A18 | `results.json` rounded tiny p-values to 0 | Medium | Fixed (follow-up) |
+| A19 | Unit of analysis (listing vs model) and its weighting consequence not stated | Medium | Fixed (follow-up) |
 
 ## Findings
 
@@ -119,7 +122,23 @@ Each finding lists the evidence, why it matters, the correction made, and how th
 - **Evidence.** One product has a US price but no Canadian price (Burberry's Canadian site showed no price).
 - **Correction.** Listed as an exclusion in `reports/data_quality.md`. Burberry does not appear in the brand count.
 
+### A17. Root README contradicted the page — Critical
+- **Evidence.** The repository's top-level `README.md` said "Bag Arbitrage currently displays an illustrative prototype dataset" and described 153 products, a paired t-test and OLS. That text dated from before real prices were collected; the page and report describe 165 real, sourced prices. The author found this on review after the first publish.
+- **Why it matters.** A reviewer cannot tell which description is true, which undermines the credibility of every number.
+- **Correction.** The README now states that the data are hand-collected official list prices, gives the counts, the provenance check and the reproduce command, and matches the page and report.
+- **Verification.** A search of all text files for "prototype" and the old counts finds only this audit's historical references.
+
+### A18. p-values rounded to zero — Medium
+- **Evidence.** `clean()` in `run_analysis.py` rounded floats to 10 decimal places, so the naive t-test p (5.4 × 10⁻⁷⁴) and the Wilcoxon p (7.9 × 10⁻²⁹) were written to `results.json` as `0.0`.
+- **Correction.** Values are now kept to 10 significant digits. The page and report show p < 0.001, or scientific notation for the wild bootstrap p.
+- **Verification.** A new unit test checks that a p-value of 5.4 × 10⁻⁷⁴ survives `clean()`; 26 tests pass.
+
+### A19. Unit of analysis — Medium
+- **Evidence.** For fashion brands a style code identifies a colourway, so colours of one model are separate rows; 17 rows repeat a brand and exact price pair.
+- **Correction.** The report and page define the unit as a product listing and explain the weighting consequence. The model-level approximation (n = 148) is reported next to it, together with its own limitation: it also merges different models at the same price point.
+
 ## What was checked and found correct
+- In all 124 price rows read from a product page, the URL contains the same style code as the CSV row (`validate.py`, `code_not_in_url` check).
 - The page's statistics are computed in the browser from `prices.json`, not hard-coded. With products treated as independent, they matched SciPy before the changes.
 - Every price has a source URL, a currency and a collection date. No wrong-currency rows were found.
 - The raw CAD/USD ratio lies between 1.163 and 1.421, and no pair is outside 1.5 × IQR.

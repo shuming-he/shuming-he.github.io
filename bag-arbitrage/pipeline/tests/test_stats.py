@@ -163,5 +163,15 @@ class Validation(unittest.TestCase):
         self.assertIn("duplicate_price_row", validate.row_checks(prices)["check"].tolist())
 
 
+class Output(unittest.TestCase):
+    def test_tiny_p_values_are_not_rounded_to_zero(self):
+        import run_analysis
+        out = run_analysis.clean({"p": 5.4e-74, "x": np.float64(0.12345678912345), "ok": np.bool_(True), "nan": float("nan")})
+        self.assertGreater(out["p"], 0)
+        self.assertAlmostEqual(out["x"], 0.1234567891)
+        self.assertIs(out["ok"], True)
+        self.assertIsNone(out["nan"])
+
+
 if __name__ == "__main__":
     unittest.main()

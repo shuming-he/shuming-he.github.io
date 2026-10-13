@@ -77,7 +77,7 @@ The small-leather-goods contrast comes from only 3 brands.
 Dependencies are pinned in `requirements.txt`. Running the command twice gave byte-identical `results.json` and figures. I checked this.
 
 ## H. Tests
-- **Unit tests.** `python -m unittest discover tests` ran 25 tests and all passed. That is 19 new tests on synthetic data plus 6 existing parser tests.
+- **Unit tests.** `python -m unittest discover tests` ran 26 tests and all passed: 20 new tests (statistics on synthetic data, validation, output) plus 6 existing parser tests.
 - **Page check.** `tests/site_consistency.js` showed that the page's JavaScript reproduces the primary estimate from `results.json` exactly (mean, SE, t, p, CI and implied rate) on desktop (1366 px) and mobile (375 px). It found no console errors and no horizontal overflow.
 
 ## I. Website
@@ -121,3 +121,10 @@ The animations you asked for earlier are kept, and they still respect reduced-mo
 - Not committed, pushed or deployed. This needs the author's approval.
 - Image loading on the live site was not checked, because brand image hosts are blocked from this environment.
 - No PDF of the report was produced. The HTML version is available instead.
+
+## Follow-up after the author's review (13 October 2026)
+- Root README rewritten: it had still described the data as an illustrative prototype with 153 products (audit A17).
+- `results.json` no longer rounds tiny p-values to 0 (A18), and a test now covers this.
+- Unit of analysis defined as a product listing, with the model-level comparison explained (A19).
+- The report explains what the agreement between inference methods does and does not show.
+- `validate.py` checks that every product-page price URL contains its style code: 124 of 124 do.
