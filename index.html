@@ -3,595 +3,136 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Bag Arbitrage: a data science project by Shuming He comparing luxury bag and watch prices across the US, Canada and China.">
-<title>Bag Arbitrage</title>
+<title>Shuming He · Data Science Portfolio</title>
+<meta name="description" content="Data science portfolio of Shuming He: statistics, data pipelines and interactive visualization projects.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@500;700;800&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="/assets/base.css">
 <style>
-/* Layout: price-terminal meets streetwear drop page. Ticker, brand grid as the main index, brand pages open in place. Single 1120px column on dark ink. */
-:root {
-  color-scheme: dark;
-  --bg: #0b0d13;
-  --surface: #10121a;
-  --surface-2: #161925;
-  --line: #262a3a;
-  --line-soft: #1c1f2c;
-  --fg: #eceaf6;
-  --fg-2: #a7a8bf;
-  --fg-3: #6e7089;
-  --chrome: #d9d4ff;
-  --us: #1a9dbb;
-  --ca: #8c7cf2;
-  --cn: #e35f3d;
-  --good: #3fbf86;
-  --font-display: "Syne", "Arial Black", system-ui, sans-serif;
-  --font-body: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
-  --radius: 14px;
+/* Layout: name-first hero, then a project index styled like a dataset listing (rows with status + stack), then About. */
+.hero { padding-block: 88px 48px; position: relative; overflow: hidden; }
+.hero::before { content: ""; position: absolute; inset: -50% -15% auto auto; width: 760px; height: 760px; border-radius: 50%; background: radial-gradient(circle at 30% 30%, color-mix(in oklab, var(--ca) 36%, transparent), transparent 60%), radial-gradient(circle at 70% 65%, color-mix(in oklab, var(--us) 26%, transparent), transparent 62%); filter: blur(34px); opacity: .5; pointer-events: none; }
+.hero > .wrap { position: relative; }
+.hero h1 { font-family: var(--font-display); font-weight: 800; font-size: clamp(48px, 10vw, 120px); line-height: .95; letter-spacing: -.03em; margin: 16px 0 20px; }
+.hero .role { font-family: var(--font-mono); font-size: clamp(13px, 1.6vw, 15px); color: var(--chrome); margin: 0 0 18px; }
+.hero p.lede { font-size: clamp(17px, 2vw, 20px); color: var(--fg-2); max-width: 60ch; margin: 0 0 30px; }
+.cta { display: flex; flex-wrap: wrap; gap: 12px; }
+
+section.block { padding-block: 56px 8px; }
+.sec-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 22px; border-bottom: 1px solid var(--line); padding-bottom: 14px; }
+.sec-head h2 { font-family: var(--font-display); font-size: clamp(26px, 4vw, 40px); margin: 0; line-height: 1.05; }
+.sec-head .count { font-family: var(--font-mono); font-size: 13px; color: var(--fg-3); }
+
+.projects { display: grid; gap: 14px; }
+.project { display: grid; grid-template-columns: 56px minmax(0, 1fr) auto; gap: 22px; align-items: center; padding: 22px 24px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); color: var(--fg); text-decoration: none; position: relative; transition: border-color .2s ease, transform .2s ease, background .2s ease; }
+a.project:hover { border-color: var(--fg-3); background: var(--surface-2); transform: translateY(-2px); }
+.project .idx { font-family: var(--font-mono); font-size: 13px; color: var(--fg-3); }
+.project h3 { font-family: var(--font-display); font-size: clamp(22px, 3vw, 30px); margin: 0 0 6px; line-height: 1.1; }
+.project p { margin: 0 0 12px; color: var(--fg-2); max-width: 70ch; }
+.project .stack { display: flex; flex-wrap: wrap; gap: 6px; }
+.project .stack span { font-family: var(--font-mono); font-size: 11.5px; color: var(--fg-2); border: 1px solid var(--line); border-radius: 999px; padding: 2px 9px; }
+.project .side { display: flex; flex-direction: column; align-items: flex-end; gap: 14px; }
+.project .arrow { font-size: 22px; color: var(--fg-2); }
+.project.soon { border-style: dashed; background: transparent; }
+.project.soon h3 { color: var(--fg-2); }
+.project .preview { width: 100%; height: 6px; border-radius: 3px; background: linear-gradient(90deg, var(--us) 0 33%, var(--ca) 33% 66%, var(--cn) 66% 100%); opacity: .85; margin-top: 4px; }
+@media (max-width: 680px) {
+  .project { grid-template-columns: minmax(0, 1fr); gap: 10px; padding: 20px; }
+  .project .side { flex-direction: row; align-items: center; justify-content: space-between; }
 }
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body { background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .ticker-track { animation: none !important; } .brand-card { transition: none !important; } }
-a { color: var(--chrome); }
-button { font: inherit; }
-:focus-visible { outline: 2px solid var(--chrome); outline-offset: 2px; border-radius: 6px; }
-.wrap { max-width: 1120px; margin: 0 auto; padding-inline: 20px; }
 
-nav.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: color-mix(in oklab, var(--bg) 82%, transparent); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--line-soft); }
-nav.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 56px; }
-.logo { font-family: var(--font-display); font-weight: 800; letter-spacing: .02em; font-size: 18px; color: var(--fg); text-decoration: none; display: flex; align-items: center; gap: 10px; }
-.logo-mark { width: 22px; height: 22px; border-radius: 6px; background: conic-gradient(from 210deg, var(--us), var(--ca), var(--cn), var(--us)); }
-nav.top ul { display: flex; gap: 22px; list-style: none; margin: 0; padding: 0; font-size: 14px; }
-nav.top ul a { color: var(--fg-2); text-decoration: none; }
-nav.top ul a:hover { color: var(--fg); }
-@media (max-width: 760px) { nav.top ul { display: none; } }
-
-.hero { padding-block: 72px 36px; position: relative; overflow: hidden; }
-.hero::before { content: ""; position: absolute; inset: -40% -10% auto auto; width: 720px; height: 720px; border-radius: 50%; background: radial-gradient(circle at 30% 30%, color-mix(in oklab, var(--ca) 38%, transparent), transparent 60%), radial-gradient(circle at 70% 60%, color-mix(in oklab, var(--cn) 26%, transparent), transparent 62%); filter: blur(30px); opacity: .55; pointer-events: none; }
-.eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--fg-2); }
-.hero h1 { font-family: var(--font-display); font-weight: 800; line-height: .98; letter-spacing: -.02em; font-size: clamp(42px, 8vw, 96px); margin: 18px 0 22px; text-wrap: balance; max-width: 13ch; position: relative; }
-.chrome { background: linear-gradient(100deg, #fff 0%, var(--chrome) 30%, #8f88b8 55%, #fff 75%, var(--chrome) 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
-.hero p.lede { font-size: clamp(17px, 2vw, 20px); color: var(--fg-2); max-width: 58ch; margin: 0; position: relative; }
-.channel-key, .legend { display: flex; flex-wrap: wrap; gap: 10px 22px; font-size: 14px; color: var(--fg-2); position: relative; }
-.channel-key { margin-top: 28px; }
-.key { display: inline-flex; align-items: center; gap: 8px; }
-.dot { width: 11px; height: 11px; border-radius: 50%; display: inline-block; flex: none; }
-.dot.us { background: var(--us); } .dot.ca { background: var(--ca); } .dot.cn { background: var(--cn); }
-
-.ticker { border-block: 1px solid var(--line); background: var(--surface); overflow: hidden; white-space: nowrap; }
-.ticker-track { display: inline-flex; gap: 40px; padding-block: 12px; animation: tick 90s linear infinite; }
-.ticker:hover .ticker-track { animation-play-state: paused; }
-@keyframes tick { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-.tick { font-family: var(--font-mono); font-size: 13px; color: var(--fg-2); display: inline-flex; gap: 10px; align-items: baseline; }
-.tick b { color: var(--fg); font-weight: 500; }
-.up { color: var(--cn); } .down { color: var(--us); }
-
-.stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; margin-top: 40px; position: relative; }
-.stat { background: var(--surface); padding: 20px 22px; min-width: 0; }
-.stat .k { font-size: 12px; color: var(--fg-3); text-transform: uppercase; letter-spacing: .1em; font-family: var(--font-mono); }
-.stat .v { font-family: var(--font-display); font-size: clamp(28px, 4vw, 40px); font-weight: 700; line-height: 1.1; margin-top: 6px; font-variant-numeric: tabular-nums; }
-.stat .s { font-size: 13px; color: var(--fg-2); margin-top: 4px; }
-@media (max-width: 860px) { .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-.notice { margin-top: 18px; font-size: 13px; color: var(--fg-3); display: flex; gap: 10px; align-items: flex-start; position: relative; }
-.notice .tag { font-family: var(--font-mono); font-size: 11px; border: 1px solid var(--line); color: var(--fg-2); padding: 1px 7px; border-radius: 999px; white-space: nowrap; }
-
-section.block { padding-block: 64px 8px; }
-.sec-head { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 24px; margin-bottom: 28px; }
-.sec-head .eyebrow { padding-top: 10px; }
-.sec-head h2 { font-family: var(--font-display); font-weight: 700; font-size: clamp(28px, 4vw, 44px); line-height: 1.05; margin: 0 0 12px; letter-spacing: -.01em; text-wrap: balance; }
-.sec-head p { margin: 0; color: var(--fg-2); max-width: 64ch; }
-@media (max-width: 760px) { .sec-head { grid-template-columns: 1fr; gap: 6px; } .sec-head .eyebrow { padding-top: 0; } }
-
-.module { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; min-width: 0; }
-.module-title { font-weight: 600; font-size: 15px; margin: 0 0 4px; }
-.module-sub { font-size: 13px; color: var(--fg-3); margin: 0 0 16px; }
-
-.assume { display: flex; flex-wrap: wrap; gap: 14px 30px; align-items: center; padding: 16px 22px; background: var(--surface-2); border: 1px solid var(--line); border-radius: var(--radius); margin-bottom: 22px; }
-.assume label { font-size: 13px; color: var(--fg-2); display: flex; align-items: center; gap: 10px; }
-.assume output { font-family: var(--font-mono); color: var(--fg); min-width: 54px; display: inline-block; }
-input[type=range] { accent-color: var(--chrome); width: 120px; }
-.assume .hint { font-size: 12px; color: var(--fg-3); flex-basis: 100%; }
-
-.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
-.chip { font: 500 13px var(--font-body); color: var(--fg-2); background: transparent; border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; cursor: pointer; }
-.chip:hover { color: var(--fg); border-color: var(--fg-3); }
-.chip[aria-pressed=true] { color: var(--bg); background: var(--chrome); border-color: var(--chrome); }
-.watch-note { font-size: 13px; color: var(--fg-3); margin: 0 0 14px; max-width: 80ch; }
-/* brand grid */
-.brands { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
-@media (max-width: 980px) { .brands { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-@media (max-width: 600px) { .brands { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-.brand-card { text-align: left; color: var(--fg); background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 16px 16px; cursor: pointer; display: flex; flex-direction: column; gap: 14px; min-width: 0; transition: transform .2s ease, border-color .2s ease, background .2s ease; position: relative; overflow: hidden; }
-.brand-card:hover { transform: translateY(-3px); border-color: var(--fg-3); background: var(--surface-2); }
-.brand-card[aria-current=true] { border-color: var(--chrome); background: var(--surface-2); }
-.brand-card .tier { font: 500 10.5px var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--fg-3); }
-.brand-card .bname { font-family: var(--font-display); font-weight: 700; font-size: 21px; line-height: 1.1; min-height: 2.2em; display: flex; align-items: flex-end; }
-.brand-card .mini { display: grid; gap: 6px; font-family: var(--font-mono); font-size: 12px; color: var(--fg-2); }
-.brand-card .mini div { display: flex; justify-content: space-between; gap: 8px; }
-.brand-card .cheap { font: 600 10.5px var(--font-mono); text-transform: uppercase; letter-spacing: .08em; display: inline-flex; align-items: center; gap: 6px; color: var(--fg-2); border-top: 1px solid var(--line); padding-top: 10px; }
-
-/* brand detail */
-#detail { margin-top: 26px; scroll-margin-top: 80px; }
-.detail-head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px 24px; margin-bottom: 18px; }
-.detail-head h3 { font-family: var(--font-display); font-size: clamp(34px, 6vw, 60px); line-height: 1; margin: 6px 0 0; letter-spacing: -.02em; }
-.detail-head .meta { display: flex; gap: 28px; flex-wrap: wrap; }
-.detail-head .meta div { min-width: 0; }
-.detail-head .meta .k { font: 500 11px var(--font-mono); color: var(--fg-3); text-transform: uppercase; letter-spacing: .08em; }
-.detail-head .meta .v { font-family: var(--font-mono); font-size: 22px; }
-.products { display: grid; gap: 12px; }
-.product { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 2fr); gap: 20px; align-items: center; padding: 18px 20px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); }
-@media (max-width: 760px) { .product { grid-template-columns: 1fr; gap: 14px; } }
-.product .pname { font-weight: 600; font-size: 16px; }
-.product .pcat { font: 500 11px var(--font-mono); color: var(--fg-3); text-transform: uppercase; letter-spacing: .08em; margin-top: 2px; }
-.product .verdict { margin-top: 10px; font-size: 13px; color: var(--fg-2); }
-.product .verdict b { color: var(--fg); }
-.mkts { display: grid; gap: 8px; }
-.mkt { display: grid; grid-template-columns: 92px minmax(0, 1fr) 150px; gap: 12px; align-items: center; font-size: 13px; }
-@media (max-width: 480px) { .mkt { grid-template-columns: 74px minmax(0, 1fr) 118px; gap: 8px; } }
-.mkt .m { display: flex; align-items: center; gap: 8px; color: var(--fg-2); }
-.mkt .track { height: 8px; border-radius: 4px; background: var(--line-soft); overflow: hidden; }
-.mkt .track i { display: block; height: 100%; border-radius: 0 4px 4px 0; }
-.mkt .p { font-family: var(--font-mono); text-align: right; font-variant-numeric: tabular-nums; }
-.mkt .p small { color: var(--fg-3); margin-left: 6px; }
-.mkt.best .p { color: var(--good); }
-.pill { font: 600 10.5px var(--font-mono); text-transform: uppercase; letter-spacing: .08em; padding: 2px 8px; border-radius: 999px; color: var(--good); border: 1px solid color-mix(in oklab, var(--good) 50%, transparent); white-space: nowrap; }
-
-/* pipeline */
-.pipe { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; list-style: none; padding: 0; margin: 0; counter-reset: step; }
-.pipe li { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; min-width: 0; }
-.pipe li::before { counter-increment: step; content: "0" counter(step); font-family: var(--font-mono); font-size: 12px; color: var(--fg-3); }
-.pipe h3 { font-family: var(--font-display); font-size: 19px; margin: 8px 0 6px; }
-.pipe p { margin: 0; font-size: 13.5px; color: var(--fg-2); }
-.pipe code { font-family: var(--font-mono); font-size: 12px; color: var(--chrome); }
-@media (max-width: 900px) { .pipe { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 480px) { .pipe { grid-template-columns: 1fr; } }
-
-.chart { width: 100%; overflow-x: auto; }
-.chart svg { display: block; width: 100%; height: auto; }
-svg text { font-family: var(--font-body); fill: var(--fg-2); font-size: 12px; }
-svg .axis text { fill: var(--fg-3); font-family: var(--font-mono); font-size: 11px; }
-svg .grid line { stroke: var(--line-soft); }
-svg .baseline { stroke: var(--fg-3); }
-.grid-2 { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 18px; }
-@media (max-width: 860px) { .grid-2 { grid-template-columns: 1fr; } }
-.test { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: var(--line); border-radius: 10px; overflow: hidden; margin-bottom: 14px; }
-.test div { background: var(--surface-2); padding: 12px 14px; min-width: 0; }
-.test .k { font-size: 11px; font-family: var(--font-mono); color: var(--fg-3); text-transform: uppercase; letter-spacing: .08em; }
-.test .v { font-family: var(--font-mono); font-size: 18px; color: var(--fg); }
-.verdict-text { font-size: 14px; color: var(--fg-2); margin: 0; }
-.verdict-text b { color: var(--fg); }
-
-footer { padding-block: 80px 60px; margin-top: 72px; border-top: 1px solid var(--line); }
-footer .grid { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 40px; }
-@media (max-width: 760px) { footer .grid { grid-template-columns: 1fr; } }
-footer h2 { font-family: var(--font-display); font-size: clamp(28px, 4vw, 40px); margin: 10px 0 14px; line-height: 1.05; }
-footer p { color: var(--fg-2); margin: 0 0 12px; max-width: 56ch; }
-.stack { display: flex; flex-wrap: wrap; gap: 8px; }
-.stack span { font-family: var(--font-mono); font-size: 12px; border: 1px solid var(--line); border-radius: 999px; padding: 4px 10px; color: var(--fg-2); }
-.small { font-size: 12px; color: var(--fg-3); margin-top: 28px; }
-
-#tip { position: fixed; z-index: 50; pointer-events: none; background: #1d2030; border: 1px solid var(--line); color: var(--fg); border-radius: 10px; padding: 10px 12px; font-size: 13px; line-height: 1.5; box-shadow: 0 10px 30px rgba(0,0,0,.45); max-width: 260px; }
-#tip .t { font-weight: 600; margin-bottom: 4px; }
-#tip .r { display: flex; justify-content: space-between; gap: 16px; font-family: var(--font-mono); font-size: 12px; color: var(--fg-2); }
-#tip .r span:last-child { color: var(--fg); }
+.about { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 32px; }
+@media (max-width: 760px) { .about { grid-template-columns: 1fr; } }
+.about p { color: var(--fg-2); margin: 0 0 14px; max-width: 62ch; }
+.skills { display: grid; gap: 14px; }
+.skills div { min-width: 0; }
+.skills .k { font-family: var(--font-mono); font-size: 11px; color: var(--fg-3); letter-spacing: .1em; text-transform: uppercase; margin-bottom: 6px; }
+.skills .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.skills .chips span { font-family: var(--font-mono); font-size: 12px; border: 1px solid var(--line); border-radius: 999px; padding: 3px 10px; color: var(--fg-2); }
 </style>
 </head>
 <body>
-<nav class="top" aria-label="Sections">
+<nav class="site" aria-label="Site">
   <div class="wrap">
-    <a class="logo" href="#top"><span class="logo-mark" aria-hidden="true"></span>Bag Arbitrage</a>
-    <ul>
-      <li><a href="#brands">Brands</a></li>
-      <li><a href="#compare">Compare</a></li>
-      <li><a href="#stats">Statistics</a></li>
-      <li><a href="#method">Method</a></li>
-    </ul>
+    <a class="logo" href="/"><span class="logo-mark" aria-hidden="true"></span><span>Shuming He</span></a>
+    <div class="nav-actions">
+      <a class="nav-btn" href="#projects"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="4" width="18" height="6" rx="1.5"/><rect x="3" y="14" width="18" height="6" rx="1.5"/></svg><span class="lbl">Projects</span></a>
+      <a class="nav-btn" href="https://github.com/shuming-he" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.5 2 2 6.6 2 12.2c0 4.5 2.9 8.3 6.8 9.7.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.4-3.4-1.4-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1.1 1.5 1.1.9 1.6 2.4 1.1 3 .9.1-.7.4-1.1.6-1.4-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.8 1a9.4 9.4 0 0 1 5 0c1.9-1.3 2.8-1 2.8-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.3 4.7-4.6 5 .4.3.7.9.7 1.9v2.8c0 .3.2.6.7.5 4-1.4 6.8-5.2 6.8-9.7C22 6.6 17.5 2 12 2z"/></svg><span class="lbl">GitHub</span></a>
+      <a class="nav-btn primary" data-cv data-cv-label="Download CV" data-cv-soon="CV soon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 20h14"/></svg><span class="lbl">Download CV</span></a>
+    </div>
   </div>
 </nav>
 
-<header class="hero" id="top">
+<header class="hero">
   <div class="wrap">
-    <div class="eyebrow">A data science project by Shuming He</div>
-    <h1>Same bag. <span class="chrome">Three markets.</span></h1>
-    <p class="lede">I compared what 15 luxury fashion houses and watchmakers charge for the same bags and watches in the United States, Canada and mainland China. Pick a brand to see every price, converted to one currency with tax included, and where each piece is cheapest.</p>
-    <div class="channel-key" aria-label="Markets">
-      <span class="key"><span class="dot us"></span>United States (USD + sales tax)</span>
-      <span class="key"><span class="dot ca"></span>Canada (CAD + HST)</span>
-      <span class="key"><span class="dot cn"></span>China (CNY, VAT included)</span>
+    <div class="eyebrow">Data Science Portfolio</div>
+    <h1>Shuming <span class="chrome">He</span></h1>
+    <p class="role">Statistics &amp; Data Science · University of Toronto</p>
+    <p class="lede">I like questions that can be answered with data I collect myself. My projects cover the whole pipeline: scraping and cleaning messy sources, testing hypotheses with the right statistics, and presenting the results as interactive pages anyone can explore.</p>
+    <div class="cta">
+      <a class="btn solid" href="/bag-arbitrage/">View featured project</a>
+      <a class="btn" data-cv data-cv-label="Download CV (PDF)" data-cv-soon="CV coming soon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 20h14"/></svg>Download CV (PDF)</a>
     </div>
-    <div class="stats" id="stats-row"></div>
-    <div class="notice"><span class="tag">PROTOTYPE</span><span>Prices on this page are an illustrative sample used to build the site. The scraper in the Method section replaces them with dated, sourced prices.</span></div>
   </div>
 </header>
 
-<div class="ticker" aria-hidden="true"><div class="ticker-track" id="ticker"></div></div>
-
 <main>
-  <section class="block wrap" id="brands">
-    <div class="sec-head">
-      <div class="eyebrow">Brands</div>
-      <div>
-        <h2>Choose a brand</h2>
-        <p>Each card shows how much more or less the brand charges in Canada and China than in the US, on average. Open a brand to see every product.</p>
+  <section class="block wrap" id="projects">
+    <div class="sec-head"><h2>Projects</h2><span class="count">3 entries · 1 live</span></div>
+    <div class="projects">
+      <a class="project" href="/bag-arbitrage/">
+        <span class="idx">P/01</span>
+        <div>
+          <h3>Bag Arbitrage</h3>
+          <p>Do identical luxury bags and watches cost more in China or Canada than in the US once currency and tax are accounted for? 47 matched products, 15 brands, paired t-tests and regression, with an interactive explorer.</p>
+          <div class="stack"><span>Python</span><span>Web scraping</span><span>Inferential statistics</span><span>Regression</span><span>JavaScript + SVG</span></div>
+          <div class="preview" aria-hidden="true"></div>
+        </div>
+        <div class="side"><span class="tag live">Live</span><span class="arrow" aria-hidden="true">→</span></div>
+      </a>
+      <div class="project soon">
+        <span class="idx">P/02</span>
+        <div>
+          <h3>Clash Royale Analysis</h3>
+          <p>Coming soon.</p>
+        </div>
+        <div class="side"><span class="tag">In progress</span></div>
       </div>
-    </div>
-
-    <div class="assume" role="group" aria-label="Assumptions">
-      <label for="fxcn">USD/CNY <input type="range" id="fxcn" min="6.6" max="7.6" step="0.01" value="7.10"><output id="fxcn-out" for="fxcn">7.10</output></label>
-      <label for="fxca">USD/CAD <input type="range" id="fxca" min="1.25" max="1.50" step="0.01" value="1.38"><output id="fxca-out" for="fxca">1.38</output></label>
-      <label for="taxus">US tax <input type="range" id="taxus" min="0" max="10.25" step="0.25" value="7"><output id="taxus-out" for="taxus">7.00%</output></label>
-      <label for="taxca">Canada tax <input type="range" id="taxca" min="5" max="15" step="1" value="13"><output id="taxca-out" for="taxca">13%</output></label>
-      <span class="hint">Every number on the page updates as you move these. 13% is Ontario HST; 5% is Alberta GST. US tax 0% matches Oregon.</span>
-    </div>
-
-    <div class="chips" id="group-chips" role="group" aria-label="Filter brands">
-      <button class="chip" data-g="all" aria-pressed="true">All brands</button>
-      <button class="chip" data-g="fashion" aria-pressed="false">Fashion houses</button>
-      <button class="chip" data-g="watch" aria-pressed="false">Watchmakers</button>
-    </div>
-    <div class="brands" id="brand-grid"></div>
-    <div id="detail"></div>
-  </section>
-
-  <section class="block wrap" id="compare">
-    <div class="sec-head">
-      <div class="eyebrow">Compare</div>
-      <div>
-        <h2>Which brands cost more outside the US?</h2>
-        <p>Average price gap against the US for each brand, after tax and currency conversion. Dots right of zero mean that market is more expensive than the US.</p>
+      <div class="project soon">
+        <span class="idx">P/03</span>
+        <div>
+          <h3>Course Assignments</h3>
+          <p>Coming soon.</p>
+        </div>
+        <div class="side"><span class="tag">In progress</span></div>
       </div>
-    </div>
-    <div class="module">
-      <div class="legend" style="margin-bottom:10px">
-        <span class="key"><span class="dot ca"></span>Canada vs US</span>
-        <span class="key"><span class="dot cn"></span>China vs US</span>
-      </div>
-      <div class="chart" id="brand-chart"></div>
     </div>
   </section>
 
-  <section class="block wrap" id="stats">
-    <div class="sec-head">
-      <div class="eyebrow">Statistics</div>
+  <section class="block wrap" id="about">
+    <div class="sec-head"><h2>About</h2></div>
+    <div class="about">
       <div>
-        <h2>Are the gaps real or just noise?</h2>
-        <p>Paired t-tests on log price ratios, matched product by product. A log ratio treats a 10% gap the same on a $175 tote and a $3,800 handbag.</p>
+        <p>I'm applying to graduate programs in data science. I build projects end to end, from collecting the data to writing up what it can and cannot tell us, because the limits of a dataset matter as much as its headline result.</p>
+        <p>This site is hand-written in HTML, CSS and JavaScript and hosted on GitHub Pages. All of its source code is public.</p>
+      </div>
+      <div class="skills">
+        <div><div class="k">Languages</div><div class="chips"><span>Python</span><span>JavaScript</span><span>HTML / CSS</span></div></div>
+        <div><div class="k">Data</div><div class="chips"><span>pandas</span><span>requests</span><span>BeautifulSoup</span></div></div>
+        <div><div class="k">Statistics</div><div class="chips"><span>Hypothesis testing</span><span>Regression</span><span>SciPy</span></div></div>
+        <div><div class="k">Visualization</div><div class="chips"><span>SVG</span><span>Interactive web charts</span></div></div>
       </div>
     </div>
-    <div class="grid-2">
-      <div class="module">
-        <p class="module-title">China vs US</p>
-        <p class="module-sub">H₀: mean ln(China ÷ US) = 0</p>
-        <div class="test" id="t-cn"></div>
-        <p class="verdict-text" id="v-cn"></p>
-      </div>
-      <div class="module">
-        <p class="module-title">Canada vs US</p>
-        <p class="module-sub">H₀: mean ln(Canada ÷ US) = 0</p>
-        <div class="test" id="t-ca"></div>
-        <p class="verdict-text" id="v-ca"></p>
-      </div>
-    </div>
-    <div class="module" style="margin-top:18px">
-      <p class="module-title">Does the China premium depend on price tier?</p>
-      <p class="module-sub" id="ols-sub">OLS fit of China premium on log US price</p>
-      <div class="chart" id="scatter"></div>
-    </div>
-  </section>
-
-  <section class="block wrap" id="method">
-    <div class="sec-head">
-      <div class="eyebrow">Method</div>
-      <div>
-        <h2>From product pages to a buying decision</h2>
-        <p>Every number goes through the same five-step pipeline, so a price in Toronto and a price in Shanghai are compared fairly.</p>
-      </div>
-    </div>
-    <ol class="pipe">
-      <li><h3>Scrape</h3><p>Collect list prices from each brand's official US, Canada and China sites with <code>requests</code> and <code>BeautifulSoup</code>, timestamping every row.</p></li>
-      <li><h3>Match</h3><p>Link the same model across markets by style number, size and material.</p></li>
-      <li><h3>Normalize</h3><p>Convert CAD and CNY to USD. Add US sales tax and Canadian HST; China prices already include 13% VAT.</p></li>
-      <li><h3>Test</h3><p>Paired t-tests on log price ratios and a regression of the China premium on price tier.</p></li>
-      <li><h3>Recommend</h3><p>For each product, rank the three markets and report the cheapest one and the saving.</p></li>
-    </ol>
   </section>
 </main>
 
-<footer>
-  <div class="wrap grid">
-    <div>
-      <div class="eyebrow">About</div>
-      <h2>Built by Shuming He</h2>
-      <p>I'm applying to graduate programs in data science. I built this project end to end: data collection, cleaning, statistical testing, and this interactive site, which runs entirely in the browser with no frameworks.</p>
-      <p><a href="https://github.com/" rel="noopener">Code on GitHub</a></p>
-    </div>
-    <div>
-      <div class="eyebrow">Stack</div>
-      <div class="stack" style="margin-top:14px">
-        <span>Python</span><span>requests</span><span>BeautifulSoup</span><span>pandas</span><span>SciPy</span><span>JavaScript</span><span>SVG</span><span>GitHub Pages</span>
-      </div>
-      <p class="small">Prices are for analysis only and change often. This project is not affiliated with any brand shown.</p>
-    </div>
+<footer class="site">
+  <div class="wrap">
+    <span>© 2026 Shuming He</span>
+    <span><a href="https://github.com/shuming-he/shuming-he.github.io" rel="noopener">Source code for this site</a></span>
   </div>
 </footer>
-
-<div id="tip" hidden></div>
-
-<script>
-// Prototype sample: list prices before tax. us in USD, ca in CAD, cn in CNY (VAT included).
-const BRANDS = [
-  { id: "coach", name: "Coach", tier: "Accessible luxury", items: [
-    ["Tabby Shoulder Bag 26", "Bag", 495, 650, 4600], ["Brooklyn Shoulder Bag 28", "Bag", 450, 595, 4300],
-    ["Rogue Bag 25", "Bag", 750, 995, 7300], ["Willow Tote 24", "Bag", 450, 595, 4100] ] },
-  { id: "michael-kors", name: "Michael Kors", tier: "Accessible luxury", items: [
-    ["Jet Set Travel Large Tote", "Bag", 398, 498, 2950], ["Marilyn Medium Satchel", "Bag", 458, 578, 3450],
-    ["Lexington Chronograph 44mm", "Watch", 325, 425, 2650], ["Parker Pavé Watch 39mm", "Watch", 350, 450, 2850] ] },
-  { id: "kate-spade", name: "Kate Spade", tier: "Accessible luxury", items: [
-    ["Knott Medium Satchel", "Bag", 398, 498, 3200], ["Deco Shoulder Bag", "Bag", 398, 498, 3300],
-    ["Bleecker Medium Tote", "Bag", 348, 448, 2800] ] },
-  { id: "tory-burch", name: "Tory Burch", tier: "Accessible luxury", items: [
-    ["Kira Chevron Shoulder Bag", "Bag", 598, 798, 5600], ["Fleming Soft Shoulder Bag", "Bag", 698, 898, 6500],
-    ["Ella Tote", "Bag", 298, 398, 2700] ] },
-  { id: "longchamp", name: "Longchamp", tier: "Accessible luxury", items: [
-    ["Le Pliage Original Tote L", "Bag", 175, 235, 1350], ["Le Pliage Green Tote M", "Bag", 160, 215, 1300],
-    ["Le Roseau Shoulder Bag", "Bag", 590, 790, 5400] ] },
-  { id: "marc-jacobs", name: "Marc Jacobs", tier: "Accessible luxury", items: [
-    ["The Tote Bag Medium", "Bag", 395, 525, 3400], ["The Snapshot", "Bag", 325, 425, 2700],
-    ["The Small Tote Bag", "Bag", 295, 395, 2500] ] },
-  { id: "burberry", name: "Burberry", tier: "Luxury", items: [
-    ["Medium Check Tote", "Bag", 1490, 2050, 11500], ["Lola Small Bag", "Bag", 2290, 3100, 17900],
-    ["Knight Medium Bag", "Bag", 2890, 3950, 22500] ] },
-  { id: "gucci", name: "Gucci", tier: "Luxury", items: [
-    ["GG Marmont Small Shoulder Bag", "Bag", 2990, 4050, 22500], ["Jackie 1961 Small Bag", "Bag", 3800, 5150, 28500],
-    ["Horsebit 1955 Shoulder Bag", "Bag", 3500, 4750, 26500] ] },
-  { id: "prada", name: "Prada", tier: "Luxury", items: [
-    ["Re-Edition 2005 Re-Nylon Bag", "Bag", 2150, 2950, 16700], ["Galleria Saffiano Medium Bag", "Bag", 4900, 6600, 36500],
-    ["Re-Nylon Backpack", "Bag", 2050, 2800, 15900] ] },
-  { id: "louis-vuitton", name: "Louis Vuitton", tier: "Luxury", items: [
-    ["Neverfull MM", "Bag", 2160, 2950, 16800], ["Speedy Bandoulière 25", "Bag", 2150, 2900, 16500],
-    ["Alma BB", "Bag", 2250, 3050, 17500] ] },
-  { id: "omega", name: "Omega", tier: "Watchmaker", items: [
-    ["Speedmaster Moonwatch Professional", "Watch", 7900, 10900, 58400], ["Seamaster Diver 300M", "Watch", 6200, 8500, 46000],
-    ["Seamaster Aqua Terra 41", "Watch", 6800, 9300, 50400] ] },
-  { id: "iwc", name: "IWC", tier: "Watchmaker", items: [
-    ["Portugieser Chronograph 41", "Watch", 8900, 12200, 66700], ["Pilot's Watch Mark XX", "Watch", 5600, 7700, 41500],
-    ["Portofino Automatic 40", "Watch", 5300, 7250, 39000] ] },
-  { id: "rolex", name: "Rolex", tier: "Watchmaker", items: [
-    ["Submariner Date 41", "Watch", 10800, 14700, 81000], ["Datejust 41", "Watch", 9250, 12600, 69500],
-    ["Oyster Perpetual 41", "Watch", 6900, 9400, 51800] ] },
-  { id: "audemars-piguet", name: "Audemars Piguet", tier: "Watchmaker", items: [
-    ["Royal Oak Selfwinding 41", "Watch", 34600, 47400, 263000], ["Royal Oak Offshore Chronograph 42", "Watch", 38200, 52300, 290000],
-    ["Code 11.59 Selfwinding 41", "Watch", 29800, 40800, 226000] ] },
-  { id: "patek-philippe", name: "Patek Philippe", tier: "Watchmaker", items: [
-    ["Calatrava 5227G", "Watch", 41600, 57000, 316000], ["Aquanaut 5167A", "Watch", 25900, 35500, 196000],
-    ["Nautilus 5811/1G", "Watch", 79000, 108000, 600000] ] },
-];
-const WATCH_NOTE = "These are authorized dealer list prices. Popular Rolex, AP and Patek models often have waitlists and sell above list on the secondary market, which this comparison does not include.";
-
-const MK = ["us", "ca", "cn"];
-const LABEL = { us: "United States", ca: "Canada", cn: "China" };
-const SHORT = { us: "US", ca: "Canada", cn: "China" };
-const COLOR = { us: "var(--us)", ca: "var(--ca)", cn: "var(--cn)" };
-const state = { fxcn: 7.10, fxca: 1.38, taxus: 7, taxca: 13, brand: null, group: "all" };
-const SVGNS = "http://www.w3.org/2000/svg";
-
-const usd = v => "$" + Math.round(v).toLocaleString("en-US");
-const local = (k, v) => k === "us" ? "$" + v.toLocaleString("en-US") : k === "ca" ? "C$" + v.toLocaleString("en-US") : "¥" + v.toLocaleString("en-US");
-const pct = (v, d = 0) => (v > 0 ? "+" : v < 0 ? "−" : "") + Math.abs(v * 100).toFixed(d) + "%";
-const mean = a => a.reduce((s, x) => s + x, 0) / a.length;
-
-function compute() {
-  return BRANDS.map(b => {
-    const items = b.items.map(([name, cat, us, ca, cn]) => {
-      const p = { us: us * (1 + state.taxus / 100), ca: ca / state.fxca * (1 + state.taxca / 100), cn: cn / state.fxcn };
-      const order = MK.slice().sort((a, c) => p[a] - p[c]);
-      return { brand: b.name, name, cat, list: { us, ca, cn }, p, best: order[0], worst: order[2], gap: { ca: p.ca / p.us - 1, cn: p.cn / p.us - 1 } };
-    });
-    const avg = { ca: mean(items.map(i => i.gap.ca)), cn: mean(items.map(i => i.gap.cn)) };
-    const wins = { us: 0, ca: 0, cn: 0 }; items.forEach(i => wins[i.best]++);
-    const cheapest = MK.slice().sort((a, c) => wins[c] - wins[a] || (a === "us" ? -1 : 1))[0];
-    return { ...b, items, avg, wins, cheapest };
-  });
-}
-
-function el(tag, attrs = {}, parent) {
-  const n = document.createElementNS(SVGNS, tag);
-  for (const k in attrs) n.setAttribute(k, attrs[k]);
-  if (parent) parent.appendChild(n);
-  return n;
-}
-function txt(parent, attrs, s) { const t = el("text", attrs, parent); t.textContent = s; return t; }
-function niceTicks(lo, hi, n = 5) {
-  const step0 = (hi - lo) / n, mag = Math.pow(10, Math.floor(Math.log10(step0)));
-  const step = [1, 2, 2.5, 5, 10].map(m => m * mag).find(s => s >= step0);
-  const out = []; for (let v = Math.floor(lo / step) * step; v <= hi + step * 0.999; v += step) out.push(+v.toFixed(6));
-  return out;
-}
-
-const tip = document.getElementById("tip");
-function showTip(e, html) {
-  tip.innerHTML = html; tip.hidden = false;
-  const w = tip.offsetWidth, h = tip.offsetHeight;
-  let x = e.clientX + 14, y = e.clientY + 14;
-  if (x + w > innerWidth - 8) x = e.clientX - w - 14;
-  if (y + h > innerHeight - 8) y = e.clientY - h - 14;
-  tip.style.left = x + "px"; tip.style.top = y + "px";
-}
-const hideTip = () => { tip.hidden = true; };
-const itemTip = i => `<div class="t">${i.brand} ${i.name}</div>` + MK.map(k => `<div class="r"><span>${LABEL[k]}</span><span>${usd(i.p[k])}</span></div>`).join("");
-
-function renderStats(B) {
-  const all = B.flatMap(b => b.items);
-  const wins = { us: 0, ca: 0, cn: 0 }; all.forEach(i => wins[i.best]++);
-  const cn = mean(all.map(i => i.gap.cn)), ca = mean(all.map(i => i.gap.ca));
-  document.getElementById("stats-row").innerHTML = `
-    <div class="stat"><div class="k">China vs US</div><div class="v">${pct(cn)}</div><div class="s">average gap, tax included</div></div>
-    <div class="stat"><div class="k">Canada vs US</div><div class="v">${pct(ca)}</div><div class="s">average gap, tax included</div></div>
-    <div class="stat"><div class="k">Cheapest in US</div><div class="v">${wins.us}<span style="font-size:.5em;color:var(--fg-3)"> / ${all.length}</span></div><div class="s">products</div></div>
-    <div class="stat"><div class="k">Brands tracked</div><div class="v">${B.length}</div><div class="s">${all.length} products, 3 markets</div></div>`;
-}
-function renderTicker(B) {
-  const items = B.flatMap(b => b.items).map(i => `<span class="tick"><b>${i.brand.toUpperCase()} ${i.name.toUpperCase()}</b> US ${local("us", i.list.us)} · CA ${local("ca", i.list.ca)} · CN ${local("cn", i.list.cn)} <span class="${i.gap.cn >= 0 ? "up" : "down"}">CN ${i.gap.cn >= 0 ? "▲" : "▼"} ${pct(i.gap.cn, 1)}</span></span>`).join("");
-  document.getElementById("ticker").innerHTML = items + items;
-}
-
-function renderGrid(B) {
-  document.getElementById("brand-grid").innerHTML = B.filter(b => state.group === "all" || (state.group === "watch") === (b.tier === "Watchmaker")).map(b => `
-    <button class="brand-card" data-id="${b.id}" aria-current="${state.brand === b.id}" aria-controls="detail">
-      <span class="tier">${b.tier} · ${b.items.length} items</span>
-      <span class="bname">${b.name}</span>
-      <span class="mini">
-        <div><span>Canada</span><span class="${b.avg.ca >= 0 ? "up" : "down"}">${pct(b.avg.ca)}</span></div>
-        <div><span>China</span><span class="${b.avg.cn >= 0 ? "up" : "down"}">${pct(b.avg.cn)}</span></div>
-      </span>
-      <span class="cheap"><span class="dot ${b.cheapest}"></span>Usually cheapest: ${SHORT[b.cheapest]}</span>
-    </button>`).join("");
-}
-
-function renderDetail(B) {
-  const box = document.getElementById("detail");
-  const b = B.find(x => x.id === state.brand);
-  if (!b) { box.innerHTML = ""; return; }
-  const maxP = Math.max(...b.items.flatMap(i => MK.map(k => i.p[k])));
-  box.innerHTML = `
-    <div class="module" style="padding:26px">
-      <div class="detail-head">
-        <div><div class="eyebrow">${b.tier}</div><h3>${b.name}</h3></div>
-        <div class="meta">
-          <div><div class="k">Canada vs US</div><div class="v ${b.avg.ca >= 0 ? "up" : "down"}">${pct(b.avg.ca, 1)}</div></div>
-          <div><div class="k">China vs US</div><div class="v ${b.avg.cn >= 0 ? "up" : "down"}">${pct(b.avg.cn, 1)}</div></div>
-          <div><div class="k">Cheapest market</div><div class="v">${SHORT[b.cheapest]}</div></div>
-        </div>
-      </div>
-      ${b.tier === "Watchmaker" ? `<p class="watch-note">${WATCH_NOTE}</p>` : ""}
-      <div class="legend" style="margin-bottom:14px"><span>Bars show the price in USD with tax. The local list price is in grey.</span></div>
-      <div class="products">${b.items.map(i => {
-        const save = i.p[i.worst] - i.p[i.best];
-        return `<div class="product">
-          <div>
-            <div class="pname">${i.name}</div>
-            <div class="pcat">${i.cat}</div>
-            <div class="verdict">Buy in <b>${LABEL[i.best]}</b>. You save <b>${usd(save)}</b> compared with ${LABEL[i.worst]}.</div>
-          </div>
-          <div class="mkts">${MK.map(k => `
-            <div class="mkt ${k === i.best ? "best" : ""}">
-              <span class="m"><span class="dot ${k}"></span>${SHORT[k]}</span>
-              <span class="track"><i style="width:${(i.p[k] / maxP * 100).toFixed(1)}%;background:${COLOR[k]}"></i></span>
-              <span class="p">${usd(i.p[k])}<small>${local(k, i.list[k])}</small></span>
-            </div>`).join("")}
-          </div>
-        </div>`; }).join("")}
-      </div>
-    </div>`;
-}
-
-function renderBrandChart(B) {
-  const box = document.getElementById("brand-chart"); box.innerHTML = "";
-  const list = B.slice().sort((a, b) => b.avg.cn - a.avg.cn);
-  const vals = list.flatMap(b => [b.avg.ca, b.avg.cn]);
-  const ticks = niceTicks(Math.min(-0.05, ...vals), Math.max(0.05, ...vals), 6);
-  const W = 1040, left = 150, right = 60, top = 28, rowH = 34, H = top + list.length * rowH + 8;
-  const x = v => left + (v - ticks[0]) / (ticks[ticks.length - 1] - ticks[0]) * (W - left - right);
-  const svg = el("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "Average price gap versus the US by brand" }, box);
-  svg.style.minWidth = "600px";
-  const g = el("g", { class: "grid" }, svg), ax = el("g", { class: "axis" }, svg);
-  ticks.forEach(t => { el("line", { x1: x(t), x2: x(t), y1: top - 6, y2: H - 6 }, g); txt(ax, { x: x(t), y: 14, "text-anchor": "middle" }, pct(t)); });
-  el("line", { x1: x(0), x2: x(0), y1: top - 6, y2: H - 6, class: "baseline", "stroke-width": 1.5 }, svg);
-  list.forEach((b, i) => {
-    const y = top + i * rowH + rowH / 2;
-    txt(svg, { x: left - 14, y: y + 4, "text-anchor": "end", fill: "var(--fg)" }, b.name);
-    el("line", { x1: x(Math.min(b.avg.ca, b.avg.cn)), x2: x(Math.max(b.avg.ca, b.avg.cn)), y1: y, y2: y, stroke: "var(--fg-3)", "stroke-width": 2, opacity: .5 }, svg);
-    ["ca", "cn"].forEach(k => el("circle", { cx: x(b.avg[k]), cy: y, r: 7, fill: COLOR[k], stroke: "var(--surface)", "stroke-width": 2 }, svg));
-    txt(svg, { x: x(Math.max(b.avg.ca, b.avg.cn)) + 14, y: y + 4, "font-size": 11 }, pct(b.avg.cn));
-    const hit = el("rect", { x: 0, y: y - rowH / 2, width: W, height: rowH, fill: "transparent" }, svg);
-    hit.style.cursor = "pointer";
-    hit.addEventListener("mousemove", e => { hit.setAttribute("fill", "rgba(255,255,255,0.03)"); showTip(e, `<div class="t">${b.name}</div><div class="r"><span>Canada vs US</span><span>${pct(b.avg.ca, 1)}</span></div><div class="r"><span>China vs US</span><span>${pct(b.avg.cn, 1)}</span></div><div class="r"><span>Click to open</span><span></span></div>`); });
-    hit.addEventListener("mouseleave", () => { hit.setAttribute("fill", "transparent"); hideTip(); });
-    hit.addEventListener("click", () => openBrand(b.id, true));
-  });
-}
-
-// Student t two-sided p-value via regularized incomplete beta
-function lgamma(z) { const c = [76.18009172947146, -86.50532032941677, 24.01409824083091, -1.231739572450155, 0.1208650973866179e-2, -0.5395239384953e-5]; let x = z, y = z, tmp = x + 5.5; tmp -= (x + 0.5) * Math.log(tmp); let ser = 1.000000000190015; for (const ci of c) ser += ci / ++y; return -tmp + Math.log(2.5066282746310005 * ser / x); }
-function betacf(a, b, x) { const T = 1e-30; let qab = a + b, qap = a + 1, qam = a - 1, c = 1, d = 1 - qab * x / qap; if (Math.abs(d) < T) d = T; d = 1 / d; let h = d; for (let m = 1; m <= 200; m++) { const m2 = 2 * m; let aa = m * (b - m) * x / ((qam + m2) * (a + m2)); d = 1 + aa * d; if (Math.abs(d) < T) d = T; c = 1 + aa / c; if (Math.abs(c) < T) c = T; d = 1 / d; h *= d * c; aa = -(a + m) * (qab + m) * x / ((a + m2) * (qap + m2)); d = 1 + aa * d; if (Math.abs(d) < T) d = T; c = 1 + aa / c; if (Math.abs(c) < T) c = T; d = 1 / d; const del = d * c; h *= del; if (Math.abs(del - 1) < 3e-12) break; } return h; }
-function ibeta(a, b, x) { if (x <= 0) return 0; if (x >= 1) return 1; const bt = Math.exp(lgamma(a + b) - lgamma(a) - lgamma(b) + a * Math.log(x) + b * Math.log(1 - x)); return x < (a + 1) / (a + b + 2) ? bt * betacf(a, b, x) / a : 1 - bt * betacf(b, a, 1 - x) / b; }
-const tTwoSided = (t, df) => ibeta(df / 2, 0.5, df / (df + t * t));
-function tCrit(df) { let lo = 0, hi = 20; for (let i = 0; i < 60; i++) { const m = (lo + hi) / 2; tTwoSided(m, df) > 0.05 ? lo = m : hi = m; } return (lo + hi) / 2; }
-
-function renderTest(B, k) {
-  const all = B.flatMap(b => b.items);
-  const logs = all.map(i => Math.log(i.p[k] / i.p.us));
-  const n = logs.length, m = mean(logs), sd = Math.sqrt(logs.reduce((s, x) => s + (x - m) ** 2, 0) / (n - 1));
-  const se = sd / Math.sqrt(n), t = m / se, df = n - 1, p = tTwoSided(Math.abs(t), df), tc = tCrit(df);
-  document.getElementById("t-" + k).innerHTML = `
-    <div><div class="k">Geometric mean gap</div><div class="v">${pct(Math.exp(m) - 1, 1)}</div></div>
-    <div><div class="k">95% CI</div><div class="v">${pct(Math.exp(m - tc * se) - 1, 1)} to ${pct(Math.exp(m + tc * se) - 1, 1)}</div></div>
-    <div><div class="k">t (df = ${df})</div><div class="v">${t.toFixed(2)}</div></div>
-    <div><div class="k">p-value</div><div class="v">${p < 0.001 ? "< 0.001" : p.toFixed(3)}</div></div>`;
-  document.getElementById("v-" + k).innerHTML = p < 0.05
-    ? `With these settings, ${LABEL[k]} is <b>significantly ${m > 0 ? "more expensive" : "cheaper"}</b> than the US across ${n} matched products.`
-    : `With these settings, the gap between ${LABEL[k]} and the US is <b>not statistically significant</b>.`;
-}
-
-function renderScatter(B) {
-  const box = document.getElementById("scatter"); box.innerHTML = "";
-  const all = B.flatMap(b => b.items);
-  const xs = all.map(i => Math.log10(i.list.us)), ys = all.map(i => i.gap.cn);
-  const mx = mean(xs), my = mean(ys);
-  const sxy = xs.reduce((s, x, i) => s + (x - mx) * (ys[i] - my), 0), sxx = xs.reduce((s, x) => s + (x - mx) ** 2, 0), syy = ys.reduce((s, y) => s + (y - my) ** 2, 0);
-  const b = sxy / sxx, a = my - b * mx, r = sxy / Math.sqrt(sxx * syy);
-  document.getElementById("ols-sub").textContent = `OLS: each doubling of US price changes the China premium by ${pct(b * Math.log10(2), 1)} · r = ${r.toFixed(2)} · R² = ${(r * r).toFixed(2)}`;
-  const W = 1040, H = 320, left = 60, right = 24, top = 16, bottom = 40;
-  const xt = [100, 300, 1000, 3000, 10000, 30000, 100000];
-  const L0 = 2, L1 = 5;
-  const yt = niceTicks(Math.min(-0.05, ...ys), Math.max(0.05, ...ys), 5);
-  const X = v => left + (Math.log10(v) - L0) / (L1 - L0) * (W - left - right);
-  const Y = v => top + (1 - (v - yt[0]) / (yt[yt.length - 1] - yt[0])) * (H - top - bottom);
-  const svg = el("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "China premium versus US price, log scale" }, box);
-  svg.style.minWidth = "560px";
-  const g = el("g", { class: "grid" }, svg), ax = el("g", { class: "axis" }, svg);
-  yt.forEach(t => { el("line", { x1: left, x2: W - right, y1: Y(t), y2: Y(t) }, g); txt(ax, { x: left - 8, y: Y(t) + 4, "text-anchor": "end" }, pct(t)); });
-  xt.forEach(t => { el("line", { x1: X(t), x2: X(t), y1: top, y2: H - bottom }, g); txt(ax, { x: X(t), y: H - 14, "text-anchor": "middle" }, usd(t)); });
-  el("line", { x1: left, x2: W - right, y1: Y(0), y2: Y(0), class: "baseline", "stroke-width": 1.5 }, svg);
-  el("line", { x1: X(100), x2: X(100000), y1: Y(a + b * L0), y2: Y(a + b * L1), stroke: "var(--chrome)", "stroke-width": 2, "stroke-dasharray": "6 6", opacity: .8 }, svg);
-  all.forEach(i => {
-    const d = el("circle", { cx: X(i.list.us), cy: Y(i.gap.cn), r: 6.5, fill: "var(--cn)", stroke: "var(--surface)", "stroke-width": 2 }, svg);
-    d.addEventListener("mousemove", e => showTip(e, itemTip(i) + `<div class="r"><span>China vs US</span><span>${pct(i.gap.cn, 1)}</span></div>`));
-    d.addEventListener("mouseleave", hideTip);
-  });
-  txt(svg, { x: W - right, y: H - 1, "text-anchor": "end", "font-size": 11 }, "US list price (log scale)");
-}
-
-let B = [];
-function renderAll() {
-  B = compute();
-  renderStats(B); renderTicker(B); renderGrid(B); renderDetail(B); renderBrandChart(B);
-  renderTest(B, "cn"); renderTest(B, "ca"); renderScatter(B);
-}
-function openBrand(id, scroll) {
-  state.brand = id;
-  renderGrid(B); renderDetail(B);
-  try { history.replaceState(null, "", "#" + id); } catch (e) {}
-  if (scroll) document.getElementById("detail").scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" });
-}
-document.getElementById("group-chips").addEventListener("click", e => {
-  const c = e.target.closest(".chip"); if (!c) return;
-  state.group = c.dataset.g;
-  document.querySelectorAll("#group-chips .chip").forEach(x => x.setAttribute("aria-pressed", x === c ? "true" : "false"));
-  renderGrid(B);
-});
-document.getElementById("brand-grid").addEventListener("click", e => {
-  const c = e.target.closest(".brand-card"); if (c) openBrand(c.dataset.id, true);
-});
-[["fxcn", v => v.toFixed(2)], ["fxca", v => v.toFixed(2)], ["taxus", v => v.toFixed(2) + "%"], ["taxca", v => v + "%"]].forEach(([id, fmt]) => {
-  const inp = document.getElementById(id);
-  inp.addEventListener("input", () => { state[id] = +inp.value; document.getElementById(id + "-out").textContent = fmt(state[id]); renderAll(); });
-});
-const initial = location.hash.slice(1);
-state.brand = BRANDS.some(b => b.id === initial) ? initial : "coach";
-renderAll();
-</script>
+<script src="/assets/site.js"></script>
 </body>
 </html>

@@ -1,0 +1,543 @@
+{
+  "meta": {
+    "dataset": "prototype-sample",
+    "description": "Illustrative list prices used to build and test the site. Not scraped.",
+    "collected": null,
+    "currency": {
+      "us": "USD before sales tax",
+      "ca": "CAD before sales tax",
+      "cn": "CNY, 13% VAT included"
+    },
+    "watch_note": "These are authorized dealer list prices. Popular Rolex, AP and Patek models often have waitlists and sell above list on the secondary market, which this comparison does not include."
+  },
+  "brands": [
+    {
+      "id": "coach",
+      "name": "Coach",
+      "tier": "Accessible luxury",
+      "items": [
+        {
+          "name": "Tabby Shoulder Bag 26",
+          "category": "Bag",
+          "price": {
+            "us": 495,
+            "ca": 650,
+            "cn": 4600
+          }
+        },
+        {
+          "name": "Brooklyn Shoulder Bag 28",
+          "category": "Bag",
+          "price": {
+            "us": 450,
+            "ca": 595,
+            "cn": 4300
+          }
+        },
+        {
+          "name": "Rogue Bag 25",
+          "category": "Bag",
+          "price": {
+            "us": 750,
+            "ca": 995,
+            "cn": 7300
+          }
+        },
+        {
+          "name": "Willow Tote 24",
+          "category": "Bag",
+          "price": {
+            "us": 450,
+            "ca": 595,
+            "cn": 4100
+          }
+        }
+      ]
+    },
+    {
+      "id": "michael-kors",
+      "name": "Michael Kors",
+      "tier": "Accessible luxury",
+      "items": [
+        {
+          "name": "Jet Set Travel Large Tote",
+          "category": "Bag",
+          "price": {
+            "us": 398,
+            "ca": 498,
+            "cn": 2950
+          }
+        },
+        {
+          "name": "Marilyn Medium Satchel",
+          "category": "Bag",
+          "price": {
+            "us": 458,
+            "ca": 578,
+            "cn": 3450
+          }
+        },
+        {
+          "name": "Lexington Chronograph 44mm",
+          "category": "Watch",
+          "price": {
+            "us": 325,
+            "ca": 425,
+            "cn": 2650
+          }
+        },
+        {
+          "name": "Parker Pavé Watch 39mm",
+          "category": "Watch",
+          "price": {
+            "us": 350,
+            "ca": 450,
+            "cn": 2850
+          }
+        }
+      ]
+    },
+    {
+      "id": "kate-spade",
+      "name": "Kate Spade",
+      "tier": "Accessible luxury",
+      "items": [
+        {
+          "name": "Knott Medium Satchel",
+          "category": "Bag",
+          "price": {
+            "us": 398,
+            "ca": 498,
+            "cn": 3200
+          }
+        },
+        {
+          "name": "Deco Shoulder Bag",
+          "category": "Bag",
+          "price": {
+            "us": 398,
+            "ca": 498,
+            "cn": 3300
+          }
+        },
+        {
+          "name": "Bleecker Medium Tote",
+          "category": "Bag",
+          "price": {
+            "us": 348,
+            "ca": 448,
+            "cn": 2800
+          }
+        }
+      ]
+    },
+    {
+      "id": "tory-burch",
+      "name": "Tory Burch",
+      "tier": "Accessible luxury",
+      "items": [
+        {
+          "name": "Kira Chevron Shoulder Bag",
+          "category": "Bag",
+          "price": {
+            "us": 598,
+            "ca": 798,
+            "cn": 5600
+          }
+        },
+        {
+          "name": "Fleming Soft Shoulder Bag",
+          "category": "Bag",
+          "price": {
+            "us": 698,
+            "ca": 898,
+            "cn": 6500
+          }
+        },
+        {
+          "name": "Ella Tote",
+          "category": "Bag",
+          "price": {
+            "us": 298,
+            "ca": 398,
+            "cn": 2700
+          }
+        }
+      ]
+    },
+    {
+      "id": "longchamp",
+      "name": "Longchamp",
+      "tier": "Accessible luxury",
+      "items": [
+        {
+          "name": "Le Pliage Original Tote L",
+          "category": "Bag",
+          "price": {
+            "us": 175,
+            "ca": 235,
+            "cn": 1350
+          }
+        },
+        {
+          "name": "Le Pliage Green Tote M",
+          "category": "Bag",
+          "price": {
+            "us": 160,
+            "ca": 215,
+            "cn": 1300
+          }
+        },
+        {
+          "name": "Le Roseau Shoulder Bag",
+          "category": "Bag",
+          "price": {
+            "us": 590,
+            "ca": 790,
+            "cn": 5400
+          }
+        }
+      ]
+    },
+    {
+      "id": "marc-jacobs",
+      "name": "Marc Jacobs",
+      "tier": "Accessible luxury",
+      "items": [
+        {
+          "name": "The Tote Bag Medium",
+          "category": "Bag",
+          "price": {
+            "us": 395,
+            "ca": 525,
+            "cn": 3400
+          }
+        },
+        {
+          "name": "The Snapshot",
+          "category": "Bag",
+          "price": {
+            "us": 325,
+            "ca": 425,
+            "cn": 2700
+          }
+        },
+        {
+          "name": "The Small Tote Bag",
+          "category": "Bag",
+          "price": {
+            "us": 295,
+            "ca": 395,
+            "cn": 2500
+          }
+        }
+      ]
+    },
+    {
+      "id": "burberry",
+      "name": "Burberry",
+      "tier": "Luxury",
+      "items": [
+        {
+          "name": "Medium Check Tote",
+          "category": "Bag",
+          "price": {
+            "us": 1490,
+            "ca": 2050,
+            "cn": 11500
+          }
+        },
+        {
+          "name": "Lola Small Bag",
+          "category": "Bag",
+          "price": {
+            "us": 2290,
+            "ca": 3100,
+            "cn": 17900
+          }
+        },
+        {
+          "name": "Knight Medium Bag",
+          "category": "Bag",
+          "price": {
+            "us": 2890,
+            "ca": 3950,
+            "cn": 22500
+          }
+        }
+      ]
+    },
+    {
+      "id": "gucci",
+      "name": "Gucci",
+      "tier": "Luxury",
+      "items": [
+        {
+          "name": "GG Marmont Small Shoulder Bag",
+          "category": "Bag",
+          "price": {
+            "us": 2990,
+            "ca": 4050,
+            "cn": 22500
+          }
+        },
+        {
+          "name": "Jackie 1961 Small Bag",
+          "category": "Bag",
+          "price": {
+            "us": 3800,
+            "ca": 5150,
+            "cn": 28500
+          }
+        },
+        {
+          "name": "Horsebit 1955 Shoulder Bag",
+          "category": "Bag",
+          "price": {
+            "us": 3500,
+            "ca": 4750,
+            "cn": 26500
+          }
+        }
+      ]
+    },
+    {
+      "id": "prada",
+      "name": "Prada",
+      "tier": "Luxury",
+      "items": [
+        {
+          "name": "Re-Edition 2005 Re-Nylon Bag",
+          "category": "Bag",
+          "price": {
+            "us": 2150,
+            "ca": 2950,
+            "cn": 16700
+          }
+        },
+        {
+          "name": "Galleria Saffiano Medium Bag",
+          "category": "Bag",
+          "price": {
+            "us": 4900,
+            "ca": 6600,
+            "cn": 36500
+          }
+        },
+        {
+          "name": "Re-Nylon Backpack",
+          "category": "Bag",
+          "price": {
+            "us": 2050,
+            "ca": 2800,
+            "cn": 15900
+          }
+        }
+      ]
+    },
+    {
+      "id": "louis-vuitton",
+      "name": "Louis Vuitton",
+      "tier": "Luxury",
+      "items": [
+        {
+          "name": "Neverfull MM",
+          "category": "Bag",
+          "price": {
+            "us": 2160,
+            "ca": 2950,
+            "cn": 16800
+          }
+        },
+        {
+          "name": "Speedy Bandoulière 25",
+          "category": "Bag",
+          "price": {
+            "us": 2150,
+            "ca": 2900,
+            "cn": 16500
+          }
+        },
+        {
+          "name": "Alma BB",
+          "category": "Bag",
+          "price": {
+            "us": 2250,
+            "ca": 3050,
+            "cn": 17500
+          }
+        }
+      ]
+    },
+    {
+      "id": "omega",
+      "name": "Omega",
+      "tier": "Watchmaker",
+      "items": [
+        {
+          "name": "Speedmaster Moonwatch Professional",
+          "category": "Watch",
+          "price": {
+            "us": 7900,
+            "ca": 10900,
+            "cn": 58400
+          }
+        },
+        {
+          "name": "Seamaster Diver 300M",
+          "category": "Watch",
+          "price": {
+            "us": 6200,
+            "ca": 8500,
+            "cn": 46000
+          }
+        },
+        {
+          "name": "Seamaster Aqua Terra 41",
+          "category": "Watch",
+          "price": {
+            "us": 6800,
+            "ca": 9300,
+            "cn": 50400
+          }
+        }
+      ]
+    },
+    {
+      "id": "iwc",
+      "name": "IWC",
+      "tier": "Watchmaker",
+      "items": [
+        {
+          "name": "Portugieser Chronograph 41",
+          "category": "Watch",
+          "price": {
+            "us": 8900,
+            "ca": 12200,
+            "cn": 66700
+          }
+        },
+        {
+          "name": "Pilot's Watch Mark XX",
+          "category": "Watch",
+          "price": {
+            "us": 5600,
+            "ca": 7700,
+            "cn": 41500
+          }
+        },
+        {
+          "name": "Portofino Automatic 40",
+          "category": "Watch",
+          "price": {
+            "us": 5300,
+            "ca": 7250,
+            "cn": 39000
+          }
+        }
+      ]
+    },
+    {
+      "id": "rolex",
+      "name": "Rolex",
+      "tier": "Watchmaker",
+      "items": [
+        {
+          "name": "Submariner Date 41",
+          "category": "Watch",
+          "price": {
+            "us": 10800,
+            "ca": 14700,
+            "cn": 81000
+          }
+        },
+        {
+          "name": "Datejust 41",
+          "category": "Watch",
+          "price": {
+            "us": 9250,
+            "ca": 12600,
+            "cn": 69500
+          }
+        },
+        {
+          "name": "Oyster Perpetual 41",
+          "category": "Watch",
+          "price": {
+            "us": 6900,
+            "ca": 9400,
+            "cn": 51800
+          }
+        }
+      ]
+    },
+    {
+      "id": "audemars-piguet",
+      "name": "Audemars Piguet",
+      "tier": "Watchmaker",
+      "items": [
+        {
+          "name": "Royal Oak Selfwinding 41",
+          "category": "Watch",
+          "price": {
+            "us": 34600,
+            "ca": 47400,
+            "cn": 263000
+          }
+        },
+        {
+          "name": "Royal Oak Offshore Chronograph 42",
+          "category": "Watch",
+          "price": {
+            "us": 38200,
+            "ca": 52300,
+            "cn": 290000
+          }
+        },
+        {
+          "name": "Code 11.59 Selfwinding 41",
+          "category": "Watch",
+          "price": {
+            "us": 29800,
+            "ca": 40800,
+            "cn": 226000
+          }
+        }
+      ]
+    },
+    {
+      "id": "patek-philippe",
+      "name": "Patek Philippe",
+      "tier": "Watchmaker",
+      "items": [
+        {
+          "name": "Calatrava 5227G",
+          "category": "Watch",
+          "price": {
+            "us": 41600,
+            "ca": 57000,
+            "cn": 316000
+          }
+        },
+        {
+          "name": "Aquanaut 5167A",
+          "category": "Watch",
+          "price": {
+            "us": 25900,
+            "ca": 35500,
+            "cn": 196000
+          }
+        },
+        {
+          "name": "Nautilus 5811/1G",
+          "category": "Watch",
+          "price": {
+            "us": 79000,
+            "ca": 108000,
+            "cn": 600000
+          }
+        }
+      ]
+    }
+  ]
+}

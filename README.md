@@ -1,12 +1,14 @@
-# Bag Arbitrage
+# shuming-he.github.io
 
-A data science project by Shuming He comparing luxury bag and watch prices across the United States, Canada and mainland China.
+Data science portfolio of Shuming He, hosted on GitHub Pages.
 
-Live site: https://shuming-he.github.io
+| Path | What it is |
+|---|---|
+| `/` | Portfolio home: projects, about, CV |
+| `/bag-arbitrage/` | **Bag Arbitrage**: cross-market luxury price analysis (US, Canada, China) with paired t-tests, regression and an interactive explorer |
+| `/bag-arbitrage/pipeline/` | Python scraper, dataset builder and SciPy analysis for Bag Arbitrage |
+| `/assets/` | Shared styles and scripts |
 
-- 15 brands: fashion houses (Coach, Michael Kors, Gucci, Louis Vuitton, ...) and watchmakers (Rolex, Patek Philippe, Audemars Piguet, Omega, IWC)
-- Prices normalized to USD with adjustable exchange rates and sales tax
-- Paired t-tests on log price ratios and an OLS regression of the China premium on price tier
-- Plain HTML, CSS and JavaScript with hand-built SVG charts; no frameworks
+Plain HTML, CSS and JavaScript with hand-built SVG charts; no frameworks or build step.
 
-Prices in this version are an illustrative sample. A scraper for dated, sourced prices is the next step.
+Bag Arbitrage currently displays an illustrative prototype dataset. See `bag-arbitrage/pipeline/README.md` for the scraper's status.
