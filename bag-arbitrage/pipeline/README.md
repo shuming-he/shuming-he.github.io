@@ -26,6 +26,7 @@ python run_analysis.py                # validation -> dataset -> analysis -> tab
 | `run_analysis.py` | The single command: primary estimate, robustness checks, subsets, scenarios, regressions |
 | `figures.py` | SVG figures in `../figures/` |
 | `make_report.py` | Renders `../reports/report.md` (and `report.html` with pandoc) from `results.json` |
+| `archive_sources.py`, `archived_sources.csv` | Requests Internet Archive copies of every source URL (run by the "Archive source pages" GitHub Action) and lists each snapshot or why none was made |
 | `scrape.py`, `parse.py` | Optional scraper for pages with structured price data (`tests/test_parse.py`) |
 | `analysis.py` | Earlier SciPy cross-check of the page under i.i.d. assumptions; superseded by `run_analysis.py` |
 | `tests/site_consistency.js` | Checks that the page's JavaScript reproduces `results.json` (needs Playwright and a local server) |
