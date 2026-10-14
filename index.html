@@ -44,6 +44,7 @@ a.project:hover { border-color: var(--fg-3); background: var(--surface-2); trans
 .project.soon { border-style: dashed; background: transparent; }
 .project.soon h3 { color: var(--fg-2); }
 .project .preview { width: 100%; height: 6px; border-radius: 3px; background: linear-gradient(90deg, var(--us) 0 50%, var(--ca) 50% 100%); opacity: .85; margin-top: 4px; }
+.project .preview.football { background: linear-gradient(90deg, #1a9dbb 0 33.3%, #e8b04a 33.3% 66.6%, #e35f3d 66.6% 100%); }
 @media (max-width: 680px) {
   .project { grid-template-columns: minmax(0, 1fr); gap: 10px; padding: 20px; }
   .project .side { flex-direction: row; align-items: center; justify-content: space-between; }
@@ -77,7 +78,7 @@ a.project:hover { border-color: var(--fg-3); background: var(--surface-2); trans
     <div class="eyebrow">Data Science Portfolio</div>
     <h1>Shuming <span class="chrome">He</span></h1>
     <p class="role">Mathematics &amp; Statistics · University of Toronto</p>
-    <p class="lede">I like questions that can be answered with data I collect myself. My projects cover the whole pipeline: scraping and cleaning messy sources, testing hypotheses with the right statistics, and presenting the results as interactive pages anyone can explore.</p>
+    <p class="lede">I like questions that can be answered with real data, collected myself or assembled from public sources. My projects cover the whole pipeline: collecting and cleaning messy sources, testing hypotheses with the right statistics, and presenting the results as interactive pages anyone can explore.</p>
     <div class="cta">
       <a class="btn solid" href="/bag-arbitrage/">View project</a>
       <a class="btn" href="mailto:smhe@outlook.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>smhe@outlook.com</a>
@@ -87,7 +88,7 @@ a.project:hover { border-color: var(--fg-3); background: var(--surface-2); trans
 
 <main>
   <section class="block wrap" id="projects">
-    <div class="sec-head"><h2>Projects</h2><span class="count">Featured project</span></div>
+    <div class="sec-head"><h2>Projects</h2><span class="count">2 projects</span></div>
     <div class="projects">
       <a class="project" href="/bag-arbitrage/">
         <span class="idx">P/01</span>
@@ -100,6 +101,17 @@ a.project:hover { border-color: var(--fg-3); background: var(--surface-2); trans
         </div>
         <div class="side"><span class="tag live">Live</span><span class="arrow" aria-hidden="true">→</span></div>
       </a>
+      <a class="project" href="/football-value/">
+        <span class="idx">P/02</span>
+        <div>
+          <h3>Market Value vs On-Field Performance</h3>
+          <p>How much of a footballer's Transfermarkt market value do league statistics explain, and do the Premier League, LaLiga and Bundesliga reward the same things? Regression on public CC0 data with club-clustered inference, out-of-sample R², a wild cluster bootstrap and an interactive Quarto report.</p>
+          <div class="snap"><span><b>902</b> players</span><span><b>58</b> clubs</span><span><b>3</b> leagues, 2025/26</span><span>out-of-sample R² 0.83</span><span>robustness checks</span><span>reproduced in CI</span></div>
+          <div class="stack"><span>Python</span><span>statsmodels</span><span>Regression</span><span>Cross-validation</span><span>Quarto + Observable JS</span></div>
+          <div class="preview football" aria-hidden="true"></div>
+        </div>
+        <div class="side"><span class="tag live">Live</span><span class="arrow" aria-hidden="true">→</span></div>
+      </a>
     </div>
   </section>
 
@@ -109,13 +121,13 @@ a.project:hover { border-color: var(--fg-3); background: var(--surface-2); trans
       <div>
         <p>I'm a first-year Mathematics &amp; Statistics student at the University of Toronto, working toward graduate study in data science. I build projects end to end, from collecting the data to writing up what it can and cannot tell us, because the limits of a dataset matter as much as its headline result.</p>
         <p id="contact">Contact: <span class="email">smhe@outlook.com</span></p>
-        <p>This site is hand-written in HTML, CSS and JavaScript and hosted on GitHub Pages. All of its source code is public.</p>
+        <p>This site is written in HTML, CSS and JavaScript, with the football report built in Quarto, and hosted on GitHub Pages. All of its source code is public.</p>
       </div>
       <div class="skills">
         <div><div class="k">Languages</div><div class="chips"><span>Python</span><span>JavaScript</span><span>HTML / CSS</span></div></div>
-        <div><div class="k">Data</div><div class="chips"><span>pandas</span><span>requests</span><span>BeautifulSoup</span></div></div>
-        <div><div class="k">Statistics</div><div class="chips"><span>Hypothesis testing</span><span>Regression</span><span>SciPy</span></div></div>
-        <div><div class="k">Visualization</div><div class="chips"><span>SVG</span><span>Interactive web charts</span></div></div>
+        <div><div class="k">Data</div><div class="chips"><span>pandas</span><span>requests</span><span>BeautifulSoup</span><span>GitHub Actions</span></div></div>
+        <div><div class="k">Statistics</div><div class="chips"><span>Hypothesis testing</span><span>Regression</span><span>SciPy</span><span>statsmodels</span></div></div>
+        <div><div class="k">Visualization</div><div class="chips"><span>SVG</span><span>Interactive web charts</span><span>Quarto</span></div></div>
       </div>
     </div>
   </section>

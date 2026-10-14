@@ -48,6 +48,17 @@ git diff --stat ../data/results.json   # no change means the published results w
 
 The project page computes its scenario explorer in the browser from `prices.json`. At the default setting, it reproduces the primary estimate in `results.json` exactly; this is checked by [`tests/site_consistency.js`](bag-arbitrage/pipeline/tests/site_consistency.js).
 
+## Project: Market Value vs On-Field Performance (football)
+
+**Question.** How much of a footballer's Transfermarkt market value do league statistics explain, and do the Premier League, LaLiga and Bundesliga reward the same statistics?
+
+**Data and method.** Public CC0 data ([transfermarkt-datasets](https://github.com/dcaribou/transfermarkt-datasets)), 902 outfield players with at least 900 league minutes in 2025/26. OLS of log market value with club-clustered standard errors, out-of-sample R² with clubs held out, a wild cluster bootstrap for the league comparison, and robustness checks. Details, reproduction steps and the data dictionary are in [`football-value/README.md`](football-value/README.md).
+
+| | |
+|---|---|
+| Live report | [shuming-he.github.io/football-value](https://shuming-he.github.io/football-value/) |
+| Results | [`football-value/data/results.json`](football-value/data/results.json) |
+
 ## Repository layout
 
 | Path | What it is |
@@ -59,7 +70,9 @@ The project page computes its scenario explorer in the browser from `prices.json
 | `bag-arbitrage/pipeline/` | Raw data, validation, analysis, tests |
 | `bag-arbitrage/reports/` | Report, data quality, data dictionary, audit, claim audit |
 | `bag-arbitrage/figures/` | Report figures (SVG) |
+| `football-value/` | Football project: pipeline, data, Quarto report source and rendered page |
+| `.github/workflows/` | Source archiving, football data download and football report build |
 
-The site is plain HTML, CSS and JavaScript. It has no frameworks and no build step.
+The site is plain HTML, CSS and JavaScript. The football report is rendered from Quarto by a GitHub Action; the rest has no build step.
 
 Product images on the page are loaded from brand websites for identification only. Some brand image servers block loading from other sites, and the page then shows the brand's initials instead.
