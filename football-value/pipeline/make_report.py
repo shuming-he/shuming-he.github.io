@@ -106,7 +106,7 @@ A season of league statistics, together with age, position, league and contract 
 3. **Playing time, goals and team success count most.** Playing 10 percentage points more of the league's minutes goes with about {pct(coef['minutes_share']['pct'])} value, 0.1 more goals per 90 minutes with about {pct(coef['goals_p90']['pct'])}, and a club that earns 0.5 more points per game with about {pct(coef['team_ppg']['pct'])}. Yellow cards show no clear link.
 4. **The same numbers are priced very differently across leagues.** With identical statistics, age, position and contract, LaLiga players are valued about {pct(lg['ES1']['pct'])} and Bundesliga players about {pct(lg['L1']['pct'])} relative to Premier League players.
 5. **The leagues may also reward different things, but the evidence is only moderate.** The test that all three leagues reward the statistics equally gives *p* = {pval(wb['p'])} with the more cautious bootstrap method.
-6. **A big gap between actual and predicted value is not a mistake by the market.** It mostly reflects what this model cannot see: defending, passing, injuries, earlier seasons and reputation.
+6. **A big gap between actual and predicted value is not evidence of a market mistake.** It can come from anything this model cannot see, such as defending, passing, injuries, earlier seasons or reputation.
 
 The sections below give the details, the uncertainty around each number and the checks behind them.
 
