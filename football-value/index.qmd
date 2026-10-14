@@ -55,7 +55,7 @@ The analysis is descriptive. A player whose value is above the prediction is not
 
 ## Data
 
-- **Source.** [transfermarkt-datasets](https://github.com/dcaribou/transfermarkt-datasets), a public dataset built from Transfermarkt pages and released under CC0. It was downloaded on 14 October 2026; [PROVENANCE.md](https://github.com/shuming-he/shuming-he.github.io/tree/main/football-value/data/raw/PROVENANCE.md) records the file's SHA-256 hash and the rows kept.
+- **Source.** [transfermarkt-datasets](https://github.com/dcaribou/transfermarkt-datasets), a public dataset built from Transfermarkt pages and released under CC0. It was downloaded on 14 October 2026; [PROVENANCE.md](https://github.com/shuming-he/shuming-he.github.io/blob/main/football-value/data/raw/PROVENANCE.md) records the file's SHA-256 hash and the rows kept.
 - **Why not scrape?** Transfermarkt's terms do not allow automated collection. FBref, the usual source for detailed match statistics, stopped publishing Opta's advanced data in 2026, so passing and defensive statistics were not available from it either.
 - **Unit.** One outfield player in one league season. Statistics come from that season's league matches only. A player who changed club within the league is counted once, at the club where he played most minutes.
 - **Outcome.** The latest market value Transfermarkt published between 1 May and 30 June 2026, after the season ended. The values range from €200k to €200.0m, with median €12.0m. The model uses the log of value, because values span three orders of magnitude.
@@ -204,7 +204,7 @@ Players valued above their prediction also tended to see their value grow more s
 
 ## Robustness
 
-Each row re-estimates the primary model with one change. Columns show the coefficients on log value; the clustered *p*-values are in [the table file](https://github.com/shuming-he/shuming-he.github.io/tree/main/football-value/report/tables/robustness.csv).
+Each row re-estimates the primary model with one change. Columns show the coefficients on log value; the clustered *p*-values are in [the table file](https://github.com/shuming-he/shuming-he.github.io/blob/main/football-value/report/tables/robustness.csv).
 
 | Check | n | R² | Minutes share | Goals /90 | Assists /90 | Yellows /90 | Club pts/game |
 |---|---|---|---|---|---|---|---|
