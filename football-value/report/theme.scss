@@ -24,7 +24,10 @@ $code-bg: #161925;
 .lede { font-size: 1.12rem; color: #eceaf6; }
 .keystats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin: 1.2rem 0 2rem; }
 .keystats .ks { background: #10121a; border: 1px solid #262a3a; border-radius: 14px; padding: 12px 14px; color: #a7a8bf; font-size: .85rem; line-height: 1.35; }
-.keystats .ks strong { display: block; font-family: $font-family-monospace; font-size: 1.6rem; color: #eceaf6; }
+.keystats .ks b { display: block; font-family: $font-family-monospace; font-size: 1.6rem; color: #eceaf6; }
 table { font-variant-numeric: tabular-nums; font-size: .92rem; }
 .cell-output-display { overflow-x: auto; }
 h2 { margin-top: 2.6rem; }
+.observablehq svg { max-width: 100%; height: auto; }
+.observablehq form { max-width: 100%; }
+#quarto-document-content > table, #quarto-document-content section > table { display: block; max-width: 100%; overflow-x: auto; }

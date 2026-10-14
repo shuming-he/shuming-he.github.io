@@ -51,7 +51,7 @@ coef_rows = "\n".join(
     for c in R["coefficients"])
 rob_rows = "\n".join(
     f"| {r['check']} | {r['n']} | {num(r['r2']) if r['r2'] is not None else '–'} | "
-    + " | ".join(num(r.get(t)) if r.get(t) is not None else "absorbed" for t in ["minutes_share", "goals_p90", "assists_p90", "yellow_p90", "team_ppg"])
+    + " | ".join(num(r.get(t)) if r.get(t) is not None else "–" for t in ["minutes_share", "goals_p90", "assists_p90", "yellow_p90", "team_ppg"])
     + " |" for r in rob)
 excl_rows = "\n".join(f"| {k} | {v} |" for k, v in excl_now.items())
 slope_rows = []
@@ -90,12 +90,14 @@ lang: en
 Across **{s['n']} outfield players** in the {meta['season']} Premier League, LaLiga and Bundesliga, a regression on league statistics, age, position, league and contract length explains **{f['cv_r2']['full'] * 100:.0f}%** of the variation in log market value for clubs it has not seen. League statistics alone explain {f['cv_r2']['field_no_league'] * 100:.0f}%. Adding them to age, position, league and contract raises the out-of-sample R² from {f['cv_r2']['controls_only']:.2f} to {f['cv_r2']['full']:.2f}.
 :::
 
-::: {{.keystats}}
-[**{s['n']}**<br>players]{{.ks}}
-[**{s['clusters']}**<br>clubs]{{.ks}}
-[**{f['cv_r2']['full']:.2f}**<br>out-of-sample R²]{{.ks}}
-[**{pct(lg['ES1']['pct'])}**<br>LaLiga vs Premier League, same stats]{{.ks}}
-:::
+```{{=html}}
+<div class="keystats">
+  <div class="ks"><b>{s['n']}</b>players</div>
+  <div class="ks"><b>{s['clusters']}</b>clubs</div>
+  <div class="ks"><b>{f['cv_r2']['full']:.2f}</b>out-of-sample R²</div>
+  <div class="ks"><b>{pct(lg['ES1']['pct'])}</b>LaLiga vs Premier League value, same stats</div>
+</div>
+```
 
 ## Question
 
@@ -156,7 +158,8 @@ Age matters a great deal. For an otherwise typical player, the model's value at 
 ```{{ojs}}
 results = FileAttachment("data/results.json").json()
 Plot.plot({{
-  marginLeft: 210, height: 230, x: {{label: "Effect on market value (%) with 95% CI", grid: true}}, y: {{label: null}},
+  style: {{background: "transparent", color: "#d6d4e6", fontSize: "12px"}}, 
+  marginLeft: 300, height: 240, x: {{label: "Effect on market value (%) with 95% CI", grid: true}}, y: {{label: null}},
   marks: [
     Plot.ruleX([0], {{stroke: "#555"}}),
     Plot.ruleY(results.coefficients.filter(d => d.term !== "no_contract"), {{y: d => `${{d.label}} (${{d.unit_label}})`, x1: "pct_low", x2: "pct_high", stroke: "#8c7cf2", strokeWidth: 2}}),
@@ -179,6 +182,7 @@ In the Premier League, value rises less steeply with club results, minutes, goal
 
 ```{{ojs}}
 Plot.plot({{
+  style: {{background: "transparent", color: "#d6d4e6", fontSize: "12px"}}, 
   marginLeft: 150, height: 300, x: {{label: "Coefficient on log value (95% CI)", grid: true}}, y: {{label: null}},
   fy: {{label: null}}, color: {{legend: true, domain: ["Premier League", "LaLiga", "Bundesliga"], range: ["#1a9dbb", "#e8b04a", "#e35f3d"]}},
   marks: [
@@ -195,6 +199,7 @@ Each player's prediction comes from the out-of-sample model, so his own club was
 
 Two cautions before reading the list. First, a typical player is already a factor of {2.718281828 ** f['residual_sd']:.2f} away from the prediction, so only large ratios stand out. Second, a large gap often points to something the model leaves out: age at the extremes (one season says little about a 38-year-old's value), defensive and passing work these statistics do not record, or a club whose results were unusual that season.
 
+::: {{.column-page}}
 ```{{ojs}}
 players = FileAttachment("data/residuals.csv").csv({{typed: true}})
 viewof league = Inputs.select(["All leagues", "Premier League", "LaLiga", "Bundesliga"], {{label: "League"}})
@@ -206,6 +211,7 @@ filtered = q.filter(d => (league === "All leagues" || d.league === league) && (p
 
 ```{{ojs}}
 Plot.plot({{
+  style: {{background: "transparent", color: "#d6d4e6", fontSize: "12px"}}, 
   height: 420, grid: true,
   x: {{type: "log", label: "Predicted value (€, out of sample) →"}}, y: {{type: "log", label: "↑ Actual value (€)"}},
   color: {{legend: true, domain: ["Premier League", "LaLiga", "Bundesliga"], range: ["#1a9dbb", "#e8b04a", "#e35f3d"]}},
@@ -227,6 +233,7 @@ Inputs.table(filtered.map(d => ({{...d, ratio: Math.exp(d.residual)}})), {{
   sort: "ratio", reverse: true, rows: 15
 }})
 ```
+:::
 
 ### Do these gaps last?
 
@@ -242,7 +249,7 @@ Each row re-estimates the primary model with one change. Columns show the coeffi
 |---|---|---|---|---|---|---|---|
 {rob_rows}
 
-The signs and rough sizes hold in every version: minutes, goals, assists and club results are all positively associated with value, and yellow cards are never significantly different from zero. "Totals instead of per-90 rates" uses season totals, so its goal, assist and card coefficients are on a different scale and are omitted here. In the club fixed-effects version, club points per game is absorbed because it is the same for every player at a club.
+The signs and rough sizes hold in every version: minutes, goals, assists and club results are all positively associated with value, and yellow cards are never significantly different from zero. "Totals instead of per-90 rates" uses season totals, so its goal, assist and card coefficients are on a different scale and are not shown (–). In the club fixed-effects version, club points per game drops out (–) because it is the same for every player at a club.
 
 ## Limitations
 
