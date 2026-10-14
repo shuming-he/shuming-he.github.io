@@ -18,7 +18,9 @@ jobs:
         with:
           python-version: "3.12"
       - name: Download and filter the public dataset
-        run: python football-value/pipeline/fetch_data.py ${{ vars.FOOTBALL_MODE || 'schema' }}
+        run: |
+          pip install pandas==2.2.3
+          python football-value/pipeline/fetch_data.py
       - name: Commit data
         run: |
           git config user.name "github-actions[bot]"

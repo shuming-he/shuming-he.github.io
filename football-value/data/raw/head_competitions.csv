@@ -1,4 +1,0 @@
-"competition_id","competition_code","name","sub_type","type","country_id","country_name","domestic_league_code","confederation","total_clubs","url"
-"A1","bundesliga","bundesliga","first_tier","domestic_league","127","Austria","A1","europa","12","https://www.transfermarkt.co.uk/bundesliga/startseite/wettbewerb/A1"
-"AFAC","afc-asian-cup","afc-asian-cup","afc_asian_cup","national_team_competition","-1","","","asien","","https://www.transfermarkt.co.uk/afc-asian-cup/startseite/pokalwettbewerb/AFAC"
-"AFCN","africa-cup-of-nations","africa-cup-of-nations","africa_cup_of_nations","national_team_competition","-1","","","afrika","","https://www.transfermarkt.co.uk/africa-cup-of-nations/startseite/pokalwettbewerb/AFCN"
