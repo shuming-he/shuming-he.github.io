@@ -64,7 +64,7 @@ The project page computes its scenario explorer in the browser from `prices.json
 | Path | What it is |
 |---|---|
 | `index.html` | Portfolio home |
-| `assets/` | Shared styles and scripts |
+| `assets/` | Shared styles and scripts; `assets/fonts/` holds the self-hosted fonts (no Google Fonts) |
 | `bag-arbitrage/index.html` | Project page |
 | `bag-arbitrage/data/` | `prices.json` (page dataset), `matched_pairs.csv` (analysis table), `results.json` (all results) |
 | `bag-arbitrage/pipeline/` | Raw data, validation, analysis, tests |

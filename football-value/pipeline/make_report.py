@@ -167,6 +167,15 @@ Effects are percentage differences in market value for the stated increase, hold
 Age matters a great deal. For an otherwise typical player, the model's value at 21 is {pct(age[21])} relative to 25, at 30 it is {pct(age[30])}, and at 33 it is {pct(age[33])}.
 
 ```{{ojs}}
+//| output: false
+// Plot and Inputs load from vendor/ (the same versions Quarto would fetch from cdn.jsdelivr.net), so the charts work where that CDN is blocked.
+local = name => new URL("vendor/" + name, document.baseURI).href
+vendored = require.alias({{"d3@7.8.5/dist/d3.min.js": local("d3.min.js"), "htl@0.3.1/dist/htl.min.js": local("htl.min.js")}})
+Plot = vendored(local("plot.umd.min.js"))
+Inputs = vendored(local("inputs.min.js"))
+```
+
+```{{ojs}}
 results = FileAttachment("data/results.json").json()
 short = ({{minutes_share: "Minutes share (+10 pp)", goals_p90: "Goals /90 (+0.1)", assists_p90: "Assists /90 (+0.1)", yellow_p90: "Yellows /90 (+0.1)", team_ppg: "Club pts/game (+0.5)", contract_years: "Contract (+1 year)"}})
 Plot.plot({{

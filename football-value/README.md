@@ -35,6 +35,7 @@ The "Football report" GitHub Action runs these steps on every change and fails i
 | `data/residuals.csv` | Primary sample with out-of-sample predictions and residuals |
 | `data/exclusions.csv` | Counts of excluded players by season, league and reason |
 | `report/` | Quarto theme, site bar, tables |
+| `vendor/` | Observable Plot 0.6.11, Inputs 0.10.6, d3 7.8.5 and htl 0.3.1, served from the repo instead of a CDN |
 
 ## Data dictionary (`player_seasons.csv`)
 
