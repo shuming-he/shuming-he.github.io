@@ -1,0 +1,44 @@
+name: Football report
+
+on:
+  push:
+    branches: [football, main]
+    paths: ["football-value/pipeline/**", "football-value/data/**", "football-value/report/**", ".github/workflows/football-report.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Install pinned dependencies
+        run: pip install -r football-value/pipeline/requirements.txt
+      - name: Unit tests
+        working-directory: football-value/pipeline
+        run: python -m unittest discover tests
+      - name: Re-run the analysis and check it matches the committed results
+        working-directory: football-value/pipeline
+        run: |
+          cp ../data/results.json /tmp/committed.json
+          python run_analysis.py
+          python compare_results.py /tmp/committed.json ../data/results.json
+          git checkout -- ../data
+          python make_report.py
+      - uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          version: 1.6.43
+      - name: Render the Quarto report
+        run: quarto render football-value/index.qmd
+      - name: Commit the rendered page
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add football-value/index.qmd football-value/index.html football-value/index_files
+          git diff --cached --quiet || git commit -m "Football report: render Quarto page"
+          git push

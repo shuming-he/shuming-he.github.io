@@ -1,0 +1,13 @@
+check,n,clusters,r2,note,minutes_share,minutes_share_p,goals_p90,goals_p90_p,assists_p90,assists_p90_p,yellow_p90,yellow_p90_p,team_ppg,team_ppg_p
+Primary,902,58,0.846768,,1.39126,2.5829e-18,1.23192,8.8968e-13,0.768836,1.87015e-05,-0.185552,0.231643,1.08023,4.23019e-17
+At least 450 minutes,1086,58,0.843114,,1.58672,4.75457e-27,1.08125,6.94672e-13,0.729983,2.14637e-06,-0.146748,0.236876,1.09486,8.22213e-18
+At least 1800 minutes,478,58,0.874127,,1.03566,3.80078e-06,1.67211,1.68533e-10,1.0259,3.85047e-06,-0.0773481,0.751222,0.999271,1.56783e-15
+"Latest value on or before 30 June, any date",903,58,0.846688,adds players whose last valuation was earlier in the season,1.39449,2.18693e-18,1.22301,8.55602e-13,0.779364,1.43285e-05,-0.180878,0.23869,1.08106,4.46301e-17
+Without contract length,902,58,0.83889,,1.44434,1.95315e-20,1.32113,6.31698e-14,0.76459,2.05105e-05,-0.125027,0.461981,1.11241,3.89741e-17
+Quadratic in age instead of a spline,902,58,0.840371,,1.38729,1.51577e-17,1.26544,3.18325e-12,0.762077,1.50595e-05,-0.176624,0.263155,1.07308,1.5963e-16
+Club fixed effects,902,58,0.903532,compares players within the same club; club points per game is absorbed,1.61034,4.0025e-24,1.13381,2.95419e-13,0.57446,0.000507205,-0.0638359,0.645365,,
+Totals instead of per-90 rates,902,58,0.845774,"goals, assists and yellow cards as season totals",1.09715,3.35663e-12,,,,,,,1.09944,2.10051e-17
+"Five leagues (adds Serie A, Ligue 1)",1482,96,0.826091,,1.30329,1.31524e-25,1.26765,4.22147e-20,0.845627,2.67309e-07,-0.241936,0.0814374,1.14078,3.13188e-30
+"2024/25 season, without contract length",846,58,0.810266,"contract dates in the source are current ones, so they are left out for past seasons",1.35599,3.96762e-17,1.48062,5.17531e-13,1.09694,9.63346e-05,-0.117483,0.50455,1.15867,1.01167e-15
+"2023/24 season, without contract length",904,58,0.814114,"contract dates in the source are current ones, so they are left out for past seasons",1.4157,3.56819e-19,1.20373,3.34796e-13,0.588795,0.00372189,0.113672,0.507681,1.19315,6.33627e-22
+Median (quantile) regression,902,58,,coefficients only; p-values are not clustered,1.42098,3.03929e-37,1.12553,2.30366e-09,0.924824,3.33704e-05,-0.21901,0.219309,1.03327,6.32103e-80

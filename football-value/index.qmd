@@ -1,0 +1,228 @@
+---
+title: "Market Value vs On-Field Performance"
+subtitle: "How much of a footballer's Transfermarkt value do league statistics explain? Premier League, LaLiga and Bundesliga, 2025/26"
+author: "Shuming He"
+date: "2026-10-14"
+format:
+  html:
+    theme: [darkly, report/theme.scss]
+    toc: true
+    toc-depth: 2
+    toc-location: left
+    smooth-scroll: true
+    anchor-sections: true
+    code-tools: false
+    include-before-body: report/nav.html
+    link-external-newwindow: true
+execute:
+  echo: false
+lang: en
+---
+
+::: {.lede}
+Across **902 outfield players** in the 2025/26 Premier League, LaLiga and Bundesliga, a regression on league statistics, age, position, league and contract length explains **83%** of the variation in log market value for clubs it has not seen. League statistics alone explain 26%. Adding them to age, position, league and contract raises the out-of-sample R² from 0.54 to 0.83.
+:::
+
+::: {.keystats}
+[**902**<br>players]{.ks}
+[**58**<br>clubs]{.ks}
+[**0.83**<br>out-of-sample R²]{.ks}
+[**−65%**<br>LaLiga vs Premier League, same stats]{.ks}
+:::
+
+## Question
+
+Transfermarkt publishes a market value for every professional footballer. Those values are set by its community and editors, not by a formula, and they are widely quoted in transfer reporting. This project asks three things:
+
+1. How much of a player's market value can be explained by what he does on the pitch in league matches?
+2. Which players are valued well above or below what those statistics predict?
+3. Do the Premier League, LaLiga and Bundesliga reward the same statistics in the same way?
+
+The analysis is descriptive. A player whose value is above the prediction is not shown to be "overvalued": his value may reflect things the statistics here do not measure, such as defensive work, passing, injuries, earlier seasons, international reputation or commercial appeal.
+
+## Data
+
+- **Source.** [transfermarkt-datasets](https://github.com/dcaribou/transfermarkt-datasets), a public dataset built from Transfermarkt pages and released under CC0. It was downloaded on 14 October 2026; [PROVENANCE.md](https://github.com/shuming-he/shuming-he.github.io/tree/main/football-value/data/raw/PROVENANCE.md) records the file's SHA-256 hash and the rows kept.
+- **Why not scrape?** Transfermarkt's terms do not allow automated collection. FBref, the usual source for detailed match statistics, stopped publishing Opta's advanced data in 2026, so passing and defensive statistics were not available from it either.
+- **Unit.** One outfield player in one league season. Statistics come from that season's league matches only. A player who changed club within the league is counted once, at the club where he played most minutes.
+- **Outcome.** The latest market value Transfermarkt published between 1 May and 30 June 2026, after the season ended. The values range from €200k to €200.0m, with median €12.0m. The model uses the log of value, because values span three orders of magnitude.
+- **Sample.** At least 900 league minutes, goalkeepers excluded. That leaves 316 Premier League, 321 LaLiga and 265 Bundesliga players from 58 clubs.
+
+Players who appeared in the three leagues but are not in the sample:
+
+| Reason | Players |
+|---|---|
+| fewer than 900 league minutes | 574 |
+| goalkeeper | 109 |
+| no market value published 1 May-30 June after the season | 1 |
+
+## Method
+
+The primary model is an ordinary least squares regression of log market value on:
+
+- **League statistics:** share of the season's league minutes played, goals per 90 minutes, assists per 90 minutes, yellow cards per 90 minutes, and the club's points per game.
+- **Other factors:** league, position group (seven groups), age (a natural cubic spline with 4 degrees of freedom), years left on the contract and a flag for a missing contract date.
+
+Players at the same club share a coach, a team style and a market profile, so their errors are correlated. Standard errors are therefore **clustered by club** (58 clusters, *t* with 57 degrees of freedom). For the main league comparison I also report a wild cluster bootstrap with 1999 draws, which is more reliable when a test uses many restrictions relative to the number of clusters.
+
+To answer "how much is explained" without rewarding overfitting, R² is also computed **out of sample**. Clubs are split into 10 folds, and each club's players are predicted by a model that never saw that club.
+
+## How much do statistics explain?
+
+| Model | In-sample R² | Out-of-sample R² |
+|---|---|---|
+| League statistics only | – | 0.26 |
+| League statistics + league | 0.52 | 0.49 |
+| Age, position, league, contract only | 0.58 | 0.54 |
+| All of the above | 0.85 | 0.83 |
+
+The league statistics are jointly significant (*F*(5, 57) = 79.6, *p* = 2.0 × 10<sup>−24</sup>). Splitting the out-of-sample R² of the full model fairly between the two groups of variables (a two-group Shapley decomposition) gives league statistics **33%** of the explained variation and the other factors the rest. After the model, the typical prediction error is a factor of about 1.66 in either direction (residual SD 0.51 in logs).
+
+### What each statistic is associated with
+
+Effects are percentage differences in market value for the stated increase, holding the other variables fixed, with 95% confidence intervals from club-clustered standard errors.
+
+| Variable | Increase | Effect on value | 95% CI | *p* |
+|---|---|---|---|---|
+| Share of league minutes played | +10 percentage points | +14.9% | +12.4% to +17.5% | 2.6 × 10<sup>−18</sup> |
+| Goals per 90 minutes | +0.10 | +13.1% | +10.1% to +16.2% | 8.9 × 10<sup>−13</sup> |
+| Assists per 90 minutes | +0.10 | +8.0% | +4.5% to +11.6% | 1.9 × 10<sup>−5</sup> |
+| Yellow cards per 90 minutes | +0.10 | −1.8% | −4.8% to +1.2% | 0.232 |
+| Club points per game | +0.5 points | +71.6% | +56.7% to +87.9% | 4.2 × 10<sup>−17</sup> |
+| Contract years remaining | +1 year | +10.3% | +6.2% to +14.7% | 3.9 × 10<sup>−6</sup> |
+| Contract end date missing or passed | +1 | +12.6% | −6.6% to +35.6% | 0.208 |
+
+Age matters a great deal. For an otherwise typical player, the model's value at 21 is +36% relative to 25, at 30 it is −53%, and at 33 it is −77%.
+
+```{ojs}
+results = FileAttachment("data/results.json").json()
+Plot.plot({
+  marginLeft: 210, height: 230, x: {label: "Effect on market value (%) with 95% CI", grid: true}, y: {label: null},
+  marks: [
+    Plot.ruleX([0], {stroke: "#555"}),
+    Plot.ruleY(results.coefficients.filter(d => d.term !== "no_contract"), {y: d => `${d.label} (${d.unit_label})`, x1: "pct_low", x2: "pct_high", stroke: "#8c7cf2", strokeWidth: 2}),
+    Plot.dot(results.coefficients.filter(d => d.term !== "no_contract"), {y: d => `${d.label} (${d.unit_label})`, x: "pct", fill: "#d9d4ff", r: 5, tip: true})
+  ]
+})
+```
+
+## Do the leagues value players differently?
+
+**In level, yes, strongly.** For the same statistics, age, position and contract, a LaLiga player's value is −65% (95% CI −71% to −57%) and a Bundesliga player's −63% (95% CI −69% to −56%) compared with a Premier League player. Part of this is the Premier League's revenue, and part may be differences in opposition strength that per-90 numbers do not adjust for.
+
+**In what is rewarded, there is moderate evidence of differences.** Letting all five statistics have their own slope in each league and testing that the slopes are equal gives *F*(10, 57) = 2.87, *p* = 0.006 with clustered standard errors, and *p* = 0.047 with the wild cluster bootstrap. The bootstrap p-value is much weaker, so the evidence is real but not strong. Separate regressions by league (coefficients on log value, clustered SE in brackets):
+
+| Statistic | Premier League | LaLiga | Bundesliga |
+|---|---|---|---|
+| Goals per 90 | 0.90 (0.23) | 1.33 (0.26) | 1.31 (0.22) |
+| Assists per 90 | 0.34 (0.28) | 0.98 (0.31) | 0.74 (0.27) |
+| Minutes share | 1.14 (0.14) | 1.75 (0.23) | 1.65 (0.19) |
+| Club points per game | 0.77 (0.09) | 1.44 (0.17) | 1.05 (0.12) |
+
+In the Premier League, value rises less steeply with club results, minutes, goals and assists than in the other two leagues. That pattern is consistent with Premier League values being high even at weaker clubs, but this analysis does not test the reason. Each league regression has only 18–20 clubs, so these individual slopes are imprecise.
+
+```{ojs}
+Plot.plot({
+  marginLeft: 150, height: 300, x: {label: "Coefficient on log value (95% CI)", grid: true}, y: {label: null},
+  fy: {label: null}, color: {legend: true, domain: ["Premier League", "LaLiga", "Bundesliga"], range: ["#1a9dbb", "#e8b04a", "#e35f3d"]},
+  marks: [
+    Plot.ruleX([0], {stroke: "#555"}),
+    Plot.ruleY(results.league_slopes.by_league.filter(d => d.term !== "yellow_p90"), {fy: "label", y: "league_name", x1: "ci_low", x2: "ci_high", stroke: "league_name", strokeWidth: 2}),
+    Plot.dot(results.league_slopes.by_league.filter(d => d.term !== "yellow_p90"), {fy: "label", y: "league_name", x: "coef", fill: "league_name", r: 4.5, tip: true})
+  ]
+})
+```
+
+## Above and below what the statistics predict
+
+Each player's prediction comes from the out-of-sample model, so his own club was not used to fit it. The ratio is actual value ÷ predicted value: 2.0 means valued at twice the prediction, 0.5 at half.
+
+Two cautions before reading the list. First, a typical player is already a factor of 1.66 away from the prediction, so only large ratios stand out. Second, a large gap often points to something the model leaves out: age at the extremes (one season says little about a 38-year-old's value), defensive and passing work these statistics do not record, or a club whose results were unusual that season.
+
+```{ojs}
+players = FileAttachment("data/residuals.csv").csv({typed: true})
+viewof league = Inputs.select(["All leagues", "Premier League", "LaLiga", "Bundesliga"], {label: "League"})
+viewof position = Inputs.select(["All positions", "Centre-back", "Full-back", "Defensive mid", "Central mid", "Attacking mid", "Winger", "Forward"], {label: "Position"})
+viewof minValue = Inputs.select(new Map([["Any value", 0], ["€5m or more", 5e6], ["€20m or more", 2e7], ["€50m or more", 5e7]]), {label: "Market value"})
+viewof q = Inputs.search(players, {placeholder: "Search players or clubs", columns: ["name", "club"]})
+filtered = q.filter(d => (league === "All leagues" || d.league === league) && (position === "All positions" || d.position_group === position) && d.value_end >= minValue)
+```
+
+```{ojs}
+Plot.plot({
+  height: 420, grid: true,
+  x: {type: "log", label: "Predicted value (€, out of sample) →"}, y: {type: "log", label: "↑ Actual value (€)"},
+  color: {legend: true, domain: ["Premier League", "LaLiga", "Bundesliga"], range: ["#1a9dbb", "#e8b04a", "#e35f3d"]},
+  marks: [
+    Plot.line([[1e4, 1e4], [4e8, 4e8]], {stroke: "#777", strokeDasharray: "4 4"}),
+    Plot.dot(filtered, {x: "predicted_value", y: "value_end", fill: "league", r: 3, fillOpacity: 0.75,
+      channels: {Player: "name", Club: "club", Age: d => d.age.toFixed(1), Ratio: d => Math.exp(d.residual).toFixed(2)},
+      tip: {format: {x: d => "€" + (d / 1e6).toFixed(1) + "m", y: d => "€" + (d / 1e6).toFixed(1) + "m"}}})
+  ]
+})
+```
+
+```{ojs}
+Inputs.table(filtered.map(d => ({...d, ratio: Math.exp(d.residual)})), {
+  columns: ["name", "club", "league", "position_group", "age", "minutes", "goals", "assists", "value_end", "predicted_value", "ratio"],
+  header: {name: "Player", club: "Club", league: "League", position_group: "Position", age: "Age", minutes: "Minutes", goals: "Goals", assists: "Assists",
+           value_end: "Value", predicted_value: "Predicted", ratio: "Ratio"},
+  format: {age: d => d.toFixed(1), value_end: d => "€" + (d / 1e6).toFixed(1) + "m", predicted_value: d => "€" + (d / 1e6).toFixed(1) + "m", ratio: d => d.toFixed(2)},
+  sort: "ratio", reverse: true, rows: 15
+})
+```
+
+### Do these gaps last?
+
+Using the same model in earlier seasons (without contract length, because the source only has current contract dates), the gap in one season is correlated with the same player's gap the next season: *r* = 0.44 from 2023/24 to 2024/25 (n = 544) and *r* = 0.47 from 2024/25 to 2025/26 (n = 558). So much of the gap is a stable feature of the player that these statistics do not capture, not a one-season accident.
+
+Players valued above their prediction also tended to see their value grow more slowly the next year: each 1.0 of log gap went with −0.16 (SE 0.03) and −0.24 (SE 0.03) in the next year's log change, controlling for age. This is consistent with partial correction, but regression toward the mean would produce the same pattern even if values contained no error at all, so it is not evidence that the market was wrong.
+
+## Robustness
+
+Each row re-estimates the primary model with one change. Columns show the coefficients on log value; the clustered *p*-values are in [the table file](https://github.com/shuming-he/shuming-he.github.io/tree/main/football-value/report/tables/robustness.csv).
+
+| Check | n | R² | Minutes share | Goals /90 | Assists /90 | Yellows /90 | Club pts/game |
+|---|---|---|---|---|---|---|---|
+| Primary | 902 | 0.85 | 1.39 | 1.23 | 0.77 | −0.19 | 1.08 |
+| At least 450 minutes | 1086 | 0.84 | 1.59 | 1.08 | 0.73 | −0.15 | 1.09 |
+| At least 1800 minutes | 478 | 0.87 | 1.04 | 1.67 | 1.03 | −0.08 | 1.00 |
+| Latest value on or before 30 June, any date | 903 | 0.85 | 1.39 | 1.22 | 0.78 | −0.18 | 1.08 |
+| Without contract length | 902 | 0.84 | 1.44 | 1.32 | 0.76 | −0.13 | 1.11 |
+| Quadratic in age instead of a spline | 902 | 0.84 | 1.39 | 1.27 | 0.76 | −0.18 | 1.07 |
+| Club fixed effects | 902 | 0.90 | 1.61 | 1.13 | 0.57 | −0.06 | absorbed |
+| Totals instead of per-90 rates | 902 | 0.85 | 1.10 | absorbed | absorbed | absorbed | 1.10 |
+| Five leagues (adds Serie A, Ligue 1) | 1482 | 0.83 | 1.30 | 1.27 | 0.85 | −0.24 | 1.14 |
+| 2024/25 season, without contract length | 846 | 0.81 | 1.36 | 1.48 | 1.10 | −0.12 | 1.16 |
+| 2023/24 season, without contract length | 904 | 0.81 | 1.42 | 1.20 | 0.59 | 0.11 | 1.19 |
+| Median (quantile) regression | 902 | – | 1.42 | 1.13 | 0.92 | −0.22 | 1.03 |
+
+The signs and rough sizes hold in every version: minutes, goals, assists and club results are all positively associated with value, and yellow cards are never significantly different from zero. "Totals instead of per-90 rates" uses season totals, so its goal, assist and card coefficients are on a different scale and are omitted here. In the club fixed-effects version, club points per game is absorbed because it is the same for every player at a club.
+
+## Limitations
+
+- **Missing statistics.** Without passing, defensive or expected-goals data, the model cannot see much of what defenders and midfielders do. Their residuals mostly measure that gap.
+- **Market value is an estimate.** Transfermarkt values are community judgements. Research has found them to be informative about actual transfer fees (Herm, Callsen-Bracker and Kreis 2014; Müller, Simons and Weinmann 2017), but they are not prices.
+- **One season, current positions.** Position and contract dates in the source are the latest ones, not necessarily those during the season.
+- **Association, not cause.** Better players play more and score more, and also join better clubs. The coefficients describe how values line up with statistics, not what would happen to a value if a player scored more.
+- **Selection.** Players with fewer than 900 minutes are excluded, so the results describe regular players.
+
+## Reproduce
+
+All code, data and this report are in the [repository](https://github.com/shuming-he/shuming-he.github.io/tree/main/football-value). From `football-value/pipeline/`:
+
+```bash
+pip install -r requirements.txt
+python -m unittest discover tests
+python run_analysis.py      # dataset, models, results.json, tables
+python make_report.py       # writes ../index.qmd
+quarto render ../index.qmd
+```
+
+The GitHub Action that publishes this page runs the tests and the analysis, and fails if the recomputed `results.json` differs from the committed one.
+
+## References
+
+- Cameron, A. C., Gelbach, J. B. and Miller, D. L. (2008). Bootstrap-based improvements for inference with clustered errors. *Review of Economics and Statistics*, 90(3), 414–427.
+- Herm, S., Callsen-Bracker, H.-M. and Kreis, H. (2014). When the crowd evaluates soccer players' market values: Accuracy and evaluation attributes of an online community. *Sport Management Review*, 17(4), 484–492.
+- Müller, O., Simons, A. and Weinmann, M. (2017). Beyond crowd judgments: Data-driven estimation of market value in association football. *European Journal of Operational Research*, 263(2), 611–624.

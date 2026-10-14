@@ -1,0 +1,904 @@
+{
+ "meta": {
+  "title": "Market Value vs On-Field Performance in Top-League European Football",
+  "season": "2025/26",
+  "leagues": [
+   "Premier League",
+   "LaLiga",
+   "Bundesliga"
+  ],
+  "min_minutes": 900,
+  "value_window": "latest Transfermarkt valuation dated 1 May-30 June 2026",
+  "source": "transfermarkt-datasets (CC0), downloaded 2026-10-14",
+  "cluster": "club",
+  "seed": 20261014,
+  "formula": "log_value ~ minutes_share + goals_p90 + assists_p90 + yellow_p90 + team_ppg + C(league, Treatment('GB1')) + C(position_group, Treatment('Centre-back')) + cr(age, df=4, constraints='center') + contract_years + no_contract"
+ },
+ "sample": {
+  "n": 902,
+  "clusters": 58,
+  "by_league": {
+   "LaLiga": 321,
+   "Premier League": 316,
+   "Bundesliga": 265
+  },
+  "by_position": {
+   "Attacking mid": 65,
+   "Central mid": 129,
+   "Centre-back": 197,
+   "Defensive mid": 87,
+   "Forward": 116,
+   "Full-back": 168,
+   "Winger": 140
+  },
+  "value_median_eur": 12000000.0,
+  "value_min_eur": 200000.0,
+  "value_max_eur": 200000000.0
+ },
+ "fit": {
+  "r2": 0.8467683232,
+  "adj_r2": 0.8434674141,
+  "r2_controls_only": 0.5825713958,
+  "r2_field_only": 0.5153464268,
+  "cv_r2": {
+   "full": 0.829433568,
+   "controls_only": 0.5393916349,
+   "field_only": 0.4928879315,
+   "field_no_league": 0.2632543768
+  },
+  "cv_r2_gain_from_field": 0.2900419331,
+  "shapley_field_share": 0.3335386529,
+  "residual_sd": 0.5083627832,
+  "field_block_test": {
+   "F": 79.59284238,
+   "df_num": 5,
+   "df_den": 57.0,
+   "p": 1.961539448e-24
+  }
+ },
+ "coefficients": [
+  {
+   "term": "minutes_share",
+   "label": "Share of league minutes played",
+   "coef": 1.39125869,
+   "se": 0.1092324157,
+   "t": 12.73668335,
+   "p": 2.582900203e-18,
+   "ci_low": 1.172524551,
+   "ci_high": 1.60999283,
+   "unit": 0.1,
+   "unit_label": "+10 percentage points",
+   "pct": 14.92687482,
+   "pct_low": 12.44032552,
+   "pct_high": 17.46841265
+  },
+  {
+   "term": "goals_p90",
+   "label": "Goals per 90 minutes",
+   "coef": 1.231920449,
+   "se": 0.1346829753,
+   "t": 9.146816416,
+   "p": 8.896803207e-13,
+   "ci_low": 0.9622224431,
+   "ci_high": 1.501618455,
+   "unit": 0.1,
+   "unit_label": "+0.10",
+   "pct": 13.11016224,
+   "pct_low": 10.10037286,
+   "pct_high": 16.20222956
+  },
+  {
+   "term": "assists_p90",
+   "label": "Assists per 90 minutes",
+   "coef": 0.7688359749,
+   "se": 0.164593503,
+   "t": 4.671119825,
+   "p": 1.870154463e-05,
+   "ci_low": 0.4392431703,
+   "ci_high": 1.09842878,
+   "unit": 0.1,
+   "unit_label": "+0.10",
+   "pct": 7.99163641,
+   "pct_low": 4.490327051,
+   "pct_high": 11.61026923
+  },
+  {
+   "term": "yellow_p90",
+   "label": "Yellow cards per 90 minutes",
+   "coef": -0.1855516191,
+   "se": 0.1534717259,
+   "t": -1.209028035,
+   "p": 0.2316433585,
+   "ci_low": -0.4928734492,
+   "ci_high": 0.1217702109,
+   "unit": 0.1,
+   "unit_label": "+0.10",
+   "pct": -1.838407471,
+   "pct_low": -4.809243541,
+   "pct_high": 1.225146287
+  },
+  {
+   "term": "team_ppg",
+   "label": "Club points per game",
+   "coef": 1.080232838,
+   "se": 0.0906958343,
+   "t": 11.91050115,
+   "p": 4.23019198e-17,
+   "ci_low": 0.8986175629,
+   "ci_high": 1.261848114,
+   "unit": 0.5,
+   "unit_label": "+0.5 points",
+   "pct": 71.620665,
+   "pct_low": 56.72285136,
+   "pct_high": 87.93464002
+  },
+  {
+   "term": "contract_years",
+   "label": "Contract years remaining",
+   "coef": 0.09825468203,
+   "se": 0.01922630535,
+   "t": 5.110429707,
+   "p": 3.890422266e-06,
+   "ci_low": 0.05975466965,
+   "ci_high": 0.1367546944,
+   "unit": 1.0,
+   "unit_label": "+1 year",
+   "pct": 10.32437257,
+   "pct_low": 6.157607777,
+   "pct_high": 14.65468597
+  },
+  {
+   "term": "no_contract",
+   "label": "Contract end date missing or passed",
+   "coef": 0.1182832832,
+   "se": 0.09290288234,
+   "t": 1.273192825,
+   "p": 0.2081177736,
+   "ci_low": -0.06775152977,
+   "ci_high": 0.3043180961,
+   "unit": 1.0,
+   "unit_label": "+1",
+   "pct": 12.55629192,
+   "pct_low": -6.550736167,
+   "pct_high": 35.57002305
+  }
+ ],
+ "age_curve": [
+  {
+   "age": 18,
+   "pct_vs_25": 121.8278037
+  },
+  {
+   "age": 19,
+   "pct_vs_25": 86.82934684
+  },
+  {
+   "age": 20,
+   "pct_vs_25": 58.22981974
+  },
+  {
+   "age": 21,
+   "pct_vs_25": 35.89458417
+  },
+  {
+   "age": 22,
+   "pct_vs_25": 19.36300115
+  },
+  {
+   "age": 23,
+   "pct_vs_25": 8.136986424
+  },
+  {
+   "age": 24,
+   "pct_vs_25": 1.905807367
+  },
+  {
+   "age": 25,
+   "pct_vs_25": 0.0
+  },
+  {
+   "age": 26,
+   "pct_vs_25": -2.101830139
+  },
+  {
+   "age": 27,
+   "pct_vs_25": -9.837311703
+  },
+  {
+   "age": 28,
+   "pct_vs_25": -24.15397498
+  },
+  {
+   "age": 29,
+   "pct_vs_25": -39.8625055
+  },
+  {
+   "age": 30,
+   "pct_vs_25": -53.27336723
+  },
+  {
+   "age": 31,
+   "pct_vs_25": -63.50681931
+  },
+  {
+   "age": 32,
+   "pct_vs_25": -71.3028618
+  },
+  {
+   "age": 33,
+   "pct_vs_25": -77.292856
+  },
+  {
+   "age": 34,
+   "pct_vs_25": -81.9323818
+  },
+  {
+   "age": 35,
+   "pct_vs_25": -85.55321618
+  },
+  {
+   "age": 36,
+   "pct_vs_25": -88.39912532
+  }
+ ],
+ "position_effects": [
+  {
+   "term": "C(position_group, Treatment('Centre-back'))[T.Attacking mid]",
+   "coef": 0.01741767215,
+   "p": 0.7750635166,
+   "pct": 1.757024433
+  },
+  {
+   "term": "C(position_group, Treatment('Centre-back'))[T.Central mid]",
+   "coef": -0.0105808184,
+   "p": 0.8190683889,
+   "pct": -1.052503845
+  },
+  {
+   "term": "C(position_group, Treatment('Centre-back'))[T.Defensive mid]",
+   "coef": -0.02661394175,
+   "p": 0.634923187,
+   "pct": -2.626291179
+  },
+  {
+   "term": "C(position_group, Treatment('Centre-back'))[T.Forward]",
+   "coef": -0.2033675708,
+   "p": 0.002532718531,
+   "pct": -18.40217435
+  },
+  {
+   "term": "C(position_group, Treatment('Centre-back'))[T.Full-back]",
+   "coef": -0.2132890025,
+   "p": 4.756249894e-06,
+   "pct": -19.20773882
+  },
+  {
+   "term": "C(position_group, Treatment('Centre-back'))[T.Winger]",
+   "coef": -0.1310523025,
+   "p": 0.02797869766,
+   "pct": -12.28281051
+  }
+ ],
+ "league_effects": [
+  {
+   "league": "ES1",
+   "coef": -1.037738376,
+   "p": 4.598270945e-15,
+   "ci_low": -1.234179394,
+   "ci_high": -0.8412973589,
+   "pct": -64.57450319,
+   "league_name": "LaLiga"
+  },
+  {
+   "league": "L1",
+   "coef": -1.001494233,
+   "p": 4.388361998e-16,
+   "ci_low": -1.179945242,
+   "ci_high": -0.8230432228,
+   "pct": -63.26698458,
+   "league_name": "Bundesliga"
+  }
+ ],
+ "league_slopes": {
+  "equal_slopes_test": {
+   "F": 2.871229049,
+   "df_num": 10,
+   "df_den": 57.0,
+   "p": 0.005732702923
+  },
+  "equal_slopes_wild_bootstrap": {
+   "F": 2.871229049,
+   "reps": 1999,
+   "p": 0.047
+  },
+  "by_league": [
+   {
+    "term": "minutes_share",
+    "label": "Share of league minutes played",
+    "coef": 1.137700051,
+    "se": 0.1354249337,
+    "t": 8.400964427,
+    "p": 8.045114377e-08,
+    "ci_low": 0.8542524069,
+    "ci_high": 1.421147695,
+    "unit": 0.1,
+    "unit_label": "+10 percentage points",
+    "pct": 12.04943872,
+    "pct_low": 8.918013194,
+    "pct_high": 15.27089367,
+    "league": "GB1",
+    "league_name": "Premier League",
+    "n": 316,
+    "clusters": 20,
+    "r2": 0.8302842945
+   },
+   {
+    "term": "goals_p90",
+    "label": "Goals per 90 minutes",
+    "coef": 0.9005080257,
+    "se": 0.2290896225,
+    "t": 3.930811077,
+    "p": 0.0008973806918,
+    "ci_low": 0.4210179352,
+    "ci_high": 1.379998116,
+    "unit": 0.1,
+    "unit_label": "+0.10",
+    "pct": 9.422987199,
+    "pct_low": 4.300064405,
+    "pct_high": 14.7975334,
+    "league": "GB1",
+    "league_name": "Premier League",
+    "n": 316,
+    "clusters": 20,
+    "r2": 0.8302842945
+   },
+   {
+    "term": "assists_p90",
+    "label": "Assists per 90 minutes",
+    "coef": 0.342493634,
+    "se": 0.2760697167,
+    "t": 1.240605591,
+    "p": 0.229852988,
+    "ci_low": -0.2353269237,
+    "ci_high": 0.9203141918,
+    "unit": 0.1,
+    "unit_label": "+0.10",
+    "pct": 3.484262643,
+    "pct_low": -2.325795787,
+    "pct_high": 9.63992695,
+    "league": "GB1",
+    "league_name": "Premier League",
+    "n": 316,
+    "clusters": 20,
+    "r2": 0.8302842945
+   },
+   {
+    "term": "yellow_p90",
+    "label": "Yellow cards per 90 minutes",
+    "coef": -0.2406332495,
+    "se": 0.2203933353,
+    "t": -1.091835419,
+    "p": 0.2885575304,
+    "ci_low": -0.7019218017,
+    "ci_high": 0.2206553026,
+    "unit": 0.1,
+    "unit_label": "+0.10",
+    "pct": -2.377611153,
+    "pct_low": -6.778535048,
+    "pct_high": 2.231077457,
+    "league": "GB1",
+    "league_name": "Premier League",
+    "n": 316,
+    "clusters": 20,
+    "r2": 0.8302842945
+   },
+   {
+    "term": "team_ppg",
+    "label": "Club points per game",
+    "coef": 0.7743545153,
+    "se": 0.09490025978,
+    "t": 8.159666971,
+    "p": 1.248098518e-07,
+    "ci_low": 0.5757259888,
+    "ci_high": 0.9729830418,
+    "unit": 0.5,
+    "unit_label": "+0.5 points",
+    "pct": 47.28175363,
+    "pct_low": 33.35745844,
+    "pct_high": 62.65993073,
+    "league": "GB1",
+    "league_name": "Premier League",
+    "n": 316,
+    "clusters": 20,
+    "r2": 0.8302842945
+   },
+   {
+    "term": "minutes_share",
+    "label": "Share of league minutes played",
+    "coef": 1.747188096,
+    "se": 0.2349251712,
+    "t": 7.437211122,
+    "p": 4.866364822e-07,
+    "ci_low": 1.255484062,
+    "ci_high": 2.23889213,
+    "unit": 0.1,
+    "unit_label": "+10 percentage points",
+    "pct": 19.09112967,
+    "pct_low": 13.37700491,
+    "pct_high": 25.09324247,
+    "league": "ES1",
+    "league_name": "LaLiga",
+    "n": 321,
+    "clusters": 20,
+    "r2": 0.8303510461
+   },
+   {
+    "term": "goals_p90",
+    "label": "Goals per 90 minutes",
+    "coef": 1.327923101,
+    "se": 0.2591240707,
+    "t": 5.124661314,
+    "p": 6.022602692e-05,
+    "ci_low": 0.7855701876,
+    "ci_high": 1.870276014,
+    "unit": 0.1,
+    "unit_label": "+0.10",
+    "pct": 14.20127891,
+    "pct_low": 8.172503203,
+    "pct_high": 20.56605625,
+    "league": "ES1",
+    "league_name": "LaLiga",
+    "n": 321,
+    "clusters": 20,
+    "r2": 0.8303510461
+   },
+   {
+    "term": "assists_p90",
+    "label": "Assists per 90 minutes",
+    "coef": 0.9751314752,
+    "se": 0.3071764188,
+    "t": 3.174499785,
+    "p": 0.004991330125,
+    "ci_low": 0.3322038418,
+    "ci_high": 1.618059109,
+    "unit": 0.1,
+    "unit_label": "+0.10",
+    "pct": 10.24259356,
+    "pct_low": 3.377834253,
+    "pct_high": 17.56320418,
+    "league": "ES1",
+    "league_name": "LaLiga",
+    "n": 321,
+    "clusters": 20,
+    "r2": 0.8303510461
+   },
+   {
+    "term": "yellow_p90",
+    "label": "Yellow cards per 90 minutes",
+    "coef": -0.1796950377,
+    "se": 0.3211238123,
+    "t": -0.5595817901,
+    "p": 0.5823020879,
+    "ci_low": -0.8518149012,
+    "ci_high": 0.4924248258,
+    "unit": 0.1,
+    "unit_label": "+0.10",
+    "pct": -1.780901498,
+    "pct_low": -8.165440138,
+    "pct_high": 5.047504176,
+    "league": "ES1",
+    "league_name": "LaLiga",
+    "n": 321,
+    "clusters": 20,
+    "r2": 0.8303510461
+   },
+   {
+    "term": "team_ppg",
+    "label": "Club points per game",
+    "coef": 1.441804788,
+    "se": 0.1673461225,
+    "t": 8.615704781,
+    "p": 5.477061193e-08,
+    "ci_low": 1.091545328,
+    "ci_high": 1.792064247,
+    "unit": 0.5,
+    "unit_label": "+0.5 points",
+    "pct": 105.6287955,
+    "pct_low": 72.594144,
+    "pct_high": 144.9863047,
+    "league": "ES1",
+    "league_name": "LaLiga",
+    "n": 321,
+    "clusters": 20,
+    "r2": 0.8303510461
+   },
+   {
+    "term": "minutes_share",
+    "label": "Share of league minutes played",
+    "coef": 1.646277759,
+    "se": 0.1879343966,
+    "t": 8.759853377,
+    "p": 1.038717053e-07,
+    "ci_low": 1.249770841,
+    "ci_high": 2.042784676,
+    "unit": 0.1,
+    "unit_label": "+10 percentage points",
+    "pct": 17.89542018,
+    "pct_low": 13.31224863,
+    "pct_high": 22.66396853,
+    "league": "L1",
+    "league_name": "Bundesliga",
+    "n": 265,
+    "clusters": 18,
+    "r2": 0.851287078
+   },
+   {
+    "term": "goals_p90",
+    "label": "Goals per 90 minutes",
+    "coef": 1.307454045,
+    "se": 0.2211980338,
+    "t": 5.910785113,
+    "p": 1.710466707e-05,
+    "ci_low": 0.8407669878,
+    "ci_high": 1.774141103,
+    "unit": 0.1,
+    "unit_label": "+0.10",
+    "pct": 13.96775876,
+    "pct_low": 8.771231682,
+    "pct_high": 19.41254904,
+    "league": "L1",
+    "league_name": "Bundesliga",
+    "n": 265,
+    "clusters": 18,
+    "r2": 0.851287078
+   },
+   {
+    "term": "assists_p90",
+    "label": "Assists per 90 minutes",
+    "coef": 0.7446338729,
+    "se": 0.2680017724,
+    "t": 2.778466225,
+    "p": 0.01287538684,
+    "ci_low": 0.1791995587,
+    "ci_high": 1.310068187,
+    "unit": 0.1,
+    "unit_label": "+0.10",
+    "pct": 7.730589971,
+    "pct_low": 1.808148168,
+    "pct_high": 13.99755545,
+    "league": "L1",
+    "league_name": "Bundesliga",
+    "n": 265,
+    "clusters": 18,
+    "r2": 0.851287078
+   },
+   {
+    "term": "yellow_p90",
+    "label": "Yellow cards per 90 minutes",
+    "coef": 0.2072247684,
+    "se": 0.2325928373,
+    "t": 0.8909335767,
+    "p": 0.3854009054,
+    "ci_low": -0.2835032229,
+    "ci_high": 0.6979527597,
+    "unit": 0.1,
+    "unit_label": "+0.10",
+    "pct": 2.093867819,
+    "pct_low": -2.795222286,
+    "pct_high": 7.228863553,
+    "league": "L1",
+    "league_name": "Bundesliga",
+    "n": 265,
+    "clusters": 18,
+    "r2": 0.851287078
+   },
+   {
+    "term": "team_ppg",
+    "label": "Club points per game",
+    "coef": 1.051738299,
+    "se": 0.1198614589,
+    "t": 8.774616203,
+    "p": 1.014379885e-07,
+    "ci_low": 0.7988527261,
+    "ci_high": 1.304623872,
+    "unit": 0.5,
+    "unit_label": "+0.5 points",
+    "pct": 69.19287487,
+    "pct_low": 49.09691772,
+    "pct_high": 91.99745604,
+    "league": "L1",
+    "league_name": "Bundesliga",
+    "n": 265,
+    "clusters": 18,
+    "r2": 0.851287078
+   }
+  ]
+ },
+ "robustness": [
+  {
+   "check": "Primary",
+   "n": 902,
+   "clusters": 58,
+   "r2": 0.8467683232,
+   "note": "",
+   "minutes_share": 1.39125869,
+   "minutes_share_p": 2.582900203e-18,
+   "goals_p90": 1.231920449,
+   "goals_p90_p": 8.896803207e-13,
+   "assists_p90": 0.7688359749,
+   "assists_p90_p": 1.870154463e-05,
+   "yellow_p90": -0.1855516191,
+   "yellow_p90_p": 0.2316433585,
+   "team_ppg": 1.080232838,
+   "team_ppg_p": 4.23019198e-17,
+   "field_block": {
+    "F": 79.59284238,
+    "df_num": 5,
+    "df_den": 57.0,
+    "p": 1.961539448e-24
+   }
+  },
+  {
+   "check": "At least 450 minutes",
+   "n": 1086,
+   "clusters": 58,
+   "r2": 0.8431141126,
+   "note": "",
+   "minutes_share": 1.586723345,
+   "minutes_share_p": 4.754568616e-27,
+   "goals_p90": 1.081248262,
+   "goals_p90_p": 6.94671929e-13,
+   "assists_p90": 0.7299829499,
+   "assists_p90_p": 2.146368017e-06,
+   "yellow_p90": -0.14674808,
+   "yellow_p90_p": 0.236875809,
+   "team_ppg": 1.094860231,
+   "team_ppg_p": 8.22212864e-18,
+   "field_block": {
+    "F": 116.4835463,
+    "df_num": 5,
+    "df_den": 57.0,
+    "p": 1.274853288e-28
+   }
+  },
+  {
+   "check": "At least 1800 minutes",
+   "n": 478,
+   "clusters": 58,
+   "r2": 0.8741269529,
+   "note": "",
+   "minutes_share": 1.035664593,
+   "minutes_share_p": 3.800778212e-06,
+   "goals_p90": 1.672111811,
+   "goals_p90_p": 1.685331824e-10,
+   "assists_p90": 1.025904458,
+   "assists_p90_p": 3.850469287e-06,
+   "yellow_p90": -0.07734809322,
+   "yellow_p90_p": 0.7512223226,
+   "team_ppg": 0.9992707694,
+   "team_ppg_p": 1.567833341e-15,
+   "field_block": {
+    "F": 62.34401584,
+    "df_num": 5,
+    "df_den": 57.0,
+    "p": 7.4604341e-22
+   }
+  },
+  {
+   "check": "Latest value on or before 30 June, any date",
+   "n": 903,
+   "clusters": 58,
+   "r2": 0.8466881347,
+   "note": "adds players whose last valuation was earlier in the season",
+   "minutes_share": 1.3944857,
+   "minutes_share_p": 2.186934798e-18,
+   "goals_p90": 1.223014525,
+   "goals_p90_p": 8.556016607e-13,
+   "assists_p90": 0.7793641203,
+   "assists_p90_p": 1.432851324e-05,
+   "yellow_p90": -0.1808784328,
+   "yellow_p90_p": 0.2386895716,
+   "team_ppg": 1.081064893,
+   "team_ppg_p": 4.463014339e-17,
+   "field_block": {
+    "F": 79.36448466,
+    "df_num": 5,
+    "df_den": 57.0,
+    "p": 2.106070782e-24
+   }
+  },
+  {
+   "check": "Without contract length",
+   "n": 902,
+   "clusters": 58,
+   "r2": 0.8388897105,
+   "note": "",
+   "minutes_share": 1.444341316,
+   "minutes_share_p": 1.953150805e-20,
+   "goals_p90": 1.321130952,
+   "goals_p90_p": 6.316980022e-14,
+   "assists_p90": 0.7645901776,
+   "assists_p90_p": 2.051048136e-05,
+   "yellow_p90": -0.1250267042,
+   "yellow_p90_p": 0.4619813442,
+   "team_ppg": 1.112409644,
+   "team_ppg_p": 3.89740677e-17,
+   "field_block": {
+    "F": 92.52779592,
+    "df_num": 5,
+    "df_den": 57.0,
+    "p": 4.555317982e-26
+   }
+  },
+  {
+   "check": "Quadratic in age instead of a spline",
+   "n": 902,
+   "clusters": 58,
+   "r2": 0.840371226,
+   "note": "",
+   "minutes_share": 1.387288003,
+   "minutes_share_p": 1.515773081e-17,
+   "goals_p90": 1.265437739,
+   "goals_p90_p": 3.183254289e-12,
+   "assists_p90": 0.7620772737,
+   "assists_p90_p": 1.505952571e-05,
+   "yellow_p90": -0.1766235888,
+   "yellow_p90_p": 0.2631553893,
+   "team_ppg": 1.073078424,
+   "team_ppg_p": 1.596302752e-16,
+   "field_block": {
+    "F": 71.35329892,
+    "df_num": 5,
+    "df_den": 57.0,
+    "p": 2.873616533e-23
+   }
+  },
+  {
+   "check": "Club fixed effects",
+   "n": 902,
+   "clusters": 58,
+   "r2": 0.9035321857,
+   "note": "compares players within the same club; club points per game is absorbed",
+   "minutes_share": 1.61033897,
+   "minutes_share_p": 4.002498791e-24,
+   "goals_p90": 1.133810252,
+   "goals_p90_p": 2.95418622e-13,
+   "assists_p90": 0.5744602028,
+   "assists_p90_p": 0.0005072054727,
+   "yellow_p90": -0.06383589975,
+   "yellow_p90_p": 0.6453646501,
+   "field_block": {
+    "F": 92.98728263,
+    "df_num": 4,
+    "df_den": 57.0,
+    "p": 2.685457767e-24
+   }
+  },
+  {
+   "check": "Totals instead of per-90 rates",
+   "n": 902,
+   "clusters": 58,
+   "r2": 0.8457742884,
+   "note": "goals, assists and yellow cards as season totals",
+   "minutes_share": 1.097145953,
+   "minutes_share_p": 3.356626475e-12,
+   "team_ppg": 1.099437535,
+   "team_ppg_p": 2.100511666e-17,
+   "field_block": {
+    "F": 90.86062397,
+    "df_num": 2,
+    "df_den": 57.0,
+    "p": 1.872999739e-18
+   }
+  },
+  {
+   "check": "Five leagues (adds Serie A, Ligue 1)",
+   "n": 1482,
+   "clusters": 96,
+   "r2": 0.8260912398,
+   "note": "",
+   "minutes_share": 1.303292788,
+   "minutes_share_p": 1.315243792e-25,
+   "goals_p90": 1.267651662,
+   "goals_p90_p": 4.221473039e-20,
+   "assists_p90": 0.8456273186,
+   "assists_p90_p": 2.67308961e-07,
+   "yellow_p90": -0.2419357252,
+   "yellow_p90_p": 0.08143736889,
+   "team_ppg": 1.140783045,
+   "team_ppg_p": 3.131876812e-30,
+   "field_block": {
+    "F": 142.3992533,
+    "df_num": 5,
+    "df_den": 95.0,
+    "p": 1.563095167e-42
+   }
+  },
+  {
+   "check": "2024/25 season, without contract length",
+   "n": 846,
+   "clusters": 58,
+   "r2": 0.8102663697,
+   "note": "contract dates in the source are current ones, so they are left out for past seasons",
+   "minutes_share": 1.355985967,
+   "minutes_share_p": 3.967623157e-17,
+   "goals_p90": 1.480623787,
+   "goals_p90_p": 5.175309193e-13,
+   "assists_p90": 1.096943936,
+   "assists_p90_p": 9.633460323e-05,
+   "yellow_p90": -0.1174827975,
+   "yellow_p90_p": 0.5045502172,
+   "team_ppg": 1.158674833,
+   "team_ppg_p": 1.011668583e-15,
+   "field_block": {
+    "F": 114.4942671,
+    "df_num": 5,
+    "df_den": 57.0,
+    "p": 1.988556513e-28
+   }
+  },
+  {
+   "check": "2023/24 season, without contract length",
+   "n": 904,
+   "clusters": 58,
+   "r2": 0.8141135305,
+   "note": "contract dates in the source are current ones, so they are left out for past seasons",
+   "minutes_share": 1.41569765,
+   "minutes_share_p": 3.568191809e-19,
+   "goals_p90": 1.203734257,
+   "goals_p90_p": 3.347957146e-13,
+   "assists_p90": 0.5887951197,
+   "assists_p90_p": 0.003721887358,
+   "yellow_p90": 0.1136722192,
+   "yellow_p90_p": 0.5076812865,
+   "team_ppg": 1.193147529,
+   "team_ppg_p": 6.33626934e-22,
+   "field_block": {
+    "F": 113.6816784,
+    "df_num": 5,
+    "df_den": 57.0,
+    "p": 2.38935863e-28
+   }
+  },
+  {
+   "check": "Median (quantile) regression",
+   "n": 902,
+   "clusters": 58,
+   "r2": null,
+   "note": "coefficients only; p-values are not clustered",
+   "minutes_share": 1.420975758,
+   "goals_p90": 1.125527889,
+   "assists_p90": 0.9248236181,
+   "yellow_p90": -0.2190100157,
+   "team_ppg": 1.033268625,
+   "minutes_share_p": 3.039291253e-37,
+   "goals_p90_p": 2.303661018e-09,
+   "assists_p90_p": 3.337038712e-05,
+   "yellow_p90_p": 0.2193092652,
+   "team_ppg_p": 6.321029287e-80,
+   "field_block": null
+  }
+ ],
+ "persistence": [
+  {
+   "from": "2023/24",
+   "to": "2024/25",
+   "n": 544,
+   "corr": 0.4426670651,
+   "corr_p": 1.646455939e-27,
+   "change_on_resid": -0.1649566692,
+   "change_on_resid_se": 0.03173788114,
+   "change_on_resid_p": 2.020196726e-07
+  },
+  {
+   "from": "2024/25",
+   "to": "2025/26",
+   "n": 558,
+   "corr": 0.4679746385,
+   "corr_p": 1.03085881e-31,
+   "change_on_resid": -0.2424253443,
+   "change_on_resid_se": 0.03395834405,
+   "change_on_resid_p": 9.407828557e-13
+  }
+ ]
+}

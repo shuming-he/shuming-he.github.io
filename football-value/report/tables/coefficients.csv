@@ -1,0 +1,8 @@
+term,label,coef,se,t,p,ci_low,ci_high,unit,unit_label,pct,pct_low,pct_high
+minutes_share,Share of league minutes played,1.39126,0.109232,12.7367,2.5829e-18,1.17252,1.60999,0.1,+10 percentage points,14.9269,12.4403,17.4684
+goals_p90,Goals per 90 minutes,1.23192,0.134683,9.14682,8.8968e-13,0.962222,1.50162,0.1,+0.10,13.1102,10.1004,16.2022
+assists_p90,Assists per 90 minutes,0.768836,0.164594,4.67112,1.87015e-05,0.439243,1.09843,0.1,+0.10,7.99164,4.49033,11.6103
+yellow_p90,Yellow cards per 90 minutes,-0.185552,0.153472,-1.20903,0.231643,-0.492873,0.12177,0.1,+0.10,-1.83841,-4.80924,1.22515
+team_ppg,Club points per game,1.08023,0.0906958,11.9105,4.23019e-17,0.898618,1.26185,0.5,+0.5 points,71.6207,56.7229,87.9346
+contract_years,Contract years remaining,0.0982547,0.0192263,5.11043,3.89042e-06,0.0597547,0.136755,1,+1 year,10.3244,6.15761,14.6547
+no_contract,Contract end date missing or passed,0.118283,0.0929029,1.27319,0.208118,-0.0677515,0.304318,1,+1,12.5563,-6.55074,35.57

@@ -1,0 +1,30 @@
+/*-- scss:defaults --*/
+// Matches the portfolio's tokens in /assets/base.css
+$body-bg: #0b0d13;
+$body-color: #eceaf6;
+$link-color: #d9d4ff;
+$primary: #8c7cf2;
+$secondary: #a7a8bf;
+$border-color: #262a3a;
+$font-family-sans-serif: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+$font-family-monospace: "JetBrains Mono", ui-monospace, Menlo, monospace;
+$headings-font-family: "Syne", "Arial Black", system-ui, sans-serif;
+$headings-font-weight: 700;
+$table-color: #eceaf6;
+$table-border-color: #262a3a;
+$code-bg: #161925;
+
+/*-- scss:rules --*/
+@import url("https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Manrope:wght@400;600&family=JetBrains+Mono:wght@400;600&display=swap");
+.sitebar { display: flex; gap: 16px; justify-content: space-between; align-items: center; flex-wrap: wrap; padding: 10px 20px; border-bottom: 1px solid #1c1f2c; font-size: 14px; background: #0b0d13; }
+.sitebar span { color: #85879e; font-family: $font-family-monospace; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; }
+.sitebar a { text-decoration: none; }
+.quarto-title .title { font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1.05; }
+.quarto-title .subtitle { color: #a7a8bf; font-size: 1.1rem; }
+.lede { font-size: 1.12rem; color: #eceaf6; }
+.keystats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin: 1.2rem 0 2rem; }
+.keystats .ks { background: #10121a; border: 1px solid #262a3a; border-radius: 14px; padding: 12px 14px; color: #a7a8bf; font-size: .85rem; line-height: 1.35; }
+.keystats .ks strong { display: block; font-family: $font-family-monospace; font-size: 1.6rem; color: #eceaf6; }
+table { font-variant-numeric: tabular-nums; font-size: .92rem; }
+.cell-output-display { overflow-x: auto; }
+h2 { margin-top: 2.6rem; }
