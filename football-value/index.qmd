@@ -170,7 +170,7 @@ Plot.plot({
 
 ```{ojs}
 Inputs.table(filtered.map(d => ({...d, ratio: Math.exp(d.residual)})), {
-  columns: ["name", "club", "league", "position_group", "age", "minutes", "goals", "assists", "value_end", "predicted_value", "ratio"],
+  columns: ["name", "ratio", "value_end", "predicted_value", "club", "league", "position_group", "age", "minutes", "goals", "assists"],
   header: {name: "Player", club: "Club", league: "League", position_group: "Position", age: "Age", minutes: "Minutes", goals: "Goals", assists: "Assists",
            value_end: "Value", predicted_value: "Predicted", ratio: "Ratio"},
   format: {age: d => d.toFixed(1), value_end: d => "€" + (d / 1e6).toFixed(1) + "m", predicted_value: d => "€" + (d / 1e6).toFixed(1) + "m", ratio: d => d.toFixed(2)},
