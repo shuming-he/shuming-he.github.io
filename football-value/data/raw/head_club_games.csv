@@ -1,0 +1,4 @@
+"game_id","club_id","own_goals","own_position","own_manager_name","opponent_id","opponent_goals","opponent_position","opponent_manager_name","hosting","is_win"
+"1026846","3449","2","","Óscar Tabárez","3589","1","","Jung-moo Huh","Home","1"
+"1026846","3589","1","","Jung-moo Huh","3449","2","","Óscar Tabárez","Away","0"
+"1026847","3437","3","","Diego Maradona","6303","1","","Javier Aguirre","Home","1"
