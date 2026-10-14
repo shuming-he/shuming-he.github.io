@@ -169,7 +169,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="data" class="level2">
 <h2 class="anchored" data-anchor-id="data">Data</h2>
 <ul>
-<li><strong>Source.</strong> <a href="https://github.com/dcaribou/transfermarkt-datasets">transfermarkt-datasets</a>, a public dataset built from Transfermarkt pages and released under CC0. It was downloaded on 14 October 2026; <a href="https://github.com/shuming-he/shuming-he.github.io/tree/main/football-value/data/raw/PROVENANCE.md">PROVENANCE.md</a> records the file’s SHA-256 hash and the rows kept.</li>
+<li><strong>Source.</strong> <a href="https://github.com/dcaribou/transfermarkt-datasets">transfermarkt-datasets</a>, a public dataset built from Transfermarkt pages and released under CC0. It was downloaded on 14 October 2026; <a href="https://github.com/shuming-he/shuming-he.github.io/blob/main/football-value/data/raw/PROVENANCE.md">PROVENANCE.md</a> records the file’s SHA-256 hash and the rows kept.</li>
 <li><strong>Why not scrape?</strong> Transfermarkt’s terms do not allow automated collection. FBref, the usual source for detailed match statistics, stopped publishing Opta’s advanced data in 2026, so passing and defensive statistics were not available from it either.</li>
 <li><strong>Unit.</strong> One outfield player in one league season. Statistics come from that season’s league matches only. A player who changed club within the league is counted once, at the club where he played most minutes.</li>
 <li><strong>Outcome.</strong> The latest market value Transfermarkt published between 1 May and 30 June 2026, after the season ended. The values range from €200k to €200.0m, with median €12.0m. The model uses the log of value, because values span three orders of magnitude.</li>
@@ -521,7 +521,7 @@ Read this before the table
 </section>
 <section id="robustness" class="level2">
 <h2 class="anchored" data-anchor-id="robustness">Robustness</h2>
-<p>Each row re-estimates the primary model with one change. Columns show the coefficients on log value; the clustered <em>p</em>-values are in <a href="https://github.com/shuming-he/shuming-he.github.io/tree/main/football-value/report/tables/robustness.csv">the table file</a>.</p>
+<p>Each row re-estimates the primary model with one change. Columns show the coefficients on log value; the clustered <em>p</em>-values are in <a href="https://github.com/shuming-he/shuming-he.github.io/blob/main/football-value/report/tables/robustness.csv">the table file</a>.</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 12%">
