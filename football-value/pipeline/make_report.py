@@ -87,7 +87,7 @@ lang: en
 ---
 
 ::: {{.lede}}
-Across **{s['n']} outfield players** in the {meta['season']} Premier League, LaLiga and Bundesliga, a regression on league statistics, age, position, league and contract length explains **{f['cv_r2']['full'] * 100:.0f}%** of the variation in log market value for clubs it has not seen. League statistics alone explain {f['cv_r2']['field_no_league'] * 100:.0f}%. Adding them to age, position, league and contract raises the out-of-sample R² from {f['cv_r2']['controls_only']:.2f} to {f['cv_r2']['full']:.2f}.
+A season of league statistics, together with age, position, league and contract length, predicts most of a footballer's Transfermarkt value. The statistics on their own explain only about a quarter of it, and the same numbers are worth far more in the Premier League.
 :::
 
 ```{{=html}}
@@ -98,6 +98,17 @@ Across **{s['n']} outfield players** in the {meta['season']} Premier League, LaL
   <div class="ks"><b>{pct(lg['ES1']['pct'])}</b>LaLiga vs Premier League value, same stats</div>
 </div>
 ```
+
+## Key findings
+
+1. **Most of a player's value is predictable from a few simple facts.** For clubs the model never saw, it explains {f['cv_r2']['full'] * 100:.0f}% of the variation in (log) market value. A typical prediction is still off by a factor of about {2.718281828 ** f['residual_sd']:.1f}, up or down.
+2. **On-field numbers matter, but they are not most of the story.** League statistics alone explain {f['cv_r2']['field_no_league'] * 100:.0f}%, and about {f['shapley_field_share'] * 100:.0f}% of what the full model explains. Age, position, league and contract do the rest.
+3. **Playing time, goals and team success count most.** Playing 10 percentage points more of the league's minutes goes with about {pct(coef['minutes_share']['pct'])} value, 0.1 more goals per 90 minutes with about {pct(coef['goals_p90']['pct'])}, and a club that earns 0.5 more points per game with about {pct(coef['team_ppg']['pct'])}. Yellow cards show no clear link.
+4. **The same numbers are priced very differently across leagues.** With identical statistics, age, position and contract, LaLiga players are valued about {pct(lg['ES1']['pct'])} and Bundesliga players about {pct(lg['L1']['pct'])} relative to Premier League players.
+5. **The leagues may also reward different things, but the evidence is only moderate.** The test that all three leagues reward the statistics equally gives *p* = {pval(wb['p'])} with the more cautious bootstrap method.
+6. **A big gap between actual and predicted value is not a mistake by the market.** It mostly reflects what this model cannot see: defending, passing, injuries, earlier seasons and reputation.
+
+The sections below give the details, the uncertainty around each number and the checks behind them.
 
 ## Question
 
@@ -157,13 +168,14 @@ Age matters a great deal. For an otherwise typical player, the model's value at 
 
 ```{{ojs}}
 results = FileAttachment("data/results.json").json()
+short = ({{minutes_share: "Minutes share (+10 pp)", goals_p90: "Goals /90 (+0.1)", assists_p90: "Assists /90 (+0.1)", yellow_p90: "Yellows /90 (+0.1)", team_ppg: "Club pts/game (+0.5)", contract_years: "Contract (+1 year)"}})
 Plot.plot({{
   style: {{background: "transparent", color: "#d6d4e6", fontSize: "12px"}}, 
-  marginLeft: 300, height: 240, x: {{label: "Effect on market value (%) with 95% CI", grid: true}}, y: {{label: null}},
+  marginLeft: 170, height: 240, x: {{label: "Effect on market value (%) with 95% CI", grid: true}}, y: {{label: null}},
   marks: [
     Plot.ruleX([0], {{stroke: "#555"}}),
-    Plot.ruleY(results.coefficients.filter(d => d.term !== "no_contract"), {{y: d => `${{d.label}} (${{d.unit_label}})`, x1: "pct_low", x2: "pct_high", stroke: "#8c7cf2", strokeWidth: 2}}),
-    Plot.dot(results.coefficients.filter(d => d.term !== "no_contract"), {{y: d => `${{d.label}} (${{d.unit_label}})`, x: "pct", fill: "#d9d4ff", r: 5, tip: true}})
+    Plot.ruleY(results.coefficients.filter(d => d.term !== "no_contract"), {{y: d => short[d.term], x1: "pct_low", x2: "pct_high", stroke: "#8c7cf2", strokeWidth: 2}}),
+    Plot.dot(results.coefficients.filter(d => d.term !== "no_contract"), {{y: d => short[d.term], x: "pct", fill: "#d9d4ff", r: 5, tip: true}})
   ]
 }})
 ```
@@ -195,7 +207,12 @@ Plot.plot({{
 
 ## Above and below what the statistics predict
 
-Each player's prediction comes from the out-of-sample model, so his own club was not used to fit it. The ratio is actual value ÷ predicted value: 2.0 means valued at twice the prediction, 0.5 at half.
+The full table for all {s['n']} players can be downloaded as [residuals.csv](data/residuals.csv). Each player's prediction comes from the out-of-sample model, so his own club was not used to fit it. The ratio is actual value ÷ predicted value: 2.0 means valued at twice the prediction, 0.5 at half.
+
+::: {{.callout-warning}}
+## Read this before the table
+A high ratio does not mean a player is overvalued, and a low ratio does not mean he is a bargain. The model only sees minutes, goals, assists, cards, club results, age, position, league and contract. Anything else that buyers pay for, such as defending, passing, injury history, earlier seasons or reputation, ends up in the ratio.
+:::
 
 Two cautions before reading the list. First, a typical player is already a factor of {2.718281828 ** f['residual_sd']:.2f} away from the prediction, so only large ratios stand out. Second, a large gap often points to something the model leaves out: age at the extremes (one season says little about a 38-year-old's value), defensive and passing work these statistics do not record, or a club whose results were unusual that season.
 
@@ -239,7 +256,7 @@ Inputs.table(filtered.map(d => ({{...d, ratio: Math.exp(d.residual)}})), {{
 
 Using the same model in earlier seasons (without contract length, because the source only has current contract dates), the gap in one season is correlated with the same player's gap the next season: *r* = {per[0]['corr']:.2f} from {per[0]['from']} to {per[0]['to']} (n = {per[0]['n']}) and *r* = {per[1]['corr']:.2f} from {per[1]['from']} to {per[1]['to']} (n = {per[1]['n']}). So much of the gap is a stable feature of the player that these statistics do not capture, not a one-season accident.
 
-Players valued above their prediction also tended to see their value grow more slowly the next year: each 1.0 of log gap went with {num(per[0]['change_on_resid'])} (SE {num(per[0]['change_on_resid_se'])}) and {num(per[1]['change_on_resid'])} (SE {num(per[1]['change_on_resid_se'])}) in the next year's log change, controlling for age. This is consistent with partial correction, but regression toward the mean would produce the same pattern even if values contained no error at all, so it is not evidence that the market was wrong.
+Players valued above their prediction also tended to see their value grow more slowly the next year: each 1.0 of log gap went with {num(per[0]['change_on_resid'])} (SE {num(per[0]['change_on_resid_se'])}) and {num(per[1]['change_on_resid'])} (SE {num(per[1]['change_on_resid_se'])}) in the next year's log change, controlling for age. Two explanations fit this pattern. The market may gradually correct values that ran ahead of performance. Or it may be ordinary regression toward the mean: a gap measured with noise in one season tends to shrink in the next even when nothing is corrected. This data cannot tell the two apart, so the pattern is not evidence that the market was wrong.
 
 ## Robustness
 

@@ -105,9 +105,9 @@ a.project:hover { border-color: var(--fg-3); background: var(--surface-2); trans
         <span class="idx">P/02</span>
         <div>
           <h3>Market Value vs On-Field Performance</h3>
-          <p>How much of a footballer's Transfermarkt market value do league statistics explain, and do the Premier League, LaLiga and Bundesliga reward the same things? Regression on public CC0 data with club-clustered inference, out-of-sample R², a wild cluster bootstrap and an interactive Quarto report.</p>
+          <p>How much of a footballer's market value do on-field statistics explain, and do the Premier League, LaLiga and Bundesliga price the same numbers differently? Using public data built from Transfermarkt for 902 outfield players, I fit a multiple linear regression with club-clustered standard errors and wild cluster bootstrap inference, measure fit with out-of-sample R² from club-level cross-validation, and run extensive robustness checks. The interactive report includes a searchable table of every player and coefficient charts, and the analysis pipeline is fully reproducible.</p>
           <div class="snap"><span><b>902</b> players</span><span><b>58</b> clubs</span><span><b>3</b> leagues, 2025/26</span><span>out-of-sample R² 0.83</span><span>robustness checks</span><span>reproduced in CI</span></div>
-          <div class="stack"><span>Python</span><span>statsmodels</span><span>Regression</span><span>Cross-validation</span><span>Quarto + Observable JS</span></div>
+          <div class="stack"><span>Python</span><span>Regression</span><span>Inferential statistics</span><span>Clustered standard errors</span><span>Cross-validation</span><span>Robustness checks</span><span>Reproducible pipeline</span></div>
           <div class="preview football" aria-hidden="true"></div>
         </div>
         <div class="side"><span class="tag live">Live</span><span class="arrow" aria-hidden="true">→</span></div>
