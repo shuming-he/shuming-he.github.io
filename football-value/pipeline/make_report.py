@@ -183,8 +183,8 @@ In the Premier League, value rises less steeply with club results, minutes, goal
 ```{{ojs}}
 Plot.plot({{
   style: {{background: "transparent", color: "#d6d4e6", fontSize: "12px"}}, 
-  marginLeft: 150, height: 300, x: {{label: "Coefficient on log value (95% CI)", grid: true}}, y: {{label: null}},
-  fy: {{label: null}}, color: {{legend: true, domain: ["Premier League", "LaLiga", "Bundesliga"], range: ["#1a9dbb", "#e8b04a", "#e35f3d"]}},
+  marginLeft: 120, marginRight: 150, height: 320, x: {{label: "Coefficient on log value (95% CI)", grid: true}}, y: {{label: null}},
+  fy: {{label: null, axis: "right"}}, color: {{legend: true, domain: ["Premier League", "LaLiga", "Bundesliga"], range: ["#1a9dbb", "#e8b04a", "#e35f3d"]}},
   marks: [
     Plot.ruleX([0], {{stroke: "#555"}}),
     Plot.ruleY(results.league_slopes.by_league.filter(d => d.term !== "yellow_p90"), {{fy: "label", y: "league_name", x1: "ci_low", x2: "ci_high", stroke: "league_name", strokeWidth: 2}}),
@@ -199,7 +199,7 @@ Each player's prediction comes from the out-of-sample model, so his own club was
 
 Two cautions before reading the list. First, a typical player is already a factor of {2.718281828 ** f['residual_sd']:.2f} away from the prediction, so only large ratios stand out. Second, a large gap often points to something the model leaves out: age at the extremes (one season says little about a 38-year-old's value), defensive and passing work these statistics do not record, or a club whose results were unusual that season.
 
-::: {{.column-page}}
+::: {{.column-body-outset}}
 ```{{ojs}}
 players = FileAttachment("data/residuals.csv").csv({{typed: true}})
 viewof league = Inputs.select(["All leagues", "Premier League", "LaLiga", "Bundesliga"], {{label: "League"}})
